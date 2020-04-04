@@ -4,6 +4,12 @@
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
+#include "ModuleAudio.h"
+#include "ModulePlayer.h"
+#include "ModuleScene.h"
+#include "ModuleParticles.h"
+#include "ModuleEnemies.h"
+#include "ModuleCollisions.h"
 #include "ModuleRender.h"
 
 Application::Application()
@@ -14,7 +20,16 @@ Application::Application()
 	modules[0] = window = new ModuleWindow();
 	modules[1] = input = new ModuleInput();
 	modules[2] = textures = new ModuleTextures();
-	modules[3] = render = new ModuleRender();
+	modules[3] = audio = new ModuleAudio();
+
+	modules[4] = scene = new ModuleScene();
+	modules[5] = player = new ModulePlayer();
+	modules[6] = particles = new ModuleParticles();
+	modules[7] = enemies = new ModuleEnemies();
+
+	modules[8] = collisions = new ModuleCollisions();
+
+	modules[9] = render = new ModuleRender();
 }
 
 Application::~Application()
@@ -30,12 +45,16 @@ Application::~Application()
 
 bool Application::Init()
 {
-	for (int i = 0; i < NUM_MODULES; ++i)
-	{
-		modules[i]->Init();
-	}
+	bool ret = true;
 
-	return true;
+	for (int i = 0; i < NUM_MODULES && ret; ++i)
+		ret = modules[i]->Init();
+
+	//By now we will consider that all modules are always active
+	for (int i = 0; i < NUM_MODULES && ret; ++i)
+		ret = modules[i]->Start();
+
+	return ret;
 }
 
 update_status Application::Update()
@@ -59,9 +78,7 @@ bool Application::CleanUp()
 	bool ret = true;
 
 	for (int i = NUM_MODULES - 1; i >= 0 && ret; --i)
-	{
 		ret = modules[i]->CleanUp();
-	}
 
 	return ret;
 }

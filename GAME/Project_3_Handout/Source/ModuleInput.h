@@ -37,7 +37,7 @@ public:
 
 public:
 	// An array to fill in the state of all the keyboard keys
-	KEY_STATE keys[MAX_KEYS];
+	KEY_STATE keys[MAX_KEYS] = { KEY_IDLE };
 };
 
-#endif // __MODULE_INPUT_H__
+#endif // __ModuleInput_H__

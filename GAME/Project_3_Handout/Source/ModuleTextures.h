@@ -12,6 +12,7 @@ class ModuleTextures : public Module
 public:
 	//Constructor
 	ModuleTextures();
+
 	//Destructor
 	~ModuleTextures();
 
@@ -30,8 +31,9 @@ public:
 	SDL_Texture* const Load(const char* path);
 
 public:
-	//Store all loaded textures so they can be freed on application exit
-	SDL_Texture* textures[MAX_TEXTURES];
+	// An array of all the loaded textures
+	// Allows us to keep track of all textures and free them on application exit
+	SDL_Texture* textures[MAX_TEXTURES] = { nullptr };
 };
 
 #endif // __ModuleTextures_H__
