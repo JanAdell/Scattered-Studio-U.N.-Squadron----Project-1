@@ -17,6 +17,7 @@ public:
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
+
 	bool Start() override;
 
 	// Called at the middle of the application loop
@@ -30,8 +31,16 @@ public:
 public:
 	
 	// The scene sprite sheet loaded into an SDL_Texture
+	SDL_Texture* textures[64];
 	SDL_Texture* bgTexture = nullptr;
-	
+	SDL_Texture* c1 = nullptr;
+	SDL_Texture* c2 = nullptr;
+	SDL_Texture* c3 = nullptr;
+	SDL_Texture* c4 = nullptr;
+	int C1, C2, C3, C4;
+
+
+
 	// The sprite rectangle for the ground
 	SDL_Texture* starsTexture = nullptr;
 };

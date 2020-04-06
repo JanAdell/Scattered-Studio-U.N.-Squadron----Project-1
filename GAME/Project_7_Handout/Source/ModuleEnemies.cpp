@@ -7,6 +7,7 @@
 #include "ModuleAudio.h"
 
 #include "Enemy.h"
+#include "Mech.h"
 #include "Enemy_RedBird.h"
 #include "Enemy_BrownShip.h"
 
@@ -146,6 +147,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case ENEMY_TYPE::BROWNSHIP:
 					enemies[i] = new Enemy_BrownShip(info.x, info.y);
+					break;
+				case ENEMY_TYPE::MECH:
+					enemies[i] = new Mech(info.x, info.y);
 					break;
 			}
 			enemies[i]->texture = texture;
