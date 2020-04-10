@@ -20,7 +20,11 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
   CONTROLS
 
 W -> UP
+
 A -> LEFT
+
 S -> DOWN
+
 D -> RIGHT
+
 SPACE -> SHOOT
