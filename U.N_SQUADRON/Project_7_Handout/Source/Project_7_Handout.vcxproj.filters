@@ -109,6 +109,21 @@
     <ClInclude Include="ModuleSceneLoose.h">
       <Filter>Source Files\Modules\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_MedCamoJet.h">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BlueJet.h">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_OrangeJet.h">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BigCamoJet.h">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_GreenFighter.h">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -182,6 +197,21 @@
     </ClCompile>
     <ClCompile Include="ModuleSceneLoose.cpp">
       <Filter>Source Files\Modules\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_MedCamoJet.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BlueJet.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_OrangeJet.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BigCamoJet.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_GreenFighter.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

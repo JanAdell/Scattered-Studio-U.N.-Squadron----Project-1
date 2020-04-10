@@ -81,7 +81,12 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy_BigCamoJet.h" />
+    <ClInclude Include="Enemy_BlueJet.h" />
     <ClInclude Include="Enemy_BrownShip.h" />
+    <ClInclude Include="Enemy_GreenFighter.h" />
+    <ClInclude Include="Enemy_MedCamoJet.h" />
+    <ClInclude Include="Enemy_OrangeJet.h" />
     <ClInclude Include="Enemy_RedBird.h" />
     <ClInclude Include="Mech.h" />
     <ClInclude Include="ModuleAudio.h" />
@@ -108,7 +113,12 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy_BigCamoJet.cpp" />
+    <ClCompile Include="Enemy_BlueJet.cpp" />
     <ClCompile Include="Enemy_BrownShip.cpp" />
+    <ClCompile Include="Enemy_GreenFighter.cpp" />
+    <ClCompile Include="Enemy_MedCamoJet.cpp" />
+    <ClCompile Include="Enemy_OrangeJet.cpp" />
     <ClCompile Include="Enemy_RedBird.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Mech.cpp" />
