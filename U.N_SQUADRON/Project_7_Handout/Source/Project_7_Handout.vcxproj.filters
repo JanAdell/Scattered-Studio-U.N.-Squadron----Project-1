@@ -103,6 +103,12 @@
     <ClInclude Include="ModuleSceneIntro.h">
       <Filter>Source Files\Modules\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleSceneWin.h">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleSceneLoose.h">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -169,6 +175,12 @@
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="ModuleSceneIntro.cpp">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleSceneWin.cpp">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleSceneLoose.cpp">
       <Filter>Source Files\Modules\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
