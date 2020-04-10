@@ -26,6 +26,9 @@
     <Filter Include="Source Files\Entities\Enemies">
       <UniqueIdentifier>{c465321a-28ed-404a-aa97-e9d0c6f722ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Modules\Scenes">
+      <UniqueIdentifier>{f8e4b877-7cb3-40d3-927a-fc043321f39c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -97,6 +100,9 @@
     <ClInclude Include="Mech.h">
       <Filter>Source Files\Entities\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleSceneIntro.h">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -161,6 +167,9 @@
     </ClCompile>
     <ClCompile Include="Mech.cpp">
       <Filter>Source Files\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleSceneIntro.cpp">
+      <Filter>Source Files\Modules\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
