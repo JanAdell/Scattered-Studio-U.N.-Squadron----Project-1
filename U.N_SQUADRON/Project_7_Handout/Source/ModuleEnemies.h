@@ -13,6 +13,11 @@ enum class ENEMY_TYPE
 	REDBIRD,
 	BROWNSHIP,
 	MECH,
+	MEDIUM_CAMO_JET,
+	ORANGE_JET,
+	GREEN_FIGHTER,
+	BLUE_JET,
+	BIG_CAMO_JET
 };
 
 struct EnemySpawnpoint
