@@ -29,6 +29,9 @@
     <Filter Include="Source Files\Modules\Scenes">
       <UniqueIdentifier>{f8e4b877-7cb3-40d3-927a-fc043321f39c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Enemies\UN.Squadron">
+      <UniqueIdentifier>{2089d2f2-de1c-4c12-8b0d-45039d3575ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -109,20 +112,20 @@
     <ClInclude Include="ModuleSceneLoose.h">
       <Filter>Source Files\Modules\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_MedCamoJet.h">
-      <Filter>Source Files\Entities\Enemies</Filter>
+    <ClInclude Include="Enemy_BigCamoJet.h">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_BlueJet.h">
-      <Filter>Source Files\Entities\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_OrangeJet.h">
-      <Filter>Source Files\Entities\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_BigCamoJet.h">
-      <Filter>Source Files\Entities\Enemies</Filter>
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_GreenFighter.h">
-      <Filter>Source Files\Entities\Enemies</Filter>
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_MedCamoJet.h">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_OrangeJet.h">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -198,20 +201,20 @@
     <ClCompile Include="ModuleSceneLoose.cpp">
       <Filter>Source Files\Modules\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_MedCamoJet.cpp">
-      <Filter>Source Files\Entities\Enemies</Filter>
+    <ClCompile Include="Enemy_BigCamoJet.cpp">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_BlueJet.cpp">
-      <Filter>Source Files\Entities\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_OrangeJet.cpp">
-      <Filter>Source Files\Entities\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_BigCamoJet.cpp">
-      <Filter>Source Files\Entities\Enemies</Filter>
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_GreenFighter.cpp">
-      <Filter>Source Files\Entities\Enemies</Filter>
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_MedCamoJet.cpp">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_OrangeJet.cpp">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
