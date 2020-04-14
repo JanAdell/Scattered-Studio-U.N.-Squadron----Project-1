@@ -32,7 +32,7 @@ public:
 	// Collision callback, called when the player intersects with another collider
 	void OnCollision(Collider* c1, Collider* c2) override;
 
-public:
+private:
 	// Position of the player in the map
 	iPoint position;
 
@@ -64,6 +64,7 @@ public:
 	uint laserFx = 0;
 	uint explosionFx = 0;
 
+	bool godMode;
 };
 
 #endif //!__MODULE_PLAYER_H__

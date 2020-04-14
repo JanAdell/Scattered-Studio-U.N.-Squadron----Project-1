@@ -38,6 +38,10 @@ public:
 	// Draws all existing colliders with some transparency
 	void DebugDraw();
 
+	//Delete collider to the list
+	bool DeleteCollider(Collider* collider);
+
+
 private:
 	// All existing colliders in the scene
 	Collider* colliders[MAX_COLLIDERS] = { nullptr };

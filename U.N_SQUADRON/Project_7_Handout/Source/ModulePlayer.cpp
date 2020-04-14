@@ -56,6 +56,7 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
+
 	// Moving the player with the camera scroll
 	App->player->position.x += 1;
 
@@ -95,6 +96,20 @@ update_status ModulePlayer::Update()
 		App->audio->PlayFx(laserFx);
 	}
 
+
+	//God Mode
+	if (App->input->keys[SDL_SCANCODE_F5] == KEY_DOWN)
+	{
+		godMode = !godMode;
+		if (godMode) {
+			App->collisions->DeleteCollider(collider);
+			collider = nullptr;
+		}
+		else {
+			collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+		}
+	}
+
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
@@ -113,6 +128,8 @@ update_status ModulePlayer::Update()
 
 	return update_status::UPDATE_CONTINUE;
 }
+
+
 
 update_status ModulePlayer::PostUpdate()
 {
