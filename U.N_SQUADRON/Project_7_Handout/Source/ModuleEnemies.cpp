@@ -10,6 +10,13 @@
 #include "Mech.h"
 #include "Enemy_RedBird.h"
 #include "Enemy_BrownShip.h"
+//UN Squadron enemies
+#include "Enemy_BigCamoJet.h"
+#include "Enemy_MedCamoJet.h"
+#include "Enemy_OrangeJet.h"
+#include "Enemy_BlueJet.h"
+#include "Enemy_GreenFighter.h"
+
 
 #define SPAWN_MARGIN 50
 
@@ -27,7 +34,7 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	texture = App->textures->Load("Assets/enemies.png");
+	texture = App->textures->Load("Assets/sprites/enemies/basic_enemies.png");
 	enemyDestroyedFx = App->audio->LoadFx("Assets/explosion.wav");
 
 	return true;
@@ -151,7 +158,24 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case ENEMY_TYPE::MECH:
 					enemies[i] = new Mech(info.x, info.y);
 					break;
+				case ENEMY_TYPE::BIG_CAMO_JET:
+					enemies[i] = new Enemy_BigCamoJet(info.x, info.y);
+					break;
+				case ENEMY_TYPE::MEDIUM_CAMO_JET:
+					enemies[i] = new Enemy_MedCamoJet(info.x, info.y);
+					break;
+				case ENEMY_TYPE::GREEN_FIGHTER:
+					enemies[i] = new Enemy_GreenFighter(info.x, info.y);
+					break;
+				case ENEMY_TYPE::BLUE_JET:
+					enemies[i] = new Enemy_BlueJet(info.x, info.y);
+					break;
+				case ENEMY_TYPE::ORANGE_JET:
+					enemies[i] = new Enemy_OrangeJet(info.x, info.y);
+					break;
+				
 			}
+
 			enemies[i]->texture = texture;
 			enemies[i]->destroyedFx = enemyDestroyedFx;
 			break;
