@@ -24,11 +24,15 @@ bool ModuleScene::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/background.png");
+	bgTextures[0] = App->textures->Load("Assets/c1.png");
+	bgTextures[1] = App->textures->Load("Assets/c2.png");
+	bgTextures[2] = App->textures->Load("Assets/c3.png");
+	bgTextures[3] = App->textures->Load("Assets/c4.png");
+
 	App->audio->PlayMusic("Assets/stage1.ogg", 1.0f);
 
 	//Bottomside collider
-	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
+	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
 
 	//First two columns colliders
 	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::WALL);
@@ -52,14 +56,15 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 875, 100);
 	// TODO 4: Create a new enemy type: The Mech
 	App->enemies->AddEnemy(ENEMY_TYPE::MECH, 375, SCREEN_HEIGHT - 46);
-
+	*/
 
 	return ret;
 }
 
 update_status ModuleScene::Update()
 {
-	App->render->camera.x += 3;
+	App->render->camera.x += SCREEN_SPEED;
+	updateBackground();
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -68,18 +73,22 @@ update_status ModuleScene::Update()
 update_status ModuleScene::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, NULL);
+	//App->render->Blit(bgTexture, 0, 0, NULL);
 
-	App->render->Blit(c1, C1, 14, NULL, 1);
-	App->render->Blit(c2, C2, 17, NULL, 2);
-	App->render->Blit(c3, C3, 17, NULL, 3);
-	App->render->Blit(c4, C4, 0, NULL, 4);
-
-	App->render->Blit(c1, C1 + SCREEN_WIDTH, 14, NULL, 1);
-	App->render->Blit(c2, C2 + SCREEN_WIDTH, 17, NULL, 2);
-	App->render->Blit(c3, C3 + SCREEN_WIDTH, 17, NULL, 3);
-	App->render->Blit(c4, C4 + SCREEN_WIDTH, 0, NULL, 4);
+	for (int i = 0; i < 4; i++) {
+		App->render->Blit(bgTextures[i], SCREEN_WIDTH * cont[i], 0, NULL, i + 1);
+		App->render->Blit(bgTextures[i], SCREEN_WIDTH * (cont[i] + 1), 0, NULL, i + 1);
+		App->render->Blit(bgTextures[i], SCREEN_WIDTH * (cont[i] + 2), 0, NULL, i + 1);
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }
 
+void ModuleScene::updateBackground() {
+
+	for (int i = 0; i < 4; i++) {
+		if (((App->render->camera.x) % ((SCREEN_WIDTH / (i + 1)) + 1)) == 0) {
+			cont[i]++;
+		}
+	}
+}
