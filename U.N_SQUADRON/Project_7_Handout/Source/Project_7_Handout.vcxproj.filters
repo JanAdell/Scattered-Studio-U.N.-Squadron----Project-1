@@ -127,6 +127,12 @@
     <ClInclude Include="Enemy_OrangeJet.h">
       <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleStartScreen.h">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -215,6 +221,12 @@
     </ClCompile>
     <ClCompile Include="Enemy_OrangeJet.cpp">
       <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStartScreen.cpp">
+      <Filter>Source Files\Modules\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
+      <Filter>Source Files\Modules\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

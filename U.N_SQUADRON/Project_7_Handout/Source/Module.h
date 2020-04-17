@@ -7,6 +7,8 @@ struct Collider;
 
 class Module
 {
+private:
+	bool enabled = true;
 public:
 
 	//Called at the beginning of the application execution
@@ -30,7 +32,16 @@ public:
 
 	//Called when two colliders are intersecting
 	//and the module is registered as the listener
+
 	virtual void OnCollision(Collider* c1, Collider* c2);
+
+	// Switches isEnabled and calls Start() method
+	void Enable();
+
+	// Switches isEnabled and calls CleanUp() method
+	void Disable();
+
+	inline bool IsEnabled() const { return enabled; }
 };
 
 #endif // __MODULE_H__

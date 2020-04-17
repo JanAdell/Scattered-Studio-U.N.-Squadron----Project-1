@@ -2,8 +2,9 @@
 #define __MODULE_TEXTURES_H__
 
 #include "Module.h"
+#include "Globals.h"
 
-#define MAX_TEXTURES 50
+#define MAX_TEXTURES 200
 
 struct SDL_Texture;
 
@@ -29,11 +30,14 @@ public:
 	// First creates an SDL_Surface, then converts it into SDL_Texture
 	// Returns nullptr if the texture could not be created
 	SDL_Texture* const Load(const char* path);
+	bool Unload(SDL_Texture* texture);
+	void GetSize(const SDL_Texture* texture, uint& width, uint& height) const;
 
 public:
 	// An array of all the loaded textures
 	// Allows us to keep track of all textures and free them on application exit
 	SDL_Texture* textures[MAX_TEXTURES] = { nullptr };
+	uint lastTexture = 0;
 };
 
 #endif // __ModuleTextures_H__
