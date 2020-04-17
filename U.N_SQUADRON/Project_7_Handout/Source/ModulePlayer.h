@@ -28,16 +28,20 @@ public:
 	// Called at the end of the application loop
 	// Performs the render call of the player sprite
 	update_status PostUpdate() override;
+	void godModeUpdate();
 
 	// Collision callback, called when the player intersects with another collider
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 private:
+	int currentCameraX;
+
+public:
 	// Position of the player in the map
 	iPoint position;
 
 	// The speed in which we move the player (pixels per frame)
-	int speed = 1;
+	int speed = 3;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
@@ -56,6 +60,7 @@ private:
 
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
+	bool godMode = false;
 
 	// A countdown to when the player gets destroyed. After a while, the game exits
 	uint destroyedCountdown = 120;
@@ -64,7 +69,7 @@ private:
 	uint laserFx = 0;
 	uint explosionFx = 0;
 
-	bool godMode;
+	
 };
 
 #endif //!__MODULE_PLAYER_H__
