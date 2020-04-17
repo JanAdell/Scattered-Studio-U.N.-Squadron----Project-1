@@ -99,7 +99,7 @@ update_status ModulePlayer::Update()
 
 	//God Mode
 	
-	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_F9] == KEY_STATE::KEY_DOWN)
 		godModeUpdate();
 
 	// If no up/down movement detected, set the current animation back to idle

@@ -24,10 +24,10 @@ bool ModuleScene::Start()
 
 	bool ret = true;
 
-	bgTextures[0] = App->textures->Load("Assets/c1.png");
-	bgTextures[1] = App->textures->Load("Assets/c2.png");
-	bgTextures[2] = App->textures->Load("Assets/c3.png");
-	bgTextures[3] = App->textures->Load("Assets/c4.png");
+	bgTextures[0] = App->textures->Load("Assets/sprites/background/c1.png");
+	bgTextures[1] = App->textures->Load("Assets/sprites/background/c2.png");
+	bgTextures[2] = App->textures->Load("Assets/sprites/background/c3.png");
+	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
 
 	App->audio->PlayMusic("Assets/stage1.ogg", 1.0f);
 
