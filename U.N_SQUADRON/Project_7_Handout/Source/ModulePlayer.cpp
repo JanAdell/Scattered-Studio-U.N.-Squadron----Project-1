@@ -98,17 +98,9 @@ update_status ModulePlayer::Update()
 
 
 	//God Mode
-	if (App->input->keys[SDL_SCANCODE_F5] == KEY_DOWN)
-	{
-		godMode = !godMode;
-		if (godMode) {
-			App->collisions->DeleteCollider(collider);
-			collider = nullptr;
-		}
-		else {
-			collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
-		}
-	}
+	
+	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
+		godModeUpdate();
 
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE
@@ -144,7 +136,7 @@ update_status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false)
+	if (c1 == collider && destroyed == false && godMode == false) 
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
@@ -156,4 +148,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		destroyed = true;
 	}
+}
+
+void ModulePlayer::godModeUpdate()
+{
+	godMode = !godMode;
 }
