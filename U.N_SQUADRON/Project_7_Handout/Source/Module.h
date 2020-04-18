@@ -8,7 +8,8 @@ struct Collider;
 class Module
 {
 private:
-	bool enabled = true;
+	bool isEnabled = true;
+
 public:
 
 	//Called at the beginning of the application execution
@@ -32,6 +33,8 @@ public:
 
 	//Called when two colliders are intersecting
 	//and the module is registered as the listener
+	virtual void OnCollision(Collider* c1, Collider* c2);
+
 
 	virtual void OnCollision(Collider* c1, Collider* c2);
 
@@ -41,7 +44,7 @@ public:
 	// Switches isEnabled and calls CleanUp() method
 	void Disable();
 
-	inline bool IsEnabled() const { return enabled; }
+	inline bool IsEnabled() const { return isEnabled; }
 };
 
 #endif // __MODULE_H__

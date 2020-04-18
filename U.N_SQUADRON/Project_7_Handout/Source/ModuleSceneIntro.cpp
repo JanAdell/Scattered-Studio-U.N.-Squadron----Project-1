@@ -5,58 +5,53 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
-#include "ModuleStartScreen.h"
+#include "ModuleFadeToBlack.h"
 
-#include "ModuleScene.h"
+
 
 #include "SDL/include/SDL_scancode.h"
 
-
-ModuleSceneIntro::ModuleSceneIntro(){
-
-
-	//screen rect
-	screen = { 0,0,256,256 };
+ModuleSceneIntro::ModuleSceneIntro(bool startEnabled) : Module(startEnabled)
+{
 
 }
-ModuleSceneIntro::~ModuleSceneIntro() {}
 
-bool ModuleSceneIntro::Start() {
+ModuleSceneIntro::~ModuleSceneIntro()
+{
+
+}
+
+// Load assets
+bool ModuleSceneIntro::Start()
+{
+	LOG("Loading background assets");
 
 	bool ret = true;
-	
-	
-	tex = App->textures->Load("Assets/sprites/menus/InitialScreen.png");
-	if (tex == nullptr) {
-		ret = false;
+
+	bgTexture = App->textures->Load("Assets/titlescreen.png");
+	App->audio->PlayMusic("Assets/Music/opening", 1.0f);
+
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
+
+	return ret;
+}
+
+update_status ModuleSceneIntro::Update()
+{
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	{
+		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
 	}
 
-
-
-	//Playing opening music
-	//App->audio->PlayMusic("Assets/music/soundtrack/xxx.ogg");
-
-	return ret;
+	return update_status::UPDATE_CONTINUE;
 }
 
-update_status ModuleSceneIntro::Update() {
-	
-}
+// Update: draw background
+update_status ModuleSceneIntro::PostUpdate()
+{
+	// Draw everything --------------------------------------
+	App->render->Blit(bgTexture, 0, 0, NULL);
 
-update_status ModuleSceneIntro::PostUpdate() {
-	update_status ret = update_status::UPDATE_CONTINUE;
-	//blit unicorn
-
-	return ret;
-}
-
-bool ModuleSceneIntro::CleanUp() {
-	bool ret = true;
-	if (!App->textures->Unload(tex)) {
-		LOG("Start Screen -> Error unloading the texture.");
-		ret = false;
-	}
-	App->audio->StopMusic();
-
-	return ret;
+	return update_status::UPDATE_CONTINUE;
 }

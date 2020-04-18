@@ -5,6 +5,8 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
+#include "ModulePlayer.h"
+
 #include "ModuleEnemies.h"
 
 ModuleScene::ModuleScene()
@@ -92,3 +94,4 @@ void ModuleScene::updateBackground() {
 		}
 	}
 }
+

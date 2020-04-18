@@ -5,30 +5,27 @@
 #include "Module.h"
 #include "Globals.h"
 
-#include "SDL/include/SDL_timer.h"
-#include "SDL/include/SDL_rect.h"
+
 
 struct SDL_Texture;
+
 class ModuleSceneIntro : public Module
 {
 public:
-	ModuleSceneIntro();
+	ModuleSceneIntro(bool startEnabled);
 
 	~ModuleSceneIntro();
 
 
-	bool Start();
-	update_status Update();
+	bool Start() override;
+	update_status Update() override;
 
-	update_status PostUpdate();
-	bool CleanUp();
+	update_status PostUpdate() override;
 
-private:
-	SDL_Texture* tex = nullptr;
-	SDL_Rect screen;
-	Uint32 startTime;
-	Uint32 endTime;
-	Uint32 actualTime;
 
+public:
+	// The scene sprite sheet loaded into an SDL_Texture
+	SDL_Texture* bgTexture = nullptr;
 };
+
 #endif

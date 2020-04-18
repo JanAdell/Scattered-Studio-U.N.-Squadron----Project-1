@@ -6,15 +6,14 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModulePlayer.h"
+#include "ModuleSceneIntro.h"
 #include "ModuleScene.h"
 #include "ModuleParticles.h"
-#include "ModuleSceneIntro.h"
-#include "ModuleStartScreen.h"
 #include "ModuleEnemies.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleRender.h"
-#include "ModuleSceneIntro.h"
+
 
 Application::Application()
 {
@@ -27,18 +26,18 @@ Application::Application()
 	modules[3] = audio = new ModuleAudio(true);
 
 	modules[4] = initialScreen = new ModuleSceneIntro(true);
-	modules[5] = startScreen = new ModuleStartScreen();
 
-	modules[6] = scene = new ModuleScene();
-	modules[7] = player = new ModulePlayer();
 
-	modules[8] = particles = new ModuleParticles();
-	modules[9] = enemies = new ModuleEnemies();
+	modules[5] = scene = new ModuleScene();
+	modules[6] = player = new ModulePlayer();
 
-	modules[10] = collisions = new ModuleCollisions();
-	modules[11] = transition = new ModuleFadeToBlack();
+	modules[7] = particles = new ModuleParticles();
+	modules[8] = enemies = new ModuleEnemies();
 
-	modules[12] = render = new ModuleRender();
+	modules[9] = collisions = new ModuleCollisions();
+	modules[10] = transition = new ModuleFadeToBlack();
+
+	modules[11] = render = new ModuleRender();
 }
 
 Application::~Application()
@@ -87,7 +86,7 @@ bool Application::CleanUp()
 	bool ret = true;
 
 	for (int i = NUM_MODULES - 1; i >= 0 && ret; --i)
-		ret = modules[i]->CleanUp();
+		ret = modules[i]->IsEnabled() ? modules[i]->CleanUp() : true;
 
 	return ret;
 }
