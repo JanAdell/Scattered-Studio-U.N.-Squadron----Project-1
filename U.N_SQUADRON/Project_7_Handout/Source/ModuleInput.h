@@ -3,12 +3,14 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "SDL/include/SDL_scancode.h"
+#include "SDL/include/SDL.h"
 
-#define MAX_KEYS 256
+#define MAX_KEYS 300
 
 enum KEY_STATE
 {
-	KEY_IDLE,
+	KEY_IDLE = 0,
 	KEY_DOWN,
 	KEY_REPEAT,
 	KEY_UP
@@ -38,6 +40,10 @@ public:
 public:
 	// An array to fill in the state of all the keyboard keys
 	KEY_STATE keys[MAX_KEYS] = { KEY_IDLE };
+
+private:
+	int controllerCharacterSelection;
+	SDL_Event ev;
 };
 
 #endif // __ModuleInput_H__

@@ -14,7 +14,7 @@ class ModuleAudio : public Module
 {
 public:
 	//Constructor
-	ModuleAudio();
+	ModuleAudio(bool startEnabled);
 
 	//Destructor
 	~ModuleAudio();
@@ -34,7 +34,8 @@ public:
 	// Mix_Music* music is used for handling the current playing music
 	bool PlayMusic(const char* path, float fade_time = DEFAULT_MUSIC_FADE_TIME);
 
-	// Loads a sound fx (WAV) file in memory
+	bool StopMusic();// Loads a sound fx (WAV) file in memory
+
 	// Returns an index to the sound fx array
 	// The index will be used to handle the effect (see PlayFx)
 	uint LoadFx(const char* path);

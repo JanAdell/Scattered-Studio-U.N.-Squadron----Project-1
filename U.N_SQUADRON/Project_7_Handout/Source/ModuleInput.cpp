@@ -4,7 +4,10 @@
 #include "SDL/include/SDL.h"
 
 ModuleInput::ModuleInput() : Module()
-{}
+{
+	for (uint i = 0; i < MAX_KEYS; ++i)
+		keys[i] = KEY_IDLE;
+}
 
 ModuleInput::~ModuleInput()
 {}
@@ -20,6 +23,7 @@ bool ModuleInput::Init()
 		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
+	controllerCharacterSelection = 0;
 
 	return ret;
 }
@@ -48,6 +52,10 @@ update_status ModuleInput::PreUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
+
+
+
+// Called before quitting
 bool ModuleInput::CleanUp()
 {
 	LOG("Quitting SDL input event subsystem");

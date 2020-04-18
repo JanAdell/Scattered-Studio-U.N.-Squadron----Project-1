@@ -1,4 +1,5 @@
 #include "ModuleTextures.h"
+#include "Globals.h"
 
 #include "Application.h"
 #include "ModuleRender.h"
@@ -87,4 +88,28 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 	}
 
 	return texture;
+}
+
+bool ModuleTextures::Unload(SDL_Texture* texture) {
+	bool ret = false;
+
+	for (uint i = 0; i < MAX_TEXTURES; ++i) {
+		if (texture == textures[i]) {
+
+			SDL_DestroyTexture(textures[i]);
+			textures[i] = nullptr;
+
+			ret = true;
+			break;
+
+		}
+	}
+	return ret;
+
+}
+
+// Retrieve size of a texture
+void ModuleTextures::GetSize(const SDL_Texture* texture, uint& width, uint& height) const
+{
+	SDL_QueryTexture((SDL_Texture*)texture, NULL, NULL, (int*)&width, (int*)&height);
 }

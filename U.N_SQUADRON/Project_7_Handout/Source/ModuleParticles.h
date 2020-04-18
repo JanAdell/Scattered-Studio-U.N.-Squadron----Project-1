@@ -6,8 +6,12 @@
 #include "Globals.h"
 #include "Particle.h"
 #include "Collider.h"
+#include "ModuleCollisions.h"
+#include "p2Point.h"
+#include "Application.h"
+#include "Animation.h"
 
-#define MAX_ACTIVE_PARTICLES 100
+#define MAX_ACTIVE_PARTICLES 200
 
 struct SDL_Texture;
 struct Collider;
@@ -54,6 +58,9 @@ private:
 
 	// An array to store and handle all the particles
 	Particle* particles[MAX_ACTIVE_PARTICLES] = { nullptr };
+
+	// An index to the last added particle
+	uint lastParticle = 0;
 
 public:
 	//Template particle for an explosion
