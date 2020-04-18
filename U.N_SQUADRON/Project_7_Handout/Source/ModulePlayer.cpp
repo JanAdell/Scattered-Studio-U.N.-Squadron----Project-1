@@ -14,18 +14,14 @@
 ModulePlayer::ModulePlayer()
 {
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 66, 1, 32, 14 });
+	idleAnim.PushBack({ 155, 38, 32, 11 });
 
 	// move upwards
-	upAnim.PushBack({ 100, 1, 32, 14 });
-	upAnim.PushBack({ 132, 0, 32, 14 });
-	upAnim.loop = false;
+	upAnim.PushBack({ 189, 40, 32, 12 });
 	upAnim.speed = 0.1f;
 
 	// Move down
-	downAnim.PushBack({ 33, 1, 32, 14 });
-	downAnim.PushBack({ 0, 1, 32, 14 });
-	downAnim.loop = false;
+	downAnim.PushBack({ 120, 39, 32, 13 });
 	downAnim.speed = 0.1f;
 }
 
@@ -40,7 +36,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/ship.png");
+	texture = App->textures->Load("Assets/sprites/player/player spaceships.png");
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/laser.wav");
@@ -49,7 +45,7 @@ bool ModulePlayer::Start()
 	position.x = 150;
 	position.y = 120;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 32, 12 }, Collider::Type::PLAYER, this);
 
 	return ret;
 }
