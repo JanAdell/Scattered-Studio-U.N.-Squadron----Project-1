@@ -5,22 +5,16 @@
 
 Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
 {
-	/*fly.PushBack({ 5,72,21,22 });
-	currentAnim = &fly;
+	fly.PushBack({ 257,151,107,39 });
 	fly.speed = 0.01f;
 
-	// TODO 3: Have the Brown Cookies describe a path in the screen
-	path.PushBack({ -0.8f , -0.5f }, 100, &fly);
-	path.PushBack({ -0.8f , 0.5f }, 100, &fly);
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);*/
+	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_GreenFighter::Update()
 {
-	/*path.Update();
+	path.Update();
 	position = spawnPos + path.GetRelativePosition();
 
-	// Call to the base class. It must be called at the end
-	// It will update the collider depending on the position
-	Enemy::Update();*/
+	Enemy::Update();
 }
