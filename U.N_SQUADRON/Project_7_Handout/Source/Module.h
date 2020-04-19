@@ -36,7 +36,6 @@ public:
 	virtual void OnCollision(Collider* c1, Collider* c2);
 
 
-	virtual void OnCollision(Collider* c1, Collider* c2);
 
 	// Switches isEnabled and calls Start() method
 	void Enable();

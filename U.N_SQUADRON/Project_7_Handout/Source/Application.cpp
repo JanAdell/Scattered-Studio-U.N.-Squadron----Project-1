@@ -25,7 +25,7 @@ Application::Application()
 	modules[2] = textures = new ModuleTextures();
 	modules[3] = audio = new ModuleAudio(true);
 
-	modules[4] = initialScreen = new ModuleSceneIntro(true);
+	//modules[4] = initialScreen = new ModuleSceneIntro(true);
 
 
 	modules[5] = scene = new ModuleScene();

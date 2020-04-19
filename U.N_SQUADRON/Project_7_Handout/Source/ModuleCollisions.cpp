@@ -82,11 +82,11 @@ update_status ModuleCollisions::PreUpdate()
 
 			if(c1->Intersects(c2->rect))
 			{
-				if(matrix[c1->type][c2->type] && c1->listener) 
-					c1->listener->OnCollision(c1, c2);
+				if(matrix[c1->type][c2->type] && c1->listeners) 
+					c1->listeners->OnCollision(c1, c2);
 				
-				if(matrix[c2->type][c1->type] && c2->listener) 
-					c2->listener->OnCollision(c2, c1);
+				if(matrix[c2->type][c1->type] && c2->listeners) 
+					c2->listeners->OnCollision(c2, c1);
 			}
 		}
 	}
