@@ -7,6 +7,8 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 
+#include "SDL/include/SDL_scancode.h"
+
 
 ModuleSceneIntro::ModuleSceneIntro(bool startEnabled) : Module(startEnabled)
 {

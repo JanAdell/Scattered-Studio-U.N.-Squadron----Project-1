@@ -33,7 +33,7 @@ bool ModuleScene::Start()
 	bgTextures[2] = App->textures->Load("Assets/sprites/background/c3.png");
 	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
 
-	App->audio->PlayMusic("Assets/stage1.ogg", 0.25f);
+	App->audio->PlayMusic("Assets/stage1.ogg", 6);
 
 	//Bottomside collider
 	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);

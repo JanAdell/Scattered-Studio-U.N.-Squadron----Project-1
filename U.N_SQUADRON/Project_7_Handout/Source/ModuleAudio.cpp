@@ -1,7 +1,8 @@
 #include "ModuleAudio.h"
 
 #include "Application.h"
-
+#include "ModuleInput.h"
+#include "SDL/include/SDL_scancode.h"
 #include "SDL/include/SDL.h"
 #include "SDL_mixer/include/SDL_mixer.h"
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
@@ -51,6 +52,23 @@ bool ModuleAudio::Init()
 	}
 
 	return ret;
+}
+
+update_status ModuleAudio::Update() {
+	KEY_STATE keyMinus = App->input->keys[SDL_SCANCODE_KP_MINUS];
+	KEY_STATE keyPlus = App->input->keys[SDL_SCANCODE_KP_PLUS];
+
+	if (keyMinus == KEY_STATE::KEY_DOWN || keyMinus == KEY_STATE::KEY_REPEAT) {
+
+		VOLUME_GAME = (VOLUME_GAME <= 0) ? 1 : VOLUME_GAME - 4;
+
+	}
+	else if (keyPlus == KEY_STATE::KEY_DOWN || keyPlus == KEY_STATE::KEY_REPEAT) {
+		VOLUME_GAME = (VOLUME_GAME >= 180) ? 180 : VOLUME_GAME + 4;
+	}
+	Mix_VolumeMusic(VOLUME_GAME);
+
+	return update_status::UPDATE_CONTINUE;
 }
 
 // Called before quitting
