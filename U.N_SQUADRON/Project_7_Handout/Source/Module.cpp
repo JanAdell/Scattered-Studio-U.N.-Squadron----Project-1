@@ -40,21 +40,20 @@ void Module::OnCollision(Collider* c1, Collider* c2)
 
 }
 
-/*void Module::Enable()
+void Module::Enable()
 {
-	if (enabled == false)
+	if (!isEnabled)
 	{
-		enabled = true;
+		isEnabled = true;
 		Start();
 	}
 }
 
 void Module::Disable()
 {
-	if (enabled) {
-		enabled = false;
+	if (isEnabled)
+	{
+		isEnabled = false;
 		CleanUp();
 	}
 }
-
-*/

@@ -12,6 +12,8 @@ private:
 
 public:
 
+	Module(bool startEnabled);
+
 	//Called at the beginning of the application execution
 	virtual bool Init();
 
