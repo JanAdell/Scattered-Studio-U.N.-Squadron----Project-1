@@ -6,7 +6,7 @@
 #include "ModuleInput.h"
 #include "SDL/include/SDL_Scancode.h"
 
-ModuleCollisions::ModuleCollisions()
+ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 {
 	for(uint i = 0; i < MAX_COLLIDERS; ++i)
 		colliders[i] = nullptr;
@@ -63,33 +63,34 @@ update_status ModuleCollisions::PreUpdate()
 	Collider* c1;
 	Collider* c2;
 
-	for(uint i = 0; i < MAX_COLLIDERS; ++i)
+	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 	{
 		// skip empty colliders
-		if(colliders[i] == nullptr)
+		if (colliders[i] == nullptr)
 			continue;
 
 		c1 = colliders[i];
 
 		// avoid checking collisions already checked
-		for(uint k = i+1; k < MAX_COLLIDERS; ++k)
+		for (uint k = i + 1; k < MAX_COLLIDERS; ++k)
 		{
 			// skip empty colliders
-			if(colliders[k] == nullptr)
+			if (colliders[k] == nullptr)
 				continue;
 
 			c2 = colliders[k];
 
-			if(c1->Intersects(c2->rect))
+			if (c1->Intersects(c2->rect))
 			{
-				if(matrix[c1->type][c2->type] && c1->listeners) 
+				if (matrix[c1->type][c2->type] && c1->listeners)
 					c1->listeners->OnCollision(c1, c2);
-				
-				if(matrix[c2->type][c1->type] && c2->listeners) 
+
+				if (matrix[c2->type][c1->type] && c2->listeners)
 					c2->listeners->OnCollision(c2, c1);
 			}
 		}
 	}
+
 
 	return update_status::UPDATE_CONTINUE;
 }

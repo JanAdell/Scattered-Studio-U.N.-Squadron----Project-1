@@ -1,6 +1,6 @@
 #include "Module.h"
 
-Module::Module()
+Module::Module(bool startEnabled) : isEnabled(startEnabled)
 {
 
 }

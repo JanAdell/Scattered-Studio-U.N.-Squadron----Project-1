@@ -12,7 +12,7 @@ class ModuleTextures : public Module
 {
 public:
 	//Constructor
-	ModuleTextures();
+	ModuleTextures(bool startEnabled);
 
 	//Destructor
 	~ModuleTextures();

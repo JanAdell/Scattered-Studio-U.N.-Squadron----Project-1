@@ -3,7 +3,7 @@
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
 
-ModuleInput::ModuleInput() : Module()
+ModuleInput::ModuleInput(bool startEnabled) : Module(startEnabled)
 {
 	for (uint i = 0; i < MAX_KEYS; ++i)
 		keys[i] = KEY_IDLE;
