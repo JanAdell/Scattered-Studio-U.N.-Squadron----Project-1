@@ -26,12 +26,14 @@ bool ModuleScene::Start()
 
 	bool ret = true;
 
+	
+
 	bgTextures[0] = App->textures->Load("Assets/sprites/background/c1.png");
 	bgTextures[1] = App->textures->Load("Assets/sprites/background/c2.png");
 	bgTextures[2] = App->textures->Load("Assets/sprites/background/c3.png");
 	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
 
-	App->audio->PlayMusic("Assets/stage1.ogg", 0.5f);
+	App->audio->PlayMusic("Assets/stage1.ogg", 0.25f);
 
 	//Bottomside collider
 	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
@@ -60,8 +62,14 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::MECH, 375, SCREEN_HEIGHT - 46);
 	*/
 
-	App->enemies->spawningEnemies(4, ENEMY_TYPE::BROWNSHIP, 600, 130, 100);
-	App->enemies->spawningEnemies(4, ENEMY_TYPE::REDBIRD, 600, 180, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 100, 100);
+	//App->enemies->spawningEnemies(4, ENEMY_TYPE::REDBIRD, 600, 180, 100);
+
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
+
+	App->player->Enable();
+	App->enemies->Enable();
 
 	return ret;
 }
@@ -98,3 +106,11 @@ void ModuleScene::updateBackground() {
 	}
 }
 
+bool ModuleScene::CleanUp()
+{
+	App->player->Disable();
+	App->enemies->Disable();
+		
+
+	return true;
+}

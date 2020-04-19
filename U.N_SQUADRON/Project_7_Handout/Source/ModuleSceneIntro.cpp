@@ -8,9 +8,6 @@
 #include "ModuleFadeToBlack.h"
 
 
-
-#include "SDL/include/SDL_scancode.h"
-
 ModuleSceneIntro::ModuleSceneIntro(bool startEnabled) : Module(startEnabled)
 {
 
@@ -24,7 +21,7 @@ ModuleSceneIntro::~ModuleSceneIntro()
 // Load assets
 bool ModuleSceneIntro::Start()
 {
-	LOG("Loading background assets");
+	LOG("Loading Intro Scene");
 
 	bool ret = true;
 

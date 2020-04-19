@@ -5,11 +5,14 @@
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
+#include "ModuleTextures.h"
 
 #include "Enemy.h"
+
 #include "Mech.h"
 #include "Enemy_RedBird.h"
 #include "Enemy_BrownShip.h"
+
 //UN Squadron enemies
 #include "Enemy_BigCamoJet.h"
 #include "Enemy_MedCamoJet.h"
