@@ -33,7 +33,13 @@ private:
 
 	// The enemy animation
 	Animation fly;
+	Animation turn;
+
 	Animation flyBack;
+	Animation turnBack;
+
+	Animation flyOpposite;
+	Animation flyBackOpposite;
 };
 
 #endif 
