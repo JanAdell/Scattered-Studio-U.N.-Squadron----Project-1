@@ -17,7 +17,8 @@ enum class ENEMY_TYPE
 	ORANGE_JET,
 	GREEN_FIGHTER,
 	BLUE_JET,
-	BIG_CAMO_JET
+	BIG_CAMO_JET,
+	SMALL_CAMO_JET
 };
 
 struct EnemySpawnpoint

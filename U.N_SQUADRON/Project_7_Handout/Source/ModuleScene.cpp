@@ -35,37 +35,180 @@ bool ModuleScene::Start()
 
 	App->audio->PlayMusic("Assets/stage1.ogg", 6);
 
-	//Bottomside collider
-	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
+	
+	/*
+	// Enemies --------------------------------------------------
+	//Enemy Script->Initial pos + spawn delay
+	//Med Camos
+	//2 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	
+	//3 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
 
-	//First two columns colliders
-	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 1375, 145, 111, 96 }, Collider::Type::WALL);
+	//7 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
 
-	// Enemies ---
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 600, 80);
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 625, 80);
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 640, 80);
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 665, 80);
+	//9 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
 
-	// TODO 1: Add a new wave of red birds
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 800, 100);
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 825, 100);
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 840, 100);
-	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 865, 100);
-	// TODO 2: Add a new wave of brown cookies
-	App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 800, 100);
-	App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 825, 100);
-	App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 850, 100);
-	App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 875, 100);
-	// TODO 4: Create a new enemy type: The Mech
-	App->enemies->AddEnemy(ENEMY_TYPE::MECH, 375, SCREEN_HEIGHT - 46);
+	//14 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+
+	//17 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	
+	//21 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+
+	//24 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 800, 100);
+
+	//33 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+
+	//36 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+
+	//38 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 800, 100);
+
+	//39 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	
+	//44 secs 
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+
+	//46 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 800, 100);
+
+	//48 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+
+	//52 secs 
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+
+	//56 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+
+	//58 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+
+	//58,5 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+
+	//61 secs 
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+
+	//62 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 800, 100);
+
+	//63 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+
+	//67 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 800, 100);
+
+	//68 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+
+	//72 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 800, 100);
+
+	//74 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+
+	//75 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+
+	//77 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+
+	//81 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 800, 100);
+
+	//86 secs
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 800, 100);
+
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 800, 100);
+
+	//-------------------------------------------------------------
 	*/
-
-	//App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 100, 100);
-	//App->enemies->spawningEnemies(4, ENEMY_TYPE::REDBIRD, 600, 180, 100);
-	   
-
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	
