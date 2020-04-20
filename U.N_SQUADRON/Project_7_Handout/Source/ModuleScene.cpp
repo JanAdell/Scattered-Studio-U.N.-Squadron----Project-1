@@ -209,6 +209,14 @@ bool ModuleScene::Start()
 
 	//-------------------------------------------------------------
 	*/
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 500, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 800, 100);
+
+	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 735, 120);
+	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 750, 120);
+	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 775, 120);
+	App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 790, 120);
+
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	

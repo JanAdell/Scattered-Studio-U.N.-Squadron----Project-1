@@ -130,6 +130,9 @@
     <ClInclude Include="ModuleFadeToBlack.h">
       <Filter>Source Files\Modules\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_SmallCamoJet.h">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -221,6 +224,9 @@
     </ClCompile>
     <ClCompile Include="ModuleFadeToBlack.cpp">
       <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_SmallCamoJet.cpp">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
