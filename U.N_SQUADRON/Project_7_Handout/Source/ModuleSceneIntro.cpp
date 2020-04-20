@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 
+#include "ModulePlayer.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
@@ -41,6 +42,7 @@ update_status ModuleSceneIntro::Update()
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
 		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
+		
 	}
 
 	return update_status::UPDATE_CONTINUE;

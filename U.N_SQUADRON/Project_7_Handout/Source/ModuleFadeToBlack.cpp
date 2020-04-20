@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "ModuleRender.h"
 
+
 #include "SDL/include/SDL_render.h"
 
 ModuleFadeToBlack::ModuleFadeToBlack(bool startEnabled) : Module(startEnabled)
@@ -48,6 +49,7 @@ update_status ModuleFadeToBlack::Update()
 		if (frameCount <= 0)
 		{
 			currentStep = Fade_Step::NONE;
+
 		}
 	}
 

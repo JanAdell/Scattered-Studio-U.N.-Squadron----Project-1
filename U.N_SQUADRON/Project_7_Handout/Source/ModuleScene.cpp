@@ -64,10 +64,11 @@ bool ModuleScene::Start()
 
 	//App->enemies->AddEnemy(ENEMY_TYPE::BROWNSHIP, 100, 100);
 	//App->enemies->spawningEnemies(4, ENEMY_TYPE::REDBIRD, 600, 180, 100);
+	   
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-
+	
 	App->player->Enable();
 	App->enemies->Enable();
 
