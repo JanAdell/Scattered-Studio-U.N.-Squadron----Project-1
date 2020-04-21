@@ -35,7 +35,7 @@ public:
 
 	// Called on application exit.
 	// Uninitializes the SDL system for input detection
-	bool CleanUp();
+	bool CleanUp() override;
 
 public:
 	// An array to fill in the state of all the keyboard keys

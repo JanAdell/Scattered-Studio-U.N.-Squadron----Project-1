@@ -44,9 +44,7 @@ update_status ModuleInput::PreUpdate()
 		if (event.type == SDL_QUIT)	return update_status::UPDATE_STOP;
 	}
 
-	// Maximize window
-	else if (event.type == SDL_WINDOWEVENT_MAXIMIZED || keys[SDL_SCANCODE_F11] == KEY_DOWN) {
-		SDL_MaximizeWindow(App->window->window);
+	
 
 		//Read all keyboard data and update our custom array
 		SDL_PumpEvents();
@@ -64,32 +62,10 @@ update_status ModuleInput::PreUpdate()
 			return update_status::UPDATE_STOP;
 		}
 
-		// Debug jump screens
-		if (keys[SDL_SCANCODE_F3] == KEY_DOWN) {
 
-			if (App->initialScreen->IsEnabled()) {
-				App->transition->FadeToBlack((Module*)App->initialScreen, (Module*)App->scene, 60);
-			}
-			else if (App->scene->IsEnabled()) {
-				App->transition->FadeToBlack((Module*)App->scene, (Module*)App->initialScreen, 60);
-			}
-			else if (App->sceneWin->IsEnabled()) {
-				App->transition->FadeToBlack((Module*)App->sceneWin, (Module*)App->initialScreen, 60);
-			}
-			return update_status::UPDATE_STOP;
-		}
-
-
-		// Jump to Win Screen
-		if (keys[SDL_SCANCODE_F4] == KEY_DOWN) {
-			if (App->scene->IsEnabled()) {
-				App->transition->FadeToBlack((Module*)App->scene, (Module*)App->sceneWin, 60);
-			}
-		}
 
 		return update_status::UPDATE_CONTINUE;
 	}
-
 
 
 	// Called before quitting
