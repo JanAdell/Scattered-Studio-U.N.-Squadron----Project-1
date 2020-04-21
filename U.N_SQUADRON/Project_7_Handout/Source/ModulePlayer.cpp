@@ -7,6 +7,7 @@
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
+#include "ModuleFonts.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -42,6 +43,11 @@ bool ModulePlayer::Start()
 	laserFx = App->audio->LoadFx("Assets/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/explosion.wav");
 
+	//FONTS
+	//scoreFont = App->fonts->Load("assets/Fonts/"".png", "", 1);
+
+	//scoreFont2 = App->fonts->Load("assets/Fonts/"".png", "", 2);
+	
 	position.x = 100;
 	position.y = 220;
 
@@ -127,6 +133,9 @@ update_status ModulePlayer::PostUpdate()
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, position.x, position.y, &rect);
+
+
+
 	}
 
 	return update_status::UPDATE_CONTINUE;

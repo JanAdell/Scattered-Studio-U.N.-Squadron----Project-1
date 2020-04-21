@@ -14,7 +14,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleRender.h"
-
+#include "ModuleFonts.h"
 
 Application::Application()
 {
@@ -39,8 +39,9 @@ Application::Application()
 
 	modules[10] = collisions = new ModuleCollisions(true);
 	modules[11] = transition = new ModuleFadeToBlack(true);
+	modules[12] = fonts = new ModuleFonts(false);
 
-	modules[12] = render = new ModuleRender(true);
+	modules[13] = render = new ModuleRender(true);
 }
 
 Application::~Application()
