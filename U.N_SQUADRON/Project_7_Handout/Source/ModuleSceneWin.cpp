@@ -22,7 +22,7 @@ bool ModuleSceneWin::Start() {
 
 
 	bgTexture = App->textures->Load("Assets/WinScreen.png");
-	//App->audio->PlayMusic("Assets/Music/opening", 1.0f);
+	App->audio->PlayMusic("Assets/Music/soundtrack/missionclear.wav", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -53,5 +53,14 @@ update_status ModuleSceneWin::PostUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
+bool ModuleSceneWin::CleanUp() {
+	bool ret = true;
 
+	if (!App->textures->Unload(bgTexture)) {
+		LOG("Start Screen -> Error unloading the texture.");
+		ret = false;
+	}
+
+	return ret;
+}
 
