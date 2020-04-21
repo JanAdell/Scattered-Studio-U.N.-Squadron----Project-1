@@ -18,7 +18,7 @@ Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 	flyBackOpposite.PushBack({ 263,6,19,33 });
 	flyBackOpposite.speed = 0.01f;
 
-	fly.PushBack({ 126,57,32,19 });
+	fly.PushBack({ 275,96,30,9 });
 	fly.speed = 0.01f;
 
 	turn.PushBack({ 161,21,30,18 });
@@ -30,6 +30,13 @@ Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 	flyOpposite.PushBack({ 248,6,12,33 });
 	flyOpposite.PushBack({ 263,6,19,33 });
 	flyOpposite.speed = 0.01f;
+
+	//path
+	path.PushBack({ -4.0f , 0.f }, 100, &flyBack);
+	path.PushBack({ 0.0f , 2.0f }, 50, &turnBack);
+	path.PushBack({ 4.0f , 0.f }, 3000, &flyBackOpposite);
+	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
+
 }
 
 void Enemy_MedCamoJet::Update()

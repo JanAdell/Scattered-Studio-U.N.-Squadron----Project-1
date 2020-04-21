@@ -30,6 +30,10 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	flyOpposite.PushBack({ 248,6,12,33 });
 	flyOpposite.PushBack({ 263,6,19,33 });
 	flyOpposite.speed = 0.01f;
+
+	path.PushBack({ -3.0f , 0.f }, 100, &flyBack);
+	path.PushBack({ 0.0f , 1.0f }, 50, &turnBack);
+	path.PushBack({ 3.0f , 0.f }, 3000, &flyBackOpposite);
 }
 
 void Enemy_SmallCamoJet::Update()
