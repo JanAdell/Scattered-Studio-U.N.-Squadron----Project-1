@@ -15,6 +15,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleRender.h"
 #include "ModuleFonts.h"
+#include "ModuleSceneLoose.h"
 
 Application::Application()
 {
@@ -32,16 +33,18 @@ Application::Application()
 
 	modules[5] = scene = new ModuleScene(false);
 	modules[6] = sceneWin = new ModuleSceneWin(false);
-	modules[7] = player = new ModulePlayer(false);
+	modules[7] = loose = new ModuleSceneLoose(false);
 
-	modules[8] = particles = new ModuleParticles(true);
-	modules[9] = enemies = new ModuleEnemies(false);
+	modules[8] = player = new ModulePlayer(false);
 
-	modules[10] = collisions = new ModuleCollisions(true);
-	modules[11] = transition = new ModuleFadeToBlack(true);
-	modules[12] = fonts = new ModuleFonts(false);
+	modules[9] = particles = new ModuleParticles(true);
+	modules[10] = enemies = new ModuleEnemies(false);
 
-	modules[13] = render = new ModuleRender(true);
+	modules[11] = collisions = new ModuleCollisions(true);
+	modules[12] = transition = new ModuleFadeToBlack(true);
+	modules[13] = fonts = new ModuleFonts(false);
+
+	modules[14] = render = new ModuleRender(true);
 }
 
 Application::~Application()

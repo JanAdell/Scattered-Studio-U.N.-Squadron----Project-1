@@ -62,7 +62,7 @@ update_status ModuleInput::PreUpdate()
 			return update_status::UPDATE_STOP;
 		}
 
-
+	
 
 		return update_status::UPDATE_CONTINUE;
 	}

@@ -45,6 +45,15 @@ update_status ModuleSceneIntro::Update()
 		
 	}
 
+	if (App->input->keys[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->sceneWin, 90);
+
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->loose);
+	}
+
 	return update_status::UPDATE_CONTINUE;
 }
 
