@@ -5,43 +5,79 @@
 
 Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 {
-	flyBack.PushBack({ 387,20,32,19 });
-	flyBack.speed = 0.01f;
+	//fly right
+	fly.PushBack({ 274,112,26,8 });
+	fly.speed = 0.1f;
 
-	turnBack.PushBack({ 354,21,30,18 });
-	turnBack.PushBack({ 329,14,23,25 });
-	turnBack.PushBack({ 311,9,15,30 });
-	turnBack.speed = 0.01f;
+	//fly left
+	flyback.PushBack({ 245,112,26,8 });
+	flyback.speed = 0.01f;
 
-	flyBackOpposite.PushBack({ 300,6,9,33 });
-	flyBackOpposite.PushBack({ 285,6,12,33 });
-	flyBackOpposite.PushBack({ 263,6,19,33 });
-	flyBackOpposite.speed = 0.01f;
+	//return flip (left)
+	flipfly.PushBack({ 479,112,26,10 });
+	flipfly.PushBack({ 450,110,26,15 });
+	flipfly.PushBack({ 245,112,26,8 });
+	flipfly.PushBack({ 215,113,26,10 });
+	flipfly.PushBack({ 185,110,26,15 });
+	flipfly.PushBack({ 245,112,26,8 });
+	flipfly.speed = 0.15f;
+	
+	//return flip (right)
+	flipflyback.PushBack({ 40,112,26,10 });
+	flipflyback.PushBack({ 69,110,26,15 });
+	flipflyback.PushBack({ 274,112,26,8 });
+	flipflyback.PushBack({ 304,113,26,10 });
+	flipflyback.PushBack({ 334,110,26,15 });
+	flipflyback.PushBack({ 274,112,26,8 });
+	flipflyback.speed = 0.15f;
 
-	fly.PushBack({ 126,57,32,19 });
-	fly.speed = 0.01f;
+	//turn (right to left)
+	turn.PushBack({ 334,110,26,15 });
+	turn.PushBack({ 364,110,19,15 });
+	turn.PushBack({ 387,109,14,17 });
+	turn.PushBack({ 404,108,9,19 });
+	turn.PushBack({ 415,109,11,17 });
+	turn.PushBack({ 428,110,18,15 });
+	turn.PushBack({ 450,110,26,15 });
+	turn.speed = 0.07f;
 
-	turn.PushBack({ 161,21,30,18 });
-	turn.PushBack({ 193,14,23,25 });
-	turn.PushBack({ 219,9,15,30 });
-	turn.speed = 0.01f;
+	//turn (left to right)
+	turnback.PushBack({ 185,110,26,15 });
+	turnback.PushBack({ 163,110,19,15 });
+	turnback.PushBack({ 144,109,14,17 });
+	turnback.PushBack({ 132,108,9,19 });
+	turnback.PushBack({ 119,109,11,17 });
+	turnback.PushBack({ 99,110,18,15 });
+	turnback.PushBack({ 69,110,26,15 });
+	turnback.speed = 0.07;
 
-	flyOpposite.PushBack({ 236,6,9,33 });
-	flyOpposite.PushBack({ 248,6,12,33 });
-	flyOpposite.PushBack({ 263,6,19,33 });
-	flyOpposite.speed = 0.01f;
+	//Left->right->left
+	path.PushBack({ 3.0f , 0.f }, 100, &fly);
+	path.PushBack({ -0.5f , 0.5f }, 70, &turn);
+	path.PushBack({ 5.0f, 0.0f }, 300, &flipfly);
 
-	path.PushBack({ -3.0f , 0.f }, 100, &flyBack);
-	path.PushBack({ 0.0f , 1.0f }, 50, &turnBack);
-	path.PushBack({ 3.0f , 0.f }, 3000, &flyBackOpposite);
+	//Right->left->right
+	path2.PushBack({ -3.0f , 0.f }, 100, &flyback);
+	path2.PushBack({ -0.5f , 0.5f }, 70, &turnback);
+	path2.PushBack({ 5.0f, 0.0f }, 300, &flipflyback);
+
+	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_SmallCamoJet::Update()
 {
-	currentAnim = path.GetCurrentAnimation();
+	if (spawnPos.x < SCREEN_WIDTH / 2) {
+		currentAnim = path.GetCurrentAnimation();
 
-	path.Update();
-	position = spawnPos + path.GetRelativePosition();
+		path.Update();
+		position = spawnPos + path.GetRelativePosition();
+		Enemy::Update();
+	}
+	if (spawnPos.x > SCREEN_WIDTH / 2) {
+		currentAnim = path2.GetCurrentAnimation();
 
-	Enemy::Update();
+		path2.Update();
+		position = spawnPos + path2.GetRelativePosition();
+		Enemy::Update();
+	}
 }

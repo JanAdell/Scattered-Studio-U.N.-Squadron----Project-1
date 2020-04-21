@@ -16,17 +16,18 @@ public:
 	void Update() override;
 
 private:
-	Path path;
 
+	Path path;
+	Path path2;
+	
 	// The enemy animation
 	Animation fly;
+	Animation flipfly;
 	Animation turn;
 
-	Animation flyBack;
-	Animation turnBack;
-
-	Animation flyOpposite;
-	Animation flyBackOpposite;
+	Animation flyback;
+	Animation flipflyback;
+	Animation turnback;
 };
 
 #endif 
