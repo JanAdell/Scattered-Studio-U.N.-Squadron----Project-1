@@ -5,21 +5,29 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleSceneIntro.h"
+#include "ModuleAudio.h"
 
 ModuleSceneWin::ModuleSceneWin(bool startEnabled) : Module(startEnabled)
 {
-
+	screen = { 0,0,256,224 };
 }
 
 ModuleSceneWin::~ModuleSceneWin() {}
 
 bool ModuleSceneWin::Start() {
+
+	LOG("Loading Win Scene");
+
 	bool ret = true;
 
 
-	tex = App->textures->Load("Assets/WinScreen.png");
+	bgTexture = App->textures->Load("Assets/WinScreen.png");
+	//App->audio->PlayMusic("Assets/Music/opening", 1.0f);
 
-	if (tex == nullptr) {
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
+
+	if (bgTexture == nullptr) {
 		ret = false;
 	}
 
@@ -35,4 +43,15 @@ update_status ModuleSceneWin::Update() {
 
 	return ret;
 }
+
+// Update: draw background
+update_status ModuleSceneWin::PostUpdate()
+{
+	// Draw everything --------------------------------------
+	App->render->Blit(bgTexture, 0, 0, NULL);
+
+	return update_status::UPDATE_CONTINUE;
+}
+
+
 

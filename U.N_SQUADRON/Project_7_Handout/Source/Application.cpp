@@ -28,9 +28,10 @@ Application::Application()
 
 	modules[4] = initialScreen = new ModuleSceneIntro(true);
 
-	modules[5] = sceneWin = new ModuleSceneWin(false);
 
-	modules[6] = scene = new ModuleScene(false);
+
+	modules[5] = scene = new ModuleScene(false);
+	modules[6] = sceneWin = new ModuleSceneWin(false);
 	modules[7] = player = new ModulePlayer(false);
 
 	modules[8] = particles = new ModuleParticles(true);

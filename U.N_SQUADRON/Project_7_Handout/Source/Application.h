@@ -52,8 +52,9 @@ public:
 
 	ModulePlayer* player = nullptr;
 	ModuleSceneIntro* initialScreen = nullptr;
-	ModuleSceneWin* sceneWin = nullptr;
 	ModuleScene* scene = nullptr;
+	ModuleSceneWin* sceneWin = nullptr;
+
 	ModuleEnemies* enemies = nullptr;
 	ModuleParticles* particles = nullptr;
 

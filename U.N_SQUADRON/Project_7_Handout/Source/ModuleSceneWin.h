@@ -20,9 +20,9 @@ public:
 
 	update_status PostUpdate() override;
 
-	bool CleanUp() override;
+	//bool CleanUp() override;
 public:
-	SDL_Texture* tex = nullptr;
+	SDL_Texture* bgTexture = nullptr;
 	SDL_Rect screen;
 	Uint32 startTime;
 	Uint32 endTime;
