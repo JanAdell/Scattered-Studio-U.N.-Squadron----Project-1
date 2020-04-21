@@ -27,9 +27,10 @@ Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 
 	// TODO 3: Have the Brown Cookies describe a path in the screen
 	
+	path.PushBack({ 1.0f , 0.f }, 200, &fly);
 	path.PushBack({ 0.5f , -0.5f }, 100, &flyUp);
 	path.PushBack({ 0.5f , 0.5f }, 100, &flyDown);
-	path.PushBack({ 1.0f , 0.f }, 100, &fly);
+
 
 	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
