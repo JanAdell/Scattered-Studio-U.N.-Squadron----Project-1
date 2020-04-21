@@ -59,6 +59,16 @@ int ModuleFonts::Load(const char* texture_path, const char* characters, uint row
 	// char_w --------	Width of each character
 	// char_h --------	Height of each character
 
+	strcpy_s(font.table, characters);
+	font.totalLength = strlen(font.table);
+
+	font.columns = (font.totalLength / font.rows);
+
+	uint texture_w, texture_h;
+	App->textures->GetSize(font.texture, texture_w, texture_h);
+	font.char_w = (texture_w / font.columns);
+	font.char_h = (texture_h / font.rows);
+
 	LOG("Successfully loaded BMP font from %s", texture_path);
 
 	return id;
