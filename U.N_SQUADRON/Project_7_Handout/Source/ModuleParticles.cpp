@@ -40,6 +40,11 @@ bool ModuleParticles::Start()
 	laser.lifetime = 180;
 	laser.anim.speed = 0.1f;
 
+	// Enemy Shot particle
+	/*enemy_shot.anim.PushBack({ 232, 103, 16, 12 });
+	enemy_shot.anim.PushBack({ 249, 103, 16, 12 });
+	enemy_shot.speed.x = 5;*/
+
 	return true;
 }
 

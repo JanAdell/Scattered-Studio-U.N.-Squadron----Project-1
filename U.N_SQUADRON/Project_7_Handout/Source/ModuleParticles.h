@@ -68,6 +68,8 @@ public:
 
 	//Template particle for a laser
 	Particle laser;
+
+	Particle enemy_shot;
 };
 
 #endif // !__MODULEPARTICLES_H__

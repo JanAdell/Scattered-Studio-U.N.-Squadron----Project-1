@@ -28,8 +28,11 @@ private:
 	// The total height of the wave
 	int waveHeight = 15;
 	// A set of steps that define the position in the screen
-// And an animation for each step
+	// And an animation for each step
 	Path path;
+	Path path2;
+	Path path3;
+	Path path4;
 
 	// The enemy animation
 	Animation fly;
@@ -38,8 +41,17 @@ private:
 	Animation flyBack;
 	Animation turnBack;
 
+	Animation turn2;
+	Animation turn2Back;
+
+	Animation flyDown;
 	Animation flyUp;
-	Animation flyBackUp;
+
+	Animation turndown;
+	Animation turndownBack;
+
+	Animation turndown2;
+	Animation turndownBack2;
 };
 
 #endif 

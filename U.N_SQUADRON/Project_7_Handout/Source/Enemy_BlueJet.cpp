@@ -25,21 +25,21 @@ Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 
 
 
-	//Topright	
+	//Botright	
 	path.PushBack({ -4.0f , 0.f }, 50, &flyBack);
-	path.PushBack({ -3.0f , 3.0f }, 200, &flyBackDown);
+	path.PushBack({ -3.0f , -3.0f }, 200, &flyBackUp);
 
-	//Botright
+	//Topright
 	path2.PushBack({ -4.0f , 0.f }, 50, &flyBack);
-	path2.PushBack({ -3.0f , -3.0f }, 200, &flyBackUp);
-
-	//Topleft
-	path3.PushBack({ 4.0f , 0.f }, 50, &flyBack);
-	path3.PushBack({ 3.0f , -3.0f }, 200, &flyDown);
+	path2.PushBack({ -3.0f , 3.0f }, 200, &flyBackDown);
 
 	//Botleft
+	path3.PushBack({ 4.0f , 0.f }, 50, &flyBack);
+	path3.PushBack({ 3.0f , -3.0f }, 200, &flyUp);
+
+	//Topleft
 	path4.PushBack({ 4.0f , 0.f }, 50, &fly);
-	path4.PushBack({ 3.0f , 3.0f }, 200, &flyUp);
+	path4.PushBack({ 3.0f , 3.0f }, 200, &flyDown);
 
 	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
