@@ -29,7 +29,7 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/titlescreen.png");
-	App->audio->PlayMusic("Assets/Music/opening", 1.0f);
+	App->audio->PlayMusic("Assets/music/levels/opening.ogg", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
