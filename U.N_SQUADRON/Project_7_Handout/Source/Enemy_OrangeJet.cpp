@@ -2,6 +2,7 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModuleRender.h"
 
 Enemy_OrangeJet::Enemy_OrangeJet(int x, int y) : Enemy(x, y)
 {
@@ -140,14 +141,14 @@ void Enemy_OrangeJet::Update()
 		position = spawnPos + path2.GetRelativePosition();
 		Enemy::Update();
 	}
-	if (spawnPos.x < SCREEN_WIDTH / 2 && spawnPos.y < SCREEN_HEIGHT / 2) {
+	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2 && spawnPos.y < SCREEN_HEIGHT / 2) {
 		currentAnim = path3.GetCurrentAnimation();
 
 		path3.Update();
 		position = spawnPos + path3.GetRelativePosition();
 		Enemy::Update();
 	}
-	if (spawnPos.x < SCREEN_WIDTH / 2 && spawnPos.y > SCREEN_HEIGHT / 2) {
+	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2 && spawnPos.y > SCREEN_HEIGHT / 2) {
 		currentAnim = path4.GetCurrentAnimation();
 
 		path4.Update();

@@ -31,11 +31,13 @@ bool ModuleScene::Start()
 
 	for (int i = 0; i < MAX_LEFT_SPAWNER; i++) left_spawn_positions[i] = 0;
 		
-	left_spawn_positions[ORANGE_JET_1] = 100;
-	/*left_spawn_positions[BIG_CAMO_JET_1] = 800;
-	left_spawn_positions[BLUE_JET_1] = 800;
-	left_spawn_positions[ORANGE_JET_2] = 800;
-	left_spawn_positions[BIG_CAMO_JET_2] = 800;*/
+	left_spawn_positions[ORANGE_JET_1_1] = 710;
+	left_spawn_positions[ORANGE_JET_1_2] = 725;
+	left_spawn_positions[ORANGE_JET_1_3] = 740;
+	/*left_spawn_positions[BIG_CAMO_JET_1] = 900;
+	left_spawn_positions[BLUE_JET_1] = 1000;
+	left_spawn_positions[ORANGE_JET_2] = 1100;
+	left_spawn_positions[BIG_CAMO_JET_2] = 1100;*/
 
 	bgTextures[0] = App->textures->Load("Assets/sprites/background/c1.png");
 	bgTextures[1] = App->textures->Load("Assets/sprites/background/c2.png");
@@ -50,7 +52,7 @@ bool ModuleScene::Start()
 	//Enemy Script->Initial pos + spawn delay
 	//Med Camos
 	//2 secs 
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 600, 100);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 595, 100);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 610, 100);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 620, 100);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 630, 100);
@@ -241,10 +243,14 @@ update_status ModuleScene::Update()
 		if (camera_x >= left_spawn_positions[left_spawn_counter]) {
 			switch (left_spawner(left_spawn_counter))
 			{
-			case ORANGE_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 100);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 20, 100);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 25, 100);
+			case ORANGE_JET_1_1:
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 10, 100);
+				break;
+			case ORANGE_JET_1_2:
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 10, 100);
+				break;
+			case ORANGE_JET_1_3:
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 10, 100);
 				break;
 			default:
 				break;
@@ -253,6 +259,7 @@ update_status ModuleScene::Update()
 		}
 		
 	}
+	
 
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();

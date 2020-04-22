@@ -2,6 +2,7 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModuleRender.h"
 
 Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 {
@@ -62,7 +63,7 @@ Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 
 void Enemy_MedCamoJet::Update()
 {
-	if (spawnPos.x < SCREEN_WIDTH / 2) {
+	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2) {
 		currentAnim = path.GetCurrentAnimation();
 
 		path.Update();
