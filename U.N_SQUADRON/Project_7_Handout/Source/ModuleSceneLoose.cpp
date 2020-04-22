@@ -28,8 +28,8 @@ bool ModuleSceneLoose::Start()
 	bool ret = true;
 
 	bgtitle = App->textures->Load("Assets/gameover.png"); 
-	App->audio->PlayMusic("Assets/music/gameover.wav", 1.0f);
-
+	App->audio->PlayMusic("Assets/gameover.ogg", 1.0f);
+	
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
@@ -45,7 +45,7 @@ update_status ModuleSceneLoose::Update()
 
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin, 90);
 	}
 
