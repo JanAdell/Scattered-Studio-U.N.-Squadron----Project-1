@@ -21,7 +21,7 @@ bool ModuleSceneWin::Start() {
 	bool ret = true;
 
 
-	bgTexture = App->textures->Load("Assets/WinScreen1.png");
+	bgTexture = App->textures->Load("Assets/winscreen1.png");
 	App->audio->PlayMusic("Assets/win.ogg", 1.0f);
 
 	App->render->camera.x = 0;
