@@ -52,9 +52,9 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	turnback.speed = 0.07;
 
 	//Left->right->left
-	path.PushBack({ 3.0f , 0.f }, 100, &fly);
+	path.PushBack({ 5.0f , 0.f }, 100, &fly);
 	path.PushBack({ -0.5f , 0.5f }, 70, &turn);
-	path.PushBack({ 5.0f, 0.0f }, 300, &flipfly);
+	path.PushBack({ -3.0f, 0.0f }, 300, &flipfly);
 
 	//Right->left->right
 	path2.PushBack({ -3.0f , 0.f }, 100, &flyback);

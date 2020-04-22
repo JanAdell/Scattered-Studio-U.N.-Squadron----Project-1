@@ -22,12 +22,11 @@ private:
 	
 	// The enemy animation
 	Animation fly;
-	Animation flipfly;
-	Animation turn;
-
 	Animation flyback;
-	Animation flipflyback;
+	Animation turn;
 	Animation turnback;
+	Animation flyreverse;
+	Animation flyreverseback;
 };
 
 #endif 
