@@ -6,41 +6,41 @@
 
 Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 308,131,30,9 });
+	fly.PushBack({ 616,262,60,18 });
 	fly.speed = 0.01f;
 
-	flyBack.PushBack({ 207,131,30,9 });
+	flyBack.PushBack({ 207*2,131 * 2,30 * 2,9 * 2 });
 	flyBack.speed = 0.01f;
 
-	flyUp.PushBack({ 341,129,30,13 });
+	flyUp.PushBack({ 341 * 2,129 * 2,30 * 2,13 * 2 });
 	flyUp.speed = 0.01f;
 	
-	flyBackUp.PushBack({ 174,129,30,13 });
+	flyBackUp.PushBack({ 174 * 2,129 * 2,30 * 2,13 * 2 });
 	flyBackUp.speed = 0.01f;
 
-	flyDown.PushBack({ 275,131,30,14 });
+	flyDown.PushBack({ 275 * 2,131 * 2,30 * 2,14 * 2 });
 	flyDown.speed = 0.01f;
 
-	flyBackDown.PushBack({ 240,131,30,14 });
+	flyBackDown.PushBack({ 240 * 2,131 * 2,30 * 2,14 * 2 });
 	flyBackDown.speed = 0.01f;
 
 
 
 	//Botright	
-	path.PushBack({ -4.0f , 0.f }, 50, &flyBack);
-	path.PushBack({ -3.0f , -3.0f }, 200, &flyBackUp);
+	path.PushBack({ -4.0f , 0.f }, 100, &flyBack);
+	path.PushBack({ -3.0f , -3.0f }, 400, &flyBackUp);
 
 	//Topright
-	path2.PushBack({ -4.0f , 0.f }, 50, &flyBack);
-	path2.PushBack({ -3.0f , 3.0f }, 200, &flyBackDown);
+	path2.PushBack({ -4.0f , 0.f }, 100, &flyBack);
+	path2.PushBack({ -3.0f , 3.0f }, 400, &flyBackDown);
 
 	//Botleft
-	path3.PushBack({ 4.0f , 0.f }, 50, &fly);
-	path3.PushBack({ 3.0f , -3.0f }, 200, &flyUp);
+	path3.PushBack({ 4.0f , 0.f }, 100, &fly);
+	path3.PushBack({ 3.0f , -3.0f }, 400, &flyUp);
 
 	//Topleft
-	path4.PushBack({ 4.0f , 0.f }, 50, &fly);
-	path4.PushBack({ 3.0f , 3.0f }, 200, &flyDown);
+	path4.PushBack({ 4.0f , 0.f }, 100, &fly);
+	path4.PushBack({ 3.0f , 3.0f }, 400, &flyDown);
 
 	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 }
