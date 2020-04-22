@@ -62,7 +62,7 @@ bool ModuleParticles::CleanUp()
 			particles[i] = nullptr;
 		}
 	}
-
+	//App->textures->Unload();
 	return true;
 }
 
