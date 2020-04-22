@@ -269,6 +269,10 @@ update_status ModuleScene::Update()
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();
 
+	if (App->render->camera.x >= 3100) {
+		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
+		
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }
