@@ -39,6 +39,7 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	turn.PushBack({ 415,109,11,17 });
 	turn.PushBack({ 428,110,18,15 });
 	turn.PushBack({ 450,110,26,15 });
+	turn.loop = false;
 	turn.speed = 0.07f;
 
 	//turn (left to right)
@@ -49,6 +50,7 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	turnback.PushBack({ 119,109,11,17 });
 	turnback.PushBack({ 99,110,18,15 });
 	turnback.PushBack({ 69,110,26,15 });
+	turnback.loop = false;
 	turnback.speed = 0.07;
 
 	//Left->right->left

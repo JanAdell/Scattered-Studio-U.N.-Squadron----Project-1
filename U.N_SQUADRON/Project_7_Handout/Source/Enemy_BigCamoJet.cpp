@@ -27,6 +27,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turn.PushBack({ 219,46,15,30 });
 	turn.PushBack({ 236,43,9,33 });
 	turn.PushBack({ 248,43,12,33 });
+	turn.loop = false;
 	turn.speed = 0.08f;
 
 	//turn up from right
@@ -35,6 +36,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turnBack.PushBack({ 311,46,15,30 });
 	turnBack.PushBack({ 300,43,9,33 });
 	turnBack.PushBack({ 285,43,12,33 });
+	turnBack.loop = false;
 	turnBack.speed = 0.08f;
 
 	//turn left from up
@@ -43,6 +45,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turn2.PushBack({ 311,46,15,30 });
 	turn2.PushBack({ 329,51,23,25 });
 	turn2.PushBack({ 354,58,30,18 });
+	turn2.loop = false;
 	turn2.speed = 0.08f;
 
 	//turn right from up
@@ -51,6 +54,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turn2Back.PushBack({ 219,46,15,30 });
 	turn2Back.PushBack({ 193,51,23,25 });
 	turn2Back.PushBack({ 161,58,30,18 });
+	turn2Back.loop = false;
 	turn2Back.speed = 0.08f;
 	
 	//turn down from right
@@ -59,6 +63,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turndownBack.PushBack({ 313,310,14,30 });
 	turndownBack.PushBack({ 302,310,8,32 });
 	turndownBack.PushBack({ 287,310,11,32 });
+	turndownBack.loop = false;
 	turndownBack.speed = 0.08f;
 
 	//turn left from down
@@ -67,6 +72,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turndown2.PushBack({ 313,310,14,30 });
 	turndown2.PushBack({ 331,310,22,25 });
 	turndown2.PushBack({ 356,310,29,18 });
+	turndown2.loop = false;
 	turndown2.speed = 0.08f;
 
 	//turn down from left
@@ -75,6 +81,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turndown.PushBack({ 221,310,14,30 });
 	turndown.PushBack({ 238,310,8,32 });
 	turndown.PushBack({ 250,310,11,32 });
+	turndown.loop = false;
 	turndown.speed = 0.08f;
 
 	//turn right from down
@@ -83,6 +90,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	turndownBack2.PushBack({ 221,310,14,30 });
 	turndownBack2.PushBack({ 195,310,22,25 });
 	turndownBack2.PushBack({ 163,310,29,18 });
+	turndownBack2.loop = false;
 	turndownBack2.speed = 0.08f;
 
 	//Path topright -> complete

@@ -22,6 +22,7 @@ Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 	turnback.PushBack({ 94,82,16,23 });
 	turnback.PushBack({ 68,82,23,13 });
 	turnback.PushBack({ 36,81,30,24 });
+	turnback.loop = false;
 	turnback.speed = 0.08f;
 
 	//turn (left to right)
@@ -33,6 +34,7 @@ Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 	turn.PushBack({ 435,82,16,23 });
 	turn.PushBack({ 454,82,23,13 });
 	turn.PushBack({ 479,81,30,24 });
+	turn.loop = false;
 	turn.speed = 0.08f;
 
 	//fly flipped left

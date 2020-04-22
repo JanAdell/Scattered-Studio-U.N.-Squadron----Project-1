@@ -252,6 +252,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 550, 300);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 0, 100);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 0, 300);
+		
 
 	//App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 600, 300);
 	
