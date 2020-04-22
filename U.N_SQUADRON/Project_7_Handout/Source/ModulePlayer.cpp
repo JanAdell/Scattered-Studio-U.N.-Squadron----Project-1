@@ -3,11 +3,12 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
-#include "ModuleRender.h"
+#include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "ModuleFonts.h"
+#include "ModuleRender.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -120,6 +121,8 @@ update_status ModulePlayer::Update()
 		destroyedCountdown--;
 		if (destroyedCountdown <= 0)
 			return update_status::UPDATE_STOP;
+		/*App->scene->Disable();
+		App->transition->FadeToBlack(this, (Module*)App->loose);*/
 	}
 
 	return update_status::UPDATE_CONTINUE;

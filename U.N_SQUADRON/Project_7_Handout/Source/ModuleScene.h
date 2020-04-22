@@ -43,15 +43,16 @@ public:
 
 	enum left_spawner : int //30, un per cada spawn
 	{
-		ORANGE_JET_1_1,
-		ORANGE_JET_1_2,
-		ORANGE_JET_1_3,
-		BIG_CAMO_JET_1_1,
-		BIG_CAMO_JET_1_2,
-		BIG_CAMO_JET_1_3,
+		ORANGE_JET_1,
+		BIG_CAMO_JET_1,
 		BLUE_JET_1,
 		ORANGE_JET_2,
 		BIG_CAMO_JET_2,
+		BLUE_JETS_2,
+		BLUE_JETS_3,
+		BIG_CAMO_JET_3,
+		BIG_CAMO_JET_4,
+		
 		MAX_LEFT_SPAWNER
 	};
 

@@ -35,7 +35,7 @@ Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 	path2.PushBack({ -3.0f , 3.0f }, 200, &flyBackDown);
 
 	//Botleft
-	path3.PushBack({ 4.0f , 0.f }, 50, &flyBack);
+	path3.PushBack({ 4.0f , 0.f }, 50, &fly);
 	path3.PushBack({ 3.0f , -3.0f }, 200, &flyUp);
 
 	//Topleft
@@ -75,12 +75,6 @@ void Enemy_BlueJet::Update()
 		position = spawnPos + path4.GetRelativePosition();
 		Enemy::Update();
 	}
-
-	/*currentAnim = path.GetCurrentAnimation();
-
-	path.Update();
-	position = spawnPos + path.GetRelativePosition();
-
-	Enemy::Update();*/
+		
 
 }
