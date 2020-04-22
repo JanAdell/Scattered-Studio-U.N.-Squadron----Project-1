@@ -40,6 +40,19 @@ public:
 
 	// The sprite rectangle for the ground
 	SDL_Texture* starsTexture = nullptr;
+
+	enum left_spawner : int
+	{
+		ORANGE_JET_1,
+		BIG_CAMO_JET_1,
+		BLUE_JET_1,
+		ORANGE_JET_2,
+		BIG_CAMO_JET_2,
+		MAX_LEFT_SPAWNER
+	};
+
+	int left_spawn_positions[MAX_LEFT_SPAWNER];
+	int left_spawn_counter;
 };
 
 #endif

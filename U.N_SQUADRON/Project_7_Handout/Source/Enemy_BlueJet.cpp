@@ -41,7 +41,7 @@ Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 	path4.PushBack({ 4.0f , 0.f }, 50, &fly);
 	path4.PushBack({ 3.0f , 3.0f }, 200, &flyDown);
 
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_BlueJet::Update()

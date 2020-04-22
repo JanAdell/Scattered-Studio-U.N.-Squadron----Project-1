@@ -121,7 +121,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	path4.PushBack({ -1.0f , -1.0f }, 60, &turn2);
 	path4.PushBack({ -3.0f , 0.f }, 500, &flyBack);
 
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_BigCamoJet::Update()

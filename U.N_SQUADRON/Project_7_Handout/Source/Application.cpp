@@ -75,15 +75,36 @@ bool Application::Init()
 update_status Application::Update()
 {
 	update_status ret = update_status::UPDATE_CONTINUE;
+	bool wants_to_quit = false;
 
-	for (int i = 0; i < NUM_MODULES && ret == update_status::UPDATE_CONTINUE; ++i)
-		ret = modules[i]->IsEnabled() ? modules[i]->PreUpdate() : update_status::UPDATE_CONTINUE;
+	for (int i = 0; i < NUM_MODULES && ret != update_status::UPDATE_ERROR; ++i) {
+		if (modules[i]->IsEnabled()) {
+			ret = modules[i]->PreUpdate();
+			if (ret == update_status::UPDATE_STOP) {
+				wants_to_quit = true;
+			}
+		}
+	}
 
-	for (int i = 0; i < NUM_MODULES && ret == update_status::UPDATE_CONTINUE; ++i)
-		ret = modules[i]->IsEnabled() ? modules[i]->Update() : update_status::UPDATE_CONTINUE;
+	for (int i = 0; i < NUM_MODULES && ret != update_status::UPDATE_ERROR; ++i) {
+		if (modules[i]->IsEnabled()) {
+			ret = modules[i]->Update();
+			if (ret == update_status::UPDATE_STOP) {
+				wants_to_quit = true;
+			}
+		}
+	}
 
-	for (int i = 0; i < NUM_MODULES && ret == update_status::UPDATE_CONTINUE; ++i)
-		ret = modules[i]->IsEnabled() ? modules[i]->PostUpdate() : update_status::UPDATE_CONTINUE;
+	for (int i = 0; i < NUM_MODULES && ret != update_status::UPDATE_ERROR; ++i) {
+		if (modules[i]->IsEnabled()) {
+			ret = modules[i]->PostUpdate();
+			if (ret == update_status::UPDATE_STOP) {
+				wants_to_quit = true;
+			}
+		}
+	}
+
+	if (wants_to_quit) ret = update_status::UPDATE_STOP;
 
 	return ret;
 }

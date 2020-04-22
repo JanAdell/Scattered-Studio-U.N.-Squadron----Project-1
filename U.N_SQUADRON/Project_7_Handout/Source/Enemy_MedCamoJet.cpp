@@ -55,7 +55,7 @@ Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 	path2.PushBack({ -0.5f , 0.5f }, 70, &turnback);
 	path2.PushBack({ 5.0f, 0.0f }, 300, &flyreverseback);
 
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 	
 
 }

@@ -7,22 +7,24 @@
 
 class Module;
 
+enum ColliderType
+{
+	NONE = -1,
+	WALL,
+	PLAYER,
+	ENEMY,
+	PLAYER_SHOT,
+	ENEMY_SHOT,
+
+	MAX
+};
+
+
 struct Collider
 {
-	enum Type
-	{
-		NONE = -1,
-		WALL,
-		PLAYER,
-		ENEMY,
-		PLAYER_SHOT,
-		ENEMY_SHOT,
-
-		MAX
-	};
-
+	
 	//Methods
-	Collider(SDL_Rect rectangle, Type type, Module* listener = nullptr);
+	Collider(SDL_Rect rectangle, ColliderType type, Module* listener = nullptr);
 
 	void SetPos(int x, int y);
 
@@ -33,7 +35,7 @@ struct Collider
 	//Variables
 	SDL_Rect rect;
 	bool pendingToDelete = false;
-	Type type;
+	ColliderType type;
 	Module* listeners[MAX_LISTENERS] = { nullptr };
 };
 

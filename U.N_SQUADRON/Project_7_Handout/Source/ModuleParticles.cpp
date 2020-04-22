@@ -115,7 +115,7 @@ update_status ModuleParticles::PostUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collider::Type colliderType, uint delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, ColliderType colliderType, uint delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -129,7 +129,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collid
 			p->position.y = y;
 
 			//Adding the particle's collider
-			if (colliderType != Collider::Type::NONE)
+			if (colliderType != ColliderType::NONE)
 				p->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);
 
 			particles[i] = p;

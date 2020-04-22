@@ -63,7 +63,7 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	path2.PushBack({ -0.5f , 0.5f }, 70, &turnback);
 	path2.PushBack({ 5.0f, 0.0f }, 300, &flipflyback);
 
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_SmallCamoJet::Update()

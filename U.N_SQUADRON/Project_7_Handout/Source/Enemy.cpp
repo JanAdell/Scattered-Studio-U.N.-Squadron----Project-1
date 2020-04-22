@@ -43,3 +43,4 @@ void Enemy::OnCollision(Collider* collider)
 	App->audio->PlayFx(destroyedFx);
 
 }
+

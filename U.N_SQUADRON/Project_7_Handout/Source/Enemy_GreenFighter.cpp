@@ -13,7 +13,7 @@ Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
 	path.PushBack({ -0.01f , -2.0f }, 200, &fly);
 	path.PushBack({ 0.01f , 2.0f }, 100, &fly);
 
-	collider = App->collisions->AddCollider({ 0, 0, 107, 39 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 107, 39 }, ColliderType::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_GreenFighter::Update()

@@ -18,7 +18,7 @@ Mech::Mech(int x, int y) : Enemy(x, y)
 	path.PushBack({ -0.5f , 0.0f }, 125, &walk);
 
 	path.PushBack({ 1.0f , 0.0f }, 250, &walkBack);
-	collider = App->collisions->AddCollider({ 0, 0, 30, 30 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 30, 30 }, ColliderType::ENEMY, (Module*)App->enemies);
 }
 
 void Mech::Update()
