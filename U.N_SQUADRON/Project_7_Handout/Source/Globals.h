@@ -23,8 +23,8 @@ typedef unsigned int uint;
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 960
 
-#define PLAYER_WIDTH 32
-#define PLAYER_HEIGHT 16
+#define PLAYER_WIDTH 128
+#define PLAYER_HEIGHT 64
 
 #define SCREEN_SIZE 1
 #define SCREEN_SPEED 1

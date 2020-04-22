@@ -16,14 +16,15 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 155, 38, 32, 11 });
+	idleAnim.PushBack({ 105, 0, 96, 33 });
 
 	// move upwards
-	upAnim.PushBack({ 189, 40, 32, 12 });
+
+	upAnim.PushBack({ 207, 6, 96, 36 });
 	upAnim.speed = 0.1f;
 
 	// Move down
-	downAnim.PushBack({ 120, 39, 32, 13 });
+	downAnim.PushBack({ 0, 3, 96, 39 });
 	downAnim.speed = 0.1f;
 }
 
@@ -38,7 +39,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/sprites/player/player spaceships.png");
+	texture = App->textures->Load("Assets/sprites/player/player_sprites.png");
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/laser.wav");
@@ -50,9 +51,9 @@ bool ModulePlayer::Start()
 	//scoreFont2 = App->fonts->Load("assets/Fonts/"".png", "", 2);
 	
 	position.x = 100;
-	position.y = 220;
+	position.y = 600;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 12 }, ColliderType::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 90, 50 }, ColliderType::PLAYER, this);
 
 	return ret;
 }
@@ -70,12 +71,12 @@ update_status ModulePlayer::Update()
 		position.x -= speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH+App->render->camera.x-32)
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH+App->render->camera.x-128)
 	{
 		position.x += speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT-16)
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT-32)
 	{
 		position.y += speed;
 		if (currentAnimation != &downAnim)
@@ -97,7 +98,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, ColliderType::PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + 90, position.y+10, ColliderType::PLAYER_SHOT);
 		App->audio->PlayFx(laserFx);
 	}
 
