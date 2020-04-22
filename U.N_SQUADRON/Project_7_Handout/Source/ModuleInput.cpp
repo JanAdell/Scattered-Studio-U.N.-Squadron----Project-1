@@ -32,6 +32,7 @@ bool ModuleInput::Init()
 	}
 	controllerCharacterSelection = 0;
 
+
 	return ret;
 }
 
@@ -62,7 +63,7 @@ update_status ModuleInput::PreUpdate()
 			return update_status::UPDATE_STOP;
 		}
 
-	
+
 
 		return update_status::UPDATE_CONTINUE;
 	}

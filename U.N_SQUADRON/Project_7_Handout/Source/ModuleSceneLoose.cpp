@@ -27,7 +27,7 @@ bool ModuleSceneLoose::Start()
 
 	bool ret = true;
 
-	bgtitle = App->textures->Load("Assets/gameover.png"); 
+	bgtitle = App->textures->Load("Assets/gameover1.png"); 
 	App->audio->PlayMusic("Assets/gameover.ogg", 1.0f);
 	
 	App->render->camera.x = 0;

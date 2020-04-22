@@ -28,7 +28,7 @@ bool ModuleSceneIntro::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/titlescreen.png");
+	bgTexture = App->textures->Load("Assets/Capcom.png");
 	App->audio->PlayMusic("Assets/music/levels/opening.ogg", 1.0f);
 
 	App->render->camera.x = 0;
@@ -65,3 +65,4 @@ update_status ModuleSceneIntro::PostUpdate()
 
 	return update_status::UPDATE_CONTINUE;
 }
+

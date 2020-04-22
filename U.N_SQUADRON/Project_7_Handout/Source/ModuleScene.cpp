@@ -189,6 +189,7 @@ bool ModuleScene::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	
+
 	App->player->Enable();
 	App->enemies->Enable();
 
@@ -197,6 +198,8 @@ bool ModuleScene::Start()
 
 update_status ModuleScene::Update()
 {
+
+
 	if (left_spawn_counter < MAX_LEFT_SPAWNER) {
 		int camera_x = App->render->camera.x;
 		if (camera_x >= left_spawn_positions[left_spawn_counter]) {
@@ -266,10 +269,6 @@ update_status ModuleScene::Update()
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();
 
-	if (App->render->camera.x >= 3100) {
-		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
-	}
-
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -287,6 +286,8 @@ update_status ModuleScene::PostUpdate()
 	}
 
 	return update_status::UPDATE_CONTINUE;
+
+
 }
 
 void ModuleScene::updateBackground() {
