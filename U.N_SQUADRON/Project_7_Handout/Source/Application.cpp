@@ -16,6 +16,7 @@
 #include "ModuleRender.h"
 #include "ModuleFonts.h"
 #include "ModuleSceneLoose.h"
+#include "ModuleWelcomeScene.h"
 
 Application::Application()
 {
@@ -27,24 +28,26 @@ Application::Application()
 	modules[2] = textures = new ModuleTextures(true);
 	modules[3] = audio = new ModuleAudio(true);
 
-	modules[4] = initialScreen = new ModuleSceneIntro(true);
+	modules[4] = welcomeScreen = new ModuleWelcomeScene(true);
+
+	modules[5] = initialScreen = new ModuleSceneIntro(false);
 
 
 
-	modules[5] = scene = new ModuleScene(false);
-	modules[6] = sceneWin = new ModuleSceneWin(false);
-	modules[7] = loose = new ModuleSceneLoose(false);
+	modules[6] = scene = new ModuleScene(false);
+	modules[7] = sceneWin = new ModuleSceneWin(false);
+	modules[8] = loose = new ModuleSceneLoose(false);
 
-	modules[8] = player = new ModulePlayer(false);
+	modules[9] = player = new ModulePlayer(false);
 
-	modules[9] = particles = new ModuleParticles(true);
-	modules[10] = enemies = new ModuleEnemies(false);
+	modules[10] = particles = new ModuleParticles(true);
+	modules[11] = enemies = new ModuleEnemies(false);
 
-	modules[11] = collisions = new ModuleCollisions(true);
-	modules[12] = transition = new ModuleFadeToBlack(true);
-	modules[13] = fonts = new ModuleFonts(false);
+	modules[12] = collisions = new ModuleCollisions(true);
+	modules[13] = transition = new ModuleFadeToBlack(true);
+	modules[14] = fonts = new ModuleFonts(false);
 
-	modules[14] = render = new ModuleRender(true);
+	modules[15] = render = new ModuleRender(true);
 }
 
 Application::~Application()
