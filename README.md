@@ -31,6 +31,11 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * **F7 Key:** Load Loose Scene.
 
+## Options
+
+* **Keypad + Key**: Highens game volume.
+
+* **Keypad - Key**: Lowers game volume.
 
 ## Members
   
