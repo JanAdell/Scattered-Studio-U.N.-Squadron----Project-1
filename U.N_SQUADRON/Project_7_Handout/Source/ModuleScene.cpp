@@ -41,6 +41,8 @@ bool ModuleScene::Start()
 
 	App->audio->PlayMusic("Assets/stage1.ogg", 6);
 
+	App->player->destroyed = false;
+
 	//App->fonts->Load();
 
 	bool ret = true;

@@ -75,12 +75,12 @@ update_status ModulePlayer::Update()
 		position.x -= speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH+App->render->camera.x-128)
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH+App->render->camera.x - 90)
 	{
 		position.x += speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT-32)
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT- 40)
 	{
 		position.y += speed;
 		if (currentAnimation != &downAnim)
@@ -163,4 +163,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 void ModulePlayer::godModeUpdate()
 {
 	godMode = !godMode;
+}
+
+bool ModulePlayer::CleanUp() {
+
+	App->textures->Unload(texture);
+
+	return true;
 }

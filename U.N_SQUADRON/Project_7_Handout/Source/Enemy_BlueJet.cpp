@@ -82,7 +82,7 @@ void Enemy_BlueJet::Update()
 	}
 		
 	current_time = SDL_GetTicks();
-	if (current_time > time + 3500) {
+	if (current_time > time + 4000) {
 		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.01;
 		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y) * -0.01;
 		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
