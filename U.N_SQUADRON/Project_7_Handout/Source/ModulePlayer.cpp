@@ -39,6 +39,8 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
+	destroyed = false;
+
 	texture = App->textures->Load("Assets/sprites/player/player_sprites.png");
 	currentAnimation = &idleAnim;
 

@@ -29,6 +29,10 @@ bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
 
+	cont[0] = 0;
+	cont[1] = 0;
+	cont[2] = 0;
+	cont[3] = 0;
 
 	bgTextures[0] = App->textures->Load("Assets/sprites/background/c1.png");
 	bgTextures[1] = App->textures->Load("Assets/sprites/background/c2.png");
