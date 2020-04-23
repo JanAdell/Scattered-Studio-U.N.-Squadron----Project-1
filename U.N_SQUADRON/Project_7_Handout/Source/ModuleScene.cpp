@@ -44,6 +44,8 @@ bool ModuleScene::Start()
 		
 	//App->fonts->Load("");
 
+	App->particles->Enable();
+
 	bool ret = true;
 
 	//Left Spawn management
@@ -339,7 +341,7 @@ bool ModuleScene::CleanUp()
 {
 	App->player->Disable();
 	App->enemies->Disable();
-		
+	App->particles->Disable();
 
 	App->textures->Unload(bgTextures[0]);
 	App->textures->Unload(bgTextures[1]);

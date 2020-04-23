@@ -26,6 +26,8 @@ bool ModuleParticles::Start()
 	texture = App->textures->Load("Assets/sprites/praticles/particles_rz.png");
 	//texture = App->textures->Load("Assets/sprites/particles/particles.png");
 
+
+
 	// Explosion particle
 	explosion.anim.PushBack({123, 0, 72, 75});
 	explosion.anim.PushBack({201, 0, 87, 78});

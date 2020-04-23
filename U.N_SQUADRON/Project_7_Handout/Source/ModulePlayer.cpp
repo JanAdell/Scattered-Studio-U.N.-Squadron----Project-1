@@ -83,7 +83,7 @@ update_status ModulePlayer::Update()
 		position.x -= speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH+App->render->camera.x - 90)
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH + App->render->camera.x - 100)
 	{
 		position.x += speed;
 	}
