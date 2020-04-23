@@ -21,6 +21,9 @@
 #include "Enemy_GreenFighter.h"
 #include "Enemy_SmallCamoJet.h"
 
+//Player for Score value
+#include "ModulePlayer.h"
+
 
 #define SPAWN_MARGIN 200
 
@@ -221,9 +224,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
-			
+			App->player->score_value += 300;
+			LOG("score value is %d", App->player->score_value)
 			delete enemies[i];
 			enemies[i] = nullptr;
+
 			break;
 		}
 	}

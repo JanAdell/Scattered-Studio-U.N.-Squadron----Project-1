@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "SDL/include/SDL.h"
 #include "ModuleParticles.h"
+#include "ModulePlayer.h"
 
 Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 {
@@ -30,19 +31,19 @@ Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 
 	//Botright	
 	path.PushBack({ -4.0f , 0.f }, 100, &flyBack);
-	path.PushBack({ -3.0f , -3.0f }, 400, &flyBackUp);
+	path.PushBack({ -4.0f , -4.0f }, 400, &flyBackUp);
 
 	//Topright
 	path2.PushBack({ -4.0f , 0.f }, 100, &flyBack);
-	path2.PushBack({ -3.0f , 3.0f }, 400, &flyBackDown);
+	path2.PushBack({ -4.0f , 4.0f }, 400, &flyBackDown);
 
 	//Botleft
 	path3.PushBack({ 4.0f , 0.f }, 100, &fly);
-	path3.PushBack({ 3.0f , -3.0f }, 400, &flyUp);
+	path3.PushBack({ 4.0f , -4.0f }, 400, &flyUp);
 
 	//Topleft
 	path4.PushBack({ 4.0f , 0.f }, 100, &fly);
-	path4.PushBack({ 3.0f , 3.0f }, 400, &flyDown);
+	path4.PushBack({ 4.0f , 4.0f }, 400, &flyDown);
 
 	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 
@@ -81,7 +82,9 @@ void Enemy_BlueJet::Update()
 	}
 		
 	current_time = SDL_GetTicks();
-	if (current_time > time + 1500) {
+	if (current_time > time + 2000) {
+		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.01;
+		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y) * -0.01;
 		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
 		time = current_time;
 	}

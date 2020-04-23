@@ -35,7 +35,8 @@ bool ModuleParticles::Start()
 	explosion.anim.PushBack({591, 0, 93, 84});
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
-
+	
+	//Player shot
 	laser.anim.PushBack({ 9, 183, 27, 18 });
 	laser.anim.PushBack({ 87, 180, 24, 18 });
 	laser.anim.PushBack({ 168, 183, 27, 15 });
@@ -55,8 +56,8 @@ bool ModuleParticles::Start()
 	enemy_shot.anim.PushBack({ 90, 9, 15, 21 });
 	enemy_shot.anim.speed = 0.3f;
 	enemy_shot.lifetime = 100;
-	enemy_shot.speed.x = 5;
-	enemy_shot.speed.y = 5;
+	/*enemy_shot.speed.x = 5;
+	enemy_shot.speed.y = 5;*/
 
 	return true;
 }
@@ -107,8 +108,7 @@ update_status ModuleParticles::Update()
 			particles[i] = nullptr;
 		}
 	}
-
-	
+		
 
 	return update_status::UPDATE_CONTINUE;
 }

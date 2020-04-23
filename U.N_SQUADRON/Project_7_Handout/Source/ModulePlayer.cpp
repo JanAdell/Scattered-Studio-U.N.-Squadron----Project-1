@@ -119,14 +119,7 @@ update_status ModulePlayer::Update()
 
 	currentAnimation->Update();
 
-	/*if (destroyed)
-	{
-		destroyedCountdown--;
-		if (destroyedCountdown <= 0)
-			return update_status::UPDATE_STOP;
-		App->scene->Disable();
-		App->transition->FadeToBlack(this, (Module*)App->loose);
-	}*/
+	
 
 	return update_status::UPDATE_CONTINUE;
 }

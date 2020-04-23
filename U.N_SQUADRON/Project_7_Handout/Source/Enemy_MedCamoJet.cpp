@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "SDL/include/SDL.h"
 #include "ModuleParticles.h"
+#include "ModulePlayer.h"
 
 Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 {
@@ -49,18 +50,20 @@ Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 	flyreverseback.speed = 0.1f;
 
 	//Left->right->left
-	path.PushBack({ 5.0f , 0.f }, 100, &fly);
-	path.PushBack({ -0.5f , 0.5f }, 70, &turn);
-	path.PushBack({ -3.0f, 0.0f }, 300, &flyreverse);
+	path.PushBack({ 5.0f , 0.f }, 200, &fly);
+	path.PushBack({ -1.0f , 1.0f }, 70, &turn);
+	path.PushBack({ -4.0f, 0.0f }, 700, &flyreverse);
 
 	//Right->left->right
-	path2.PushBack({ -3.0f , 0.f }, 100, &flyback);
+	path2.PushBack({ -3.0f , 0.f }, 200, &flyback);
 	path2.PushBack({ -0.5f , 0.5f }, 70, &turnback);
-	path2.PushBack({ 5.0f, 0.0f }, 300, &flyreverseback);
+	path2.PushBack({ 4.0f, 0.0f }, 700, &flyreverseback);
 
 	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 	
 	time = 0;
+
+	
 
 }
 
@@ -82,7 +85,9 @@ void Enemy_MedCamoJet::Update()
 	}
 
 	current_time = SDL_GetTicks();
-	if (current_time > time + 1500) {
+	if (current_time > time + 2000) {
+		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x)*-0.01;
+		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y)*-0.01;
 		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
 		time = current_time;
 	}

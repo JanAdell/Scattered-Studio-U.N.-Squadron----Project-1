@@ -11,6 +11,7 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleSceneWin.h"
+#include "ModuleFonts.h"
 #include "SDL/include/SDL_scancode.h"
 
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
@@ -27,6 +28,16 @@ ModuleScene::~ModuleScene()
 bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
+
+
+	bgTextures[0] = App->textures->Load("Assets/sprites/background/c1.png");
+	bgTextures[1] = App->textures->Load("Assets/sprites/background/c2.png");
+	bgTextures[2] = App->textures->Load("Assets/sprites/background/c3.png");
+	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
+
+	App->audio->PlayMusic("Assets/stage1.ogg", 6);
+
+	//App->fonts->Load();
 
 	bool ret = true;
 
@@ -58,12 +69,7 @@ bool ModuleScene::Start()
 	left_spawn_positions[ORANGE_JET_2] = 1100;
 	left_spawn_positions[BIG_CAMO_JET_2] = 1100;*/
 
-	bgTextures[0] = App->textures->Load("Assets/sprites/background/c1.png");
-	bgTextures[1] = App->textures->Load("Assets/sprites/background/c2.png");
-	bgTextures[2] = App->textures->Load("Assets/sprites/background/c3.png");
-	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
-
-	App->audio->PlayMusic("Assets/stage1.ogg", 6);
+	
 
 	
 	
@@ -71,16 +77,16 @@ bool ModuleScene::Start()
 	//Enemy Script->Initial pos 
 	//Med Camos
 	//2 secs 
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1200,450);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1300,450);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1400,450);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1500,450);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1860,400);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1920,400);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1980,400);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 2040,400);
 														   
 	//3 secs											   
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1700, 700);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1800, 700);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1900, 700);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 2000, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1900, 650);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1960, 650);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 2020, 650);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 2080, 650);
 	
 	//-------------------------------------------------------------
 														  
@@ -91,7 +97,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2500, 725);
 	
 	//24 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 2700, 450);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 2500, 250);
 	
 	//36 secs
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2950, 390);
@@ -100,7 +106,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2950, 650);
 	
 	//38 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 3100, 450);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 3200, 250);
 	//------------------------------------------------------------
 	//44 secs 
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3275, 400);
@@ -109,7 +115,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3250, 700);
 	
 	//46 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 3300, 450);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 3700, 250);
 	//-----------------------------------------------------------
 	//48 secs
 	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 3500, 390);
@@ -136,7 +142,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 4050, 450);
 	
 	//62 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 4100, 450);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 4200, 250);
 	
 	//63 secs
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 4150, 550);
@@ -157,7 +163,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 4730, 350);
 
 	//72 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 4800, 450);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 4800, 250);
 
 	//74 secs
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 4850, 350);
@@ -216,9 +222,9 @@ update_status ModuleScene::Update()
 			switch (left_spawner(left_spawn_counter))
 			{
 			case ORANGE_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 200, 500);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 500);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 200, 500);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 200, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 200, 700);
 				break;
 		
 			case BIG_CAMO_JET_1:
@@ -228,27 +234,27 @@ update_status ModuleScene::Update()
 				break;
 			case BLUE_JET_1:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 50, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 100, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 310);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 50, 310);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 100, 310);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 70, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 140, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 900);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 70, 900);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 140, 900);
 				break;
 			case ORANGE_JET_2:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 30, 300);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 300);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 30, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 70, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 70, 200);
 				break;				
 			case BIG_CAMO_JET_2:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 30, 300);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 300);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 30, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 700);
 				break;
 			case BLUE_JETS_2:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 290);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 140, 290);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 150, 290);
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 510);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 140, 510);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 150, 510);
 				break;
 			case BLUE_JETS_3:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 290);
@@ -256,15 +262,15 @@ update_status ModuleScene::Update()
 				
 				break;
 			case BIG_CAMO_JET_3:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 30, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 300);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 300);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 30, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 300);
 				break;
 
 			case BIG_CAMO_JET_4:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 30, 600);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 600);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 600);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 30, 600);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 600);
 				break;
 
 			default:
@@ -279,7 +285,7 @@ update_status ModuleScene::Update()
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();
 
-	if (App->render->camera.x >= 6000) {
+	if (App->render->camera.x >= 5000) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
 	}
 

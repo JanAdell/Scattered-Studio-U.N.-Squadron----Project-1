@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "SDL/include/SDL.h"
 #include "ModuleParticles.h"
+#include "ModulePlayer.h"
 
 Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 {
@@ -57,12 +58,12 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	turnback.speed = 0.07;
 
 	//Left->right->left
-	path.PushBack({ 7.0f , 0.f }, 200, &fly);
+	path.PushBack({ 6.0f , 0.f }, 100, &fly);
 	path.PushBack({ -3.0f , 3.0f }, 70, &turn);
 	path.PushBack({ -4.0f, 0.0f }, 500, &flipfly);
 
 	//Right->left->right
-	path2.PushBack({ -7.0f , 0.f }, 200, &flyback);
+	path2.PushBack({ -6.0f , 0.f }, 100, &flyback);
 	path2.PushBack({ -3.0f , 3.0f }, 70, &turnback);
 	path2.PushBack({ 5.0f, 0.0f }, 300, &flipflyback);
 
@@ -89,7 +90,9 @@ void Enemy_SmallCamoJet::Update()
 	}
 
 	current_time = SDL_GetTicks();
-	if (current_time > time + 1500) {
+	if (current_time > time + 2000) {
+		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.01;
+		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y) * -0.01;
 		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
 		time = current_time;
 	}
