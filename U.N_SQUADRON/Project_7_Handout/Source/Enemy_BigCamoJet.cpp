@@ -3,6 +3,8 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModuleRender.h"
+#include "SDL/include/SDL.h"
+#include "ModuleParticles.h"
 
 Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 {
@@ -123,6 +125,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	path4.PushBack({ -8.0f , 0.f }, 500, & flyBack);
 
 	collider = App->collisions->AddCollider({ 0, 0, 64, 64}, ColliderType::ENEMY, (Module*)App->enemies);
+	time = 0;
 }
 
 void Enemy_BigCamoJet::Update()
@@ -154,5 +157,11 @@ void Enemy_BigCamoJet::Update()
 		path4.Update();
 		position = spawnPos + path4.GetRelativePosition();
 		Enemy::Update();
+	}
+
+	current_time = SDL_GetTicks();
+	if (current_time > time + 1500) {
+		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
+		time = current_time;
 	}
 }

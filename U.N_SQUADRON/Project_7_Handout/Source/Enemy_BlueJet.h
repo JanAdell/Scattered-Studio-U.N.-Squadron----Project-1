@@ -30,6 +30,10 @@ private:
 	Animation flyBack;
 	Animation flyBackUp;
 	Animation flyBackDown;
+
+	//Shot delay
+	unsigned int current_time;
+	unsigned int time = 0;
 };
 
 #endif 

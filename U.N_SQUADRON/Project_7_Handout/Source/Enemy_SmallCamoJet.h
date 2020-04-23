@@ -29,6 +29,10 @@ private:
 	Animation flyback;
 	Animation flipflyback;
 	Animation turnback;
+
+	//Shot delay
+	unsigned int current_time;
+	unsigned int time = 0;
 }; 
 
 #endif

@@ -2,6 +2,8 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "SDL/include/SDL.h"
+#include "ModuleParticles.h"
 
 Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
 {
@@ -14,6 +16,8 @@ Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
 	path.PushBack({ 0.01f , 2.0f }, 300, &fly);
 
 	collider = App->collisions->AddCollider({ 0, 0, 214, 78 }, ColliderType::ENEMY, (Module*)App->enemies);
+
+	time = 0;
 }
 
 void Enemy_GreenFighter::Update()
@@ -23,5 +27,13 @@ void Enemy_GreenFighter::Update()
 	path.Update();
 	position = spawnPos + path.GetRelativePosition();
 
+	current_time = SDL_GetTicks();
+	if (current_time > time + 1500) {
+		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
+
 	Enemy::Update();
+
+	
 }

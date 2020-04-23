@@ -5,6 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleCollisions.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -52,8 +53,10 @@ bool ModuleParticles::Start()
 	enemy_shot.anim.PushBack({ 36, 9, 18, 21 });
 	enemy_shot.anim.PushBack({ 63, 12, 15, 15 });
 	enemy_shot.anim.PushBack({ 90, 9, 15, 21 });
+	laser.anim.speed = 0.01f;
 	enemy_shot.lifetime = 100;
 	enemy_shot.speed.x = 5;
+	enemy_shot.speed.y = 5;
 
 	return true;
 }
@@ -104,6 +107,8 @@ update_status ModuleParticles::Update()
 			particles[i] = nullptr;
 		}
 	}
+
+	
 
 	return update_status::UPDATE_CONTINUE;
 }

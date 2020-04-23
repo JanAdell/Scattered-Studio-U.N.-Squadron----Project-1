@@ -27,6 +27,10 @@ private:
 	Animation turnback;
 	Animation flyreverse;
 	Animation flyreverseback;
+
+	//Shot delay
+	unsigned int current_time;
+	unsigned int time = 0;
 };
 
 #endif 

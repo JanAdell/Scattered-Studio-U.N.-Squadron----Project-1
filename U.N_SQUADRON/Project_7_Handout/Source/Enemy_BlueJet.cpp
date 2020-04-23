@@ -3,6 +3,8 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModuleRender.h"
+#include "SDL/include/SDL.h"
+#include "ModuleParticles.h"
 
 Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 {
@@ -43,6 +45,8 @@ Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 	path4.PushBack({ 3.0f , 3.0f }, 400, &flyDown);
 
 	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
+
+	time = 0;
 }
 
 void Enemy_BlueJet::Update()
@@ -76,5 +80,9 @@ void Enemy_BlueJet::Update()
 		Enemy::Update();
 	}
 		
-
+	current_time = SDL_GetTicks();
+	if (current_time > time + 1500) {
+		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
 }

@@ -64,3 +64,11 @@ update_status ModuleSceneLoose::PostUpdate()
 
 	return update_status::UPDATE_CONTINUE;
 }
+
+bool ModuleSceneLoose::CleanUp() {
+	bool ret = true;
+
+	App->textures->Unload(bgtitle);
+
+	return ret;
+}

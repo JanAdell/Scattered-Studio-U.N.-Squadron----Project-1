@@ -164,7 +164,7 @@ void Enemy_OrangeJet::Update()
 
 	current_time = SDL_GetTicks();
 	if (current_time > time + 1500) {
-		App->particles->AddParticle(App->particles->enemy_shot, position.x + 90, position.y + 10, ColliderType::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
 		time = current_time;
 	}
 }
