@@ -53,7 +53,7 @@ bool ModulePlayer::Start()
 	position.x = 100;
 	position.y = 600;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 90, 50 }, ColliderType::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 90, 45 }, ColliderType::PLAYER, this);
 
 	return ret;
 }
@@ -117,14 +117,14 @@ update_status ModulePlayer::Update()
 
 	currentAnimation->Update();
 
-	if (destroyed)
+	/*if (destroyed)
 	{
 		destroyedCountdown--;
 		if (destroyedCountdown <= 0)
 			return update_status::UPDATE_STOP;
-		/*App->scene->Disable();
-		App->transition->FadeToBlack(this, (Module*)App->loose);*/
-	}
+		App->scene->Disable();
+		App->transition->FadeToBlack(this, (Module*)App->loose);
+	}*/
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -147,7 +147,7 @@ update_status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false && godMode == false) 
+	if (c1 == collider && destroyed == false && godMode == false)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, ColliderType::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, ColliderType::NONE, 14);
@@ -158,7 +158,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->audio->PlayFx(explosionFx);
 
 		destroyed = true;
+
 	}
+		
 }
 
 void ModulePlayer::godModeUpdate()

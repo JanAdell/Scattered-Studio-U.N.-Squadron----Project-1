@@ -52,6 +52,10 @@ private:
 
 	Animation turndown2;
 	Animation turndownBack2;
+
+	//Shot delay
+	unsigned int current_time;
+	unsigned int time = 0;
 };
 
 #endif 

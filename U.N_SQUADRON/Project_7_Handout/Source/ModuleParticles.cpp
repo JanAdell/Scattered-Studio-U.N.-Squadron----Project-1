@@ -22,29 +22,38 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/particles.png");
+	texture = App->textures->Load("Assets/sprites/praticles/particles_rz.png");
 	//texture = App->textures->Load("Assets/sprites/particles/particles.png");
 
 	// Explosion particle
-	explosion.anim.PushBack({274, 296, 33, 30});
-	explosion.anim.PushBack({313, 296, 33, 30});
-	explosion.anim.PushBack({346, 296, 33, 30});
-	explosion.anim.PushBack({382, 296, 33, 30});
-	explosion.anim.PushBack({419, 296, 33, 30});
-	explosion.anim.PushBack({457, 296, 33, 30});
+	explosion.anim.PushBack({123, 0, 72, 75});
+	explosion.anim.PushBack({201, 0, 87, 78});
+	explosion.anim.PushBack({294, 0, 87, 81});
+	explosion.anim.PushBack({309, 0, 93, 87});
+	explosion.anim.PushBack({489, 0, 96, 87});
+	explosion.anim.PushBack({591, 0, 93, 84});
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	laser.anim.PushBack({ 232, 103, 16, 12 });
-	laser.anim.PushBack({ 249, 103, 16, 12 });
+	laser.anim.PushBack({ 9, 183, 27, 18 });
+	laser.anim.PushBack({ 87, 180, 24, 18 });
+	laser.anim.PushBack({ 168, 183, 27, 15 });
+	laser.anim.PushBack({ 237, 183, 18, 12 });
+	laser.anim.PushBack({ 297, 183, 27, 9 });
+	laser.anim.PushBack({ 363, 183, 24, 12 });
+	laser.anim.PushBack({ 426, 180, 24, 15 });
+	laser.anim.PushBack({ 483, 180, 24, 18 });
 	laser.speed.x = 20;
 	laser.lifetime = 180;
-	laser.anim.speed = 0.1f;
+	laser.anim.speed = 0.3f;
 
 	// Enemy Shot particle
-	/*enemy_shot.anim.PushBack({ 232, 103, 16, 12 });
-	enemy_shot.anim.PushBack({ 249, 103, 16, 12 });
-	enemy_shot.speed.x = 5;*/
+	enemy_shot.anim.PushBack({ 6, 12, 21, 15 });
+	enemy_shot.anim.PushBack({ 36, 9, 18, 21 });
+	enemy_shot.anim.PushBack({ 63, 12, 15, 15 });
+	enemy_shot.anim.PushBack({ 90, 9, 15, 21 });
+	enemy_shot.lifetime = 100;
+	enemy_shot.speed.x = 5;
 
 	return true;
 }

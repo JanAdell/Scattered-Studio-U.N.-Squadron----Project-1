@@ -29,7 +29,7 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/sprites/menu/menuinicial.png");
-	App->audio->PlayMusic("Assets/music/levels/opening.ogg", 1.0f);
+	//App->audio->PlayMusic("Assets/music/levels/opening.ogg", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -59,6 +59,7 @@ update_status ModuleSceneIntro::Update()
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		//App->audio->StopMusic();
 		App->transition->FadeToBlack(this, (Module*)App->loose);
 	}
 
@@ -78,5 +79,12 @@ update_status ModuleSceneIntro::PostUpdate()
 	App->render->Blit(bgTexture, 0, 0, &(menuAnim->GetCurrentFrame()));
 
 	return update_status::UPDATE_CONTINUE;
+}
+
+bool ModuleSceneIntro::CleanUp() {
+
+	App->textures->Unload(bgTexture);
+	
+	return true;
 }
 

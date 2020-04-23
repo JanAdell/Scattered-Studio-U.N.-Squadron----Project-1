@@ -23,12 +23,14 @@ public:
 
 	update_status PostUpdate() override;
 
+	bool CleanUp() override;
 
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 	Animation fAnim;
 	Animation* menuAnim = nullptr;
+	
 };
 
 #endif

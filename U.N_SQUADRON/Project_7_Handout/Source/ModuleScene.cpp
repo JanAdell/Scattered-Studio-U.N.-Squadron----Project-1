@@ -281,14 +281,12 @@ update_status ModuleScene::Update()
 
 	if (App->render->camera.x >= 6000) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
-		
 	}
 
-	if (App->render->camera.x >= 3100) {
-		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
-
+	if (App->player->destroyed == true) {
+		App->transition->FadeToBlack(this, (Module*)App->loose);
 	}
-
+	   
 	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->initialScreen, 90);
 	}
@@ -337,6 +335,10 @@ bool ModuleScene::CleanUp()
 	App->player->Disable();
 	App->enemies->Disable();
 	
+	App->textures->Unload(bgTextures[1]);
+	App->textures->Unload(bgTextures[2]);
+	App->textures->Unload(bgTextures[3]);
+	App->textures->Unload(bgTextures[4]);
 
 	return true;
 }
