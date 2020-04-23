@@ -69,6 +69,6 @@ bool ModuleSceneLoose::CleanUp() {
 	bool ret = true;
 
 	App->textures->Unload(bgtitle);
-
+	App->audio->StopMusic();
 	return ret;
 }

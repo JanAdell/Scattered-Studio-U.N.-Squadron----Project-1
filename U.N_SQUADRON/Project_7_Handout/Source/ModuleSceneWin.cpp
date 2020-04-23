@@ -70,6 +70,8 @@ bool ModuleSceneWin::CleanUp() {
 		ret = false;
 	}
 
+	App->audio->StopMusic();
+
 	return ret;
 }
 

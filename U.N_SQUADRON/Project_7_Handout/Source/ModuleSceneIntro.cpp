@@ -82,10 +82,14 @@ update_status ModuleSceneIntro::PostUpdate()
 }
 
 bool ModuleSceneIntro::CleanUp() {
+	bool ret = true;
 
+	if (!App->textures->Unload(bgTexture)) {
+		LOG("Start Screen -> Error unloading the texture.");
+		ret = false;
+	}
 	App->textures->Unload(bgTexture);
-	//App->audio->CleanUp();
-
+	App->audio->StopMusic();
 	return true;
 }
 
