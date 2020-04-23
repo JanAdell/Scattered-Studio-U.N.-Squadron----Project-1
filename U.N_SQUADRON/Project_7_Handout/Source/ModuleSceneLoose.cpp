@@ -30,7 +30,7 @@ bool ModuleSceneLoose::Start()
 	bgtitle = App->textures->Load("Assets/sprites/scenes/loosescene_1.png"); 
 	
 	App->audio->PlayMusic("Assets/music/Build/music/gameover.ogg");
-	
+	App->audio->StopMusic();
 	
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;

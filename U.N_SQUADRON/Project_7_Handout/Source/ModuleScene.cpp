@@ -41,7 +41,7 @@ bool ModuleScene::Start()
 	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
 
 	App->audio->PlayMusic("Assets/music/Build/music/stage1.ogg", 6);
-	
+		
 	//App->fonts->Load("");
 
 	bool ret = true;
@@ -68,15 +68,6 @@ bool ModuleScene::Start()
 	//-----------------------------------------
 
 
-
-	/*left_spawn_positions[BIG_CAMO_JET_1] = 900;
-	left_spawn_positions[BLUE_JET_1] = 1000;
-	left_spawn_positions[ORANGE_JET_2] = 1100;
-	left_spawn_positions[BIG_CAMO_JET_2] = 1100;*/
-
-	
-
-	
 	
 	//Enemies --------------------------------------------------
 	//Enemy Script->Initial pos 
@@ -227,33 +218,33 @@ update_status ModuleScene::Update()
 			switch (left_spawner(left_spawn_counter))
 			{
 			case ORANGE_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 200, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 70, 700);
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 700);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 200, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 70, 700);
 				break;
 		
 			case BIG_CAMO_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 200, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 200);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 200);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 200, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 200);
 				break;
 			case BLUE_JET_1:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 70, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 140, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 75, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 150, 90);
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 900);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 70, 900);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 140, 900);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 75, 900);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 150, 900);
 				break;
 			case ORANGE_JET_2:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 70, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 50, 200);
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 200);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 70, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 50, 200);
 				break;				
 			case BIG_CAMO_JET_2:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 50, 700);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 700);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 50, 700);
 				break;
 			case BLUE_JETS_2:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 290);
@@ -296,9 +287,9 @@ update_status ModuleScene::Update()
 
 	if (App->player->destroyed == true) {
 		App->transition->FadeToBlack(this, (Module*)App->loose);
-		App->particles->CleanUp();
 		App->player->collider->pendingToDelete = true;
-
+		App->particles->enemy_shot.isAlive = false;
+		
 	}
 	   
 	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
@@ -350,10 +341,10 @@ bool ModuleScene::CleanUp()
 	App->enemies->Disable();
 		
 
+	App->textures->Unload(bgTextures[0]);
 	App->textures->Unload(bgTextures[1]);
 	App->textures->Unload(bgTextures[2]);
 	App->textures->Unload(bgTextures[3]);
-	App->textures->Unload(bgTextures[4]);
 
 	return true;
 }

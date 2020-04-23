@@ -67,7 +67,7 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	path2.PushBack({ -3.0f , 3.0f }, 70, &turnback);
 	path2.PushBack({ 5.0f, 0.0f }, 300, &flipflyback);
 
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 48, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
 }
@@ -90,9 +90,9 @@ void Enemy_SmallCamoJet::Update()
 	}
 
 	current_time = SDL_GetTicks();
-	if (current_time > time + 4000) {
-		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.01;
-		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y) * -0.01;
+	if (current_time > time + 4500) {
+		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.007;
+		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y) * -0.007;
 		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
 		time = current_time;
 	}
