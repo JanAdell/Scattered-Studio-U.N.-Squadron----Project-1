@@ -9,6 +9,9 @@
 #include "ModuleFadeToBlack.h"
 
 #include "ModuleRender.h"
+#include "ModuleInput.h"
+#include "ModuleSceneWin.h"
+#include "SDL/include/SDL_scancode.h"
 
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 {
@@ -280,6 +283,25 @@ update_status ModuleScene::Update()
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
 		
 	}
+
+	if (App->render->camera.x >= 3100) {
+		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
+
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->initialScreen, 90);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->sceneWin, 90);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
+	}
+
+
 
 	return update_status::UPDATE_CONTINUE;
 }

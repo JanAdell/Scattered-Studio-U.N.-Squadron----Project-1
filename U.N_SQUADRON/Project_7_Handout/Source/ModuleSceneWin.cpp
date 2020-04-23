@@ -45,7 +45,7 @@ update_status ModuleSceneWin::Update() {
 		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->initialScreen);
 	}
 
