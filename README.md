@@ -17,16 +17,28 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * **Spacebar:** Player shoots a projectile.
 
+* Navigation between scenes is acomplished by pressing **Spacebar**.
+
+## Debug Functionalities
+
+* **F1 Key:** Show in-game colliders.
+
+* **F9 Key:** Activate God Mode.
+
+* **F5 Key:** Load Intro Scene.
+
+* **F6 Key:** Load Win Scene.
+
+* **F7 Key:** Load Loose Scene.
+
+
 ## MEMBERS
   
 * **Jan Adell Mill**
 > https://github.com/JanAdell
 
-* **Joaquín Lien Cong Chising**
-> https://github.com/Noche39 
-
- * **Maria Garrigolas Ledo** 
- > https://github.com/Meeeri08 
+* **Maria Garrigolas Ledo** 
+> https://github.com/Meeeri08 
  
 ### Github Repository
 
