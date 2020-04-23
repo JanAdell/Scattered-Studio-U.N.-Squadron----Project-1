@@ -40,7 +40,7 @@ bool ModuleEnemies::Start()
 {
 	texture = App->textures->Load("Assets/sprites/enemies/basic_enemies.png");
 	enemyDestroyedFx = App->audio->LoadFx("Assets/explosion.wav");
-	shots = App->textures->Load("Assets/sprites/enemies/enemy_shots.png");
+	
 
 	return true;
 }
@@ -97,8 +97,12 @@ bool ModuleEnemies::CleanUp()
 		{
 			delete enemies[i];
 			enemies[i] = nullptr;
+			
 		}
 	}
+
+	App->textures->Unload(texture);
+	//App->audio->
 
 	return true;
 }
@@ -224,3 +228,4 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 }
+

@@ -55,6 +55,8 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 90, 45 }, ColliderType::PLAYER, this);
 
+	score_value = 0;
+
 	return ret;
 }
 

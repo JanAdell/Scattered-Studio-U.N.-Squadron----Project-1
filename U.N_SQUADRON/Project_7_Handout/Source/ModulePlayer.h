@@ -69,6 +69,8 @@ public:
 	uint laserFx = 0;
 	uint explosionFx = 0;
 
+	int score_value;
+
 	// Font score index
 	uint score = 000;
 	int scoreFont = -1;

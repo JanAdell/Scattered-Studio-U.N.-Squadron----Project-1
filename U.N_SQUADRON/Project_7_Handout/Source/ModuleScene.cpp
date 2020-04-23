@@ -216,23 +216,23 @@ update_status ModuleScene::Update()
 			switch (left_spawner(left_spawn_counter))
 			{
 			case ORANGE_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 100, 500);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 200, 500);
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 500);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 100, 500);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 200, 500);
 				break;
 		
 			case BIG_CAMO_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 100, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 200, 200);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 200);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 100, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 200, 200);
 				break;
 			case BLUE_JET_1:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 40, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 80, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 50, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 100, 90);
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 310);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 40, 310);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 80, 310);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 50, 310);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 100, 310);
 				break;
 			case ORANGE_JET_2:
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 30, 300);
@@ -334,7 +334,8 @@ bool ModuleScene::CleanUp()
 {
 	App->player->Disable();
 	App->enemies->Disable();
-	
+		
+
 	App->textures->Unload(bgTextures[1]);
 	App->textures->Unload(bgTextures[2]);
 	App->textures->Unload(bgTextures[3]);
