@@ -9,9 +9,9 @@ Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
 	//fly.speed = 0.0f;
 
 	path.PushBack({ 0.01f , -2.0f }, 300, &fly);
-	path.PushBack({ -0.01f , 2.0f }, 600, &fly);
-	path.PushBack({ -0.01f , -2.0f }, 600, &fly);
-	path.PushBack({ 0.01f , 2.0f },3100, &fly);
+	path.PushBack({ -0.01f , 2.0f }, 300, &fly);
+	path.PushBack({ -0.01f , -2.0f }, 300, &fly);
+	path.PushBack({ 0.01f , 2.0f }, 300, &fly);
 
 	collider = App->collisions->AddCollider({ 0, 0, 214, 78 }, ColliderType::ENEMY, (Module*)App->enemies);
 }

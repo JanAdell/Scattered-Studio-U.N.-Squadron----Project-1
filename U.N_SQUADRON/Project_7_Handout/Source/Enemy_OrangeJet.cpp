@@ -7,122 +7,122 @@
 Enemy_OrangeJet::Enemy_OrangeJet(int x, int y) : Enemy(x, y)
 {
 	//fly left
-	flyBack.PushBack({ 387,20,32,19 });
+	flyBack.PushBack({ 387*2,20 * 2,32 * 2,19 * 2 });
 	flyBack.speed = 0.01f;
 
 	//fly right
-	fly.PushBack({ 126,20,32,19 });
+	fly.PushBack({ 126 * 2,20 * 2,32 * 2,19 * 2 });
 	fly.speed = 0.01f;
 
 	//fly upwards
-	flyUp.PushBack({ 263,6,19,33 });
+	flyUp.PushBack({ 263 * 2,6 * 2,19 * 2,33 * 2 });
 	flyUp.speed = 0.01f;
 
 	//fly down
-	flyDown.PushBack({ 265,348,18,31 });
+	flyDown.PushBack({ 265 * 2,348 * 2,18 * 2,31 * 2 });
 	flyDown.speed = 0.01;
 
 	//turn up from left
-	turn.PushBack({ 161,21,30,18 });
-	turn.PushBack({ 193,14,23,25 });
-	turn.PushBack({ 219,9,15,30 });
-	turn.PushBack({ 236,6,9,33 });
-	turn.PushBack({ 248,6,12,33 });
+	turn.PushBack({ 161 * 2,21 * 2,30 * 2,18 * 2 });
+	turn.PushBack({ 193 * 2,14 * 2,23 * 2,25 * 2 });
+	turn.PushBack({ 219 * 2,9 * 2,15 * 2,30 * 2 });
+	turn.PushBack({ 236 * 2,6 * 2,9 * 2,33 * 2 });
+	turn.PushBack({ 248 * 2,6 * 2,12 * 2,33 * 2 });
 	turn.loop = false;
 	turn.speed = 0.08f;
 
 	//turn up from right
-	turnBack.PushBack({ 354,21,30,18 });
-	turnBack.PushBack({ 329,14,23,25 });
-	turnBack.PushBack({ 311,9,15,30 });
-	turnBack.PushBack({ 300,6,9,33 });
-	turnBack.PushBack({ 285,6,12,33 });
+	turnBack.PushBack({ 354*2,21*2,30*2,18*2 });
+	turnBack.PushBack({ 329*2,14*2,23*2,25*2 });
+	turnBack.PushBack({ 311*2, 9*2,15*2,30*2 });
+	turnBack.PushBack({ 300*2, 6*2, 9*2,33*2 });
+	turnBack.PushBack({ 285*2, 6*2,12*2,33*2 });
 	turnBack.loop = false;
 	turnBack.speed = 0.08f;
 
 	//turn left from up
-	turn2.PushBack({ 285,6,12,33 });
-	turn2.PushBack({ 300,6,9,33 });
-	turn2.PushBack({ 311,9,15,30 });
-	turn2.PushBack({ 329,14,23,25 });
-	turn2.PushBack({ 354,21,30,18 });
+	turn2.PushBack({ 285*2, 6*2,12*2,33*2});
+	turn2.PushBack({ 300*2, 6*2, 9*2,33*2});
+	turn2.PushBack({ 311*2, 9*2,15*2,30*2});
+	turn2.PushBack({ 329*2,14*2,23*2,25*2});
+	turn2.PushBack({ 354*2,21*2,30*2,18*2});
 	turn2.loop = false;
 	turn2.speed = 0.08f;
 
 	//turn right from up
-	turn2Back.PushBack({ 248,6,12,33 });
-	turn2Back.PushBack({ 236,6,9,33 });
-	turn2Back.PushBack({ 219,9,15,30 });
-	turn2Back.PushBack({ 193,14,23,25 });
-	turn2Back.PushBack({ 161,21,30,18 });
+	turn2Back.PushBack({ 248*2, 6*2,12*2,33*2 });
+	turn2Back.PushBack({ 236*2, 6*2, 9*2,33*2 });
+	turn2Back.PushBack({ 219*2, 9*2,15*2,30*2 });
+	turn2Back.PushBack({ 193*2,14*2,23*2,25*2 });
+	turn2Back.PushBack({ 161*2,21*2,30*2,18*2 });
 	turn2Back.loop = false;
 	turn2Back.speed = 0.08f;
 
 	//turn down from right
-	turndownBack.PushBack({ 356,347,29,18 });
-	turndownBack.PushBack({ 331,347,22,25 });
-	turndownBack.PushBack({ 313,347,14,30 });
-	turndownBack.PushBack({ 302,347,8,32 });
-	turndownBack.PushBack({ 287,347,11,32 });
+	turndownBack.PushBack({ 356*2,347*2,29*2,18*2});
+	turndownBack.PushBack({ 331*2,347*2,22*2,25*2});
+	turndownBack.PushBack({ 313*2,347*2,14*2,30*2});
+	turndownBack.PushBack({ 302*2,347*2, 8*2,32*2});
+	turndownBack.PushBack({ 287*2,347*2,11*2,32*2});
 	turndownBack.loop = false;
 	turndownBack.speed = 0.08f;
 
 	//turn left from down
-	turndown2.PushBack({ 287,347,11,32 });
-	turndown2.PushBack({ 302,347,8,32 });
-	turndown2.PushBack({ 313,347,14,30 });
-	turndown2.PushBack({ 331,347,22,25 });
-	turndown2.PushBack({ 356,347,29,18 });
+	turndown2.PushBack({ 287*2,347*2,11*2,32*2 });
+	turndown2.PushBack({ 302*2,347*2, 8*2,32*2 });
+	turndown2.PushBack({ 313*2,347*2,14*2,30*2 });
+	turndown2.PushBack({ 331*2,347*2,22*2,25*2 });
+	turndown2.PushBack({ 356*2,347*2,29*2,18*2 });
 	turndown2.loop = false;
 	turndown2.speed = 0.08f;
 
 	//turn down from left
-	turndown.PushBack({ 163,347,29,18 });
-	turndown.PushBack({ 195,347,22,25 });
-	turndown.PushBack({ 221,347,14,30 });
-	turndown.PushBack({ 238,347,8,32 });
-	turndown.PushBack({ 250,347,11,32 });
+	turndown.PushBack({ 163*2,347*2,29*2,18*2 });
+	turndown.PushBack({ 195*2,347*2,22*2,25*2 });
+	turndown.PushBack({ 221*2,347*2,14*2,30*2 });
+	turndown.PushBack({ 238*2,347*2, 8*2,32*2 });
+	turndown.PushBack({ 250*2,347*2,11*2,32*2 });
 	turndown.loop = false;
 	turndown.speed = 0.08f;
 
 	//turn right from down
-	turndownBack2.PushBack({ 250,347,11,32 });
-	turndownBack2.PushBack({ 238,347,8,32 });
-	turndownBack2.PushBack({ 221,347,14,30 });
-	turndownBack2.PushBack({ 195,347,22,25 });
-	turndownBack2.PushBack({ 163,347,29,18 });
+	turndownBack2.PushBack({ 250*2,347*2,11*2,32*2 });
+	turndownBack2.PushBack({ 238*2,347*2, 8*2,32*2 });
+	turndownBack2.PushBack({ 221*2,347*2,14*2,30*2 });
+	turndownBack2.PushBack({ 195*2,347*2,22*2,25*2 });
+	turndownBack2.PushBack({ 163*2,347*2,29*2,18*2 });
 	turndownBack2.loop = false;
 	turndownBack2.speed = 0.08f;
 
 	//Path topright -> complete
-	path.PushBack({ -3.0f , 0.f }, 30, &flyBack);
-	path.PushBack({ -1.0f , 1.0f }, 60, &turndownBack);
-	path.PushBack({ 0.0f, 2.0f }, 50, &flyDown);
-	path.PushBack({ 1.0f , 1.0f }, 60, &turndownBack2);
-	path.PushBack({ 3.0f , 0.f }, 500, &fly);
+	path.PushBack({ -6.0f , 0.f }, 40, &flyBack);
+	path.PushBack({ -2.0f , 2.0f }, 80, &turndownBack);
+	path.PushBack({ 0.0f, 2.0f }, 60, &flyDown);
+	path.PushBack({ 2.0f , 2.0f }, 80, &turndownBack2);
+	path.PushBack({ 8.0f , 0.f }, 500, &fly);
 
 	//Path botright -> complete
-	path2.PushBack({ -3.0f , 0.f }, 30, &flyBack);
-	path2.PushBack({ -1.0f , -1.0f }, 60, &turnBack);
-	path2.PushBack({ 0.0f, -2.0f }, 50, &flyUp);
-	path2.PushBack({ 1.0f , -1.0f }, 60, &turn2Back);
-	path2.PushBack({ 3.0f , 0.f }, 500, &fly);
+	path2.PushBack({ -6.0f , 0.f }, 40, &flyBack);
+	path2.PushBack({ -2.0f , -2.0f }, 80, &turnBack);
+	path2.PushBack({ 0.0f, -2.0f }, 80, &flyUp);
+	path2.PushBack({ 2.0f , -2.0f }, 60, &turn2Back);
+	path2.PushBack({ 8.0f , 0.f }, 500, &fly);
 
 	//Path topleft
-	path3.PushBack({ 4.0f , 0.f }, 70, &fly);
-	path3.PushBack({ 1.0f , 1.0f }, 60, &turndown);
-	path3.PushBack({ 0.0f, 2.0f }, 50, &flyDown);
-	path3.PushBack({ -1.0f , 1.0f }, 60, &turndown2);
-	path3.PushBack({ -3.0f , 0.f }, 500, &flyBack);
+	path3.PushBack({ 8.0f , 0.f }, 60, &fly);
+	path3.PushBack({ 2.0f , 2.0f }, 80, &turndown);
+	path3.PushBack({ 0.0f, 2.0f }, 80, &flyDown);
+	path3.PushBack({ -2.0f , 2.0f }, 60, &turndown2);
+	path3.PushBack({ -8.0f , 0.f }, 500, &flyBack);
 
 	//Path downleft
-	path4.PushBack({ 4.0f , 0.f }, 70, &fly);
-	path4.PushBack({ 1.0f , -1.0f }, 60, &turn);
-	path4.PushBack({ 0.0f, -2.0f }, 50, &flyUp);
-	path4.PushBack({ -1.0f , -1.0f }, 60, &turn2);
-	path4.PushBack({ -3.0f , 0.f }, 500, &flyBack);
+	path4.PushBack({ 8.0f , 0.f }, 60, &fly);
+	path4.PushBack({ 2.0f , -2.0f }, 80, &turn);
+	path4.PushBack({ 0.0f, -2.0f }, 80, &flyUp);
+	path4.PushBack({ -2.0f , -2.0f }, 60, &turn2);
+	path4.PushBack({ -8.0f , 0.f }, 500, &flyBack);
 
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 64, 64 }, ColliderType::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_OrangeJet::Update()

@@ -22,7 +22,7 @@
 #include "Enemy_SmallCamoJet.h"
 
 
-#define SPAWN_MARGIN 100
+#define SPAWN_MARGIN 200
 
 
 ModuleEnemies::ModuleEnemies(bool startEnabled) : Module(startEnabled)
@@ -43,6 +43,21 @@ bool ModuleEnemies::Start()
 	shots = App->textures->Load("Assets/sprites/enemies/enemy_shots.png");
 
 	return true;
+}
+
+update_status ModuleEnemies::PreUpdate()
+{
+	// Remove all enemies scheduled for deletion
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	{
+		if (enemies[i] != nullptr && enemies[i]->pendingToDelete)
+		{
+			delete enemies[i];
+			enemies[i] = nullptr;
+		}
+	}
+
+	return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModuleEnemies::Update()
@@ -138,8 +153,13 @@ void ModuleEnemies::HandleEnemiesDespawn()
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
 
-				delete enemies[i];
-				enemies[i] = nullptr;
+				enemies[i]->SetToDelete();
+			}
+			else if (enemies[i]->position.x * SCREEN_SIZE > ((App->render->camera.x)+ SCREEN_WIDTH) + SPAWN_MARGIN)
+			{
+				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
+
+				enemies[i]->SetToDelete();
 			}
 		}
 	}
