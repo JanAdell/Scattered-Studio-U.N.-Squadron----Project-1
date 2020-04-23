@@ -1,4 +1,4 @@
-#include "ModulePlayer.h"
+﻿#include "ModulePlayer.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -9,8 +9,11 @@
 #include "ModuleCollisions.h"
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
+#include "ModuleEnemies.h"
 
+#include <stdio.h>
 #include "SDL/include/SDL_scancode.h"
+#include <string>
 
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
@@ -37,6 +40,11 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 
+	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };
+	yellowFont = App->fonts->Load("Assets/sprites/fonts/Font22.png", lookupTable, 5);
+	greenFont = App->fonts->Load("Assets/sprites/fonts/Font444.png", lookupTable, 5);
+
+	score = 0;
 	bool ret = true;
 
 	destroyed = false;
@@ -135,12 +143,29 @@ update_status ModulePlayer::PostUpdate()
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, position.x, position.y, &rect);
 
+		// draw score & money
+		sprintf_s(scoreText, 10, "%5d", score);
+		//sprintf_s(moneyText, 10, "%7d", money);
 
+		// Blit 
+		App->fonts->BlitText(8, 10, yellowFont, "SCORE");
+		//App->fonts->BlitText(132, 10, yellowFont, "LEVEL");
+		//App->fonts->BlitText(132, 25, yellowFont, "$");
+
+
+		std::string s = std::to_string(score_value);
+		char const* pchar = s.c_str();
+		App->fonts->BlitText(100, 65, greenFont, pchar);
+
+		//App->fonts->BlitText(144, 25, greenFont, moneyText);
+		//App->fonts->BlitText(144, 10, greenFont, "      2");
 
 	}
 
 	return update_status::UPDATE_CONTINUE;
 }
+
+
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
@@ -166,8 +191,11 @@ void ModulePlayer::godModeUpdate()
 }
 
 bool ModulePlayer::CleanUp() {
+	bool ret = true;
 
 	App->textures->Unload(texture);
+	App->fonts->UnLoad(yellowFont);
+	//App->fonts->UnLoad(greenFont);
 
 	return true;
 }

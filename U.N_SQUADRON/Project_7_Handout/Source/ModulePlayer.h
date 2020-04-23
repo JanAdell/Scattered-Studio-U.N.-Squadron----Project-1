@@ -24,7 +24,6 @@ public:
 	// Called at the middle of the application loop
 	// Processes new input and handles player movement
 	update_status Update() override;
-
 	// Called at the end of the application loop
 	// Performs the render call of the player sprite
 	update_status PostUpdate() override;
@@ -74,6 +73,10 @@ public:
 	int score_value;
 
 	// Font score index
+	int yellowFont = -1;
+	int greenFont = -1;
+	//char moneyText[10] = { "\0" };
+	//uint money = 0;
 	uint score = 000;
 	int scoreFont = -1;
 	int scoreFont2 = 2;
