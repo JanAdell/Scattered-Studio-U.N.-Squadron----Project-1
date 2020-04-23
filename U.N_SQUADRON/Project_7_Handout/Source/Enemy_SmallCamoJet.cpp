@@ -55,13 +55,13 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	turnback.speed = 0.07;
 
 	//Left->right->left
-	path.PushBack({ 6.0f , 0.f }, 150, &fly);
-	path.PushBack({ -1.0f , 1.0f }, 70, &turn);
+	path.PushBack({ 7.0f , 0.f }, 200, &fly);
+	path.PushBack({ -3.0f , 3.0f }, 70, &turn);
 	path.PushBack({ -4.0f, 0.0f }, 500, &flipfly);
 
 	//Right->left->right
-	path2.PushBack({ -3.0f , 0.f }, 100, &flyback);
-	path2.PushBack({ -0.5f , 0.5f }, 70, &turnback);
+	path2.PushBack({ -7.0f , 0.f }, 200, &flyback);
+	path2.PushBack({ -3.0f , 3.0f }, 70, &turnback);
 	path2.PushBack({ 5.0f, 0.0f }, 300, &flipflyback);
 
 	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
