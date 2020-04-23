@@ -139,6 +139,9 @@
     <ClInclude Include="ModuleWelcomeScene.h">
       <Filter>Source Files\Modules\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleHud.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -239,6 +242,9 @@
     </ClCompile>
     <ClCompile Include="ModuleWelcomeScene.cpp">
       <Filter>Source Files\Modules\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleHud.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

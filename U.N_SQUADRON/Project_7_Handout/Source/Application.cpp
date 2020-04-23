@@ -17,6 +17,7 @@
 #include "ModuleFonts.h"
 #include "ModuleSceneLoose.h"
 #include "ModuleWelcomeScene.h"
+#include "ModuleHud.h"
 
 Application::Application()
 {
@@ -42,12 +43,12 @@ Application::Application()
 
 	modules[10] = particles = new ModuleParticles(true);
 	modules[11] = enemies = new ModuleEnemies(false);
+	modules[12] = hud = new ModuleHud(false);
+	modules[13] = collisions = new ModuleCollisions(true);
+	modules[14] = transition = new ModuleFadeToBlack(true);
+	modules[15] = fonts = new ModuleFonts(false);
 
-	modules[12] = collisions = new ModuleCollisions(true);
-	modules[13] = transition = new ModuleFadeToBlack(true);
-	modules[14] = fonts = new ModuleFonts(false);
-
-	modules[15] = render = new ModuleRender(true);
+	modules[16] = render = new ModuleRender(true);
 }
 
 Application::~Application()

@@ -17,7 +17,10 @@
    style="enable-background:new 0 0 256 224;"
    xml:space="preserve"
    sodipodi:docname="WELCOMESCREEN.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:export-filename="C:\Users\PCTito\Documents\GitHub\ScatteredStudio-_U.N._Squadron\U.N_SQUADRON\Project_7_Handout\Game\Assets\WELCOMESCREEN.png"
+   inkscape:export-xdpi="475.05154"
+   inkscape:export-ydpi="475.05154"><metadata
    id="metadata91"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
@@ -35,8 +38,8 @@
    id="namedview87"
    showgrid="false"
    inkscape:zoom="2.7265625"
-   inkscape:cx="75.508168"
-   inkscape:cy="112"
+   inkscape:cx="129.17773"
+   inkscape:cy="126.67049"
    inkscape:window-x="-8"
    inkscape:window-y="-8"
    inkscape:window-maximized="1"
@@ -57,21 +60,22 @@
 <text
    xml:space="preserve"
    style="font-style:normal;font-weight:normal;font-size:40px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-   x="35.258114"
+   x="45.527454"
    y="180.53148"
    id="text129"><tspan
      sodipodi:role="line"
-     x="35.258114"
+     x="45.527454"
      y="180.53148"
      style="font-size:5.33333349px;line-height:0"
      id="tspan131"> <tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended;fill:#000080"
    id="tspan137">Centre de la imatge i la tecnologia multimèdia UPC-CITM</tspan></tspan><tspan
      sodipodi:role="line"
-     x="35.258114"
+     x="45.527454"
      y="190.4948"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended;fill:#000080"
      id="tspan135">             Developed by ScatteredSTUDIO</tspan></text>
+
 
 <rect
    x="15"
@@ -85,15 +89,15 @@
 <text
    xml:space="preserve"
    style="font-style:normal;font-weight:normal;font-size:40px;line-height:0.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-   x="14.840853"
-   y="23.038609"
+   x="26.577244"
+   y="28.540041"
    id="text95"
    inkscape:label="text95"
    inkscape:export-xdpi="539.95831"
    inkscape:export-ydpi="539.95831"><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="23.038609"
+     x="26.577244"
+     y="28.540041"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0.25;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended"
      id="tspan97"><tspan
    style="fill:#000080"
@@ -101,8 +105,8 @@
    style="fill:#ffffff"
    id="tspan36">Video game design and development- Terrassa</tspan></tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="38.668587"
+     x="26.577244"
+     y="44.170021"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0.25;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended"
      id="tspan103"><tspan
    style="fill:#000080"
@@ -110,8 +114,8 @@
    style="fill:#ffffff"
    id="tspan38">Project I</tspan></tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="54.298569"
+     x="26.577244"
+     y="59.800003"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0.25;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended"
      id="tspan101"><tspan
    style="fill:#000080"
@@ -119,8 +123,8 @@
    style="fill:#ffffff"
    id="tspan40">Marc Garrigó</tspan></tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="69.928551"
+     x="26.577244"
+     y="75.429977"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0.25;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended"
      id="tspan105"><tspan
    style="fill:#000080"
@@ -128,8 +132,8 @@
    style="fill:#ffffff"
    id="tspan42">Jan Adell and Maria Garrigolas</tspan></tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="85.558533"
+     x="26.577244"
+     y="91.059959"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0.25;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended"
      id="tspan107"><tspan
    style="fill:#000080"
@@ -137,30 +141,31 @@
    style="fill:#ffffff"
    id="tspan44">https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron</tspan></tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="101.18851"
+     x="26.577244"
+     y="106.68994"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0.25;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended"
      id="tspan109" /><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="111.18851"
+     x="26.577244"
+     y="116.68994"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended;fill:#ffffff"
      id="tspan111">In U.N. Squadron you play as one of three pilots, tasked with fighting </tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="126.15182"
+     x="26.577244"
+     y="131.65326"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended;fill:#ffffff"
      id="tspan113">back against the forces of Project 4, a group formed by arms dealers </tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="141.11513"
+     x="26.577244"
+     y="146.61656"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended;fill:#ffffff"
      id="tspan115">whose objective is the prolification of war so as to keep profiting </tspan><tspan
      sodipodi:role="line"
-     x="14.840853"
-     y="156.07845"
+     x="26.577244"
+     y="161.57988"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333349px;line-height:0;font-family:OCRAExtended;-inkscape-font-specification:OCRAExtended;fill:#ffffff"
      id="tspan117">from their businesses.</tspan></text>
+
 
 <flowRoot
    xml:space="preserve"
