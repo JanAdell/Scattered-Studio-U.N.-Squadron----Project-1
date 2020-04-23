@@ -26,9 +26,11 @@ bool ModuleSceneLoose::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-
-	bgtitle = App->textures->Load("Assets/gameover1.png"); 
-	App->audio->PlayMusic("Assets/gameover.ogg", 1.0f);
+	
+	bgtitle = App->textures->Load("Assets/sprites/scenes/loosescene_1.png"); 
+	
+	App->audio->PlayMusic("Assets/music/Build/music/gameover.ogg");
+	
 	
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;

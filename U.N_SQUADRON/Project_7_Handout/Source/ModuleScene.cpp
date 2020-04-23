@@ -12,6 +12,7 @@
 #include "ModuleInput.h"
 #include "ModuleSceneWin.h"
 #include "ModuleFonts.h"
+#include "ModuleParticles.h"
 #include "SDL/include/SDL_scancode.h"
 
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
@@ -28,7 +29,7 @@ ModuleScene::~ModuleScene()
 bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
-
+		
 	cont[0] = 0;
 	cont[1] = 0;
 	cont[2] = 0;
@@ -39,11 +40,9 @@ bool ModuleScene::Start()
 	bgTextures[2] = App->textures->Load("Assets/sprites/background/c3.png");
 	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
 
-	App->audio->PlayMusic("Assets/stage1.ogg", 6);
-
-	App->player->destroyed = false;
-
-	//App->fonts->Load();
+	App->audio->PlayMusic("Assets/music/Build/music/stage1.ogg", 6);
+	
+	//App->fonts->Load("");
 
 	bool ret = true;
 
@@ -297,6 +296,9 @@ update_status ModuleScene::Update()
 
 	if (App->player->destroyed == true) {
 		App->transition->FadeToBlack(this, (Module*)App->loose);
+		App->particles->CleanUp();
+		App->player->collider->pendingToDelete = true;
+
 	}
 	   
 	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {

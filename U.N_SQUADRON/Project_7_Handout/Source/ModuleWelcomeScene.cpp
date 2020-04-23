@@ -27,7 +27,7 @@ bool ModuleWelcomeScene::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/WELCOMESCREEN.png");
+	bgTexture = App->textures->Load("Assets/sprites/scenes/WELCOMESCREEN.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -55,3 +55,4 @@ update_status ModuleWelcomeScene::PostUpdate()
 
 	return update_status::UPDATE_CONTINUE;
 }
+

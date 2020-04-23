@@ -44,8 +44,8 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/sprites/player/player_sprites.png");
 	currentAnimation = &idleAnim;
 
-	laserFx = App->audio->LoadFx("Assets/laser.wav");
-	explosionFx = App->audio->LoadFx("Assets/explosion.wav");
+	laserFx = App->audio->LoadFx("Assets/music/Build/sfx/laser.wav");
+	explosionFx = App->audio->LoadFx("Assets/music/Build/sfx/explosion.wav");
 
 	//FONTS
 	//scoreFont = App->fonts->Load("assets/Fonts/"".png", "", 1);
