@@ -34,6 +34,9 @@ public:
 	// Collision callback, called when the player intersects with another collider
 	void OnCollision(Collider* c1, Collider* c2) override;
 
+	// Draws gamepad debug info in the screen
+	void DebugDrawGamepadInfo();
+
 private:
 	int currentCameraX;
 
@@ -82,6 +85,9 @@ public:
 	int scoreFont2 = 2;
 	char scoreText[10] = { "\0" };
 	char* saludo;
+
+	// Debugdraw for gamepad data
+	bool debugGamepadInfo = false;
 };
 
 #endif //!__MODULE_PLAYER_H__
