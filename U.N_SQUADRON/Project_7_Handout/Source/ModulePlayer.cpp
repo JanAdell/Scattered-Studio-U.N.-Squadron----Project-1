@@ -19,15 +19,15 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 105, 0, 96, 33 });
+	idleAnim.PushBack({ 105 * 2, 0, 96 * 2, 33 * 2 });
 
 	// move upwards
 
-	upAnim.PushBack({ 207, 6, 96, 36 });
+	upAnim.PushBack({ 207 * 2, 6 * 2, 96 * 2, 36 * 2 });
 	upAnim.speed = 0.1f;
 
 	// Move down
-	downAnim.PushBack({ 0, 3, 96, 39 });
+	downAnim.PushBack({ 0, 3 * 2, 96 * 2, 39 * 2 });
 	downAnim.speed = 0.1f;
 }
 
@@ -49,7 +49,7 @@ bool ModulePlayer::Start()
 
 	destroyed = false;
 
-	texture = App->textures->Load("Assets/sprites/player/player_sprites.png");
+	texture = App->textures->Load("Assets/sprites/player/player_sprites2.png");
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/music/Build/sfx/laser.wav");
