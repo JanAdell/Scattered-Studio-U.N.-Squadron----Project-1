@@ -131,7 +131,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)// || pad.a == true)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 90, position.y+10, ColliderType::PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + 140, position.y+30, ColliderType::PLAYER_SHOT);
 		App->audio->PlayFx(laserFx);
 	}
 
