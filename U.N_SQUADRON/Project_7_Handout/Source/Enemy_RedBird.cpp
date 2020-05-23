@@ -5,14 +5,14 @@
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 {
-	flyAnim.PushBack({5*2,6*2,24*2,24*2});
-	flyAnim.PushBack({38 * 2, 6 * 2, 24 * 2, 24 * 2 });
-	flyAnim.PushBack({71 * 2, 6 * 2, 24 * 2, 24 * 2 });
-	flyAnim.PushBack({104 * 2, 6 * 2, 24 * 2, 24 * 2 });
-	flyAnim.PushBack({137 * 2, 6 * 2, 24 * 2, 24 * 2 });
-	flyAnim.PushBack({170 * 2, 6 * 2, 24 * 2, 24 * 2 });
-	flyAnim.PushBack({203 * 2, 6 * 2, 24 * 2, 24 * 2 });
-	flyAnim.PushBack({236 * 2, 6 * 2, 24 * 2, 24 * 2 });
+	flyAnim.PushBack({5*4,6*4,24*4,24*4});
+	flyAnim.PushBack({38 * 4, 6 * 4, 24 * 4, 24 * 4 });
+	flyAnim.PushBack({71 * 4, 6 * 4, 24 * 4, 24 * 4 });
+	flyAnim.PushBack({104 * 4, 6 * 4, 24 *4, 24 * 4 });
+	flyAnim.PushBack({137 * 4, 6 * 4, 24 * 4, 24 * 4 });
+	flyAnim.PushBack({170 * 4, 6 * 4, 24 * 4, 24 * 4 });
+	flyAnim.PushBack({203 * 4, 6 * 4, 24 * 4, 24 * 4 });
+	flyAnim.PushBack({236 * 4, 6 * 4, 24 * 4, 24 * 4 });
 	flyAnim.speed = 0.2f;
 
 	currentAnim = &flyAnim;

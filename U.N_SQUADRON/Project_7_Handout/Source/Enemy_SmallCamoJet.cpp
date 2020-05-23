@@ -10,50 +10,50 @@
 Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 {
 	//fly right
-	fly.PushBack({ 274*2,112 * 2,26 * 2,8 * 2 });
+	fly.PushBack({ 960,404,120,36 });
 	fly.speed = 0.1f;
 
 	//fly left
-	flyback.PushBack({ 245 * 2,112 * 2,26 * 2,8 * 2 });
+	flyback.PushBack({ 960,404,120,36 });
 	flyback.speed = 0.01f;
 
 	//return flip (left)
-	flipfly.PushBack({ 479*2,112*2,26*2,10*2 });
-	flipfly.PushBack({ 450*2,110*2,26*2,15*2 });
-	flipfly.PushBack({ 245*2,112*2,26*2,8 *2});
-	flipfly.PushBack({ 215*2,113*2,26*2,10*2 });
-	flipfly.PushBack({ 185*2,110*2,26*2,15*2 });
-	flipfly.PushBack({ 245*2,112*2,26*2,8 *2});
+	flipfly.PushBack({ 479*4,112*4,26*4,10*4 });
+	flipfly.PushBack({ 450*4,110*4,26*4,15*4 });
+	flipfly.PushBack({ 245*4,112*4,26*4,8 *4});
+	flipfly.PushBack({ 215*4,113*4,26*4,10*4 });
+	flipfly.PushBack({ 185*4,110*4,26*4,15*4 });
+	flipfly.PushBack({ 245*4,112*4,26*4,8 *4});
 	flipfly.speed = 0.15f;
 	
 	//return flip (right)
-	flipflyback.PushBack({  40*2,112*2,26*2,10*2 });
-	flipflyback.PushBack({  69*2,110*2,26*2,15*2 });
-	flipflyback.PushBack({ 274*2,112*2,26*2,8 *2});
-	flipflyback.PushBack({ 304*2,113*2,26*2,10*2 });
-	flipflyback.PushBack({ 334*2,110*2,26*2,15*2 });
-	flipflyback.PushBack({ 274*2,112*2,26*2,8 *2});
+	flipflyback.PushBack({  40*4,112*4,26*4,10*4 });
+	flipflyback.PushBack({  69*4,110*4,26*4,15*4 });
+	flipflyback.PushBack({ 274*4,112*4,26*4,8 *4});
+	flipflyback.PushBack({ 304*4,113*4,26*4,10*4 });
+	flipflyback.PushBack({ 334*4,110*4,26*4,15*4 });
+	flipflyback.PushBack({ 274*4,112*4,26*4,8 *4});
 	flipflyback.speed = 0.15f;
 
 	//turn (right to left)
-	turn.PushBack({ 334*2,110*2,26*2,15*2 });
-	turn.PushBack({ 364*2,110*2,19*2,15*2 });
-	turn.PushBack({ 387*2,109*2,14*2,17*2 });
-	turn.PushBack({ 404*2,108*2, 9*2,19*2 });
-	turn.PushBack({ 415*2,109*2,11*2,17*2 });
-	turn.PushBack({ 428*2,110*2,18*2,15*2 });
-	turn.PushBack({ 450*2,110*2,26*2,15*2 });
+	turn.PushBack({ 334*4,110*4,26*4,15*4 });
+	turn.PushBack({ 364*4,110*4,19*4,15*4 });
+	turn.PushBack({ 387*4,109*4,14*4,17*4 });
+	turn.PushBack({ 404*4,108*4, 9*4,19*4 });
+	turn.PushBack({ 415*4,109*4,11*4,17*4 });
+	turn.PushBack({ 428*4,110*4,18*4,15*4 });
+	turn.PushBack({ 450*4,110*4,26*4,15*4 });
 	turn.loop = false;
 	turn.speed = 0.07f;
 
 	//turn (left to right)
-	turnback.PushBack({ 185*2,110*2,26*2,15*2 });
-	turnback.PushBack({ 163*2,110*2,19*2,15*2 });
-	turnback.PushBack({ 144*2,109*2,14*2,17*2 });
-	turnback.PushBack({ 132*2,108*2, 9*2,19*2 });
-	turnback.PushBack({ 119*2,109*2,11*2,17*2 });
-	turnback.PushBack({  99*2,110*2,18*2,15*2 });
-	turnback.PushBack({  69*2,110*2,26*2,15*2 });
+	turnback.PushBack({ 185*4,110*4,26*4,15*4 });
+	turnback.PushBack({ 163*4,110*4,19*4,15*4 });
+	turnback.PushBack({ 144*4,109*4,14*4,17*4 });
+	turnback.PushBack({ 132*4,108*4, 9*4,19*4 });
+	turnback.PushBack({ 119*4,109*4,11*4,17*4 });
+	turnback.PushBack({  99*4,110*4,18*4,15*4 });
+	turnback.PushBack({  69*4,110*4,26*4,15*4 });
 	turnback.loop = false;
 	turnback.speed = 0.07;
 
@@ -67,7 +67,7 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 	path2.PushBack({ -3.0f , 3.0f }, 70, &turnback);
 	path2.PushBack({ 5.0f, 0.0f }, 300, &flipflyback);
 
-	collider = App->collisions->AddCollider({ 0, 0, 48, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 48*2, 24*2 }, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
 }

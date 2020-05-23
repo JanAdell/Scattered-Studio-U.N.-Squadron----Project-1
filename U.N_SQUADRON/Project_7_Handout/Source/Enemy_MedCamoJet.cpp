@@ -10,7 +10,7 @@
 Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 {
 	//fly right
-	fly.PushBack({ 275 * 4,96 * 4,30 * 4,9 * 4 });
+	fly.PushBack({ 980,468,104,32 });
 	fly.speed = 0.1f;
 
 	//fly left

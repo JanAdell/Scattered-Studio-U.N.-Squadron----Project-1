@@ -5,7 +5,7 @@
 
 Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({5 * 2,72 * 2,21 * 2,22 * 2 });
+	fly.PushBack({5 *4,72 *4,21 *4,22 *4 });
 	currentAnim = &fly;
 	fly.speed = 0.01f;
 

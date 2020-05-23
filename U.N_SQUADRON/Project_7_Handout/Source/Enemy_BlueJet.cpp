@@ -9,22 +9,22 @@
 
 Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 616 * 4,262 * 4,60 * 4,18 * 4 });
+	fly.PushBack({ 696,536,120,52 });
 	fly.speed = 0.01f;
 
-	flyBack.PushBack({ 207*4,131 * 4,30 * 4,9 * 4 });
+	flyBack.PushBack({ 824,544,120,36 });
 	flyBack.speed = 0.01f;
 
-	flyUp.PushBack({ 341 * 4,129 * 4,30 * 4,13 * 4 });
+	flyUp.PushBack({ 960,544,120,56 });
 	flyUp.speed = 0.01f;
 	
-	flyBackUp.PushBack({ 174 * 4,129 * 4,30 * 4,13 * 4 });
+	flyBackUp.PushBack({ 1100,544,30 * 4,56});
 	flyBackUp.speed = 0.01f;
 
-	flyDown.PushBack({ 275 * 4,131 * 4,30 * 4,14 * 4 });
+	flyDown.PushBack({ 1242,544,30 * 4,36});
 	flyDown.speed = 0.01f;
 
-	flyBackDown.PushBack({ 240 * 4,131 * 4,30 * 4,14 * 4 });
+	flyBackDown.PushBack({ 1364,536,30 * 4,52 });
 	flyBackDown.speed = 0.01f;
 
 
