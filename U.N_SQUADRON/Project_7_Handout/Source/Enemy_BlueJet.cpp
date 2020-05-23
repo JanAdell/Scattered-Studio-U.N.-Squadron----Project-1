@@ -9,22 +9,22 @@
 
 Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 616,262,60,18 });
+	fly.PushBack({ 616 * 4,262 * 4,60 * 4,18 * 4 });
 	fly.speed = 0.01f;
 
-	flyBack.PushBack({ 207*2,131 * 2,30 * 2,9 * 2 });
+	flyBack.PushBack({ 207*4,131 * 4,30 * 4,9 * 4 });
 	flyBack.speed = 0.01f;
 
-	flyUp.PushBack({ 341 * 2,129 * 2,30 * 2,13 * 2 });
+	flyUp.PushBack({ 341 * 4,129 * 4,30 * 4,13 * 4 });
 	flyUp.speed = 0.01f;
 	
-	flyBackUp.PushBack({ 174 * 2,129 * 2,30 * 2,13 * 2 });
+	flyBackUp.PushBack({ 174 * 4,129 * 4,30 * 4,13 * 4 });
 	flyBackUp.speed = 0.01f;
 
-	flyDown.PushBack({ 275 * 2,131 * 2,30 * 2,14 * 2 });
+	flyDown.PushBack({ 275 * 4,131 * 4,30 * 4,14 * 4 });
 	flyDown.speed = 0.01f;
 
-	flyBackDown.PushBack({ 240 * 2,131 * 2,30 * 2,14 * 2 });
+	flyBackDown.PushBack({ 240 * 4,131 * 4,30 * 4,14 * 4 });
 	flyBackDown.speed = 0.01f;
 
 
@@ -45,7 +45,7 @@ Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
 	path4.PushBack({ 4.0f , 0.f }, 100, &fly);
 	path4.PushBack({ 4.0f , 4.0f }, 400, &flyDown);
 
-	collider = App->collisions->AddCollider({ 0, 0, 48, 24 }, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 48 * 2, 24 * 2 }, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
 }

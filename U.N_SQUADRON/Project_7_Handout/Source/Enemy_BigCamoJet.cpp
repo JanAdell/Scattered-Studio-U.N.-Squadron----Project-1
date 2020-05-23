@@ -10,90 +10,90 @@
 Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 {
 	//fly left
-	flyBack.PushBack({ 774,114,64,38 });
+	flyBack.PushBack({ 774*4,114 * 4,64 * 4,38 *4 });
 	flyBack.speed = 0.01f;
 
 	//fly right
-	fly.PushBack({ 126*2,57 *2,32 *2,19*2 });
+	fly.PushBack({ 126*4,57 * 4,32 * 4,19*4 });
 	fly.speed = 0.01f;
 
 	//fly upwards
-	flyUp.PushBack({ 263 *2,43 *2,19 *2,33 *2 });
+	flyUp.PushBack({ 263 * 4,43 * 4,19 * 4,33 * 4 });
 	flyUp.speed = 0.01f;
 
 	//fly down
-	flyDown.PushBack({ 265 *2,311 *2,18 *2,31 *2 });
+	flyDown.PushBack({ 265 * 4,311 * 4,18 * 4,31 * 4 });
 	flyDown.speed = 0.01;
 
 	//turn up from left
-	turn.PushBack({ 161 *2,58 *2,30 *2,18 *2 });
-	turn.PushBack({ 193 *2,51 *2,23 *2,25 *2 });
-	turn.PushBack({ 219 *2,46 *2,15 *2,30 *2 });
-	turn.PushBack({ 236 *2,43 *2,9 *2,33 *2 });
-	turn.PushBack({ 248 *2,43 *2,12 *2,33*2 });
+	turn.PushBack({ 161 * 4,58 * 4,30 * 4,18 * 4 });
+	turn.PushBack({ 193 * 4,51 *4,23 *4,25 *4 });
+	turn.PushBack({ 219 *4,46 *4,15 *4,30 *4 });
+	turn.PushBack({ 236 *4,43 *4,9 *4,33 *4 });
+	turn.PushBack({ 248 *4,43 *4,12 *4,33*4 });
 	turn.loop = false;
 	turn.speed = 0.08f;
 
 	//turn up from right
-	turnBack.PushBack({ 354 *2,58 *2,30 *2,18 *2 });
-	turnBack.PushBack({ 329 *2,51 *2,23 *2,25 *2 });
-	turnBack.PushBack({ 311*2,46*2,15 *2,30*2 });
-	turnBack.PushBack({ 300*2,43*2,9 *2,33 *2});
-	turnBack.PushBack({ 285*2,43*2,12 *2,33*2 });
+	turnBack.PushBack({ 354 *4,58 *4,30 *4,18 *4 });
+	turnBack.PushBack({ 329 *4,51 *4,23 *4,25 *4 });
+	turnBack.PushBack({ 311*4,46*4,15 *4,30*4 });
+	turnBack.PushBack({ 300*4,43*4,9 *4,33 *4});
+	turnBack.PushBack({ 285*4,43*4,12 *4,33*4 });
 	turnBack.loop = false;
 	turnBack.speed = 0.08f;
 
 	//turn left from up
-	turn2.PushBack({ 285*2,43*2,12*2,33*2 });
-	turn2.PushBack({ 300*2,43*2, 9*2,33*2 });
-	turn2.PushBack({ 311*2,46*2,15*2,30*2 });
-	turn2.PushBack({ 329*2,51*2,23*2,25*2 });
-	turn2.PushBack({ 354*2,58*2,30*2,18*2 });
+	turn2.PushBack({ 285*4,43*4,12*4,33*4 });
+	turn2.PushBack({ 300*4,43*4, 9*4,33*4 });
+	turn2.PushBack({ 311*4,46*4,15*4,30*4 });
+	turn2.PushBack({ 329*4,51*4,23*4,25*4 });
+	turn2.PushBack({ 354*4,58*4,30*4,18*4 });
 	turn2.loop = false;
 	turn2.speed = 0.08f;
 
 	//turn right from up
-	turn2Back.PushBack({ 248*2,43*2,12*2,33*2 });
-	turn2Back.PushBack({ 236*2,43*2, 9*2,33*2 });
-	turn2Back.PushBack({ 219*2,46*2,15*2,30*2 });
-	turn2Back.PushBack({ 193*2,51*2,23*2,25*2 });
-	turn2Back.PushBack({ 161*2,58*2,30*2,18*2 });
+	turn2Back.PushBack({ 248*4,43*4,12*4,33*4 });
+	turn2Back.PushBack({ 236*4,43*4, 9*4,33*4 });
+	turn2Back.PushBack({ 219*4,46*4,15*4,30*4 });
+	turn2Back.PushBack({ 193*4,51*4,23*4,25*4 });
+	turn2Back.PushBack({ 161*4,58*4,30*4,18*4 });
 	turn2Back.loop = false;
 	turn2Back.speed = 0.08f;
 	
 	//turn down from right
-	turndownBack.PushBack({ 356*2,310*2,29*2,18*2 });
-	turndownBack.PushBack({ 331*2,310*2,22*2,25*2 });
-	turndownBack.PushBack({ 313*2,310*2,14*2,30*2 });
-	turndownBack.PushBack({ 302*2,310*2, 8*2,32*2 });
-	turndownBack.PushBack({ 287*2,310*2,11*2,32*2 });
+	turndownBack.PushBack({ 356*4,310*4,29*4,18*4 });
+	turndownBack.PushBack({ 331*4,310*4,22*4,25*4 });
+	turndownBack.PushBack({ 313*4,310*4,14*4,30*4 });
+	turndownBack.PushBack({ 302*4,310*4, 8*4,32*4 });
+	turndownBack.PushBack({ 287*4,310*4,11*4,32*4 });
 	turndownBack.loop = false;
 	turndownBack.speed = 0.08f;
 
 	//turn left from down
-	turndown2.PushBack({ 287*2,310*2,11*2,32*2 });
-	turndown2.PushBack({ 302*2,310*2, 8*2,32*2 });
-	turndown2.PushBack({ 313*2,310*2,14*2,30*2 });
-	turndown2.PushBack({ 331*2,310*2,22*2,25*2 });
-	turndown2.PushBack({ 356*2,310*2,29*2,18*2 });
+	turndown2.PushBack({ 287*4,310*4,11*4,32*4 });
+	turndown2.PushBack({ 302*4,310*4, 8*4,32*4 });
+	turndown2.PushBack({ 313*4,310*4,14*4,30*4 });
+	turndown2.PushBack({ 331*4,310*4,22*4,25*4 });
+	turndown2.PushBack({ 356*4,310*4,29*4,18*4 });
 	turndown2.loop = false;
 	turndown2.speed = 0.08f;
 
 	//turn down from left
-	turndown.PushBack({ 163*2,310*2,29*2,18*2 });
-	turndown.PushBack({ 195*2,310*2,22*2,25*2 });
-	turndown.PushBack({ 221*2,310*2,14*2,30*2 });
-	turndown.PushBack({ 238*2,310*2, 8*2,32*2 });
-	turndown.PushBack({ 250*2,310*2,11*2,32*2 });
+	turndown.PushBack({ 163*4,310*4,29*4,18*4 });
+	turndown.PushBack({ 195*4,310*4,22*4,25*4 });
+	turndown.PushBack({ 221*4,310*4,14*4,30*4 });
+	turndown.PushBack({ 238*4,310*4, 8*4,32*4 });
+	turndown.PushBack({ 250*4,310*4,11*4,32*4 });
 	turndown.loop = false;
 	turndown.speed = 0.08f;
 
 	//turn right from down
-	turndownBack2.PushBack({ 250*2,310*2,11*2,32*2 });
-	turndownBack2.PushBack({ 238*2,310*2, 8*2,32*2 });
-	turndownBack2.PushBack({ 221*2,310*2,14*2,30*2 });
-	turndownBack2.PushBack({ 195*2,310*2,22*2,25*2 });
-	turndownBack2.PushBack({ 163*2,310*2,29*2,18*2 });
+	turndownBack2.PushBack({ 250*4,310*4,11*4,32*4 });
+	turndownBack2.PushBack({ 238*4,310*4, 8*4,32*4 });
+	turndownBack2.PushBack({ 221*4,310*4,14*4,30*4 });
+	turndownBack2.PushBack({ 195*4,310*4,22*4,25*4 });
+	turndownBack2.PushBack({ 163*4,310*4,29*4,18*4 });
 	turndownBack2.loop = false;
 	turndownBack2.speed = 0.08f;
 
@@ -125,7 +125,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 	path4.PushBack({ -2.0f , -2.0f }, 60, &turn2);
 	path4.PushBack({ -8.0f , 0.f }, 500, & flyBack);
 
-	collider = App->collisions->AddCollider({ 0, 0, 48, 48}, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 48 * 2, 48 * 2 }, ColliderType::ENEMY, (Module*)App->enemies);
 	time = 0;
 }
 
