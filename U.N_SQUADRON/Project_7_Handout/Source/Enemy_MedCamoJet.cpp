@@ -10,43 +10,45 @@
 Enemy_MedCamoJet::Enemy_MedCamoJet(int x, int y) : Enemy(x, y)
 {
 	//fly right
-	fly.PushBack({ 980,468,104,32 });
+	fly.PushBack({ 1100,384,120,36 });
 	fly.speed = 0.1f;
 
 	//fly left
-	flyback.PushBack({ 240 * 4,96 * 4,30 * 4,9 *4 });
+	flyback.PushBack({ 960,384,120,36 });
 	flyback.speed = 0.01f;
 	
 	//turn (right to left)
-	turnback.PushBack({ 205*4,88*4,30*4,17*4 });
-	turnback.PushBack({ 173*4,82*4,30*4,23*4 });
-	turnback.PushBack({ 147*4,82*4,24*4,23*4 });
-	turnback.PushBack({ 127*4,82*4,17*4,23*4 });
-	turnback.PushBack({ 113*4,82*4,10*4,23*4 });
-	turnback.PushBack({  94*4,82*4,16*4,23*4 });
-	turnback.PushBack({  68*4,82*4,23*4,13*4 });
-	turnback.PushBack({  36*4,81*4,30*4,24*4 });
+	turnback.PushBack({ 820,352,120,68 });
+	turnback.PushBack({ 692,328,120,92 });
+	turnback.PushBack({ 588,328,96,92 });
+	turnback.PushBack({ 508,328,68,92 });
+	turnback.PushBack({ 452,328,40,92 });
+	turnback.PushBack({ 376,328,64,92 });
+	turnback.PushBack({  272,328,92,92 });
+	turnback.PushBack({  144,324,120,96 });
+	turnback.PushBack({  16,356,120,64 });
 	turnback.loop = false;
 	turnback.speed = 0.08f;
 
 	//turn (left to right)
-	turn.PushBack({ 310*4,88*4,30*4,17*4 });
-	turn.PushBack({ 342*4,82*4,30*4,23*4 });
-	turn.PushBack({ 374*4,82*4,24*4,23*4 });
-	turn.PushBack({ 401*4,82*4,17*4,23*4 });
-	turn.PushBack({ 422*4,82*4,10*4,23*4 });
-	turn.PushBack({ 435*4,82*4,16*4,23*4 });
-	turn.PushBack({ 454*4,82*4,23*4,13*4 });
-	turn.PushBack({ 479*4,81*4,30*4,24*4 });
+	turn.PushBack({ 1240,352,30*4,68 });
+	turn.PushBack({ 1368,328,30*4,92 });
+	turn.PushBack({ 1496,328,96,92 });
+	turn.PushBack({ 1604,328,68,92 });
+	turn.PushBack({ 1688,328,10*4,92 });
+	turn.PushBack({ 1740,328,64,92 });
+	turn.PushBack({ 1816,328,92,92 });
+	turn.PushBack({ 1916,324,30*4,96 });
+	turn.PushBack({ 2044,356,30*4,64 });
 	turn.loop = false;
 	turn.speed = 0.08f;
 
 	//fly flipped left
-	flyreverse.PushBack({ 511 * 4,89 * 4,30 * 4,16 * 4 });
+	flyreverse.PushBack({ 964,1124,30 * 4,36 });
 	flyreverse.speed = 0.1f;
 
 	//fly flipped right
-	flyreverseback.PushBack({ 4 * 4,89 * 4,30 * 4,16 * 4 });
+	flyreverseback.PushBack({ 1104,1124,30 * 4,36 });
 	flyreverseback.speed = 0.1f;
 
 	//Left->right->left

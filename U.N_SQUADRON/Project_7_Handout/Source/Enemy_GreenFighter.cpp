@@ -8,7 +8,7 @@
 
 Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 550*4, 302*4, 214*4, 78*4 });
+	fly.PushBack({ 1100,604,428,156 });
 	//fly.speed = 0.0f;
 
 	
