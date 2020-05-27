@@ -10,11 +10,11 @@
 Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
 {
 	//fly right
-	fly.PushBack({ 960,384,120,36 });
+	fly.PushBack({ 1096,448,104,32 });
 	fly.speed = 0.1f;
 
 	//fly left
-	flyback.PushBack({ 1100,384,120,36 });
+	flyback.PushBack({ 980,448,104,32 });
 	flyback.speed = 0.01f;
 
 	//return flip (left)
