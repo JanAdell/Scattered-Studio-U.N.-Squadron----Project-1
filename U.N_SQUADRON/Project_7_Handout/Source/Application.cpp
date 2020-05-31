@@ -9,6 +9,7 @@
 #include "ModuleSceneIntro.h"
 #include "ModuleSceneWin.h"
 #include "ModuleScene.h"
+#include "ModuleShop.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
 #include "ModuleCollisions.h"
@@ -34,21 +35,23 @@ Application::Application()
 	modules[5] = initialScreen = new ModuleSceneIntro(false);
 
 
+	modules[6] = shop = new ModuleShop(false);
 
-	modules[6] = scene = new ModuleScene(false);
-	modules[7] = sceneWin = new ModuleSceneWin(false);
-	modules[8] = loose = new ModuleSceneLoose(false);
+	modules[7] = scene = new ModuleScene(false);
 
-	modules[9] = player = new ModulePlayer(false);
+	modules[8] = sceneWin = new ModuleSceneWin(false);
+	modules[9] = loose = new ModuleSceneLoose(false);
 
-	modules[10] = particles = new ModuleParticles(true);
-	modules[11] = enemies = new ModuleEnemies(false);
-	modules[12] = hud = new ModuleHud(false);
-	modules[13] = collisions = new ModuleCollisions(true);
-	modules[14] = transition = new ModuleFadeToBlack(true);
-	modules[15] = fonts = new ModuleFonts(false);
+	modules[10] = player = new ModulePlayer(false);
 
-	modules[16] = render = new ModuleRender(true);
+	modules[11] = particles = new ModuleParticles(true);
+	modules[12] = enemies = new ModuleEnemies(false);
+	modules[13] = hud = new ModuleHud(false);
+	modules[14] = collisions = new ModuleCollisions(true);
+	modules[15] = transition = new ModuleFadeToBlack(true);
+	modules[16] = fonts = new ModuleFonts(false);
+
+	modules[17] = render = new ModuleRender(true);
 }
 
 Application::~Application()
