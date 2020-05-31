@@ -71,14 +71,14 @@ update_status ModuleShop::Update()
 		}
 	}
 
-	weaponsition = tiendaX + (6 * tiendaY);
+	wpos = tiendaX + (6 * tiendaY);
 
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
 		select();
 	}
-	LOG("Weapon Position %d \n",weaponsition);
+	LOG("Weapon Position %d \n",wpos);
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -96,13 +96,13 @@ update_status ModuleShop::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->render->Blit(selectorTexture, 19+(79*tiendaX), 240+(96*tiendaY), NULL);
+	App->render->Blit(selectorTexture, 42+(200*tiendaX), 522+(200*tiendaY), NULL);
 	return update_status::UPDATE_CONTINUE;
 }
 
 void ModuleShop::select()
 {
-	switch (weaponsition)
+	switch (wpos)
 	{
 	case Cluster:
 		break;

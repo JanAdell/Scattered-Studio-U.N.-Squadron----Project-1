@@ -37,6 +37,6 @@ public:
 	int tienda[6][2];
 	int tiendaX = 0, tiendaY = 0;
 	enum weapon { Cluster, Phoenix, Falcon, Bullpup, S_Shell, T_Laser, Bomb, Napalm, Gunpod, Ceiling, MegaCrush, Exit };
-	int weaponsition = 0;
+	int wpos = 0;
 };
 #endif // !_MODULESHOP_H_
