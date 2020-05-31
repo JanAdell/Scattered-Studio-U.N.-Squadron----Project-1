@@ -49,7 +49,7 @@ update_status ModuleSceneIntro::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
+
 		App->transition->FadeToBlack(this, (Module*)App->shop, 60.0f);
 	}
 

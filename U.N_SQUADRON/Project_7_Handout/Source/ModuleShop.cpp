@@ -73,11 +73,12 @@ update_status ModuleShop::Update()
 
 	wpos = tiendaX + (6 * tiendaY);
 
-
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		select();
+		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
+
 	}
+
 	LOG("Weapon Position %d \n",wpos);
 	return update_status::UPDATE_CONTINUE;
 }

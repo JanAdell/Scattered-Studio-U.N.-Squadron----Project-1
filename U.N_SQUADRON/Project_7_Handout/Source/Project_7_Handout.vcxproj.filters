@@ -143,7 +143,7 @@
       <Filter>Source Files\Modules\Core</Filter>
     </ClInclude>
     <ClInclude Include="ModuleShop.h">
-      <Filter>Source Files\Modules\Gameplay</Filter>
+      <Filter>Source Files\Modules\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -250,7 +250,7 @@
       <Filter>Source Files\Modules\Core</Filter>
     </ClCompile>
     <ClCompile Include="ModuleShop.cpp">
-      <Filter>Source Files\Modules\Gameplay</Filter>
+      <Filter>Source Files\Modules\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
