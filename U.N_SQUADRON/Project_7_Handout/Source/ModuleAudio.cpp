@@ -187,3 +187,18 @@ bool ModuleAudio::PlayFx(uint index, int repeat)
 
 	return ret;
 }
+
+bool ModuleAudio::UnloadFx(uint index)
+{
+	bool ret = false;
+
+	if (soundFx[index] != nullptr)
+	{
+		Mix_FreeChunk(soundFx[index]);
+		soundFx[index] = nullptr;
+		--fxCount;
+		ret = true;
+	}
+
+	return ret;
+}

@@ -107,6 +107,12 @@ bool ModuleShop::CleanUp()
 	App->textures->Unload(selectorTexture);
 	//App->audio->Disable();
 	bgTexture = NULL;
+
+	App->audio->StopMusic();
+
+	App->audio->UnloadFx(chooseFx);
+	--totalFx;
+
 	return true;
 }
 
