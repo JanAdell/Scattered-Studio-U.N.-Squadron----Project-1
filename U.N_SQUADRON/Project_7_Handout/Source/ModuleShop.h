@@ -25,11 +25,13 @@ public:
 	update_status Update() override;
 	bool CleanUp();
 
+	// Sound effects indices
+	uint chooseFx = 0;
 	// Called at the end of the application loop.
 	// Performs the render call of all the parts of the scene's background
 	update_status PostUpdate() override;
 	void select();
-
+	uint weaponSelection = 0;
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;

@@ -7,6 +7,8 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleHud.h"
+#include "ModuleFonts.h"
+#include "ModulePlayer.h"
 
 
 ModuleShop::ModuleShop(bool startEnabled) : Module(startEnabled)
@@ -29,6 +31,13 @@ bool ModuleShop::Start()
 	selectorTexture = App->textures->Load("Assets/selector.png");
 	//App->audio->PlayMusic("", 1.0f);
 
+		// Load choose option sound
+	chooseFx = App->audio->LoadFx("Assets/chooseoption.wav");
+	++activeFx; ++totalFx;
+
+	// Resetting the weapons selected in the previous game
+	weaponSelection = 0;
+
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
@@ -45,6 +54,8 @@ update_status ModuleShop::Update()
 		{
 			tiendaY = 1;
 		}
+		App->audio->PlayFx(0, 0);
+
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_DOWN)
 	{
@@ -53,6 +64,8 @@ update_status ModuleShop::Update()
 		{
 			tiendaY = 0;
 		}
+		App->audio->PlayFx(0, 0);
+
 	}
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN)
 	{
@@ -61,6 +74,8 @@ update_status ModuleShop::Update()
 		{
 			tiendaX = 5;
 		}
+		App->audio->PlayFx(0, 0);
+
 	}
 	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
 	{
@@ -69,6 +84,8 @@ update_status ModuleShop::Update()
 		{
 			tiendaX = 0;
 		}
+		App->audio->PlayFx(0, 0);
+
 	}
 
 	wpos = tiendaX + (6 * tiendaY);

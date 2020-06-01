@@ -46,6 +46,10 @@ public:
 	void Disable();
 
 	inline bool IsEnabled() const { return isEnabled; }
+
+public:
+	uint activeFx = 0;
+	uint totalFx = 0;
 };
 
 #endif // __MODULE_H__
