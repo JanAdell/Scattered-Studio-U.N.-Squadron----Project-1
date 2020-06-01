@@ -97,7 +97,7 @@ update_status ModuleShop::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->render->Blit(selectorTexture, 42+(200*tiendaX), 522+(200*tiendaY), NULL);
+	App->render->Blit(selectorTexture, 42+(185*tiendaX), 522+(200*tiendaY), NULL);
 	return update_status::UPDATE_CONTINUE;
 }
 
