@@ -45,6 +45,8 @@ bool ModulePlayer::Start()
 	greenFont = App->fonts->Load("Assets/sprites/fonts/Font444.png", lookupTable, 5);
 
 	score = 0;
+	money = 0;
+
 	bool ret = true;
 
 	destroyed = false;
@@ -66,6 +68,7 @@ bool ModulePlayer::Start()
 	collider = App->collisions->AddCollider({ position.x, position.y, 180, 90 }, ColliderType::PLAYER, this);
 
 	score_value = 0;
+	money_value = 3000;
 
 	return ret;
 }
@@ -171,20 +174,23 @@ update_status ModulePlayer::PostUpdate()
 
 		// draw score & money
 		sprintf_s(scoreText, 10, "%5d", score);
-		//sprintf_s(moneyText, 10, "%7d", money);
+		sprintf_s(moneyText, 10, "%7d", money);
 
 		// Blit 
 		App->fonts->BlitText(8, 10, yellowFont, "SCORE");
-		//App->fonts->BlitText(132, 10, yellowFont, "LEVEL");
-		//App->fonts->BlitText(132, 25, yellowFont, "$");
+		App->fonts->BlitText(440, 10, yellowFont, "LEVEL");
+		App->fonts->BlitText(440, 100, yellowFont, "$");
 
 
 		std::string s = std::to_string(score_value);
+		std::string d = std::to_string(money_value);
 		char const* pchar = s.c_str();
+		char const* dchar = d.c_str();
+		//Score value
 		App->fonts->BlitText(100, 65, greenFont, pchar);
-
-		//App->fonts->BlitText(144, 25, greenFont, moneyText);
-		//App->fonts->BlitText(144, 10, greenFont, "      2");
+		//Money value
+		App->fonts->BlitText(595, 100, greenFont, dchar);
+		App->fonts->BlitText(715, 10, greenFont, "2");
 
 	}
 
@@ -221,7 +227,7 @@ bool ModulePlayer::CleanUp() {
 
 	App->textures->Unload(texture);
 	App->fonts->UnLoad(yellowFont);
-	//App->fonts->UnLoad(greenFont);
+	App->fonts->UnLoad(greenFont);
 
 	return true;
 }

@@ -224,7 +224,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
-  			App->player->score_value += 300;
+			App->player->money_value += 300;
+  			App->player->score_value += 100;
 			LOG("score value is %d", App->player->score_value)
 			delete enemies[i];
 			enemies[i] = nullptr;

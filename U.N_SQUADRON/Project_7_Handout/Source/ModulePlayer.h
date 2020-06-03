@@ -74,16 +74,19 @@ public:
 	uint explosionFx = 0;
 
 	int score_value;
+	int money_value;
 
 	// Font score index
+	uint money = 0000000;
+	uint score = 000;
+	char moneyText[10] = { "\0" };
 	int yellowFont = -1;
 	int greenFont = -1;
-	//char moneyText[10] = { "\0" };
-	//uint money = 0;
-	uint score = 000;
+
+	char scoreText[10] = { "\0" };
 	int scoreFont = -1;
 	int scoreFont2 = 2;
-	char scoreText[10] = { "\0" };
+
 	char* saludo;
 
 	// Debugdraw for gamepad data
