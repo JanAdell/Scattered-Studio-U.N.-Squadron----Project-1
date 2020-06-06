@@ -101,6 +101,7 @@
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
+    <ClInclude Include="ModuleScene2.h" />
     <ClInclude Include="ModuleSceneIntro.h" />
     <ClInclude Include="ModuleSceneLoose.h" />
     <ClInclude Include="ModuleSceneWin.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
+    <ClCompile Include="ModuleScene2.cpp" />
     <ClCompile Include="ModuleSceneIntro.cpp" />
     <ClCompile Include="ModuleSceneLoose.cpp" />
     <ClCompile Include="ModuleSceneWin.cpp" />

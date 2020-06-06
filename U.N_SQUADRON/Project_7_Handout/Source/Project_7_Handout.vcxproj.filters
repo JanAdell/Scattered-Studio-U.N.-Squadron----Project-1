@@ -145,6 +145,9 @@
     <ClInclude Include="ModuleShop.h">
       <Filter>Source Files\Modules\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleScene2.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -251,6 +254,9 @@
     </ClCompile>
     <ClCompile Include="ModuleShop.cpp">
       <Filter>Source Files\Modules\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleScene2.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

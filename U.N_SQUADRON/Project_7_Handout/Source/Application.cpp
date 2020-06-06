@@ -19,6 +19,7 @@
 #include "ModuleSceneLoose.h"
 #include "ModuleWelcomeScene.h"
 #include "ModuleHud.h"
+#include "ModuleScene2.h"
 
 Application::Application()
 {
@@ -38,20 +39,21 @@ Application::Application()
 	modules[6] = shop = new ModuleShop(false);
 
 	modules[7] = scene = new ModuleScene(false);
+	modules[8] = scene2 = new ModuleScene2(false);
 
-	modules[8] = sceneWin = new ModuleSceneWin(false);
-	modules[9] = loose = new ModuleSceneLoose(false);
+	modules[9] = sceneWin = new ModuleSceneWin(false);
+	modules[10] = loose = new ModuleSceneLoose(false);
 
-	modules[10] = player = new ModulePlayer(false);
+	modules[11] = player = new ModulePlayer(false);
 
-	modules[11] = particles = new ModuleParticles(true);
-	modules[12] = enemies = new ModuleEnemies(false);
-	modules[13] = hud = new ModuleHud(false);
-	modules[14] = collisions = new ModuleCollisions(true);
-	modules[15] = transition = new ModuleFadeToBlack(true);
-	modules[16] = fonts = new ModuleFonts(false);
+	modules[12] = particles = new ModuleParticles(true);
+	modules[13] = enemies = new ModuleEnemies(false);
+	modules[14] = hud = new ModuleHud(false);
+	modules[15] = collisions = new ModuleCollisions(true);
+	modules[16] = transition = new ModuleFadeToBlack(true);
+	modules[17] = fonts = new ModuleFonts(false);
 
-	modules[17] = render = new ModuleRender(true);
+	modules[18] = render = new ModuleRender(true);
 }
 
 Application::~Application()
