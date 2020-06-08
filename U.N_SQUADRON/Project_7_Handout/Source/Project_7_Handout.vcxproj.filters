@@ -148,6 +148,12 @@
     <ClInclude Include="ModuleScene2.h">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_WhiteJet.h">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_GreenJet.h">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -257,6 +263,12 @@
     </ClCompile>
     <ClCompile Include="ModuleScene2.cpp">
       <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_WhiteJet.cpp">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_GreenJet.cpp">
+      <Filter>Source Files\Entities\Enemies\UN.Squadron</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

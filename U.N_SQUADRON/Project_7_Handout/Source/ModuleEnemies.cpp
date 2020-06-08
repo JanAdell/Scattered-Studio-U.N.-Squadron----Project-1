@@ -14,12 +14,17 @@
 #include "Enemy_BrownShip.h"
 
 //UN Squadron enemies
+//Lvl1
 #include "Enemy_BigCamoJet.h"
 #include "Enemy_MedCamoJet.h"
 #include "Enemy_OrangeJet.h"
 #include "Enemy_BlueJet.h"
 #include "Enemy_GreenFighter.h"
 #include "Enemy_SmallCamoJet.h"
+
+//Lvl2
+#include "Enemy_GreenJet.h"
+#include "Enemy_WhiteJet.h"
 
 //Player for Score value
 #include "ModulePlayer.h"
