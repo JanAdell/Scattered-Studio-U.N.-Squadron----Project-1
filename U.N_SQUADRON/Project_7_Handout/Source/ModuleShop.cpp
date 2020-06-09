@@ -149,21 +149,32 @@ update_status ModuleShop::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->render->Blit(selectorTexture, 42+(185*tiendaX), 522+(200*tiendaY), NULL);
+	App->render->Blit(selectorTexture, 48+(200*tiendaX), 522+(198*tiendaY), NULL);
 	
 	sprintf_s(moneyText, 10, "%7d", money);
 	App->fonts->BlitText(186, 472, hudfont1, moneyText);
 	
 	SDL_Rect rect;
-	rect = { 0,0,149,172 };
+	rect = { 0,175,165,175 };
 	if (weapons[S_SHELL].selected == true) {
-		App->render->Blit(WeaponsSold, 814, 546, &rect);
+		App->render->Blit(WeaponsSold, 875, 540, &rect);
 	}
 
-	rect = { 0,172,148,172 };
-	if (weapons[GUNPOD].selected == true) {
-		App->render->Blit(WeaponsSold, 438, 752, &rect);
+	rect = { 0,0,165,175 };
+	if (weapons[T_LASER].selected == true) {
+		App->render->Blit(WeaponsSold, 1075, 540, &rect);
 	}
+
+	rect = { 0,351,165,175 };
+	if (weapons[GUNPOD].selected == true) {
+		App->render->Blit(WeaponsSold, 477, 746, &rect);
+	}
+
+	rect = { 0,526,165,175 };
+	if (weapons[BOMB].selected == true) {
+		App->render->Blit(WeaponsSold, 75, 746, &rect);
+	}
+	
 
 	
 	return update_status::UPDATE_CONTINUE;
@@ -180,7 +191,6 @@ void ModuleShop::select()
 
 		break;
 	case FALCON:
-
 
 		break;
 	case BULLPUP:
@@ -199,11 +209,25 @@ void ModuleShop::select()
 		break;
 	case T_LASER:
 
+		if (money >= 16000 || weapons[T_LASER].selected == true) {
+			weapons[T_LASER].priceWeapon = 16000;
+			weapons[T_LASER].ammo = 5;
+			activeSelected(T_LASER);
+		}
+		else {
+			App->audio->PlayFx(InsuficientMoney);
+		}
 		break;
 	case BOMB:
-		
-	
-	
+
+		if (money >= 2000 || weapons[BOMB].selected == true) {
+			weapons[BOMB].priceWeapon = 2000;
+			weapons[BOMB].ammo = 5;
+			activeSelected(BOMB);
+		}
+		else {
+			App->audio->PlayFx(InsuficientMoney);
+		}
 	
 		break;
 	case NAPALM:
