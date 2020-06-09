@@ -72,59 +72,57 @@ update_status ModuleShop::Update()
 		if (tiendaY < 0)tiendaY = 1;
 		App->audio->PlayFx(OptionSelection);
 		keyDownPad = true;
-
 	}
+
+
 	if ((App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_DOWN || pad.l_y > 0 || pad.down) && keyDownPad == false) {
-			tiendaY += 1;
-			if (tiendaY > 1)tiendaY = 0;
+		tiendaY += 1;
+		if (tiendaY > 1)tiendaY = 0;
+		App->audio->PlayFx(OptionSelection);
+		keyDownPad = true;
 
-			App->audio->PlayFx(OptionSelection);
-			keyDownPad = true;
-
-		}
-		if ((App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || pad.l_x < 0 || pad.left) && keyDownPad == false) {
-
-			tiendaX -= 1;
-			if (tiendaX < 0)
-			{
-				tiendaX = 5; tiendaY += (tiendaY == 1) ? -1 : 1;
-
-			}
-			App->audio->PlayFx(OptionSelection);
-			keyDownPad = true;
-		}
-		if ((App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN || pad.l_x > 0 || pad.right) && keyDownPad == false) {
-
-			tiendaX += 1;
-			if (tiendaX > 5)
-			{
-				tiendaX = 0; tiendaY += (tiendaY == 1) ? -1 : 1;
-
-			}
-			App->audio->PlayFx(OptionSelection);
-			keyDownPad = true;
-		}
-		if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN) {
-			infiniteMoney = true;
-		}
-
-		if (pad.l_y == 0 && pad.l_x == 0 && pad.up == false && pad.down == false && pad.left == false && pad.right == false) {
-			keyDownPad = false;
-		}
-
-		weaponsition = tiendaX + (6 * tiendaY);
-
-		if (infiniteMoney) {
-			money += 10000;
-			if (money >= 100000) {
-				money += 100000;
-			}
-			if (money >= 9999990) {
-				money = 9999990;
-			}
-		}
-		return update_status::UPDATE_CONTINUE;
 	}
+	if ((App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || pad.l_x < 0 || pad.left) && keyDownPad == false) {
+		tiendaX -= 1;
+		if (tiendaX < 0) {
+			tiendaX = 5;
+			tiendaY += (tiendaY == 1) ? -1 : 1;
+		}
+		App->audio->PlayFx(OptionSelection);
+		keyDownPad = true;
+	}
+
+	if ((App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN || pad.l_x > 0 || pad.right) && keyDownPad == false) {
+		tiendaX += 1;
+		if (tiendaX > 5) {
+			tiendaX = 0;
+			tiendaY += (tiendaY == 1) ? -1 : 1;
+		}
+		App->audio->PlayFx(OptionSelection);
+		keyDownPad = true;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN) {
+		infiniteMoney = true;
+	}
+
+	if (pad.l_y == 0 && pad.l_x == 0 && pad.up == false && pad.down == false && pad.left == false && pad.right == false) {
+		keyDownPad = false;
+	}
+
+	weaponsition = tiendaX + (6 * tiendaY);
+
+	if (infiniteMoney) {
+		money += 10000;
+		if (money >= 100000) {
+			money += 100000;
+		}
+		if (money >= 9999990) {
+			money = 9999990;
+		}
+	}
+	return update_status::UPDATE_CONTINUE;
+}
 
 
 bool ModuleShop::CleanUp()
