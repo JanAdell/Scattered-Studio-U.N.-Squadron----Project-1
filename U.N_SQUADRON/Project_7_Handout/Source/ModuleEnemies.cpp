@@ -213,6 +213,13 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case ENEMY_TYPE::SMALL_CAMO_JET:
 					enemies[i] = new Enemy_SmallCamoJet(info.x, info.y);
 					break;
+				case ENEMY_TYPE::WHITE_JET_LVL_2:
+					enemies[i] = new Enemy_WhiteJet(info.x, info.y);
+					break;
+				case ENEMY_TYPE::GREEN_JET_LVL_2:
+					enemies[i] = new Enemy_GreenJet(info.x, info.y);
+					break;
+				
 			}
 
 			enemies[i]->texture = texture;

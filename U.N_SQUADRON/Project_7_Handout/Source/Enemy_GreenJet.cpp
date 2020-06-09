@@ -8,7 +8,24 @@
 
 Enemy_GreenJet::Enemy_GreenJet(int x, int y) : Enemy(x, y)
 {
-	
+	fly.PushBack({ 35,221,104,28 });
+
+	flydown.PushBack({ 151,225,104,40 });
+
+	flyup.PushBack({ 267,221,104,36 });
+
+	/*path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});*/
+
+	//-----------DEBUG PATH----------------
+	path.PushBack({ 5.0f , 0.f }, 200, &fly);
+
+
 	collider = App->collisions->AddCollider({ 0, 0, 214 * 2, 78 * 2 }, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
