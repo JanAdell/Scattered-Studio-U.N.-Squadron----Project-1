@@ -8,6 +8,22 @@
 
 Enemy_WhiteJet::Enemy_WhiteJet(int x, int y) : Enemy(x, y)
 {
+	fly.PushBack({27,29,100,36});
+
+	flydown.PushBack({251,25,100,40});
+
+	flyup.PushBack({ 135,21,100,44 });
+
+	/*path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});
+	path.PushBack({});*/
+
+	//-----------DEBUG PATH----------------
+	path.PushBack({ 5.0f , 0.f }, 200, &fly );
 
 	collider = App->collisions->AddCollider({ 0, 0, 214 * 2, 78 * 2 }, ColliderType::ENEMY, (Module*)App->enemies);
 

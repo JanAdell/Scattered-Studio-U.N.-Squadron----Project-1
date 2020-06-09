@@ -45,6 +45,9 @@ bool ModuleScene2::Start()
 
 	// Enemies ---	
 
+	//Test enemies
+	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 1860, 400);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1920, 400);
 	
 
 	App->render->camera.x = 0;

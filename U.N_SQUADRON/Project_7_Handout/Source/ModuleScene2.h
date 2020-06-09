@@ -44,5 +44,24 @@ private:
 
 
 
+	//Left spawn management state machine
+	/*enum left_spawner : int //30, un per cada spawn
+	{
+		ORANGE_JET_1,
+		BIG_CAMO_JET_1,
+		BLUE_JET_1,
+		ORANGE_JET_2,
+		BIG_CAMO_JET_2,
+		BLUE_JETS_2,
+		BLUE_JETS_3,
+		BIG_CAMO_JET_3,
+		BIG_CAMO_JET_4,
+
+		MAX_LEFT_SPAWNER
+	};
+
+	int left_spawn_positions[MAX_LEFT_SPAWNER];
+	int left_spawn_counter;*/
+
 };
 #endif

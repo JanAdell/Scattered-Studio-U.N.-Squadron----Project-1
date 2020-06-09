@@ -33,7 +33,8 @@ private:
 
 	// The enemy animation
 	Animation fly;
-	Animation flyBack;
+	Animation flyup;
+	Animation flydown;
 
 	//Shot delay
 	unsigned int current_time;
