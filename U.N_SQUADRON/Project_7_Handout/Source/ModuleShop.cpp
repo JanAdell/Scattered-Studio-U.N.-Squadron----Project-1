@@ -9,7 +9,9 @@
 #include "ModuleHud.h"
 #include "ModuleFonts.h"
 #include "ModulePlayer.h"
-
+#include <SDL_mixer\include\SDL_mixer.h>
+#include <SDL\include\SDL_keyboard.h>
+#include "stdio.h"
 
 ModuleShop::ModuleShop(bool startEnabled) : Module(startEnabled)
 {
@@ -29,90 +31,119 @@ bool ModuleShop::Start()
 	App->hud->Disable();
 	bgTexture = App->textures->Load("Assets/shop.png");
 	selectorTexture = App->textures->Load("Assets/selector.png");
-	//App->audio->PlayMusic("", 1.0f);
+	App->audio->PlayMusic("Assets/shop.ogg", 1.0f);
 
-		// Load choose option sound
-	chooseFx = App->audio->LoadFx("Assets/chooseoption.wav");
-	++activeFx; ++totalFx;
+	OptionSelection = App->audio->LoadFx("Assets/selection.wav");
+	SelectWeapon = App->audio->LoadFx("Assets/selected.wav");
+	InsuficientMoney = App->audio->LoadFx("Assets/nomoney.wav");
+
+	WeaponsSold = App->textures->Load("Assets/selectedweapons.png");
+
+	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,0123456789им?!*$%&()+-/:;<=>@__     " };
+	hudfont1 = App->fonts->Load("Assets/hudfont.png", lookupTable, 5);
+
 
 	// Resetting the weapons selected in the previous game
-	weaponSelection = 0;
+
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
+
+	for (int i = 0; i < 11; i++) {
+		weapons[i].selected = false;
+	}
+
+	loadInfo();
 
 	return ret;
 }
 
 update_status ModuleShop::Update()
 {
+	GamePad& pad = App->input->pads[0];
 
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN)
-	{
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || pad.a) {
+		select();
+	}
+
+	if ((App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN || pad.l_y < 0 || pad.up) && keyDownPad == false) {
+
 		tiendaY -= 1;
-		if (tiendaY <0)
-		{
-			tiendaY = 1;
+		if (tiendaY < 0)tiendaY = 1;
+		App->audio->PlayFx(OptionSelection);
+		keyDownPad = true;
+
+	}
+	if ((App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_DOWN || pad.l_y > 0 || pad.down) && keyDownPad == false) {
+			tiendaY += 1;
+			if (tiendaY > 1)tiendaY = 0;
+
+			App->audio->PlayFx(OptionSelection);
+			keyDownPad = true;
+
 		}
-		App->audio->PlayFx(0, 0);
+		if ((App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || pad.l_x < 0 || pad.left) && keyDownPad == false) {
 
-	}
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_DOWN)
-	{
-		tiendaY += 1;
-		if(tiendaY>1)
-		{
-			tiendaY = 0;
+			tiendaX -= 1;
+			if (tiendaX < 0)
+			{
+				tiendaX = 5; tiendaY += (tiendaY == 1) ? -1 : 1;
+
+			}
+			App->audio->PlayFx(OptionSelection);
+			keyDownPad = true;
 		}
-		App->audio->PlayFx(0, 0);
+		if ((App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN || pad.l_x > 0 || pad.right) && keyDownPad == false) {
 
-	}
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN)
-	{
-		tiendaX -= 1;
-		if (tiendaX <0)
-		{
-			tiendaX = 5;
+			tiendaX += 1;
+			if (tiendaX > 5)
+			{
+				tiendaX = 0; tiendaY += (tiendaY == 1) ? -1 : 1;
+
+			}
+			App->audio->PlayFx(OptionSelection);
+			keyDownPad = true;
 		}
-		App->audio->PlayFx(0, 0);
-
-	}
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
-	{
-		tiendaX += 1;
-		if (tiendaX > 5)
-		{
-			tiendaX = 0;
+		if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN) {
+			infiniteMoney = true;
 		}
-		App->audio->PlayFx(0, 0);
 
+		if (pad.l_y == 0 && pad.l_x == 0 && pad.up == false && pad.down == false && pad.left == false && pad.right == false) {
+			keyDownPad = false;
+		}
+
+		weaponsition = tiendaX + (6 * tiendaY);
+
+		if (infiniteMoney) {
+			money += 10000;
+			if (money >= 100000) {
+				money += 100000;
+			}
+			if (money >= 9999990) {
+				money = 9999990;
+			}
+		}
+		return update_status::UPDATE_CONTINUE;
 	}
 
-	wpos = tiendaX + (6 * tiendaY);
-
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
-	{
-		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
-
-	}
-
-	LOG("Weapon Position %d \n",wpos);
-	return update_status::UPDATE_CONTINUE;
-}
 
 bool ModuleShop::CleanUp()
 {
+	saveInfo();
 	//Enable (and properly disable) the player module
 	App->textures->Unload(bgTexture);
 	App->textures->Unload(selectorTexture);
+	App->textures->Unload(WeaponsSold);
+
+	App->audio->UnloadFx(OptionSelection);
+	App->audio->UnloadFx(SelectWeapon);
+	App->audio->UnloadFx(InsuficientMoney);
+
+	App->fonts->UnLoad(hudfont1);
+
+
 	//App->audio->Disable();
 	bgTexture = NULL;
-
-	App->audio->StopMusic();
-
-	App->audio->UnloadFx(chooseFx);
-	--totalFx;
-
 	return true;
 }
 
@@ -121,37 +152,140 @@ update_status ModuleShop::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(selectorTexture, 42+(185*tiendaX), 522+(200*tiendaY), NULL);
+	
+	sprintf_s(moneyText, 10, "%7d", money);
+	App->fonts->BlitText(186, 472, hudfont1, moneyText);
+	
+	SDL_Rect rect;
+	rect = { 0,0,149,172 };
+	if (weapons[S_SHELL].selected == true) {
+		App->render->Blit(WeaponsSold, 814, 546, &rect);
+	}
+
+	rect = { 0,172,148,172 };
+	if (weapons[GUNPOD].selected == true) {
+		App->render->Blit(WeaponsSold, 438, 752, &rect);
+	}
+
+	
 	return update_status::UPDATE_CONTINUE;
 }
 
 void ModuleShop::select()
 {
-	switch (wpos)
+	switch (weaponsition)
 	{
-	case Cluster:
+	case CLUSTER:
+
 		break;
-	case Phoenix:
+	case PHOENIX:
+
 		break;
-	case Falcon:
+	case FALCON:
+
+
 		break;
-	case Bullpup:
+	case BULLPUP:
+
+
 		break;
-	case S_Shell:
+	case S_SHELL:
+		if (money >= 10000 || weapons[S_SHELL].selected == true) {
+			weapons[S_SHELL].priceWeapon = 10000;
+			weapons[S_SHELL].ammo = 5;
+			activeSelected(S_SHELL);
+		}
+		else {
+			App->audio->PlayFx(InsuficientMoney);
+		}
 		break;
-	case T_Laser:
+	case T_LASER:
+
 		break;
-	case Bomb:
+	case BOMB:
+		
+	
+	
+	
 		break;
-	case Napalm:
+	case NAPALM:
+
 		break;
-	case Gunpod:
+	case GUNPOD:
+		if (money >= 15000 || weapons[GUNPOD].selected == true) {
+			weapons[GUNPOD].priceWeapon = 15000;
+			weapons[GUNPOD].ammo = 15;
+			activeSelected(GUNPOD);
+		}
+		else {
+			App->audio->PlayFx(InsuficientMoney);
+		}
 		break;
-	case Ceiling:
+	case CEILING:
+		
 		break;
-	case MegaCrush:
+	case MEGACRUSH:
+
 		break;
-	case Exit:
+	case EXIT:
+
+		Mix_HaltMusic();
 		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
 		break;
+
 	}
 }
+
+void ModuleShop::activeSelected(int _weapon) {
+
+	weapons[_weapon].selected = !weapons[_weapon].selected;
+	if (weapons[_weapon].selected == true) {
+		App->audio->PlayFx(SelectWeapon);
+		money -= weapons[_weapon].priceWeapon;
+	}
+	else {
+		money += weapons[_weapon].priceWeapon;
+	}
+}
+
+void ModuleShop::loadInfo() {
+
+	if (begin == false) {
+		begin = true;
+		return;
+	}
+
+	SDL_RWops* f = SDL_RWFromFile("INFO.txt", "r+b");
+
+	if (f != NULL) {
+		SDL_RWread(f, &money, sizeof(int), 1);
+		SDL_RWread(f, &score, sizeof(int), 1);
+		SDL_RWread(f, &level, sizeof(int), 1);
+		SDL_RWread(f, &pow, sizeof(int), 1);
+		SDL_RWread(f, &total, sizeof(int), 1);
+		SDL_RWread(f, &lives, sizeof(int), 1);
+		for (int i = 0; i < 11; i++) {
+			SDL_RWread(f, &weapons[i].ammo, sizeof(int), 1);
+		}
+		SDL_RWclose(f);
+	}
+
+}
+
+void ModuleShop::saveInfo() {
+	SDL_RWops* f = SDL_RWFromFile("INFO.txt", "w+");
+
+	SDL_RWwrite(f, &money, sizeof(int), 1);
+	SDL_RWwrite(f, &score, sizeof(int), 1);
+	SDL_RWwrite(f, &level, sizeof(int), 1);
+	SDL_RWwrite(f, &pow, sizeof(int), 1);
+	SDL_RWwrite(f, &total, sizeof(int), 1);
+	SDL_RWwrite(f, &lives, sizeof(int), 1);
+	for (int i = 0; i < 11; i++) {
+		SDL_RWwrite(f, &weapons[i].ammo, sizeof(int), 1);
+	}
+
+	SDL_RWclose(f);
+}
+
+

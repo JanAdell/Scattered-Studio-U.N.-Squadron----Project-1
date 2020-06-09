@@ -306,7 +306,7 @@ update_status ModuleScene::Update()
 		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F9] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_F10] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->scene2, 90);
 	}
 
