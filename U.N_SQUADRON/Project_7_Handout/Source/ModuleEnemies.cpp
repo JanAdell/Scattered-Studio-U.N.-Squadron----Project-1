@@ -26,6 +26,10 @@
 #include "Enemy_GreenJet.h"
 #include "Enemy_WhiteJet.h"
 
+//Bosses
+#include "Boss_BlackBird.h"
+#include "Boss_PurpleJackal.h"
+
 //Player for Score value
 #include "ModulePlayer.h"
 
@@ -218,6 +222,12 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case ENEMY_TYPE::GREEN_JET_LVL_2:
 					enemies[i] = new Enemy_GreenJet(info.x, info.y);
+					break;
+				case ENEMY_TYPE::BOSS_BLACKBIRD:
+					enemies[i] = new Boss_BlackBird(info.x, info.y);
+					break;
+				case ENEMY_TYPE::BOSS_PURPLE_JACKAL:
+					enemies[i] = new Boss_PurpleJackal(info.x, info.y);
 					break;
 				
 			}
