@@ -152,7 +152,7 @@ update_status ModuleShop::PostUpdate()
 	App->render->Blit(selectorTexture, 48+(200*tiendaX), 522+(198*tiendaY), NULL);
 	
 	sprintf_s(moneyText, 10, "%7d", money);
-	App->fonts->BlitText(186, 472, hudfont1, moneyText);
+	App->fonts->BlitText(100, 460, hudfont1, moneyText);
 	
 	SDL_Rect rect;
 	rect = { 0,175,165,175 };
