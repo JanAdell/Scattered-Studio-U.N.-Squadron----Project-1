@@ -107,12 +107,12 @@ update_status ModulePlayer::Update()
 		position.x -= speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH + App->render->camera.x - 100)// || pad.l_x > 0.0f)
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH + App->render->camera.x - PLAYER_WIDTH)// || pad.l_x > 0.0f)
 	{
 		position.x += speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT- 40)// || pad.l_y > 0.0f)
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT- PLAYER_HEIGHT)// || pad.l_y > 0.0f)
 	{
 		position.y += speed;
 		if (currentAnimation != &downAnim)

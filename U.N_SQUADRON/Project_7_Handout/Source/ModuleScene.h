@@ -52,6 +52,7 @@ public:
 		BLUE_JETS_3,
 		BIG_CAMO_JET_3,
 		BIG_CAMO_JET_4,
+		BOSS_BLACKBIRD,
 		
 		MAX_LEFT_SPAWNER
 	};

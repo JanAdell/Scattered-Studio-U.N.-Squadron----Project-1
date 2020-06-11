@@ -52,14 +52,31 @@ bool ModuleParticles::Start()
 	laser.anim.speed = 0.3f;
 
 	// Enemy Shot particle
-	enemy_shot.anim.PushBack({ 6 * 2, 12 * 2, 21 * 2, 15 * 2 });
-	enemy_shot.anim.PushBack({ 36 * 2, 9 * 2, 18 * 2, 21 * 2 });
-	enemy_shot.anim.PushBack({ 63 * 2, 12 * 2, 15 * 2, 15 * 2 });
-	enemy_shot.anim.PushBack({ 90*2, 9 * 2, 15 * 2, 21 * 2 });
+	enemy_shot.anim.PushBack({ 63, 34, 21, 15 });
+	enemy_shot.anim.PushBack({ 93,31, 18, 21 });
+	enemy_shot.anim.PushBack({ 120, 34, 15, 15 });
+	enemy_shot.anim.PushBack({ 147,31, 15, 21 });
 	enemy_shot.anim.speed = 0.3f;
 	enemy_shot.lifetime = 200;
 	/*enemy_shot.speed.x = 5;
 	enemy_shot.speed.y = 5;*/
+
+	//Green Fighter Claw
+
+	//White Jet Missile
+
+	//Tri Laser particles
+
+	//Straight Laser Particles
+
+	//Bomb Particles
+
+	//to decide 
+
+	//Boss 1 Particles
+
+	//Boss 2 Particles
+	
 
 	return true;
 }

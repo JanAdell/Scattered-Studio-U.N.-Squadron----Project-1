@@ -68,14 +68,19 @@ bool ModuleScene::Start()
 	left_spawn_positions[BIG_CAMO_JET_3] = 3800;
 	left_spawn_positions[BIG_CAMO_JET_4] = 3800;
 	//-----------------------------------------
+	left_spawn_positions[BOSS_BLACKBIRD] = 100;
+	//-----------------------------------------
 
+
+	//----------Enemy Debug--------------------
+	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_BLACKBIRD, 100, 1000);
 
 	
 	//Enemies --------------------------------------------------
 	//Enemy Script->Initial pos 
 	//Med Camos
 	//2 secs 
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1860,400);
+	/*App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1860,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1920,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1980,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 2040,400);
@@ -195,7 +200,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5450, 700);
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5500, 700);
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5550, 700);
-	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5600, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5600, 700);*/
 
 	//-------------------------------------------------------------
 	
@@ -219,34 +224,34 @@ update_status ModuleScene::Update()
 		if (camera_x >= left_spawn_positions[left_spawn_counter]) {
 			switch (left_spawner(left_spawn_counter))
 			{
-			case ORANGE_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 70, 700);
+			/*case ORANGE_JET_1:
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 120, 700);
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 700);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 70, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 120, 700);
 				break;
 		
 			case BIG_CAMO_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 120, 200);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 200);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 120, 200);
 				break;
 			case BLUE_JET_1:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 75, 90);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 150, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 120, 90);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 240, 90);
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 900);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 75, 900);
-				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 150, 900);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 120, 900);
+				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x - 240, 900);
 				break;
 			case ORANGE_JET_2:
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 50, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 120, 200);
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 200);
-				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 50, 200);
+				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 120, 200);
 				break;				
 			case BIG_CAMO_JET_2:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 50, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 120, 700);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 700);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 50, 700);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 120, 700);
 				break;
 			case BLUE_JETS_2:
 				App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, camera_x, 290);
@@ -260,17 +265,16 @@ update_status ModuleScene::Update()
 				
 				break;
 			case BIG_CAMO_JET_3:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 120, 300);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 300);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 120, 300);
 				break;
 
 			case BIG_CAMO_JET_4:
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 70, 600);
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 120, 600);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 600);
-				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 70, 600);
-				break;
-
+				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 120, 600);
+				break;*/
 			default:
 				break;
 			}

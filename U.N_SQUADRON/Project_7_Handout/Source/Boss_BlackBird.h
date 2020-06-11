@@ -30,15 +30,31 @@ private:
 	// A set of steps that define the position in the screen
 // And an animation for each step
 	Path path;
+	Path path2;
 
 	// The enemy animation
 	Animation fly;
-	Animation flyup;
-	Animation flydown;
+	
+	/*Animation flyup;
+	Animation flydown;*/
+	Animation entry;
+
+	Animation backshot;
+	Animation bombs;
+	Animation drop_bombs;
+
+	Animation backshot_u;
+	Animation bombs_u;
+	Animation drop_bombs_u;
 
 	//Shot delay
 	unsigned int current_time;
 	unsigned int time = 0;
+
+	//boss stats
+	int hp;
+	bool dead;
+	bool entry_cond;
 };
 
 #endif 

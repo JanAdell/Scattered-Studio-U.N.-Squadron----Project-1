@@ -99,30 +99,30 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y) : Enemy(x, y)
 
 	//Path topright -> complete
 	path.PushBack({ -6.0f , 0.f }, 40, &flyBack);
-	path.PushBack({ -2.0f , 2.0f }, 80, &turndownBack);
+	path.PushBack({ -2.0f , 2.0f }, 40, &turndownBack);
 	path.PushBack({ 0.0f, 2.0f }, 60, &flyDown);
-	path.PushBack({ 2.0f , 2.0f }, 80, &turndownBack2);
+	path.PushBack({ 2.0f , 2.0f }, 40, &turndownBack2);
 	path.PushBack({ 8.0f , 0.f }, 500, &fly);
 	
 	//Path botright -> complete
 	path2.PushBack({ -6.0f , 0.f }, 40, &flyBack);
-	path2.PushBack({ -2.0f , -2.0f }, 80, &turnBack);
-	path2.PushBack({ 0.0f, -2.0f }, 80, &flyUp);
-	path2.PushBack({ 2.0f , -2.0f }, 60, &turn2Back); 
+	path2.PushBack({ -2.0f , -2.0f }, 40, &turnBack);
+	path2.PushBack({ 0.0f, -2.0f }, 60, &flyUp);
+	path2.PushBack({ 2.0f , -2.0f }, 40, &turn2Back); 
 	path2.PushBack({ 8.0f , 0.f }, 500, &fly);
 
 	//Path topleft
 	path3.PushBack({ 8.0f , 0.f }, 60, &fly);
-	path3.PushBack({ 2.0f , 2.0f }, 80, &turndown);
-	path3.PushBack({ 0.0f, 2.0f }, 80, &flyDown);
-	path3.PushBack({ -2.0f , 2.0f }, 60, &turndown2);
+	path3.PushBack({ 2.0f , 2.0f }, 40, &turndown);
+	path3.PushBack({ 0.0f, 2.0f }, 60, &flyDown);
+	path3.PushBack({ -2.0f , 2.0f }, 40, &turndown2);
 	path3.PushBack({ -8.0f , 0.f }, 500, & flyBack);
 
 	//Path downleft
 	path4.PushBack({ 8.0f , 0.f }, 60, &fly);
-	path4.PushBack({ 2.0f , -2.0f }, 80, &turn);
-	path4.PushBack({ 0.0f, -2.0f }, 80, &flyUp);
-	path4.PushBack({ -2.0f , -2.0f }, 60, &turn2);
+	path4.PushBack({ 2.0f , -2.0f }, 40, &turn);
+	path4.PushBack({ 0.0f, -2.0f }, 60, &flyUp);
+	path4.PushBack({ -2.0f , -2.0f }, 40, &turn2);
 	path4.PushBack({ -8.0f , 0.f }, 500, & flyBack);
 
 	collider = App->collisions->AddCollider({ 0, 0, 48 * 2, 48 * 2 }, ColliderType::ENEMY, (Module*)App->enemies);
