@@ -10,6 +10,7 @@
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
 #include "ModuleEnemies.h"
+#include "ModuleHud.h"
 
 #include <stdio.h>
 #include "SDL/include/SDL_scancode.h"
@@ -167,20 +168,24 @@ update_status ModulePlayer::Update()
 
 update_status ModulePlayer::PostUpdate()
 {
+
+	
+
 	if (!destroyed)
 	{  
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, position.x, position.y, &rect);
 
 		// draw score & money
-		sprintf_s(scoreText, 10, "%5d", score);
+		sprintf_s(scoreText, 10, "%7d", score);
 		sprintf_s(moneyText, 10, "%7d", money);
 
 		// Blit 
 		App->fonts->BlitText(8, 10, yellowFont, "SCORE");
 		App->fonts->BlitText(440, 10, yellowFont, "LEVEL");
-		App->fonts->BlitText(440, 100, yellowFont, "$");
+		App->fonts->BlitText(440, 100, yellowFont, "!");
 
+		
 
 		std::string s = std::to_string(score_value);
 		std::string d = std::to_string(money_value);

@@ -20,6 +20,7 @@ public:
 private:
 	char scoreText[10] = { "\0" };
 	char moneyText[10] = { "\0" };
+	SDL_Texture* hud = nullptr;
 
 	// Id Fonts
 	int yellowFont = -1;

@@ -1,7 +1,8 @@
 #include "ModuleHud.h"
 #include "Application.h"
 #include "ModuleFonts.h"
-
+#include "ModuleRender.h"
+#include "ModuleTextures.h"
 #include <stdio.h>
 
 ModuleHud::ModuleHud(bool startEnabled) : Module(startEnabled) {}
@@ -14,7 +15,7 @@ bool ModuleHud::Start() {
 	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };
 	yellowFont = App->fonts->Load("Assets/sprites/fonts/Font2.png", lookupTable, 5);
 	greenFont = App->fonts->Load("Assets/sprites/fonts/Font4.png", lookupTable, 5);
-
+	hud = App->textures->Load("Assets/hud.png");
 	score = 0;
 	money = 0;
 	return ret;
@@ -23,6 +24,7 @@ bool ModuleHud::Start() {
 update_status ModuleHud::PostUpdate() {
 	update_status ret = update_status::UPDATE_CONTINUE;
 
+	App->render->Blit(hud, 0, 0, NULL);
 	// draw score & money
 	sprintf_s(scoreText, 10, "%7d", score);
 	sprintf_s(moneyText, 10, "%7d", money);
