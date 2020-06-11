@@ -8,7 +8,7 @@
 
 Boss_BlackBird::Boss_BlackBird(int x, int y) : Enemy(x, y)
 {
-	hp = 500;
+	hp = 100;
 	dead = false;
 	entry_cond = true;
 	entry.PushBack({ 2,1541,556,316 });
@@ -28,7 +28,9 @@ Boss_BlackBird::Boss_BlackBird(int x, int y) : Enemy(x, y)
 
 	collider = App->collisions->AddCollider({ 0, 0, 556, 316 }, ColliderType::ENEMY, (Module*)App->enemies);
 	path.PushBack({ 5.0f,-4.0f }, 150, &entry);
-	path.PushBack({ 1.0f, 0.0f }, 1000, &entry);
+	path.PushBack({ 1.0f, 0.0f }, 50, &entry);
+
+
 }
 
 void Boss_BlackBird::Update()

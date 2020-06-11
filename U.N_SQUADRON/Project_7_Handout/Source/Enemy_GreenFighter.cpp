@@ -12,8 +12,8 @@ Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
 	//fly.speed = 0.0f;
 
 	
-	path.PushBack({ -0.01f , 2.0f }, 400, &fly);
-	path.PushBack({ -0.01f , -2.0f }, 400, &fly);
+	path.PushBack({ 0.1f , 2.0f }, 400, &fly);
+	path.PushBack({ 0.1f , -2.0f }, 400, &fly);
 	
 
 	collider = App->collisions->AddCollider({ 0, 0, 214*2, 78*2 }, ColliderType::ENEMY, (Module*)App->enemies);

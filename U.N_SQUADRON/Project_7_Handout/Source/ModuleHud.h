@@ -4,6 +4,8 @@
 
 #include "Module.h"
 
+struct SDL_Texture;
+
 class ModuleHud : public Module
 {
 public:
@@ -20,8 +22,8 @@ public:
 private:
 	char scoreText[10] = { "\0" };
 	char moneyText[10] = { "\0" };
-	SDL_Texture* hud = nullptr;
-
+	SDL_Texture *hud_tex = nullptr;
+	
 	// Id Fonts
 	int yellowFont = -1;
 	int greenFont = -1;

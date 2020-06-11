@@ -34,7 +34,7 @@
 #include "ModulePlayer.h"
 
 
-#define SPAWN_MARGIN 800
+#define SPAWN_MARGIN 150
 
 
 ModuleEnemies::ModuleEnemies(bool startEnabled) : Module(startEnabled)
