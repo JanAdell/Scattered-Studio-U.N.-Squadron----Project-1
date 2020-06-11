@@ -41,12 +41,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 
-	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };
-	yellowFont = App->fonts->Load("Assets/sprites/fonts/Font22.png", lookupTable, 5);
-	greenFont = App->fonts->Load("Assets/sprites/fonts/Font444.png", lookupTable, 5);
-
-	score = 0;
-	money = 0;
+	
 
 	bool ret = true;
 
@@ -176,26 +171,10 @@ update_status ModulePlayer::PostUpdate()
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, position.x, position.y, &rect);
 
-		// draw score & money
-		sprintf_s(scoreText, 10, "%7d", score);
-		sprintf_s(moneyText, 10, "%7d", money);
-
-		// Blit 
-		App->fonts->BlitText(8, 10, yellowFont, "SCORE");
-		App->fonts->BlitText(440, 10, yellowFont, "LEVEL");
-		App->fonts->BlitText(440, 100, yellowFont, "!");
-
+	
 		
 
-		std::string s = std::to_string(score_value);
-		std::string d = std::to_string(money_value);
-		char const* pchar = s.c_str();
-		char const* dchar = d.c_str();
-		//Score value
-		App->fonts->BlitText(100, 65, greenFont, pchar);
-		//Money value
-		App->fonts->BlitText(595, 100, greenFont, dchar);
-		App->fonts->BlitText(715, 10, greenFont, "2");
+	
 
 	}
 
@@ -214,6 +193,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, ColliderType::NONE, 28);
 		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, ColliderType::NONE, 21);
 
+
 		App->audio->PlayFx(explosionFx);
 
 		destroyed = true;
@@ -231,8 +211,7 @@ bool ModulePlayer::CleanUp() {
 	bool ret = true;
 
 	App->textures->Unload(texture);
-	App->fonts->UnLoad(yellowFont);
-	App->fonts->UnLoad(greenFont);
+	
 
 	return true;
 }

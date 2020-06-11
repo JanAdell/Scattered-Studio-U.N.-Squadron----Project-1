@@ -13,6 +13,8 @@
 #include <SDL\include\SDL_keyboard.h>
 #include "stdio.h"
 
+
+
 ModuleShop::ModuleShop(bool startEnabled) : Module(startEnabled)
 {
 
@@ -25,6 +27,7 @@ ModuleShop::~ModuleShop()
 
 bool ModuleShop::Start()
 {
+	money = 3000;
 	LOG("Loading background assets");
 
 	bool ret = true;
@@ -53,13 +56,13 @@ bool ModuleShop::Start()
 		weapons[i].selected = false;
 	}
 
-	loadInfo();
-
 	return ret;
 }
 
 update_status ModuleShop::Update()
 {
+	//money = ModuleShop::money_copy;
+
 	GamePad& pad = App->input->pads[0];
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || pad.a) {
@@ -117,8 +120,8 @@ update_status ModuleShop::Update()
 		if (money >= 100000) {
 			money += 100000;
 		}
-		if (money >= 9999990) {
-			money = 9999990;
+		if (money >= 999999) {
+			money = 999999;
 		}
 	}
 	return update_status::UPDATE_CONTINUE;
@@ -127,7 +130,7 @@ update_status ModuleShop::Update()
 
 bool ModuleShop::CleanUp()
 {
-	saveInfo();
+
 	//Enable (and properly disable) the player module
 	App->textures->Unload(bgTexture);
 	App->textures->Unload(selectorTexture);
@@ -198,8 +201,8 @@ void ModuleShop::select()
 
 		break;
 	case S_SHELL:
-		if (money >= 10000 || weapons[S_SHELL].selected == true) {
-			weapons[S_SHELL].priceWeapon = 10000;
+		if (money >= 20000 || weapons[S_SHELL].selected == true) {
+			weapons[S_SHELL].priceWeapon = 20000;
 			weapons[S_SHELL].ammo = 5;
 			activeSelected(S_SHELL);
 		}
@@ -234,8 +237,8 @@ void ModuleShop::select()
 
 		break;
 	case GUNPOD:
-		if (money >= 15000 || weapons[GUNPOD].selected == true) {
-			weapons[GUNPOD].priceWeapon = 15000;
+		if (money >= 30000 || weapons[GUNPOD].selected == true) {
+			weapons[GUNPOD].priceWeapon = 30000;
 			weapons[GUNPOD].ammo = 15;
 			activeSelected(GUNPOD);
 		}
@@ -269,45 +272,4 @@ void ModuleShop::activeSelected(int _weapon) {
 		money += weapons[_weapon].priceWeapon;
 	}
 }
-
-void ModuleShop::loadInfo() {
-
-	if (begin == false) {
-		begin = true;
-		return;
-	}
-
-	SDL_RWops* f = SDL_RWFromFile("INFO.txt", "r+b");
-
-	if (f != NULL) {
-		SDL_RWread(f, &money, sizeof(int), 1);
-		SDL_RWread(f, &score, sizeof(int), 1);
-		SDL_RWread(f, &level, sizeof(int), 1);
-		SDL_RWread(f, &pow, sizeof(int), 1);
-		SDL_RWread(f, &total, sizeof(int), 1);
-		SDL_RWread(f, &lives, sizeof(int), 1);
-		for (int i = 0; i < 11; i++) {
-			SDL_RWread(f, &weapons[i].ammo, sizeof(int), 1);
-		}
-		SDL_RWclose(f);
-	}
-
-}
-
-void ModuleShop::saveInfo() {
-	SDL_RWops* f = SDL_RWFromFile("INFO.txt", "w+");
-
-	SDL_RWwrite(f, &money, sizeof(int), 1);
-	SDL_RWwrite(f, &score, sizeof(int), 1);
-	SDL_RWwrite(f, &level, sizeof(int), 1);
-	SDL_RWwrite(f, &pow, sizeof(int), 1);
-	SDL_RWwrite(f, &total, sizeof(int), 1);
-	SDL_RWwrite(f, &lives, sizeof(int), 1);
-	for (int i = 0; i < 11; i++) {
-		SDL_RWwrite(f, &weapons[i].ammo, sizeof(int), 1);
-	}
-
-	SDL_RWclose(f);
-}
-
 

@@ -39,9 +39,9 @@ public:
 	void select();
 	void activeSelected(int _weapon);
 
-	void loadInfo();
-	void saveInfo();
+
 public:
+
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* selectorTexture = nullptr;
 	int tiendaX = 0, tiendaY = 0;
@@ -56,9 +56,10 @@ public:
 	bool begin = false;
 
 	//info
-	int money = 30000;
+
+	int money = 3000;
 	int score = 0;
-	int level = 1;
+	int level = 2;
 	int pow = 0;
 	int total = 0;
 	int lives = 2;
@@ -87,5 +88,7 @@ public:
 		EXIT,
 
 	};
+
+
 };
 #endif // !_MODULESHOP_H_

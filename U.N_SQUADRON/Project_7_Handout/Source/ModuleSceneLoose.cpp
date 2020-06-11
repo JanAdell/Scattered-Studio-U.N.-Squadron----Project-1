@@ -1,4 +1,5 @@
 #include "ModuleSceneLoose.h"
+#include "ModuleHud.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -23,6 +24,7 @@ ModuleSceneLoose::~ModuleSceneLoose()
 // Load assets
 bool ModuleSceneLoose::Start()
 {
+
 	LOG("Loading background assets");
 
 	bool ret = true;

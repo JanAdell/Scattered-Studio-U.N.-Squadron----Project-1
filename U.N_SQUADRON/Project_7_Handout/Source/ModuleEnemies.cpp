@@ -1,12 +1,12 @@
 #include "ModuleEnemies.h"
 
 #include "Application.h"
-
+#include "ModuleHud.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModuleTextures.h"
-
+#include "ModuleShop.h"
 #include "Enemy.h"
 
 #include "Mech.h"
@@ -246,9 +246,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
-			App->player->money_value += 300;
-  			App->player->score_value += 100;
-			LOG("score value is %d", App->player->score_value)
+			App->shop->money += 300;
+  			App->hud->score += 100;
+			LOG("score value is %d", App->hud->score)
 			delete enemies[i];
 			enemies[i] = nullptr;
 

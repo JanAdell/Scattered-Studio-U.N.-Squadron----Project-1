@@ -7,7 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
 #include "ModuleFadeToBlack.h"
-
+#include "ModuleHud.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleSceneWin.h"
@@ -28,6 +28,8 @@ ModuleScene::~ModuleScene()
 // Load assets
 bool ModuleScene::Start()
 {
+
+	App->hud->Enable();
 	LOG("Loading background assets");
 		
 	cont[0] = 0;
@@ -295,7 +297,7 @@ update_status ModuleScene::Update()
 		App->transition->FadeToBlack(this, (Module*)App->loose);
 		App->player->collider->pendingToDelete = true;
 		App->particles->enemy_shot.isAlive = false;
-		
+		App->hud->Disable();
 	}
 	   
 	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {

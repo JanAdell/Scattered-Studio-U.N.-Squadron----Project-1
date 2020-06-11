@@ -76,6 +76,7 @@ public:
 	int score_value;
 	int money_value;
 
+
 	// Font score index
 	uint money = 0000000;
 	uint score = 000;

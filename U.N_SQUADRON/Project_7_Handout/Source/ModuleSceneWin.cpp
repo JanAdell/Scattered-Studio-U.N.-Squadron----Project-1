@@ -6,6 +6,7 @@
 #include "ModuleInput.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleAudio.h"
+#include "ModuleHud.h"
 
 ModuleSceneWin::ModuleSceneWin(bool startEnabled) : Module(startEnabled)
 {
@@ -15,6 +16,8 @@ ModuleSceneWin::ModuleSceneWin(bool startEnabled) : Module(startEnabled)
 ModuleSceneWin::~ModuleSceneWin() {}
 
 bool ModuleSceneWin::Start() {
+
+
 
 	LOG("Loading Win Scene");
 

@@ -19,9 +19,12 @@ public:
 
 	bool CleanUp();
 
+	
+
 private:
 	char scoreText[10] = { "\0" };
 	char moneyText[10] = { "\0" };
+
 	SDL_Texture *hud_tex = nullptr;
 	
 	// Id Fonts
