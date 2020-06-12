@@ -29,7 +29,7 @@ public:
 
 	// Collision response
 	// Triggers an animation and a sound fx
-	virtual void OnCollision(Collider* collider);
+	virtual void OnCollision(Collider* collider, int dmg);
 
 	virtual void SetToDelete();
 		
@@ -45,13 +45,17 @@ public:
 
 	bool pendingToDelete = false;
 
+	bool destroy;
+
 protected:
 	// A ptr to the current animation
 	Animation* currentAnim = nullptr;
 
 	// The enemy's collider
 	Collider* collider = nullptr;
-
+	int hp;
+	int current_hp;
+	
 	// Original spawn position. Stored for movement calculations
 	iPoint spawnPos;
 };

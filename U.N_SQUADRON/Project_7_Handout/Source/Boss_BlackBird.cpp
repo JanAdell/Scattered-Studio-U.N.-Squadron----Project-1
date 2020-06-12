@@ -27,6 +27,7 @@ Boss_BlackBird::Boss_BlackBird(int x, int y) : Enemy(x, y)
 	bombs.speed = 0.1f;
 
 	collider = App->collisions->AddCollider({ 0, 0, 556, 316 }, ColliderType::ENEMY, (Module*)App->enemies);
+	
 	path.PushBack({ 5.0f,-4.0f }, 150, &entry);
 	path.PushBack({ 1.0f, 0.0f }, 50, &entry);
 	path.PushBack({ 1.1f,  0.0f }, 150, &entry);
@@ -108,6 +109,6 @@ void Boss_BlackBird::Update()
 	Enemy::Update();
 
 	if (hp <= 0) {
-		dead = true;
+		collider->pendingToDelete;
 	}
 }

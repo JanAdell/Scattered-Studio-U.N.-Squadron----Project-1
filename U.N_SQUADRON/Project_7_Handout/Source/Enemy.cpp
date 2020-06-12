@@ -9,6 +9,7 @@
 Enemy::Enemy(int x, int y) : position(x, y)
 {
 	spawnPos = position;
+	destroy = false;
 }
 
 Enemy::~Enemy()
@@ -37,12 +38,18 @@ void Enemy::Draw()
 		App->render->Blit(texture, position.x, position.y, &(currentAnim->GetCurrentFrame()));
 }
 
-void Enemy::OnCollision(Collider* collider)
+void Enemy::OnCollision(Collider* collider, int dmg)
 {
-	App->particles->AddParticle(App->particles->explosion, position.x, position.y);
-	App->audio->PlayFx(destroyedFx);
-
-	SetToDelete();
+	hp -= dmg;
+	LOG("damaged");
+	if (hp <= 0) {
+		LOG("damaged2222");
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
+		App->audio->PlayFx(destroyedFx);
+		destroy = true;
+		SetToDelete();
+		
+	}
 }
 
 void Enemy::SetToDelete()

@@ -4,7 +4,7 @@
 Collider::Collider(SDL_Rect rectangle, ColliderType type, Module* listener) : rect(rectangle), type(type)
 {
 	listeners[0] = listener;
-
+	
 }
 
 void Collider::SetPos(int x, int y)

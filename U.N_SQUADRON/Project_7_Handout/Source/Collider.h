@@ -19,6 +19,18 @@ enum ColliderType
 	MAX
 };
 
+enum BulletType
+{
+	B_NONE = 0,
+	NORMAL,
+	S_LASER,
+	T_LASER,
+	BOMB,
+	GUNPOD,
+
+	B_MAX
+
+};
 
 struct Collider
 {
@@ -36,7 +48,11 @@ struct Collider
 	SDL_Rect rect;
 	bool pendingToDelete = false;
 	ColliderType type;
+	
+	int hp;
+	//int dmg;
 	Module* listeners[MAX_LISTENERS] = { nullptr };
+
 };
 
 

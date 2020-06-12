@@ -8,6 +8,7 @@
 #include "ModuleTextures.h"
 #include "ModuleShop.h"
 #include "Enemy.h"
+#include "Collider.h"
 
 #include "Mech.h"
 #include "Enemy_RedBird.h"
@@ -245,12 +246,38 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
-			App->shop->money += 300;
-  			App->hud->score += 100;
+			int x = 0;
+			LOG("bullet type %d %d", c2->type, c1->type);
+			switch (c2->type)
+			{
+				case PLAYER_SHOT:
+					LOG("normal collision");
+					x = 5;
+					break;
+				/*case S_LASER:
+					x = 15;
+					break;
+				case T_LASER:
+					x = 10;
+					break;
+				case GUNPOD:
+					x = 6;
+					break;
+				case BOMB:
+					x = 20;
+					break;*/
+			}
+
+			enemies[i]->OnCollision(c2, x); //Notify the enemy of a collision
+			
 			LOG("score value is %d", App->hud->score)
-			delete enemies[i];
-			enemies[i] = nullptr;
+			
+			if (enemies[i]->destroy) {
+				App->shop->money += 300;
+				App->hud->score += 100;
+				delete enemies[i];
+				enemies[i] = nullptr;
+			}
 
 			break;
 		}

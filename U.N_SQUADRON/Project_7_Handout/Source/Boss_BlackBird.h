@@ -52,7 +52,6 @@ private:
 	unsigned int time = 0;
 
 	//boss stats
-	int hp;
 	bool dead;
 	bool entry_cond;
 };

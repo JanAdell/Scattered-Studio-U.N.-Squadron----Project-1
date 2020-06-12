@@ -47,6 +47,7 @@ bool ModuleParticles::Start()
 	laser.anim.PushBack({ 363 * 2, 183 * 2, 24 * 2, 12 * 2 });
 	laser.anim.PushBack({ 426 * 2, 180 * 2, 24 * 2, 15 * 2 });
 	laser.anim.PushBack({ 483 * 2, 180 * 2, 24 * 2, 18 * 2 });
+	//laser.collider->dmg = 5;
 	laser.speed.x = 20;
 	laser.lifetime = 180;
 	laser.anim.speed = 0.3f;
@@ -108,9 +109,12 @@ bool ModuleParticles::Start()
 	s_laser.anim.loop = false;
 	s_laser.speed.x = 20;
 	s_laser.lifetime = 200;
+
 	//Bomb Particles
 
-	//to decide 
+
+	//Gunpod
+
 
 	//-----Boss 1 Particles----------
 	//Round Bomb
