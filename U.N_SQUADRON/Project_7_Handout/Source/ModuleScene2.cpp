@@ -30,7 +30,7 @@ ModuleScene2::~ModuleScene2() {
 bool ModuleScene2::Start()
 {
 	App->player->Enable();
-	//App->hud->Enable();
+	App->hud->Enable();
 	//App->enemies->Enable();
 	App->collisions->Enable();
 
@@ -41,7 +41,7 @@ bool ModuleScene2::Start()
 
 	bgTexture = App->textures->Load("Assets/background2.png");
 
-	//App->audio->PlayMusic("Assets", );
+	App->audio->PlayMusic("Assets/EnemyAirforce.ogg", 6);
 
 	// Enemies ---	
 
@@ -53,18 +53,16 @@ bool ModuleScene2::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
-	bg1 = 0;
-	bg2 = 1;
-	bgloop = -1;
-	bgs = 0;
-
+	moveBG1 = 0;
+	moveBG2 = 1;
+	loopBG = -1;
+	limitBG = 0;
 	return ret;
 }
 
 update_status ModuleScene2::Update() {
 
-	App->render->camera.x += SCREEN_SPEED;
-	updateBackground();
+
 
 	/*if (App->render->camera.x >= 5000) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
@@ -92,7 +90,8 @@ update_status ModuleScene2::Update() {
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();
 
-	bgs = App->render->camera.x + SCREEN_WIDTH;
+
+	limitBG = App->render->camera.x + SCREEN_WIDTH;
 
 
 	return update_status::UPDATE_CONTINUE;
@@ -101,14 +100,16 @@ update_status ModuleScene2::Update() {
 void ModuleScene2::updateBackground() {
 
 
-	if ((bgs % (3860/2)) == 0) {
-		bgloop += 1;
-		if (bgloop > 1) {
-			((bgloop % 2) == 0) ? bg1 += 2 : bg2 += 2;
+
+	if ((limitBG % (3859 / 2)) == 0) {
+		loopBG += 1;
+		if (loopBG > 1) {
+			((loopBG % 2) == 0) ? moveBG1 += 2 : moveBG2 += 2;
 		}
 	}
 
-//	bgy = -(App->player->position.y * (+;
+	Y_BG = -(App->player->position.y * 0.32f) + -12;
+
 
 }
 
@@ -118,8 +119,8 @@ void ModuleScene2::updateBackground() {
 update_status ModuleScene2::PostUpdate() {
 
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 3860 * bg1, bgy, NULL, 2);
-	App->render->Blit(bgTexture, 3860 * bg2, bgy, NULL, 2);
+	App->render->Blit(bgTexture, 3859 * moveBG1, Y_BG, NULL, 2);
+	App->render->Blit(bgTexture, 3859 * moveBG2, Y_BG, NULL, 2);
 
 
 
@@ -130,9 +131,9 @@ bool ModuleScene2::CleanUp()
 {
 	//Enable (and properly disable) the player module
 	App->player->Disable();
-	//App->enemies->Disable();
+	App->enemies->Disable();
 	App->collisions->Disable();
-	//App->hud->Disable();
+	App->hud->Disable();
 	//App->textures->Disable();
 	//App->audio->Disable();
 

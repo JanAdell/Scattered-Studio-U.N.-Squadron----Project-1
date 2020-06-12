@@ -36,11 +36,11 @@ private:
 
 	// BackGround
 	SDL_Texture* bgTexture = nullptr;
-	int bg1 = 0;
-	int bg2 = 1;
-	int bgloop = -1;
-	int bgs = 0;
-	int bgy = 0;
+	int moveBG1 = 0;
+	int moveBG2 = 1;
+	int loopBG = -1;
+	int limitBG = 0;
+	int Y_BG = 0;
 
 
 
