@@ -254,7 +254,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					LOG("normal collision");
 					x = 5;
 					break;
-				/*case S_LASER:
+				case S_LASER:
 					x = 15;
 					break;
 				case T_LASER:
@@ -265,7 +265,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					break;
 				case BOMB:
 					x = 20;
-					break;*/
+					break;
+				
 			}
 
 			enemies[i]->OnCollision(c2, x); //Notify the enemy of a collision
@@ -273,6 +274,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			LOG("score value is %d", App->hud->score)
 			
 			if (enemies[i]->destroy) {
+				
+				/*switch (enemies[i]->GetCollider()->type) {
+
+				}*/
+				
 				App->shop->money += 300;
 				App->hud->score += 100;
 				delete enemies[i];

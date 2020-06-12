@@ -15,22 +15,20 @@ enum ColliderType
 	ENEMY,
 	PLAYER_SHOT,
 	ENEMY_SHOT,
-
-	MAX
-};
-
-enum BulletType
-{
-	B_NONE = 0,
-	NORMAL,
 	S_LASER,
 	T_LASER,
 	BOMB,
 	GUNPOD,
+	ROUND_BOMB,
+	BACKSHOT,
+	AIRDROP,
+	FRONTMISSILE,
+	BACKBOMB,
+	CLAW,
 
-	B_MAX
-
+	MAX
 };
+
 
 struct Collider
 {

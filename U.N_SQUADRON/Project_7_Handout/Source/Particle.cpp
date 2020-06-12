@@ -1,6 +1,7 @@
 #include "Particle.h"
-
+#include "Application.h"
 #include "Collider.h"
+#include "ModuleParticles.h"
 
 Particle::Particle()
 {
@@ -40,9 +41,20 @@ bool Particle::Update()
 				ret = false;
 		}
 		// Otherwise the particle is destroyed when the animation is finished
-		else if (anim.HasFinished())
+		else if (anim.HasFinished()) {
 			ret = false;
-
+			if (collider->type == ROUND_BOMB) {
+				App->particles->AddParticle(App->particles->subshot1, position.x, position.y, ColliderType::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->subshot2, position.x, position.y, ColliderType::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->subshot3, position.x, position.y, ColliderType::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->subshot4, position.x, position.y, ColliderType::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->subshot5, position.x, position.y, ColliderType::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->subshot6, position.x, position.y, ColliderType::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->subshot7, position.x, position.y, ColliderType::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->subshot8, position.x, position.y, ColliderType::PLAYER_SHOT);
+				
+			}
+		}
 		// Update the position in the screen
 		position.x += speed.x;
 		position.y += speed.y;
