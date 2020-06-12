@@ -76,17 +76,17 @@ update_status ModuleScene2::Update() {
 		App->particles->enemy_shot.isAlive = false;
 	}*/
 
-if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
-	App->transition->FadeToBlack(this, (Module*)App->initialScreen, 90);
-}
+	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->initialScreen, 90);
+	}
 
-if (App->input->keys[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
-	App->transition->FadeToBlack(this, (Module*)App->sceneWin, 90);
-}
+	if (App->input->keys[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->sceneWin, 90);
+	}
 
-if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
-	App->transition->FadeToBlack(this, (Module*)App->loose, 90);
-}
+	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
+	}
 
 
 	App->render->camera.x += SCREEN_SPEED;

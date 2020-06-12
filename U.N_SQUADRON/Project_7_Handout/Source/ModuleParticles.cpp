@@ -58,13 +58,14 @@ bool ModuleParticles::Start()
 	enemy_shot.anim.PushBack({ 147,31, 15, 21 });
 	enemy_shot.anim.speed = 0.3f;
 	enemy_shot.lifetime = 200;
-	/*enemy_shot.speed.x = 5;
-	enemy_shot.speed.y = 5;*/
-
+	
 	//Green Fighter Claw
+
 
 	//White Jet Missile
 
+
+	//-----Special Weapon Particles---
 	//Tri Laser particles
 
 	//Straight Laser Particles
@@ -73,9 +74,81 @@ bool ModuleParticles::Start()
 
 	//to decide 
 
-	//Boss 1 Particles
+	//-----Boss 1 Particles----------
+	//Round Bomb
+	round_bomb.anim.PushBack({ 1248, 672, 36, 40 });
+	round_bomb.anim.PushBack({ 1300,672, 36, 40 });
+	round_bomb.anim.PushBack({ 1248, 672, 36, 40 });
+	round_bomb.anim.PushBack({ 1300,672, 36, 40 });
+	round_bomb.anim.PushBack({ 1248, 672, 36, 40 });
+	round_bomb.anim.PushBack({ 1300,672, 36, 40 });
+	round_bomb.anim.PushBack({ 1248, 672, 36, 40 });
+	round_bomb.anim.PushBack({ 1300,672, 36, 40 });
+	round_bomb.anim.PushBack({ 1352, 668, 44, 48 });
+	round_bomb.anim.PushBack({ 1352, 668, 44, 48 });
+	round_bomb.anim.PushBack({ 1248,732, 60, 64 });
+	round_bomb.anim.PushBack({ 1248,732, 60, 64 });
+	round_bomb.anim.PushBack({ 1320,748, 36, 36 });
+	round_bomb.anim.PushBack({ 1372, 736, 56, 56 });
+	round_bomb.anim.PushBack({ 1444, 732, 60, 60 });
+	round_bomb.anim.PushBack({ 1444, 732, 60, 60 });
+	round_bomb.speed.x = -6;
+	round_bomb.speed.y = -6;
+	round_bomb.anim.loop = false;
+	round_bomb.anim.speed = 0.25f;
+	//Scatter explosion after
+	subshot1.anim.PushBack({1328,812,16,40});
+	subshot1.anim.PushBack({1512,808,16,48});
+	subshot1.speed.y = -7;
 
-	//Boss 2 Particles
+	subshot4.anim.PushBack({ 1328,936,16,40 });
+	subshot4.anim.PushBack({ 1512,932,16,48 });
+	subshot4.speed.y = 7;
+
+	subshot2.anim.PushBack({ 1248,892,40,16 });
+	subshot2.anim.PushBack({ 1428,892,48,16 });
+	subshot2.speed.x = -7;
+
+	subshot3.anim.PushBack({ 1372,892,40,16 });
+	subshot3.anim.PushBack({ 1552,892,48,16 });
+	subshot3.speed.x = 7;
+
+	subshot5.anim.PushBack({ 1268,832,24,32 });
+	subshot5.anim.PushBack({ 1452,832,28,32 });
+	subshot5.speed.y = -6;
+	subshot5.speed.x = -6;
+
+	subshot6.anim.PushBack({ 1368,832,24,32 });
+	subshot6.anim.PushBack({ 1548,832,28,32 });
+	subshot6.speed.y = -6;
+	subshot6.speed.x =  6;
+
+	subshot7.anim.PushBack({ 1368,924,24,32 });
+	subshot7.anim.PushBack({ 1548,924,28,32 });
+	subshot7.speed.y = 6;
+	subshot7.speed.x = 6;
+
+	subshot8.anim.PushBack({ 1268,924,24,32 });
+	subshot8.anim.PushBack({ 1452,924,28,32 });
+	subshot8.speed.y =  6;
+	subshot8.speed.x = -6;
+
+	//Back bullets
+	backshot.anim.PushBack({1592,1096,60,48});
+	backshot.anim.PushBack({ 1672,1096,65,48 });
+	backshot.speed.x = -5;
+	backshot.anim.speed = 0.2f;
+
+	//Bomb drops
+	dropbomb.anim.PushBack({1248,1012,96,40});
+	dropbomb.anim.PushBack({ 1248,1068,96,76 });
+	dropbomb.speed.x = -5;
+	dropbomb.speed.y = 4;
+	dropbomb.anim.loop = false;
+	dropbomb.lifetime = 1000;
+	dropbomb.anim.speed = 0.1f;
+
+	//-----Boss 2 Particles----------
 	
 
 	return true;
@@ -124,7 +197,11 @@ update_status ModuleParticles::Update()
 		if(particle->Update() == false)
 		{
 			delete particle;
+			/*if (particles[i] == round_bomb) {
+				AddParticle(subshot1, round_bomb->position.x, round_bomb->position.y, ColliderType::PLAYER_SHOT);
+			}*/
 			particles[i] = nullptr;
+			
 		}
 	}
 		

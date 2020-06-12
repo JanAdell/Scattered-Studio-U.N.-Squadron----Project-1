@@ -82,7 +82,7 @@ bool ModuleScene::Start()
 	//Enemy Script->Initial pos 
 	//Med Camos
 	//2 secs 
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1860,400);
+	/*App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1860,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1920,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1980,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 2040,400);
@@ -202,7 +202,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5450, 700);
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5500, 700);
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5550, 700);
-	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5600, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5600, 700);*/
 
 	//-------------------------------------------------------------
 	

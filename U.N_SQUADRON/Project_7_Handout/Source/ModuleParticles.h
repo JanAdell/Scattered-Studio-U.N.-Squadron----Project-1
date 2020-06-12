@@ -11,7 +11,7 @@
 #include "Application.h"
 #include "Animation.h"
 
-#define MAX_ACTIVE_PARTICLES 200
+#define MAX_ACTIVE_PARTICLES 500
 
 struct SDL_Texture;
 struct Collider;
@@ -70,6 +70,61 @@ public:
 	Particle laser;
 
 	Particle enemy_shot;
+
+	//---Special Weapons---
+
+	//Trilaser
+	Particle t_laser1;
+	Particle t_laser2;
+	Particle t_laser3;
+
+	//StraightLaser
+	Particle s_laser;
+
+	//Gunpod 
+	Particle g_p_turret;
+	Particle g_p_bullets;
+
+	//Downwards missiles
+	Particle dw_missile;
+
+	//---Basic enemies---
+
+	//Green fighter claw
+	Particle g_claw;
+
+	//White Jet Missile
+	Particle w_missile;
+
+	//---Boss 1---
+	
+	//Round Bomb
+	Particle round_bomb;
+	//Particle round_bomb_explosion;
+	Particle subshot1;
+	Particle subshot2;
+	Particle subshot3;
+	Particle subshot4;
+	Particle subshot5;
+	Particle subshot6;
+	Particle subshot7;
+	Particle subshot8;
+
+	//Backshot
+	Particle backshot;
+	
+	//Bomb drop
+	Particle dropbomb;
+	
+	//---Boss 2---
+	
+	//Forward Missile
+	Particle f_missile;
+	Particle f_missile_explosion;
+
+	//Backwards bomb
+	Particle b_bomb;
+	Particle b_bomb_explosion;
 };
 
 #endif // !__MODULEPARTICLES_H__
