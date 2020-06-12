@@ -70,6 +70,7 @@ bool ModuleScene::Start()
 	left_spawn_positions[BIG_CAMO_JET_3] = 3800;
 	left_spawn_positions[BIG_CAMO_JET_4] = 3800;
 	//-----------------------------------------
+	left_spawn_positions[BOSS_BLACKBIRD] = 4500;
 	
 
 
@@ -204,7 +205,7 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5600, 700);
 
 	//Boss
-	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_BLACKBIRD, 5800, 1000);
+	//App->enemies->AddEnemy(ENEMY_TYPE::BOSS_BLACKBIRD, 5700, 1000);
 
 	//-------------------------------------------------------------
 	
@@ -278,6 +279,9 @@ update_status ModuleScene::Update()
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 120, 600);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 600);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 120, 600);
+				break;
+			case BOSS_BLACKBIRD:
+				App->enemies->AddEnemy(ENEMY_TYPE::BOSS_BLACKBIRD, camera_x+150, 1000);
 				break;
 			default:
 				break;
