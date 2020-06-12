@@ -30,6 +30,8 @@ private:
 	// A set of steps that define the position in the screen
 // And an animation for each step
 	Path path;
+	Path path2;
+	Path path3;
 
 	// The enemy animation
 	Animation fly;

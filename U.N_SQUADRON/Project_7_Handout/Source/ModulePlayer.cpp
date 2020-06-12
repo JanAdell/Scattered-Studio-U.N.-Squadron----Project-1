@@ -131,11 +131,13 @@ update_status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)// || pad.a == true)
 	{
 		App->particles->AddParticle(App->particles->laser, position.x + 140, position.y+30, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->round_bomb, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
+		//App->particles->AddParticle(App->particles->s_laser, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
 			
-		
+		App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
 
-		//SDL_Delay(100);
+		
 		
 
 		App->audio->PlayFx(laserFx);

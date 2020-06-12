@@ -67,9 +67,47 @@ bool ModuleParticles::Start()
 
 	//-----Special Weapon Particles---
 	//Tri Laser particles
+	t_laser1.anim.PushBack({0,1663,154,193});
+	t_laser1.anim.PushBack({ 270,1549,460,420 });
+	t_laser1.anim.PushBack({ 819,1423,468,240 });
+		
+	t_laser2.anim.PushBack({ 0,1663,154,193 });
+	t_laser2.anim.PushBack({ 270,1549,460,420 });
+	t_laser2.anim.PushBack({ 801,1715,494,104 });
+	
+	t_laser3.anim.PushBack({ 0,1663,154,193 });
+	t_laser3.anim.PushBack({ 270,1549,460,420 });
+	t_laser3.anim.PushBack({ 789,1863,506,240 });
+	
+	t_laser1.speed.x = 15;
+	t_laser1.speed.y = -13;
+	t_laser1.lifetime = 180;
+	t_laser1.anim.speed = 0.3f;
+	t_laser1.anim.loop = false;
+
+	t_laser2.speed.x = 20;
+	t_laser2.lifetime = 180;
+	t_laser2.anim.speed = 0.3f;
+	t_laser2.anim.loop = false;
+
+	t_laser3.speed.x = 15;
+	t_laser3.speed.y = 13;
+	t_laser3.lifetime = 180;
+	t_laser3.anim.speed = 0.3f;
+	t_laser3.anim.loop = false;
 
 	//Straight Laser Particles
-
+	s_laser.anim.PushBack({ 0,1288,130,104 });
+	s_laser.anim.PushBack({ 146,1290,128,105 });
+	s_laser.anim.PushBack({ 306,1289,144,99 });
+	s_laser.anim.PushBack({ 468,1293,204,91 });
+	s_laser.anim.PushBack({ 711,1287,289,105 });
+	s_laser.anim.PushBack({ 1038,1286,320,94 });
+	s_laser.anim.PushBack({ 1384,1278,396,96 });
+	s_laser.anim.speed = 0.5f;
+	s_laser.anim.loop = false;
+	s_laser.speed.x = 20;
+	s_laser.lifetime = 200;
 	//Bomb Particles
 
 	//to decide 
@@ -96,6 +134,7 @@ bool ModuleParticles::Start()
 	round_bomb.speed.y = -6;
 	round_bomb.anim.loop = false;
 	round_bomb.anim.speed = 0.25f;
+
 	//Scatter explosion after
 	subshot1.anim.PushBack({1328,812,16,40});
 	subshot1.anim.PushBack({1512,808,16,48});
