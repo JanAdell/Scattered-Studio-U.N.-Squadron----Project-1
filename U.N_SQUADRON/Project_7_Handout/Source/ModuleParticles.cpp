@@ -67,33 +67,33 @@ bool ModuleParticles::Start()
 
 	//-----Special Weapon Particles---
 	//Tri Laser particles
-	t_laser1.anim.PushBack({0,1663,154,193});
-	t_laser1.anim.PushBack({ 270,1549,460,420 });
+	t_laser1.anim.PushBack({1,1601,153,115});
+	t_laser1.anim.PushBack({ 270,1446,438,212 });
 	t_laser1.anim.PushBack({ 819,1423,468,240 });
 		
-	t_laser2.anim.PushBack({ 0,1663,154,193 });
-	t_laser2.anim.PushBack({ 270,1549,460,420 });
+	t_laser2.anim.PushBack({ 10,1720,143,66 });
+	t_laser2.anim.PushBack({ 270,1726,460,89 });
 	t_laser2.anim.PushBack({ 801,1715,494,104 });
 	
-	t_laser3.anim.PushBack({ 0,1663,154,193 });
-	t_laser3.anim.PushBack({ 270,1549,460,420 });
+	t_laser3.anim.PushBack({ 28,1814,126,98 });
+	t_laser3.anim.PushBack({ 276,1867,386,182 });
 	t_laser3.anim.PushBack({ 789,1863,506,240 });
 	
 	t_laser1.speed.x = 15;
 	t_laser1.speed.y = -13;
 	t_laser1.lifetime = 180;
-	t_laser1.anim.speed = 0.3f;
+	t_laser1.anim.speed = 0.5f;
 	t_laser1.anim.loop = false;
 
 	t_laser2.speed.x = 20;
 	t_laser2.lifetime = 180;
-	t_laser2.anim.speed = 0.3f;
+	t_laser2.anim.speed = 0.5f;
 	t_laser2.anim.loop = false;
 
 	t_laser3.speed.x = 15;
 	t_laser3.speed.y = 13;
 	t_laser3.lifetime = 180;
-	t_laser3.anim.speed = 0.3f;
+	t_laser3.anim.speed = 0.5f;
 	t_laser3.anim.loop = false;
 
 	//Straight Laser Particles
