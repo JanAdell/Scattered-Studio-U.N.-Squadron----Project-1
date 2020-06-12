@@ -3,7 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 
-Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
+Enemy_BrownShip::Enemy_BrownShip(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
 	fly.PushBack({5 *4,72 *4,21 *4,22 *4 });
 	currentAnim = &fly;

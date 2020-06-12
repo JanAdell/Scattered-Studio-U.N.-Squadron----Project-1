@@ -7,8 +7,10 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
-Enemy_OrangeJet::Enemy_OrangeJet(int x, int y) : Enemy(x, y)
+Enemy_OrangeJet::Enemy_OrangeJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
+	hp = 5;
+	enemy_type = e_type;
 	//fly left
 	flyBack.PushBack({ 387*4,20 * 4,32 * 4,19 * 4 });
 	flyBack.speed = 0.01f;

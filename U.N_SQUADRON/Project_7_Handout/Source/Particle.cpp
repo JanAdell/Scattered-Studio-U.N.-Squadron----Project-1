@@ -56,9 +56,9 @@ bool Particle::Update()
 				
 			}
 
-			if (collider->type == CLAW) {
+			/*if (collider->type == CLAW) {
 
-			}
+			}*/
 
 			ret = false;
 		}

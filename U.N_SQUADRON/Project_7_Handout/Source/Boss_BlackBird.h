@@ -3,13 +3,14 @@
 
 #include "Enemy.h"
 #include "Path.h"
+#include "ModuleEnemies.h"
 
 class Boss_BlackBird : public Enemy
 {
 public:
 	// Constructor (x y coordinates in the world)
 	// Creates animation and movement data and the collider
-	Boss_BlackBird(int x, int y);
+	Boss_BlackBird(int x, int y, ENEMY_TYPE e_type);
 
 	// The enemy is going to follow the different steps in the path
 	// Position will be updated depending on the speed defined at each step
@@ -54,6 +55,8 @@ private:
 	//boss stats
 	bool dead;
 	bool entry_cond;
+
+	
 };
 
 #endif 

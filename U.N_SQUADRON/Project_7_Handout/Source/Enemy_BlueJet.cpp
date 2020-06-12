@@ -7,8 +7,11 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
-Enemy_BlueJet::Enemy_BlueJet(int x, int y) : Enemy(x, y)
+Enemy_BlueJet::Enemy_BlueJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
+	hp = 5;
+	enemy_type = e_type;
+	
 	flyBackDown.PushBack({ 960,524,120,56 });
 	flyBackDown.speed = 0.01f;
 

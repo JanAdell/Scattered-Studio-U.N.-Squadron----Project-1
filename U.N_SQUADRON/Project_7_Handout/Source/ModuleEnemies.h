@@ -7,7 +7,7 @@
 
 // TODO 4: Create a new enemy type: the Mech
 
-enum class ENEMY_TYPE
+enum ENEMY_TYPE
 {
 	NO_TYPE,
 	REDBIRD,
@@ -66,13 +66,14 @@ public:
 
 	// Add an enemy into the queue to be spawned later
 	bool AddEnemy(ENEMY_TYPE type, int x, int y);
-	
+	   	
 	// Iterates the queue and checks for camera position
 	void HandleEnemiesSpawn();
 
 	// Destroys any enemies that have moved outside the camera limits
 	void HandleEnemiesDespawn();
-
+		
+	
 private:
 	// Spawns a new enemy using the data from the queue
 	void SpawnEnemy(const EnemySpawnpoint& info);
@@ -83,7 +84,7 @@ private:
 
 	// All spawned enemies in the scene
 	Enemy* enemies[MAX_ENEMIES] = { nullptr };
-
+	
 	// The enemies sprite sheet
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* shots = nullptr;

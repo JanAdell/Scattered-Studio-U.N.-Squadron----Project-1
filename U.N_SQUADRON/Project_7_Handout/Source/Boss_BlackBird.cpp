@@ -6,12 +6,13 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
-Boss_BlackBird::Boss_BlackBird(int x, int y) : Enemy(x, y)
+Boss_BlackBird::Boss_BlackBird(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
 	hp = 150;
 	dead = false;
 	entry_cond = true;
 	entry.PushBack({ 2,1541,556,316 });
+	enemy_type = e_type;
 
 	backshot.PushBack({ 2,1873,556,316 });
 	backshot.PushBack({ 1155,1547,556,316 });
@@ -107,8 +108,5 @@ void Boss_BlackBird::Update()
 
 
 	Enemy::Update();
-
-	if (hp <= 0) {
-		collider->pendingToDelete;
-	}
+		
 }

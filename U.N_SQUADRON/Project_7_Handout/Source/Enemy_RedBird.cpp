@@ -3,7 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 
-Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
+Enemy_RedBird::Enemy_RedBird(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
 	flyAnim.PushBack({5*4,6*4,24*4,24*4});
 	flyAnim.PushBack({38 * 4, 6 * 4, 24 * 4, 24 * 4 });

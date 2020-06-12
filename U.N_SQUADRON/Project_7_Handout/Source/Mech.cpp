@@ -2,7 +2,7 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
-Mech::Mech(int x, int y) : Enemy(x, y)
+Mech::Mech(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
 
 	walk.PushBack({ 5,107,30,30 });

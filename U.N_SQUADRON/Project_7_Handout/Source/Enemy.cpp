@@ -6,10 +6,11 @@
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
 
-Enemy::Enemy(int x, int y) : position(x, y)
+Enemy::Enemy(int x, int y, ENEMY_TYPE e_type) : position(x, y)
 {
 	spawnPos = position;
 	destroy = false;
+	enemy_type = e_type;
 }
 
 Enemy::~Enemy()

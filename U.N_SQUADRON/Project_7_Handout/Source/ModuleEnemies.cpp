@@ -33,7 +33,7 @@
 
 //Player for Score value
 #include "ModulePlayer.h"
-
+#include "ModuleFadeToBlack.h"
 
 #define SPAWN_MARGIN 150
 
@@ -191,44 +191,44 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 		{
 			switch (info.type)
 			{
-				case ENEMY_TYPE::REDBIRD:
-					enemies[i] = new Enemy_RedBird(info.x, info.y);
+				case REDBIRD:
+					enemies[i] = new Enemy_RedBird(info.x, info.y, REDBIRD);
 					break;
-				case ENEMY_TYPE::BROWNSHIP:
-					enemies[i] = new Enemy_BrownShip(info.x, info.y);
+				case BROWNSHIP:
+					enemies[i] = new Enemy_BrownShip(info.x, info.y, BROWNSHIP);
 					break;
-				case ENEMY_TYPE::MECH:
-					enemies[i] = new Mech(info.x, info.y);
+				case MECH:
+					enemies[i] = new Mech(info.x, info.y, MECH);
 					break;
-				case ENEMY_TYPE::BIG_CAMO_JET:
-					enemies[i] = new Enemy_BigCamoJet(info.x, info.y);
+				case BIG_CAMO_JET:
+					enemies[i] = new Enemy_BigCamoJet(info.x, info.y, BIG_CAMO_JET);
 					break;
-				case ENEMY_TYPE::MEDIUM_CAMO_JET:
-					enemies[i] = new Enemy_MedCamoJet(info.x, info.y);
+				case MEDIUM_CAMO_JET:
+					enemies[i] = new Enemy_MedCamoJet(info.x, info.y, MEDIUM_CAMO_JET);
 					break;
-				case ENEMY_TYPE::GREEN_FIGHTER:
-					enemies[i] = new Enemy_GreenFighter(info.x, info.y);
+				case GREEN_FIGHTER:
+					enemies[i] = new Enemy_GreenFighter(info.x, info.y, GREEN_FIGHTER);
 					break;
-				case ENEMY_TYPE::BLUE_JET:
-					enemies[i] = new Enemy_BlueJet(info.x, info.y);
+				case BLUE_JET:
+					enemies[i] = new Enemy_BlueJet(info.x, info.y, BLUE_JET);
 					break;
-				case ENEMY_TYPE::ORANGE_JET:
-					enemies[i] = new Enemy_OrangeJet(info.x, info.y);
+				case ORANGE_JET:
+					enemies[i] = new Enemy_OrangeJet(info.x, info.y, ORANGE_JET);
 					break;
-				case ENEMY_TYPE::SMALL_CAMO_JET:
-					enemies[i] = new Enemy_SmallCamoJet(info.x, info.y);
+				case SMALL_CAMO_JET:
+					enemies[i] = new Enemy_SmallCamoJet(info.x, info.y, SMALL_CAMO_JET);
 					break;
-				case ENEMY_TYPE::WHITE_JET_LVL_2:
-					enemies[i] = new Enemy_WhiteJet(info.x, info.y);
+				case WHITE_JET_LVL_2:
+					enemies[i] = new Enemy_WhiteJet(info.x, info.y, WHITE_JET_LVL_2);
 					break;
-				case ENEMY_TYPE::GREEN_JET_LVL_2:
-					enemies[i] = new Enemy_GreenJet(info.x, info.y);
+				case GREEN_JET_LVL_2:
+					enemies[i] = new Enemy_GreenJet(info.x, info.y, GREEN_JET_LVL_2);
 					break;
-				case ENEMY_TYPE::BOSS_BLACKBIRD:
-					enemies[i] = new Boss_BlackBird(info.x, info.y);
+				case BOSS_BLACKBIRD:
+					enemies[i] = new Boss_BlackBird(info.x, info.y, BOSS_BLACKBIRD);
 					break;
-				case ENEMY_TYPE::BOSS_PURPLE_JACKAL:
-					enemies[i] = new Boss_PurpleJackal(info.x, info.y);
+				case BOSS_PURPLE_JACKAL:
+					enemies[i] = new Boss_PurpleJackal(info.x, info.y, BOSS_PURPLE_JACKAL);
 					break;
 				
 			}
@@ -275,18 +275,78 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			
 			if (enemies[i]->destroy) {
 				
-				/*switch (enemies[i]->GetCollider()->type) {
-
-				}*/
-				
-				App->shop->money += 300;
-				App->hud->score += 100;
-				delete enemies[i];
-				enemies[i] = nullptr;
+				switch (enemies[i]->enemy_type) {
+				case BIG_CAMO_JET:
+					App->shop->money += 300;
+					App->hud->score += 100;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case MEDIUM_CAMO_JET:
+					App->shop->money += 300;
+					App->hud->score += 100;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case GREEN_FIGHTER:
+					App->shop->money += 400;
+					App->hud->score += 200;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case BLUE_JET:
+					App->shop->money += 300;
+					App->hud->score += 100;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case ORANGE_JET:
+					App->shop->money += 300;
+					App->hud->score += 100;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case SMALL_CAMO_JET:
+					App->shop->money += 300;
+					App->hud->score += 100;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case WHITE_JET_LVL_2:
+					App->shop->money += 400;
+					App->hud->score += 200;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case GREEN_JET_LVL_2:
+					App->shop->money += 400;
+					App->hud->score += 200;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case BOSS_BLACKBIRD:
+					App->shop->money += 30000;
+					App->hud->score += 10000;
+					App->transition->FadeToBlack((Module*)App->scene, (Module*)App->sceneWin);
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				case BOSS_PURPLE_JACKAL:
+					App->shop->money += 30000;
+					App->hud->score += 10000;
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+								
 			}
 
 			break;
 		}
 	}
 }
+
+
+
+
 

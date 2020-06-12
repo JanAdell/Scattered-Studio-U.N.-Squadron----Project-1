@@ -9,7 +9,7 @@ class Enemy_BigCamoJet : public Enemy
 public:
 	// Constructor (x y coordinates in the world)
 	// Creates animation and movement data and the collider
-	Enemy_BigCamoJet(int x, int y);
+	Enemy_BigCamoJet(int x, int y, ENEMY_TYPE e_type);
 	
 	// The enemy is going to follow the different steps in the path
 	// Position will be updated depending on the speed defined at each step
@@ -56,6 +56,9 @@ private:
 	//Shot delay
 	unsigned int current_time;
 	unsigned int time = 0;
+
+	
+
 };
 
 #endif 

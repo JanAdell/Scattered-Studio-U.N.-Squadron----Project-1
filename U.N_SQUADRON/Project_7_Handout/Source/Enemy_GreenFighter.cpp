@@ -6,8 +6,11 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
-Enemy_GreenFighter::Enemy_GreenFighter(int x, int y) : Enemy(x, y)
+Enemy_GreenFighter::Enemy_GreenFighter(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
+	hp = 30;
+	enemy_type = e_type;
+
 	fly.PushBack({ 1100,604,428,156 });
 	//fly.speed = 0.0f;
 

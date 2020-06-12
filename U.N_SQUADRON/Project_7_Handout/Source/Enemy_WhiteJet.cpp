@@ -6,8 +6,11 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
-Enemy_WhiteJet::Enemy_WhiteJet(int x, int y) : Enemy(x, y)
+Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
+	hp = 5;
+	enemy_type = e_type;
+
 	fly.PushBack({27,29,100,36});
 
 	flydown.PushBack({251,25,100,40});

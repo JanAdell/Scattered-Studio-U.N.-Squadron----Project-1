@@ -70,19 +70,18 @@ bool ModuleScene::Start()
 	left_spawn_positions[BIG_CAMO_JET_3] = 3800;
 	left_spawn_positions[BIG_CAMO_JET_4] = 3800;
 	//-----------------------------------------
-	left_spawn_positions[BOSS_BLACKBIRD] = 100;
-	//-----------------------------------------
+	
 
 
 	//----------Enemy Debug--------------------
-	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_BLACKBIRD, 100, 1000);
+	//App->enemies->AddEnemy(ENEMY_TYPE::BOSS_BLACKBIRD, 100, 1000);
 
 	
 	//Enemies --------------------------------------------------
 	//Enemy Script->Initial pos 
 	//Med Camos
 	//2 secs 
-	/*App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1860,400);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1860,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1920,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 1980,400);
 	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 2040,400);
@@ -202,7 +201,10 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5450, 700);
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5500, 700);
 	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5550, 700);
-	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5600, 700);*/
+	App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, 5600, 700);
+
+	//Boss
+	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_BLACKBIRD, 5800, 1000);
 
 	//-------------------------------------------------------------
 	
@@ -226,7 +228,7 @@ update_status ModuleScene::Update()
 		if (camera_x >= left_spawn_positions[left_spawn_counter]) {
 			switch (left_spawner(left_spawn_counter))
 			{
-			/*case ORANGE_JET_1:
+			case ORANGE_JET_1:
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x - 120, 700);
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x, 700);
 				App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, camera_x + 120, 700);
@@ -276,7 +278,7 @@ update_status ModuleScene::Update()
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x - 120, 600);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x, 600);
 				App->enemies->AddEnemy(ENEMY_TYPE::BIG_CAMO_JET, camera_x + 120, 600);
-				break;*/
+				break;
 			default:
 				break;
 			}
@@ -289,11 +291,10 @@ update_status ModuleScene::Update()
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();
 
-	if (App->render->camera.x >= 5000) {
-		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
+	/*if (App->render->camera.x >= 5000) {
 		App->hud->Disable();
 		//change to when blackbird dies
-	}
+	}*/
 
 	if (App->player->destroyed == true) {
 		App->transition->FadeToBlack(this, (Module*)App->loose);
@@ -358,6 +359,10 @@ bool ModuleScene::CleanUp()
 	App->player->Disable();
 	App->enemies->Disable();
 	App->particles->Disable();
+	App->player->CleanUp();
+	App->enemies->CleanUp();
+	App->particles->CleanUp();
+	App->hud->Disable();
 
 	App->textures->Unload(bgTextures[0]);
 	App->textures->Unload(bgTextures[1]);

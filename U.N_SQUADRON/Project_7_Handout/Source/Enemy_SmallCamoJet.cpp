@@ -7,8 +7,11 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
-Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y) : Enemy(x, y)
+Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
+	hp = 5;
+	enemy_type = e_type;
+
 	//fly right
 	fly.PushBack({ 1096,448,104,32 });
 	fly.speed = 0.1f;

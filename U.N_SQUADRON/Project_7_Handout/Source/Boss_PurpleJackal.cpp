@@ -6,8 +6,11 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
-Boss_PurpleJackal::Boss_PurpleJackal(int x, int y) : Enemy(x, y)
+Boss_PurpleJackal::Boss_PurpleJackal(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
+	hp = 50;
+	enemy_type = e_type;
+	
 	fly.PushBack({ 43,621,160,60 });
 
 	flyup.PushBack({ 227,605,160,76 });
