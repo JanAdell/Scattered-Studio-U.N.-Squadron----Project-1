@@ -21,6 +21,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::WALL][ColliderType::GUNPOD] = true;
 	matrix[ColliderType::WALL][ColliderType::S_LASER] = true;
 	matrix[ColliderType::WALL][ColliderType::ROUND_BOMB] = true;
+	matrix[ColliderType::WALL][ColliderType::BACKSHOT] = true;
+	matrix[ColliderType::WALL][ColliderType::AIRDROP] = true;
+	matrix[ColliderType::WALL][ColliderType::FRONTMISSILE] = true;
+	matrix[ColliderType::WALL][ColliderType::BACKBOMB] = true;
+	matrix[ColliderType::WALL][ColliderType::CLAW] = true;
 
 	matrix[ColliderType::PLAYER][ColliderType::WALL] = true;
 	matrix[ColliderType::PLAYER][ColliderType::PLAYER] = false;
@@ -31,7 +36,12 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::PLAYER][ColliderType::BOMB] = false;
 	matrix[ColliderType::PLAYER][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::PLAYER][ColliderType::S_LASER] = false;
-	matrix[ColliderType::PLAYER][ColliderType::ROUND_BOMB] = false; //change
+	matrix[ColliderType::PLAYER][ColliderType::ROUND_BOMB] = true; 
+	matrix[ColliderType::PLAYER][ColliderType::BACKSHOT] = true;
+	matrix[ColliderType::PLAYER][ColliderType::AIRDROP] = true;
+	matrix[ColliderType::PLAYER][ColliderType::FRONTMISSILE] = true;
+	matrix[ColliderType::PLAYER][ColliderType::BACKBOMB] = true;
+	matrix[ColliderType::PLAYER][ColliderType::CLAW] = true;
 
 	matrix[ColliderType::ENEMY][ColliderType::WALL] = true;
 	matrix[ColliderType::ENEMY][ColliderType::PLAYER] = true;
@@ -43,6 +53,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::ENEMY][ColliderType::GUNPOD] = true;
 	matrix[ColliderType::ENEMY][ColliderType::S_LASER] = true;
 	matrix[ColliderType::ENEMY][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::ENEMY][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::ENEMY][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::ENEMY][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::ENEMY][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::ENEMY][ColliderType::CLAW] = false;
 
 	matrix[ColliderType::PLAYER_SHOT][ColliderType::WALL] = true;
 	matrix[ColliderType::PLAYER_SHOT][ColliderType::PLAYER] = false;
@@ -54,6 +69,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::PLAYER_SHOT][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::PLAYER_SHOT][ColliderType::S_LASER] = false;
 	matrix[ColliderType::PLAYER_SHOT][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::PLAYER_SHOT][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::PLAYER_SHOT][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::PLAYER_SHOT][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::PLAYER_SHOT][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::PLAYER_SHOT][ColliderType::CLAW] = false;
 
 	matrix[ColliderType::ENEMY_SHOT][ColliderType::WALL] = true;
 	matrix[ColliderType::ENEMY_SHOT][ColliderType::PLAYER] = true;
@@ -65,6 +85,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::ENEMY_SHOT][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::ENEMY_SHOT][ColliderType::S_LASER] = false;
 	matrix[ColliderType::ENEMY_SHOT][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::ENEMY_SHOT][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::ENEMY_SHOT][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::ENEMY_SHOT][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::ENEMY_SHOT][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::ENEMY_SHOT][ColliderType::CLAW] = false;
 
 	matrix[ColliderType::S_LASER][ColliderType::WALL] = true;
 	matrix[ColliderType::S_LASER][ColliderType::PLAYER] = false;
@@ -76,6 +101,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::S_LASER][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::S_LASER][ColliderType::S_LASER] = false;
 	matrix[ColliderType::S_LASER][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::S_LASER][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::S_LASER][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::S_LASER][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::S_LASER][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::S_LASER][ColliderType::CLAW] = false;
 
 	matrix[ColliderType::T_LASER][ColliderType::WALL] = true;
 	matrix[ColliderType::T_LASER][ColliderType::PLAYER] = false;
@@ -87,6 +117,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::T_LASER][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::T_LASER][ColliderType::S_LASER] = false;
 	matrix[ColliderType::T_LASER][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::T_LASER][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::T_LASER][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::T_LASER][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::T_LASER][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::T_LASER][ColliderType::CLAW] = false;
 
 	matrix[ColliderType::BOMB][ColliderType::WALL] = true;
 	matrix[ColliderType::BOMB][ColliderType::PLAYER] = false;
@@ -98,6 +133,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::BOMB][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::BOMB][ColliderType::S_LASER] = false;
 	matrix[ColliderType::BOMB][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::BOMB][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::BOMB][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::BOMB][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::BOMB][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::BOMB][ColliderType::CLAW] = false;
 
 	matrix[ColliderType::GUNPOD][ColliderType::WALL] = true;
 	matrix[ColliderType::GUNPOD][ColliderType::PLAYER] = false;
@@ -109,9 +149,14 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::GUNPOD][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::GUNPOD][ColliderType::S_LASER] = false;
 	matrix[ColliderType::GUNPOD][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::GUNPOD][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::GUNPOD][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::GUNPOD][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::GUNPOD][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::GUNPOD][ColliderType::CLAW] = false;
 
 	matrix[ColliderType::ROUND_BOMB][ColliderType::WALL] = true;
-	matrix[ColliderType::ROUND_BOMB][ColliderType::PLAYER] = false;//change
+	matrix[ColliderType::ROUND_BOMB][ColliderType::PLAYER] = true;
 	matrix[ColliderType::ROUND_BOMB][ColliderType::ENEMY] = false;
 	matrix[ColliderType::ROUND_BOMB][ColliderType::PLAYER_SHOT] = false;
 	matrix[ColliderType::ROUND_BOMB][ColliderType::ENEMY_SHOT] = false;
@@ -120,6 +165,92 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[ColliderType::ROUND_BOMB][ColliderType::GUNPOD] = false;
 	matrix[ColliderType::ROUND_BOMB][ColliderType::S_LASER] = false;
 	matrix[ColliderType::ROUND_BOMB][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::ROUND_BOMB][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::ROUND_BOMB][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::ROUND_BOMB][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::ROUND_BOMB][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::ROUND_BOMB][ColliderType::CLAW] = false;
+
+	matrix[ColliderType::BACKSHOT][ColliderType::WALL] = true;
+	matrix[ColliderType::BACKSHOT][ColliderType::PLAYER] = true;
+	matrix[ColliderType::BACKSHOT][ColliderType::ENEMY] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::PLAYER_SHOT] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::ENEMY_SHOT] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::T_LASER] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::BOMB] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::GUNPOD] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::S_LASER] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::BACKSHOT][ColliderType::CLAW] = false;
+
+	matrix[ColliderType::AIRDROP][ColliderType::WALL] = true;
+	matrix[ColliderType::AIRDROP][ColliderType::PLAYER] = true;
+	matrix[ColliderType::AIRDROP][ColliderType::ENEMY] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::PLAYER_SHOT] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::ENEMY_SHOT] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::T_LASER] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::BOMB] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::GUNPOD] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::S_LASER] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::AIRDROP][ColliderType::CLAW] = false;
+
+	matrix[ColliderType::FRONTMISSILE][ColliderType::WALL] = true;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::PLAYER] = true;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::ENEMY] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::PLAYER_SHOT] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::ENEMY_SHOT] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::T_LASER] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::BOMB] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::GUNPOD] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::S_LASER] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::FRONTMISSILE][ColliderType::CLAW] = false;
+
+	matrix[ColliderType::BACKBOMB][ColliderType::WALL] = true;
+	matrix[ColliderType::BACKBOMB][ColliderType::PLAYER] = true;
+	matrix[ColliderType::BACKBOMB][ColliderType::ENEMY] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::PLAYER_SHOT] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::ENEMY_SHOT] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::T_LASER] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::BOMB] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::GUNPOD] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::S_LASER] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::BACKBOMB][ColliderType::CLAW] = false;
+
+	matrix[ColliderType::CLAW][ColliderType::WALL] = true;
+	matrix[ColliderType::CLAW][ColliderType::PLAYER] = true;
+	matrix[ColliderType::CLAW][ColliderType::ENEMY] = false;
+	matrix[ColliderType::CLAW][ColliderType::PLAYER_SHOT] = false;
+	matrix[ColliderType::CLAW][ColliderType::ENEMY_SHOT] = false;
+	matrix[ColliderType::CLAW][ColliderType::T_LASER] = false;
+	matrix[ColliderType::CLAW][ColliderType::BOMB] = false;
+	matrix[ColliderType::CLAW][ColliderType::GUNPOD] = false;
+	matrix[ColliderType::CLAW][ColliderType::S_LASER] = false;
+	matrix[ColliderType::CLAW][ColliderType::ROUND_BOMB] = false;
+	matrix[ColliderType::CLAW][ColliderType::BACKSHOT] = false;
+	matrix[ColliderType::CLAW][ColliderType::AIRDROP] = false;
+	matrix[ColliderType::CLAW][ColliderType::FRONTMISSILE] = false;
+	matrix[ColliderType::CLAW][ColliderType::BACKBOMB] = false;
+	matrix[ColliderType::CLAW][ColliderType::CLAW] = false;
+
 }
 
 // Destructor

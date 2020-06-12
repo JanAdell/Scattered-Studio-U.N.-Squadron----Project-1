@@ -42,7 +42,7 @@ bool Particle::Update()
 		}
 		// Otherwise the particle is destroyed when the animation is finished
 		else if (anim.HasFinished()) {
-			ret = false;
+			
 			if (collider->type == ROUND_BOMB) {
 				App->particles->AddParticle(App->particles->subshot1, position.x, position.y, ColliderType::PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->subshot2, position.x, position.y, ColliderType::PLAYER_SHOT);
@@ -54,6 +54,12 @@ bool Particle::Update()
 				App->particles->AddParticle(App->particles->subshot8, position.x, position.y, ColliderType::PLAYER_SHOT);
 				
 			}
+
+			if (collider->type == CLAW) {
+
+			}
+
+			ret = false;
 		}
 		// Update the position in the screen
 		position.x += speed.x;

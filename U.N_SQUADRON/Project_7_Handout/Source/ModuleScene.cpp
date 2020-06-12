@@ -292,7 +292,7 @@ update_status ModuleScene::Update()
 	if (App->render->camera.x >= 5000) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
 		App->hud->Disable();
-
+		//change to when blackbird dies
 	}
 
 	if (App->player->destroyed == true) {
@@ -300,6 +300,8 @@ update_status ModuleScene::Update()
 		App->player->collider->pendingToDelete = true;
 		App->particles->enemy_shot.isAlive = false;
 		App->hud->Disable();
+		App->particles->CleanUp();
+		App->collisions->CleanUp();
 	}
 	   
 	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {

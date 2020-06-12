@@ -240,9 +240,6 @@ update_status ModuleParticles::Update()
 		if(particle->Update() == false)
 		{
 			delete particle;
-			/*if (particles[i] == round_bomb) {
-				AddParticle(subshot1, round_bomb->position.x, round_bomb->position.y, ColliderType::PLAYER_SHOT);
-			}*/
 			particles[i] = nullptr;
 			
 		}

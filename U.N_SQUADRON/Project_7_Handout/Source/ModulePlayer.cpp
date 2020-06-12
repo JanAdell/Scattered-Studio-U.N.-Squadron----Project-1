@@ -77,27 +77,7 @@ update_status ModulePlayer::Update()
 
 	//TODO Limit camera movement
 	App->player->position.x += 1;
-
-	//Debug key for gamepad rumble testing purposes
-	//if (App->input->keys[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN)
-	//{
-	//	App->input->ShakeController(0, 12, 0.33f);
-	//}
-
-	//Debug key for gamepad rumble testing purposes
-	//if (App->input->keys[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
-	//{
-	//	App->input->ShakeController(0, 36, 0.66f);
-	//}
-
-	//Debug key for gamepad rumble testing purposes
-	//if (App->input->keys[SDL_SCANCODE_3] == KEY_STATE::KEY_DOWN)
-	//{
-	//	App->input->ShakeController(0, 60, 1.0f);
-	//}
 	
-
-
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->player->position.x >= App->render->camera.x )//|| pad.l_x < 0.0f)
 	{
 		position.x -= speed;
@@ -130,31 +110,13 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)// || pad.a == true)
 	{
-		//App->particles->AddParticle(App->particles->laser, position.x + 140, position.y+30, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->round_bomb, position.x + 140, position.y + 30, ColliderType::ROUND_BOMB);
-			
-		/*App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
-		*/
-		
-
+		App->particles->AddParticle(App->particles->laser, position.x + 140, position.y+30, ColliderType::PLAYER_SHOT);
+		//App->particles->AddParticle(App->particles->round_bomb, position.x + 140, position.y + 30, ColliderType::ROUND_BOMB);
 		
 
 		App->audio->PlayFx(laserFx);
 	}
-
-
-	/*if (!App->particles->round_bomb.isAlive) {
-		App->particles->AddParticle(App->particles->subshot1, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->subshot2, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->subshot3, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->subshot4, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->subshot5, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->subshot6, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->subshot7, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->subshot8, App->particles->round_bomb.position.x, App->particles->round_bomb.position.y, ColliderType::PLAYER_SHOT);
-	}*/
+	   	
 
 	//God Mode
 	
