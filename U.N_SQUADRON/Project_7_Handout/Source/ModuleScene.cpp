@@ -291,6 +291,8 @@ update_status ModuleScene::Update()
 
 	if (App->render->camera.x >= 5000) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
+		App->hud->Disable();
+
 	}
 
 	if (App->player->destroyed == true) {
