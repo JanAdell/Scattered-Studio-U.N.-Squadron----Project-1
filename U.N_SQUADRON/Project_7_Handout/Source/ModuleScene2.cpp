@@ -23,7 +23,7 @@ ModuleScene2::ModuleScene2(bool startEnabled) : Module(startEnabled)
 }
 
 ModuleScene2::~ModuleScene2() {
-	CleanUp();
+	
 
 }
 // Load assets
@@ -31,8 +31,9 @@ bool ModuleScene2::Start()
 {
 	App->player->Enable();
 	App->hud->Enable();
-	//App->enemies->Enable();
+	App->enemies->Enable();
 	App->collisions->Enable();
+	App->particles->Enable();
 
 	LOG("Loading background assets\n");
 
@@ -46,8 +47,8 @@ bool ModuleScene2::Start()
 	// Enemies ---	
 
 	//Test enemies
-	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 1860, 400);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1920, 400);
+	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 1000, 400);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1000, 600);
 	
 
 	App->render->camera.x = 0;

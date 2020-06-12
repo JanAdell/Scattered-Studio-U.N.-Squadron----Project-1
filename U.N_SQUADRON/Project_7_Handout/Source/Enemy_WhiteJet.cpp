@@ -26,9 +26,9 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({});*/
 
 	//-----------DEBUG PATH----------------
-	path.PushBack({ 5.0f , 0.f }, 200, &fly );
+	path.PushBack({ -2.0f , 0.f }, 200, &fly );
 
-	collider = App->collisions->AddCollider({ 0, 0, 214 * 2, 78 * 2 }, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 214, 78 }, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
 }
