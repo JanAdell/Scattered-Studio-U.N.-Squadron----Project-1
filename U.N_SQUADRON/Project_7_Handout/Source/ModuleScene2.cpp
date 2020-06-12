@@ -108,7 +108,7 @@ void ModuleScene2::updateBackground() {
 		}
 	}
 
-	Y_BG = -(App->player->position.y * 0.32f) + -12;
+	Y_BG = -(App->player->position.y * 0.32f) + -12 ;
 
 
 }
@@ -134,9 +134,8 @@ bool ModuleScene2::CleanUp()
 	App->enemies->Disable();
 	App->collisions->Disable();
 	App->hud->Disable();
-	//App->textures->Disable();
-	//App->audio->Disable();
-
+	App->textures->Disable();
+	App->audio->Disable();
 	App->textures->Unload(bgTexture);
 
 

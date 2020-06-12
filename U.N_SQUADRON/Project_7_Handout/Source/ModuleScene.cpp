@@ -302,14 +302,17 @@ update_status ModuleScene::Update()
 	   
 	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->initialScreen, 90);
+		App->hud->Disable();
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin, 90);
+		App->hud->Disable();
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
+		App->hud->Disable();
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F10] == KEY_STATE::KEY_DOWN) {
@@ -357,5 +360,6 @@ bool ModuleScene::CleanUp()
 	App->textures->Unload(bgTextures[2]);
 	App->textures->Unload(bgTextures[3]);
 
+	App->audio->StopMusic();
 	return true;
 }
