@@ -43,15 +43,16 @@ bool Particle::Update()
 		// Otherwise the particle is destroyed when the animation is finished
 		else if (anim.HasFinished()) {
 			
-			if (collider->type == ROUND_BOMB) {
-				App->particles->AddParticle(App->particles->subshot1, position.x, position.y, ColliderType::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->subshot2, position.x, position.y, ColliderType::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->subshot3, position.x, position.y, ColliderType::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->subshot4, position.x, position.y, ColliderType::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->subshot5, position.x, position.y, ColliderType::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->subshot6, position.x, position.y, ColliderType::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->subshot7, position.x, position.y, ColliderType::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->subshot8, position.x, position.y, ColliderType::PLAYER_SHOT);
+			if (collider != nullptr && collider->type == ROUND_BOMB) {
+				
+				App->particles->AddParticle(App->particles->subshot1, position.x, position.y, ColliderType::ROUND_BOMB);
+				App->particles->AddParticle(App->particles->subshot2, position.x, position.y, ColliderType::ROUND_BOMB);
+				App->particles->AddParticle(App->particles->subshot3, position.x, position.y, ColliderType::ROUND_BOMB);
+				App->particles->AddParticle(App->particles->subshot4, position.x, position.y, ColliderType::ROUND_BOMB);
+				App->particles->AddParticle(App->particles->subshot5, position.x, position.y, ColliderType::ROUND_BOMB);
+				App->particles->AddParticle(App->particles->subshot6, position.x, position.y, ColliderType::ROUND_BOMB);
+				App->particles->AddParticle(App->particles->subshot7, position.x, position.y, ColliderType::ROUND_BOMB);
+				App->particles->AddParticle(App->particles->subshot8, position.x, position.y, ColliderType::ROUND_BOMB);
 				
 			}
 
