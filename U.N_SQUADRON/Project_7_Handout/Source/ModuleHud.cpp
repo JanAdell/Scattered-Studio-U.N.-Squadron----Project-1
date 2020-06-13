@@ -79,7 +79,10 @@ update_status ModuleHud::PostUpdate() {
 
 bool ModuleHud::CleanUp() {
 	bool ret = true;
-
+	App->textures->Unload(wp1);
+	App->textures->Unload(wp2);
+	App->textures->Unload(wp3);
+	App->textures->Unload(wp4);
 	App->fonts->UnLoad(yellowFont);
 	App->fonts->UnLoad(greenFont);
 
