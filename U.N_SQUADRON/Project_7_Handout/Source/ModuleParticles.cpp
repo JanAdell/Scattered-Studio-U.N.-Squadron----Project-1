@@ -29,7 +29,7 @@ bool ModuleParticles::Start()
 
 
 	// Explosion particle
-	explosion.anim.PushBack({123 * 2, 0, 72 * 2, 75 * 2 });
+	explosion.anim.PushBack({246, 0, 144, 75 * 2 });
 	explosion.anim.PushBack({201 * 2, 0, 87 * 2, 78 * 2 });
 	explosion.anim.PushBack({294 * 2, 0, 87 * 2, 81 * 2 });
 	explosion.anim.PushBack({309 * 2, 0, 93 * 2, 87 * 2 });
