@@ -203,7 +203,7 @@ void ModuleShop::select()
 	case S_SHELL:
 		if (money >= 20000 || weapons[S_SHELL].selected == true) {
 			weapons[S_SHELL].priceWeapon = 20000;
-			weapons[S_SHELL].ammo = 5;
+			weapons[S_SHELL].ammo = 10;
 			activeSelected(S_SHELL);
 		}
 		else {
@@ -214,7 +214,7 @@ void ModuleShop::select()
 
 		if (money >= 16000 || weapons[T_LASER].selected == true) {
 			weapons[T_LASER].priceWeapon = 16000;
-			weapons[T_LASER].ammo = 5;
+			weapons[T_LASER].ammo = 10;
 			activeSelected(T_LASER);
 		}
 		else {
@@ -225,7 +225,7 @@ void ModuleShop::select()
 
 		if (money >= 2000 || weapons[BOMB].selected == true) {
 			weapons[BOMB].priceWeapon = 2000;
-			weapons[BOMB].ammo = 5;
+			weapons[BOMB].ammo = 50;
 			activeSelected(BOMB);
 		
 		}
@@ -240,7 +240,7 @@ void ModuleShop::select()
 	case GUNPOD:
 		if (money >= 30000 || weapons[GUNPOD].selected == true) {
 			weapons[GUNPOD].priceWeapon = 30000;
-			weapons[GUNPOD].ammo = 15;
+			weapons[GUNPOD].ammo = 10;
 			activeSelected(GUNPOD);
 		}
 		else {

@@ -118,31 +118,38 @@ update_status ModulePlayer::Update()
 		App->audio->PlayFx(laserFx);
 	}
 
-	//if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN == KEY_STATE::KEY_DOWN) {
-	//	App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
-	//	App->audio->PlayFx(laserFx);
 
-	//}
 
 	if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN == KEY_STATE::KEY_DOWN)
 	{
 		switch (App->shop->selectedWeapon) {
 
 		case App->shop->BOMB:
-			App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
-			App->audio->PlayFx(laserFx);
+			if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0) {
+				App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
+				App->audio->PlayFx(laserFx);
+				App->shop->weapons[App->shop->selectedWeapon].ammo--;
+			}
+
 			break;
 
 		case App->shop->S_SHELL:
-			App->particles->AddParticle(App->particles->s_laser, position.x + 140, position.y + 30, ColliderType::S_LASER);
-			App->audio->PlayFx(laserFx);
+			if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0) {
+				App->particles->AddParticle(App->particles->s_laser, position.x + 140, position.y + 30, ColliderType::S_LASER);
+				App->audio->PlayFx(laserFx);
+				App->shop->weapons[App->shop->selectedWeapon].ammo--;
+
+			}
 			break;
 
 		case App->shop->T_LASER:
-			App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y + 30, ColliderType::T_LASER);
-			App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y + 30, ColliderType::T_LASER);
-			App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 30, ColliderType::T_LASER);
-			App->audio->PlayFx(laserFx);
+			if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0) {
+				App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y + 30, ColliderType::T_LASER);
+				App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y + 30, ColliderType::T_LASER);
+				App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 30, ColliderType::T_LASER);
+				App->audio->PlayFx(laserFx);
+				App->shop->weapons[App->shop->selectedWeapon].ammo--;
+			}
 			break;
 
 		}
