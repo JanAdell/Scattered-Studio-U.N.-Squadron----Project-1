@@ -52,6 +52,7 @@ private:
 		WHITE_JET_3,
 		WHITE_JET_4,
 		WHITE_JET_5,
+		WHITE_JET_6,
 		PURPLE_JACKAL,
 
 		MAX_LEFT_SPAWNER
@@ -60,6 +61,6 @@ private:
 
 	int left_spawn_positions[MAX_LEFT_SPAWNER];
 	int left_spawn_counter;
-
+	int victory_counter;
 };
 #endif

@@ -29,7 +29,7 @@ ModuleScene2::~ModuleScene2() {
 // Load assets
 bool ModuleScene2::Start()
 {
-	
+	victory_counter = 0;
 	App->hud->Enable();
 	App->player->Enable();
 	App->enemies->Enable();
@@ -45,11 +45,53 @@ bool ModuleScene2::Start()
 
 	App->audio->PlayMusic("Assets/EnemyAirforce.ogg", 6);
 
+	left_spawn_counter = 0;
+
+	for (int i = 0; i < MAX_LEFT_SPAWNER; i++) left_spawn_positions[i] = 0;
+	
+	//Left spawn coords
+	left_spawn_positions[WHITE_JET_1] = 1000;
+	left_spawn_positions[WHITE_JET_2] = 1550;
+	left_spawn_positions[WHITE_JET_3] = 2000;
+	left_spawn_positions[WHITE_JET_4] = 3000;
+	left_spawn_positions[WHITE_JET_5] = 3300;
+	left_spawn_positions[WHITE_JET_6] = 3600;
+	
+
+
 	// Enemies ---	
 
-	//Test enemies
-	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 1000, 400);
 	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1000, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1250, 300);
+	//-------------------------------------------------------------
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1750, 300);
+	//------------------------------------------------------------
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2100, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2350, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2500, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2750, 300);
+	//-------------------------------------------------------------
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3000, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3200, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3400, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3600, 300);
+	//-------------------------------------------------------------
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3900, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4000, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4200, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4300, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4500, 600);
+	
+	//-----------BOSS----------------------------------------------
+	//App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 4900, 600);
+	//App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 4950, 300);
+
+
+	//falten verticals
+
+	//Test enemies
+	//App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 1000, 400);
+	//App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1000, 600);
 	
 
 	App->render->camera.x = 0;
@@ -62,9 +104,39 @@ bool ModuleScene2::Start()
 	return ret;
 }
 
-update_status ModuleScene2::Update() {
+update_status ModuleScene2::Update() 
+{
+	
+	if (left_spawn_counter < MAX_LEFT_SPAWNER) {
+		int camera_x = App->render->camera.x;
+		if (camera_x >= left_spawn_positions[left_spawn_counter]) {
+			switch (left_spawner(left_spawn_counter))
+			{
+			case WHITE_JET_1:
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				break;
+			case WHITE_JET_2:
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				break;
+			case WHITE_JET_3:
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				break;
+			case WHITE_JET_4:
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				break;
+			case WHITE_JET_5:
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 600);
+				break;
+			case WHITE_JET_6:
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				break;
+			default:
+				break;
+			}
+			left_spawn_counter++;
+		}
 
-
+	}
 
 	/*if (App->render->camera.x >= 5000) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
@@ -88,6 +160,9 @@ update_status ModuleScene2::Update() {
 		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
 	}
 
+	/*if (victory_counter == 3) {
+
+	}*/
 
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();

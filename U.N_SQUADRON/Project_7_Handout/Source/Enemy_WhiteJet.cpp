@@ -35,7 +35,18 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({ 1.0f, -4.0f }, 100, &flyup);
 	path.PushBack({ 1.0f, 0.0f }, 50, &fly);
 	path.PushBack({ 1.0f, 4.0f }, 100, &flydown);
+	path.PushBack({ 1.0f, 0.0f }, 50, &fly);
 	path.PushBack({ 5.0f, 4.0f }, 200, &flyup);
+
+	path2.PushBack({ 5.0f, 0.0f }, 100, &fly);
+	path2.PushBack({ 1.0f, -4.0f }, 100, &flyup);
+	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
+	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
+	path2.PushBack({ 1.0f, 4.0f }, 100, &flydown);
+	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
+	path2.PushBack({ 1.0f, -4.0f }, 100, &flydown);
+	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
+	path2.PushBack({ 5.0f, -4.0f }, 200, &flyup);
 	
 
 	collider = App->collisions->AddCollider({ 0, 0, 100, 40 }, ColliderType::ENEMY, (Module*)App->enemies);
@@ -46,27 +57,29 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 void Enemy_WhiteJet::Update()
 {
 	
-	if (spawnPos.y > SCREEN_HEIGHT) {
+	
+	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2 && spawnPos.y > SCREEN_HEIGHT / 2) {
 		currentAnim = path.GetCurrentAnimation();
 
 		path.Update();
 		position = spawnPos + path.GetRelativePosition();
 		Enemy::Update();
 	}
-	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2 && spawnPos.y > SCREEN_HEIGHT / 2) {
-		currentAnim = path2.GetCurrentAnimation();
-
-		path2.Update();
-		position = spawnPos + path2.GetRelativePosition();
-		Enemy::Update();
-	}
 	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2 && spawnPos.y < SCREEN_HEIGHT / 2) {
-		currentAnim = path3.GetCurrentAnimation();
+		currentAnim = path.GetCurrentAnimation();
 
-		path3.Update();
-		position = spawnPos + path3.GetRelativePosition();
+		path.Update();
+		position = spawnPos + path.GetRelativePosition();
 		Enemy::Update();
 	}
+
+	/*if (spawnPos.y > SCREEN_HEIGHT) {
+		currentAnim = path.GetCurrentAnimation();
+
+		path.Update();
+		position = spawnPos + path.GetRelativePosition();
+		Enemy::Update();
+	}*/
 
 	/*if (current_time > time + 4500) {
 		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.007;
@@ -74,8 +87,6 @@ void Enemy_WhiteJet::Update()
 		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
 		time = current_time;
 	}*/
-
 	
-
 
 }

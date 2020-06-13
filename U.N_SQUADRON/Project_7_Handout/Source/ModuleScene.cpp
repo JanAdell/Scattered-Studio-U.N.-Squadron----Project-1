@@ -96,10 +96,10 @@ bool ModuleScene::Start()
 	//-------------------------------------------------------------
 														  
 	//21 secs											   
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2500, 425);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2500, 325);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2400, 475);
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2400, 575);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2400, 675);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2500, 725);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 2500, 625);
 	
 	//24 secs
 	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 2500, 250);
@@ -114,10 +114,10 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 3200, 250);
 	//------------------------------------------------------------
 	//44 secs 
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3275, 400);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3250, 400);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3275, 700);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3250, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3275, 320);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3250, 320);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3275, 640);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3250, 640);
 	
 	//46 secs
 	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_FIGHTER, 3700, 250);
@@ -128,16 +128,16 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 3500, 590);
 	
 	//52 secs 
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3600, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3600, 200);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3650, 300);
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3650, 400);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3650, 500);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3600, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 3600, 500);
 	
 	//56 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3700, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3750, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3800, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3850, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3700, 500);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3750, 500);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3800, 500);
+	App->enemies->AddEnemy(ENEMY_TYPE::MEDIUM_CAMO_JET, 3850, 500);
 	//--------------------------------------------------------------	
 	
 	//61 secs 
@@ -182,16 +182,16 @@ bool ModuleScene::Start()
 	App->enemies->AddEnemy(ENEMY_TYPE::BLUE_JET, 5200, 450);
 
 	//77 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5250, 450);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5250, 350);
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5275, 250);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5275, 750);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5275, 650);
 	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5250, 550);
 
 	//81 secs
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5300, 450);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5350, 450);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5350, 650);
-	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5300, 650);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5300, 350);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5350, 350);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5350, 550);
+	App->enemies->AddEnemy(ENEMY_TYPE::SMALL_CAMO_JET, 5300, 550);
 
 	//86 secs
 	App->enemies->AddEnemy(ENEMY_TYPE::ORANGE_JET, 5450, 350);
