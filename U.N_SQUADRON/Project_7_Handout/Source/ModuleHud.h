@@ -35,6 +35,10 @@ public:
 	// Score
 	uint score = 0;
 
+	SDL_Texture* wp1 = nullptr;
+	SDL_Texture* wp2 = nullptr;
+	SDL_Texture* wp3 = nullptr;
+	SDL_Texture* wp4 = nullptr;
 	// Money
 	uint money = 0;
 

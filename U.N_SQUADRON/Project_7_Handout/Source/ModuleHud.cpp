@@ -16,6 +16,10 @@ bool ModuleHud::Start() {
 	
 	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };	yellowFont = App->fonts->Load("Assets/sprites/fonts/Font22.png", lookupTable, 5);
 	greenFont = App->fonts->Load("Assets/sprites/fonts/Font444.png", lookupTable, 5);
+	wp1 = App->textures->Load("Assets/sprites/hud/WEAPONSBOMB.png");
+	wp2 = App->textures->Load("Assets/sprites/hud/WEAPONSGUNPOD.png");
+	wp3 = App->textures->Load("Assets/sprites/hud/WEAPONSS_SHELL.png");
+	wp4 = App->textures->Load("Assets/sprites/hud/WEAPONST_LASER.png");
 
 	score = 0;
 	money = 0;
@@ -29,6 +33,30 @@ update_status ModuleHud::PostUpdate() {
 	sprintf_s(scoreText, 10, "%7d", score);
 	sprintf_s(moneyText, 10, "%7d", App->shop->money);
 
+	switch (App->shop->selectedWeapon) {
+	case App->shop->BOMB:
+		App->render->Blit(wp1, 0, 0, NULL);
+
+
+		break;
+
+	case App->shop->S_SHELL:
+		App->render->Blit(wp3, 0, 0, NULL);
+
+
+
+		break;
+
+	case App->shop->T_LASER:
+		App->render->Blit(wp4, 0, 0, NULL);
+
+
+		break;
+	case App->shop->GUNPOD:
+
+		break;
+		
+	}
 
 // Blit 
 	App->fonts->BlitText(8, 10, yellowFont, "SCORE");
