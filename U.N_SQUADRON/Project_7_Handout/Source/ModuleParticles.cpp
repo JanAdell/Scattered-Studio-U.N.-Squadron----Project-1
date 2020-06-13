@@ -25,16 +25,16 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/sprites/praticles/particles_rz.png");
 	//texture = App->textures->Load("Assets/sprites/particles/particles.png");
-
-
+	
 
 	// Explosion particle
-	explosion.anim.PushBack({246, 0, 144, 75 * 2 });
-	explosion.anim.PushBack({201 * 2, 0, 87 * 2, 78 * 2 });
-	explosion.anim.PushBack({294 * 2, 0, 87 * 2, 81 * 2 });
-	explosion.anim.PushBack({309 * 2, 0, 93 * 2, 87 * 2 });
-	explosion.anim.PushBack({489 * 2, 0, 96 * 2, 87 * 2 });
-	explosion.anim.PushBack({591 * 2, 0, 93 * 2, 84 * 2 });
+	explosion.anim.PushBack({246, 0, 144, 150 });
+	explosion.anim.PushBack({402, 0, 174, 156 });
+	explosion.anim.PushBack({588,0,174,162});
+	explosion.anim.PushBack({780,0,186,174});
+	explosion.anim.PushBack({978,0,192,174});
+	explosion.anim.PushBack({1182,0,186,168});
+	explosion.anim.PushBack({0,180,180,162});
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 	
@@ -74,7 +74,29 @@ bool ModuleParticles::Start()
 	g_claw_o.speed.x = -5;
 
 	//White Jet Missile
+	w_missile_down.anim.PushBack({1086,2129,44,44});
+	w_missile_down.anim.PushBack({ 1094,2217,52,52 });
+	w_missile_down.anim.speed = 0.3;
+	w_missile_down.speed.x = 4;
+	w_missile_down.speed.y = 4;
 
+	w_missile_up.anim.PushBack({ 613,2399,44,44 });
+	w_missile_up.anim.PushBack({ 621,2303,52,52 });
+	w_missile_up.anim.speed = 0.3;
+	w_missile_up.speed.x = 4;
+	w_missile_up.speed.y = -4;
+
+	w_missile_down_l.anim.PushBack({ 1143,2305,44,44 });
+	w_missile_down_l.anim.PushBack({ 1127,2393,52,52 });
+	w_missile_down_l.anim.speed = 0.3;
+	w_missile_down_l.speed.x = -4;
+	w_missile_down_l.speed.y = 4;
+
+	w_missile_up_l.anim.PushBack({ 665,2225,44,44 });
+	w_missile_up_l.anim.PushBack({ 649,2129,52,52 });
+	w_missile_up_l.anim.speed = 0.3;
+	w_missile_up_l.speed.x = -4;
+	w_missile_up_l.speed.y = -4;
 
 	//-----Special Weapon Particles---
 	//Tri Laser particles
@@ -208,8 +230,30 @@ bool ModuleParticles::Start()
 	dropbomb.anim.speed = 0.1f;
 
 	//-----Boss 2 Particles----------
-	
+	//Backbomb
+	b_bomb.anim.PushBack({ 56,981,51,50 });
+	b_bomb.anim.PushBack({ 114,983,36,40 });
+	b_bomb.anim.PushBack({ 169,966,72,74 });
+	b_bomb.anim.PushBack({ 266,959,80,89 });
+	b_bomb.anim.PushBack({ 363,965,83,79});
+	b_bomb.anim.PushBack({ 488,949,74,82 });
+	b_bomb.speed.x = -4;
+	b_bomb.anim.loop = false;
+	b_bomb.anim.speed = 0.3f;
 
+	//Missile
+	f_missile.anim.PushBack({45,807,69,63});
+	f_missile.anim.PushBack({ 45,807,69,63 });
+	f_missile.anim.PushBack({ 45,807,69,63 });
+	f_missile.anim.PushBack({156,776,126,125});
+	f_missile.anim.PushBack({314,723,217,194});
+	f_missile.anim.PushBack({536,707,207,198});
+	f_missile.anim.PushBack({748,743,209,219});
+	f_missile.anim.PushBack({957,967,204,209});
+	f_missile.anim.speed = 0.3f;
+	f_missile.speed.x = 6;
+	f_missile.anim.loop = false;
+	
 	return true;
 }
 
