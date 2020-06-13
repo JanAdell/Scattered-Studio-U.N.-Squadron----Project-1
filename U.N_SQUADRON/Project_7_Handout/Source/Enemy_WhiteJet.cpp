@@ -5,17 +5,18 @@
 #include "SDL/include/SDL.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModuleRender.h"
 
 Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
-	hp = 5;
+	hp = 20;
 	enemy_type = e_type;
 
-	fly.PushBack({27,29,100,36});
+	fly.PushBack({1826,175,100,36});
 
-	flydown.PushBack({251,25,100,40});
+	flydown.PushBack({2050,171,100,40});
 
-	flyup.PushBack({ 135,21,100,44 });
+	flyup.PushBack({ 1934,167,100,44 });
 
 	/*path.PushBack({});
 	path.PushBack({});
@@ -26,29 +27,55 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({});*/
 
 	//-----------DEBUG PATH----------------
-	path.PushBack({ -2.0f , 0.f }, 200, &fly );
+	//path.PushBack({ -2.0f , 0.f }, 200, &fly );
+	path.PushBack({5.0f, 0.0f}, 100, &fly);
+	path.PushBack({1.0f, 0.0f }, 50, &fly);
+	path.PushBack({1.0f, 4.0f}, 100, &flydown);
+	path.PushBack({ 1.0f, 0.0f }, 50, &fly);
+	path.PushBack({ 1.0f, -4.0f }, 100, &flyup);
+	path.PushBack({ 1.0f, 0.0f }, 50, &fly);
+	path.PushBack({ 1.0f, 4.0f }, 100, &flydown);
+	path.PushBack({ 5.0f, 4.0f }, 200, &flyup);
+	
 
-	collider = App->collisions->AddCollider({ 0, 0, 214, 78 }, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 100, 40 }, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
 }
 
 void Enemy_WhiteJet::Update()
 {
-	currentAnim = path.GetCurrentAnimation();
+	
+	if (spawnPos.y > SCREEN_HEIGHT) {
+		currentAnim = path.GetCurrentAnimation();
 
-	path.Update();
-	position = spawnPos + path.GetRelativePosition();
+		path.Update();
+		position = spawnPos + path.GetRelativePosition();
+		Enemy::Update();
+	}
+	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2 && spawnPos.y > SCREEN_HEIGHT / 2) {
+		currentAnim = path2.GetCurrentAnimation();
 
-	current_time = SDL_GetTicks();
-	if (current_time > time + 4500) {
+		path2.Update();
+		position = spawnPos + path2.GetRelativePosition();
+		Enemy::Update();
+	}
+	if (spawnPos.x - App->render->camera.x < SCREEN_WIDTH / 2 && spawnPos.y < SCREEN_HEIGHT / 2) {
+		currentAnim = path3.GetCurrentAnimation();
+
+		path3.Update();
+		position = spawnPos + path3.GetRelativePosition();
+		Enemy::Update();
+	}
+
+	/*if (current_time > time + 4500) {
 		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.007;
 		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y) * -0.007;
 		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
 		time = current_time;
-	}
+	}*/
 
-	Enemy::Update();
+	
 
 
 }

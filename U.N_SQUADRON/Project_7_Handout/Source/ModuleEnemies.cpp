@@ -265,7 +265,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				case BOMB:
 					x = 20;
 					break;
-				
+				case PLAYER:
+					x = 30;
+					break;
 			}
 
 			enemies[i]->OnCollision(c2, x); //Notify the enemy of a collision
