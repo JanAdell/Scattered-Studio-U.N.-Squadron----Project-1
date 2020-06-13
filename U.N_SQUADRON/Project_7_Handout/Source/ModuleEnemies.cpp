@@ -110,13 +110,12 @@ bool ModuleEnemies::CleanUp()
 		{
 			delete enemies[i];
 			enemies[i] = nullptr;
-			
 		}
+		
+		spawnQueue[i].type = ENEMY_TYPE::NO_TYPE;
 	}
 
 	App->textures->Unload(texture);
-	//App->audio->
-
 	return true;
 }
 

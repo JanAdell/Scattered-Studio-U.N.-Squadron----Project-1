@@ -29,8 +29,9 @@ ModuleScene2::~ModuleScene2() {
 // Load assets
 bool ModuleScene2::Start()
 {
-	App->player->Enable();
+	
 	App->hud->Enable();
+	App->player->Enable();
 	App->enemies->Enable();
 	App->collisions->Enable();
 	App->particles->Enable();
