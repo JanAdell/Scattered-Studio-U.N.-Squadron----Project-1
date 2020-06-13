@@ -45,23 +45,21 @@ private:
 
 
 	//Left spawn management state machine
-	/*enum left_spawner : int //30, un per cada spawn
+	enum left_spawner : int //30, un per cada spawn
 	{
-		ORANGE_JET_1,
-		BIG_CAMO_JET_1,
-		BLUE_JET_1,
-		ORANGE_JET_2,
-		BIG_CAMO_JET_2,
-		BLUE_JETS_2,
-		BLUE_JETS_3,
-		BIG_CAMO_JET_3,
-		BIG_CAMO_JET_4,
+		WHITE_JET_1,		
+		WHITE_JET_2,
+		WHITE_JET_3,
+		WHITE_JET_4,
+		WHITE_JET_5,
+		PURPLE_JACKAL,
 
 		MAX_LEFT_SPAWNER
+		//check if top-spawning units should be spawned from left SM
 	};
 
 	int left_spawn_positions[MAX_LEFT_SPAWNER];
-	int left_spawn_counter;*/
+	int left_spawn_counter;
 
 };
 #endif
