@@ -108,7 +108,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || pad.a == true)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || pad.a == KEY_STATE::KEY_DOWN)
 	{
 		App->particles->AddParticle(App->particles->laser, position.x + 140, position.y+30, ColliderType::PLAYER_SHOT);
 		//App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);

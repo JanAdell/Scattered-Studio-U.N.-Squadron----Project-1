@@ -4,22 +4,21 @@
 #include "Module.h"
 #include "Globals.h"
 #include "SDL/include/SDL_scancode.h"
-#include "SDL/include/SDL.h"
 
-#define MAX_KEYS 300
+#define MAX_KEYS 256
 #define MAX_PADS 4
 
 struct _SDL_GameController;
 struct _SDL_Haptic;
 
-
 enum KEY_STATE
 {
-	KEY_IDLE = 0,
+	KEY_IDLE,
 	KEY_DOWN,
 	KEY_REPEAT,
 	KEY_UP
 };
+
 struct GamePad
 {
 	//Input data
@@ -39,7 +38,6 @@ struct GamePad
 	int rumble_countdown;
 	float rumble_strength;
 };
-
 
 class ModuleInput : public Module
 {
@@ -72,6 +70,7 @@ public:
 	// Iterates through all active gamepads and update all input data
 	void UpdateGamepadsInput();
 
+	bool ShakeController(int id, int duration, float strength = 0.5f);
 	const char* GetControllerName(int id) const;
 
 public:
@@ -80,11 +79,6 @@ public:
 
 	// An array to fill in all detected gamepads
 	GamePad pads[MAX_PADS];
-
-private:
-	int controllerCharacterSelection;
-	SDL_Event ev;
 };
 
-
-#endif // __ModuleInput_H__
+#endif  // __ModuleInput_H__
