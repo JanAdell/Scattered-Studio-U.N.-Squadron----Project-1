@@ -56,7 +56,8 @@ private:
 	bool entry_cond;
 
 	bool under = false;
-
+	bool bomb_shot = false;
+	bool back_shot = false;
 	
 };
 

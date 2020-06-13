@@ -11,11 +11,14 @@ public:
 	SDL_Rect frames[MAX_FRAMES];
 	bool loop = true;
 
+	char name[15] = "";
 	// Allows the animation to keep going back and forth
 	bool pingpong = false;
 
-private:
 	float currentFrame = 0.0f;
+
+private:
+	
 	int totalFrames = 0;
 	int loopCount = 0;
 	int pingpongDirection = 1;
