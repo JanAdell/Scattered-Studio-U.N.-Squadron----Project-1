@@ -62,44 +62,45 @@ bool ModuleScene2::Start()
 
 	// Enemies ---	
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1500, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1750, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1500, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1750, 200);
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1770, -20);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1770, -70);
 
 	//-------------------------------------------------------------
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2230, -20);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2230, -70);
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2250, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2250, 200);
 	//------------------------------------------------------------
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2600, 300);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2850, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3000, 300);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3250, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2600, 200);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2850, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3000, 200);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3250, 700);
 	//-------------------------------------------------------------
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3500, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3700, 300);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3900, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4100, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3500, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3700, 200);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3900, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4100, 200);
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4150, -20);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4150, -70);
 	//-------------------------------------------------------------
 
-	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 4300, -20);
+	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 4300, -70);
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4400, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4400, 700);
 	
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4450, -20);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4450, -70);
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4500, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4700, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4800, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 5000, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4500, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4700, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4800, 700);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 5000, 700);
 	
 	//-----------BOSS----------------------------------------------
-	//App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 4900, 600);
-	//App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 4950, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 5950, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 5950, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 5950, 450);
 
 
 	//falten verticals
@@ -128,22 +129,22 @@ update_status ModuleScene2::Update()
 			switch (left_spawner(left_spawn_counter))
 			{
 			case WHITE_JET_1:
-				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 200);
 				break;
 			case WHITE_JET_2:
-				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 200);
 				break;
 			case WHITE_JET_3:
-				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 200);
 				break;
 			case WHITE_JET_4:
-				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 200);
 				break;
 			case WHITE_JET_5:
-				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 600);
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 700);
 				break;
 			case WHITE_JET_6:
-				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 300);
+				App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, camera_x, 200);
 				break;
 			default:
 				break;
@@ -175,9 +176,9 @@ update_status ModuleScene2::Update()
 		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
 	}
 
-	/*if (victory_counter == 3) {
-
-	}*/
+	if (victory_counter == 3) {
+		App->transition->FadeToBlack(this, (Module*)App->sceneWin);
+	}
 
 	App->render->camera.x += SCREEN_SPEED;
 	updateBackground();
@@ -222,12 +223,20 @@ update_status ModuleScene2::PostUpdate() {
 bool ModuleScene2::CleanUp()
 {
 	//Enable (and properly disable) the player module
+
 	App->player->Disable();
 	App->enemies->Disable();
 	App->collisions->Disable();
 	App->hud->Disable();
 	App->textures->Disable();
 	App->audio->Disable();
+	App->textures->CleanUp();
+	App->player->CleanUp();
+	App->enemies->CleanUp();
+	App->textures->CleanUp();
+
+	//App->audio->StopMusic();
+
 	App->textures->Unload(bgTexture);
 
 

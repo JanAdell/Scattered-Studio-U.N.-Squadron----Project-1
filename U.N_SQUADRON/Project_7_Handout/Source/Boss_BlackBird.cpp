@@ -9,7 +9,6 @@
 Boss_BlackBird::Boss_BlackBird(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_type)
 {
 	hp = 150;
-	dead = false;
 	entry_cond = true;
 	entry.PushBack({ 2,1541,556,316 });
 	enemy_type = e_type;
@@ -31,7 +30,6 @@ Boss_BlackBird::Boss_BlackBird(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	
 	path.PushBack({ 5.0f,-4.0f }, 150, &entry);
 	path.PushBack({ 1.0f, 0.0f }, 50, &entry);
-	path.PushBack({ 1.1f,  0.0f }, 150, &entry);
 	path.PushBack({ 0.5f, -2.5f }, 170, &bombs);
 	path.PushBack({ 1.5f,  2.5f }, 150, &backshot);
 	path.PushBack({ 0.5f,  2.5f }, 150, &bombs);
@@ -62,48 +60,52 @@ void Boss_BlackBird::Update()
 
 	current_time = SDL_GetTicks();
 	
-	/*if (current_time ==  4500) {
-		App->particles->AddParticle(App->particles->round_bomb, position.x+200, position.y+40, ColliderType::ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->round_bomb, position.x+150, position.y+60, ColliderType::ENEMY_SHOT);
+	/*if (current_time ==  7500) {
+		App->particles->AddParticle(App->particles->round_bomb, position.x+200, position.y+40, ColliderType::ROUND_BOMB);
+		App->particles->AddParticle(App->particles->round_bomb, position.x+150, position.y+60, ColliderType::ROUND_BOMB);
 	}
 
 	if (current_time == 9000) {
-		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ROUND_BOMB);
 
 	}
 
 	if (current_time == 13500) {
-		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ROUND_BOMB);
 
 	}
 
 	if (current_time ==18000) {
-		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ROUND_BOMB);
 
 	}
 
 	if (current_time == 22500) {
-		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ROUND_BOMB);
 
 	}
 
 	if (current_time == 27000) {
-		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ROUND_BOMB);
 
 	}
 
 	if (current_time == 31500) {
-		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->round_bomb, position.x, position.y, ColliderType::ROUND_BOMB);
 
 	}
 
-
 	if (App->player->position.y > position.y) {
+		under = true;
+	}
+
+	if (under == true) {
 		for (int i = 0; i < 1; i++) {
 			App->particles->AddParticle(App->particles->dropbomb, position.x + 140, position.y + 50, ColliderType::ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->dropbomb, position.x + 140, position.y + 100, ColliderType::ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->dropbomb, position.x + 140, position.y, ColliderType::ENEMY_SHOT);
 		}
+		under = false;
 	}*/
 
 

@@ -53,8 +53,9 @@ private:
 	unsigned int time = 0;
 
 	//boss stats
-	bool dead;
 	bool entry_cond;
+
+	bool under = false;
 
 	
 };

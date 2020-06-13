@@ -13,11 +13,11 @@ Enemy_GreenJet::Enemy_GreenJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	enemy_type = e_type;
 
 
-	fly.PushBack({ 1806,91,104,28 });
+	fly.PushBack({ 1726,97,156,42 });
 
-	flydown.PushBack({ 1926,95,104,40 });
+	flydown.PushBack({ 1906,103,156,60 });
 
-	flyup.PushBack({ 2042,91,104,36 });
+	flyup.PushBack({ 2080,97,156,54 });
 
 	/*path.PushBack({});
 	path.PushBack({});
@@ -28,7 +28,7 @@ Enemy_GreenJet::Enemy_GreenJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({});*/
 
 	
-	path.PushBack({ -5.0f, 0.0f }, 50, &fly);
+	path.PushBack({ -5.0f, 0.0f }, 70, &fly);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path.PushBack({ 1.0f, 4.0f }, 150, &flydown);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
@@ -39,7 +39,7 @@ Enemy_GreenJet::Enemy_GreenJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({ -10.0f, -4.0f }, 1500, &flyup);
 	path.loop = false;
 
-	path2.PushBack({ -5.0f, 0.0f }, 50, &fly);
+	path2.PushBack({ -5.0f, 0.0f }, 70, &fly);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path2.PushBack({ 1.0f, -4.0f }, 150, &flyup);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
@@ -50,17 +50,17 @@ Enemy_GreenJet::Enemy_GreenJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path2.PushBack({ -10.0f, 4.0f }, 1500, &flyup);
 	path2.loop = false;
 
-	path3.PushBack({ 1.0f, 4.0f }, 300, &flydown);
+	path3.PushBack({ 1.0f, 6.0f }, 500, &flydown);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 1.0f, -4.0f }, 200, &flyup);
+	path3.PushBack({ 1.0f, -6.0f }, 500, &flyup);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 1.0f, 4.0f }, 200, &flydown);
+	path3.PushBack({ 1.0f, 6.0f }, 500, &flydown);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ -10.0f, -4.0f }, 1500, &flyup);
+	path3.PushBack({ -10.0f, -5.0f }, 1500, &flyup);
 	path3.loop = false;
 
 
-	collider = App->collisions->AddCollider({ 0, 0, 100, 44}, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 156, 60}, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
 }

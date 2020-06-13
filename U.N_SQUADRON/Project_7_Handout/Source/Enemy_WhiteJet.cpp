@@ -12,11 +12,11 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	hp = 20;
 	enemy_type = e_type;
 
-	fly.PushBack({1826,175,100,36});
+	fly.PushBack({1756,223,150,54});
 
-	flydown.PushBack({2050,171,100,40});
+	flydown.PushBack({1918,211,150,66});
 
-	flyup.PushBack({ 1934,167,100,44 });
+	flyup.PushBack({ 2092,217,150,60 });
 
 	/*path.PushBack({});
 	path.PushBack({});
@@ -29,7 +29,7 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	//-----------DEBUG PATH----------------
 	//path.PushBack({ -2.0f , 0.f }, 200, &fly );
 		
-	path.PushBack({ 5.0f, 0.0f }, 50, &fly);
+	path.PushBack({ 5.0f, 0.0f }, 60, &fly);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path.PushBack({ 1.0f, 4.0f }, 150, &flydown);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
@@ -38,8 +38,9 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({ 1.0f, 4.0f }, 150, &flydown);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path.PushBack({ 10.0f, -4.0f }, 1500, &flyup);
+	path.loop = false;
 
-	path2.PushBack({ 5.0f, 0.0f }, 100, &fly);
+	path2.PushBack({ 5.0f, 0.0f }, 60, &fly);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path2.PushBack({ 1.0f, -4.0f }, 150, &flyup);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
@@ -48,18 +49,19 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path2.PushBack({ 1.0f, -4.0f }, 150, &flydown);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path2.PushBack({ 10.0f, 4.0f }, 1500, &flyup);
-		
-	path3.PushBack({ 1.0f, 4.0f }, 300, &flyup);
+	path2.loop = false;
+
+	path3.PushBack({ 1.0f, 6.0f }, 500, &flydown);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 1.0f, -4.0f }, 200, &flydown);
+	path3.PushBack({ 1.0f, -6.0f }, 500, &flyup);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 1.0f, 4.0f }, 200, &flydown);
+	path3.PushBack({ 1.0f, 6.0f }, 500, &flydown);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 10.0f, -4.0f }, 1500, &flyup);
+	path3.PushBack({ 10.0f, -5.0f }, 1500, &flyup);
+	path3.loop = false;
 
 
-
-	collider = App->collisions->AddCollider({ 0, 0, 100, 40 }, ColliderType::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 150, 60 }, ColliderType::ENEMY, (Module*)App->enemies);
 
 	time = 0;
 }
