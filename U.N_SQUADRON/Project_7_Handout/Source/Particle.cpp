@@ -56,9 +56,9 @@ bool Particle::Update()
 				
 			}
 
-			/*if (collider->type == CLAW) {
-
-			}*/
+			if (collider != nullptr && collider->type == CLAW) {
+				App->particles->AddParticle(App->particles->g_claw_o, position.x, position.y, ColliderType::CLAW);
+			}
 
 			ret = false;
 		}

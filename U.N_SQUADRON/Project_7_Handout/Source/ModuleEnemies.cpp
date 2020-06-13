@@ -34,6 +34,7 @@
 //Player for Score value
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleScene2.h"
 
 #define SPAWN_MARGIN 150
 
@@ -335,6 +336,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				case BOSS_PURPLE_JACKAL:
 					App->shop->money += 30000;
 					App->hud->score += 10000;
+					App->scene2->victory_counter += 1;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;

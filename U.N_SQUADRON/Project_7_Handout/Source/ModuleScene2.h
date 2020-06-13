@@ -32,6 +32,9 @@ public:
 	// Disables the player and the enemies
 	bool CleanUp();
 
+	//victory tracker
+	int victory_counter;
+
 private:
 
 	// BackGround
@@ -61,6 +64,6 @@ private:
 
 	int left_spawn_positions[MAX_LEFT_SPAWNER];
 	int left_spawn_counter;
-	int victory_counter;
+	
 };
 #endif

@@ -61,7 +61,17 @@ bool ModuleParticles::Start()
 	enemy_shot.lifetime = 200;
 	
 	//Green Fighter Claw
+	g_claw.anim.PushBack({0,1152,89,47});
+	g_claw.anim.PushBack({ 107,1119,87,110 });
+	g_claw.anim.speed = 0.3f;
+	g_claw.anim.loop = false;
+	g_claw.speed.y = -3;
 
+	g_claw_o.anim.PushBack({ 195,1111,158,124 });
+	g_claw_o.anim.PushBack({ 364,1113,148,122 });
+	g_claw_o.anim.speed = 0.3f;
+	g_claw_o.anim.loop = false;
+	g_claw_o.speed.x = -5;
 
 	//White Jet Missile
 

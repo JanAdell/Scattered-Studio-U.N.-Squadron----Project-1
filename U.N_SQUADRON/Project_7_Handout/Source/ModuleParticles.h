@@ -92,6 +92,7 @@ public:
 
 	//Green fighter claw
 	Particle g_claw;
+	Particle g_claw_o;
 
 	//White Jet Missile
 	Particle w_missile;
