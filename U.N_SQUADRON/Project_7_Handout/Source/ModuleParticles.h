@@ -95,7 +95,8 @@ public:
 	Particle g_claw_o;
 
 	//White Jet Missile
-	Particle w_missile;
+	Particle w_missile_up;
+	Particle w_missile_down;
 
 	//---Boss 1---
 	

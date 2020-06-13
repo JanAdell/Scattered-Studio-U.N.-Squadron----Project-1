@@ -78,17 +78,17 @@ update_status ModulePlayer::Update()
 	//TODO Limit camera movement
 	App->player->position.x += 1;
 	
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->player->position.x >= App->render->camera.x )//|| pad.l_x < 0.0f)
+	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->player->position.x >= App->render->camera.x || pad.l_x < 0.0f && App->player->position.x >= App->render->camera.x)
 	{
 		position.x -= speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH + App->render->camera.x - PLAYER_WIDTH)// || pad.l_x > 0.0f)
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->player->position.x < SCREEN_WIDTH + App->render->camera.x - PLAYER_WIDTH || pad.l_x > 0.0f && App->player->position.x < SCREEN_WIDTH + App->render->camera.x - PLAYER_WIDTH)
 	{
 		position.x += speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT- PLAYER_HEIGHT)// || pad.l_y > 0.0f)
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT- PLAYER_HEIGHT  || pad.l_y > 0.0f && App->player->position.y < SCREEN_HEIGHT - PLAYER_HEIGHT)
 	{
 		position.y += speed;
 		if (currentAnimation != &downAnim)
@@ -98,7 +98,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->player->position.y >= 0)// || pad.l_y < 0.0f)
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->player->position.y >= 0 || pad.l_y < 0.0f && App->player->position.y >= 0)
 	{
 		position.y -= speed;
 		if (currentAnimation != &upAnim)
@@ -108,10 +108,10 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)// || pad.a == true)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || pad.a == true)
 	{
 		App->particles->AddParticle(App->particles->laser, position.x + 140, position.y+30, ColliderType::PLAYER_SHOT);
-		//App->particles->AddParticle(App->particles->round_bomb, position.x + 140, position.y + 30, ColliderType::ROUND_BOMB);
+		//App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
 		
 
 		App->audio->PlayFx(laserFx);
