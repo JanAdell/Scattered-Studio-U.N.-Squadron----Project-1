@@ -28,26 +28,38 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 
 	//-----------DEBUG PATH----------------
 	//path.PushBack({ -2.0f , 0.f }, 200, &fly );
-	path.PushBack({5.0f, 0.0f}, 100, &fly);
-	path.PushBack({1.0f, 0.0f }, 50, &fly);
-	path.PushBack({1.0f, 4.0f}, 100, &flydown);
-	path.PushBack({ 1.0f, 0.0f }, 50, &fly);
-	path.PushBack({ 1.0f, -4.0f }, 100, &flyup);
-	path.PushBack({ 1.0f, 0.0f }, 50, &fly);
-	path.PushBack({ 1.0f, 4.0f }, 100, &flydown);
-	path.PushBack({ 1.0f, 0.0f }, 50, &fly);
-	path.PushBack({ 5.0f, 4.0f }, 200, &flyup);
+		
+	path.PushBack({ 5.0f, 0.0f }, 50, &fly);
+	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path.PushBack({ 1.0f, 4.0f }, 150, &flydown);
+	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path.PushBack({ 1.0f, -4.0f }, 150, &flyup);
+	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path.PushBack({ 1.0f, 4.0f }, 150, &flydown);
+	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path.PushBack({ 10.0f, -4.0f }, 1500, &flyup);
 
 	path2.PushBack({ 5.0f, 0.0f }, 100, &fly);
-	path2.PushBack({ 1.0f, -4.0f }, 100, &flyup);
-	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
-	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
-	path2.PushBack({ 1.0f, 4.0f }, 100, &flydown);
-	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
-	path2.PushBack({ 1.0f, -4.0f }, 100, &flydown);
-	path2.PushBack({ 1.0f, 0.0f }, 50, &fly);
-	path2.PushBack({ 5.0f, -4.0f }, 200, &flyup);
+	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path2.PushBack({ 1.0f, -4.0f }, 150, &flyup);
+	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path2.PushBack({ 1.0f, 4.0f }, 150, &flydown);
+	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path2.PushBack({ 1.0f, -4.0f }, 150, &flydown);
+	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path2.PushBack({ 10.0f, 4.0f }, 1500, &flyup);
+
 	
+	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path3.PushBack({ 1.0f, -4.0f }, 200, &flyup);
+	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path3.PushBack({ 1.0f, 4.0f }, 200, &flydown);
+	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path3.PushBack({ 1.0f, -4.0f }, 200, &flydown);
+	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path3.PushBack({ 10.0f, 4.0f }, 1500, &flyup);
+
+
 
 	collider = App->collisions->AddCollider({ 0, 0, 100, 40 }, ColliderType::ENEMY, (Module*)App->enemies);
 
@@ -73,13 +85,13 @@ void Enemy_WhiteJet::Update()
 		Enemy::Update();
 	}
 
-	/*if (spawnPos.y > SCREEN_HEIGHT) {
-		currentAnim = path.GetCurrentAnimation();
+	if (spawnPos.y < 0) {
+		currentAnim = path3.GetCurrentAnimation();
 
-		path.Update();
-		position = spawnPos + path.GetRelativePosition();
+		path3.Update();
+		position = spawnPos + path3.GetRelativePosition();
 		Enemy::Update();
-	}*/
+	}
 
 	/*if (current_time > time + 4500) {
 		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.007;
