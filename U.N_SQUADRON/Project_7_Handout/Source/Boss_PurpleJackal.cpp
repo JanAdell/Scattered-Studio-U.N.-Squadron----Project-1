@@ -19,7 +19,7 @@ Boss_PurpleJackal::Boss_PurpleJackal(int x, int y, ENEMY_TYPE e_type) : Enemy(x,
 
 	collider = App->collisions->AddCollider({ 0, 0, 160, 76 }, ColliderType::ENEMY, (Module*)App->enemies);
 	
-	/*path.PushBack({ 5.0f, 0.0f }, 50, &fly);
+	path.PushBack({ 5.0f, 0.0f }, 50, &fly);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path.PushBack({ 1.0f, 4.0f }, 150, &flydown);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
@@ -45,10 +45,10 @@ Boss_PurpleJackal::Boss_PurpleJackal(int x, int y, ENEMY_TYPE e_type) : Enemy(x,
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path3.PushBack({ -3.0f, 4.0f }, 200, &flydown);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ -3.0f, -4.0f }, 1500, &flyup);*/
+	path3.PushBack({ -3.0f, -4.0f }, 1500, &flyup);
 
-	path3.PushBack({ -5.0f,0.0f }, 100, &fly);
-	path3.PushBack({ 1.0f,0.0f }, 10000000, &fly);
+	//path3.PushBack({ -5.0f,0.0f }, 100, &fly);
+	//path3.PushBack({ 1.0f,0.0f }, 10000000, &fly);
 
 }
 
@@ -60,6 +60,9 @@ void Boss_PurpleJackal::Update()
 	position = spawnPos + path3.GetRelativePosition();
 
 	current_time = SDL_GetTicks();
+
+
+
 	
 	if (App->player->position.x >= position.x && App->player->position.y <= position.y) {
 		if (front == false) {

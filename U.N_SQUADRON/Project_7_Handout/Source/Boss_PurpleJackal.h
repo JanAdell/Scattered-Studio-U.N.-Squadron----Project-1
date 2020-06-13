@@ -44,6 +44,8 @@ private:
 
 	bool front = false;
 	bool back = false;
+
+
 };
 
 #endif 

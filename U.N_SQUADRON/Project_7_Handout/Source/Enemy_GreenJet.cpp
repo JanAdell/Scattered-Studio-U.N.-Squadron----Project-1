@@ -68,6 +68,8 @@ Enemy_GreenJet::Enemy_GreenJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 void Enemy_GreenJet::Update()
 {
 	
+	
+
 	if (spawnPos.x - App->render->camera.x > SCREEN_WIDTH / 2 && spawnPos.y < SCREEN_HEIGHT / 2) {
 		currentAnim = path.GetCurrentAnimation();
 
@@ -82,6 +84,37 @@ void Enemy_GreenJet::Update()
 		position = spawnPos + path2.GetRelativePosition();
 		Enemy::Update();
 	}
+	
+	current_time = SDL_GetTicks();
+
+	if (position.x <= App->player->position.x && position.y <= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_down.speed.x = 7;
+		App->particles->w_missile_down.speed.y = 7;
+		App->particles->AddParticle(App->particles->w_missile_down, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
+
+	if (position.x >= App->player->position.x && position.y >= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_up_l.speed.x = -7;
+		App->particles->w_missile_up_l.speed.y = -7;
+		App->particles->AddParticle(App->particles->w_missile_up_l, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
+
+	if (position.x <= App->player->position.x && position.y >= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_up.speed.x = 7;
+		App->particles->w_missile_up.speed.y = -7;
+		App->particles->AddParticle(App->particles->w_missile_down, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
+
+	if (position.x >= App->player->position.x && position.y <= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_down_l.speed.x = -7;
+		App->particles->w_missile_down_l.speed.y = 7;
+		App->particles->AddParticle(App->particles->w_missile_down_l, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
+
 	/*if (spawnPos.y > SCREEN_HEIGHT) {
 		currentAnim = path3.GetCurrentAnimation();
 

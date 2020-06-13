@@ -77,26 +77,22 @@ bool ModuleParticles::Start()
 	w_missile_down.anim.PushBack({1086,2129,44,44});
 	w_missile_down.anim.PushBack({ 1094,2217,52,52 });
 	w_missile_down.anim.speed = 0.3;
-	w_missile_down.speed.x = 4;
-	w_missile_down.speed.y = 4;
+	
 
 	w_missile_up.anim.PushBack({ 613,2399,44,44 });
 	w_missile_up.anim.PushBack({ 621,2303,52,52 });
 	w_missile_up.anim.speed = 0.3;
-	w_missile_up.speed.x = 4;
-	w_missile_up.speed.y = -4;
+	
 
 	w_missile_down_l.anim.PushBack({ 1143,2305,44,44 });
 	w_missile_down_l.anim.PushBack({ 1127,2393,52,52 });
 	w_missile_down_l.anim.speed = 0.3;
-	w_missile_down_l.speed.x = -4;
-	w_missile_down_l.speed.y = 4;
+	
 
 	w_missile_up_l.anim.PushBack({ 665,2225,44,44 });
 	w_missile_up_l.anim.PushBack({ 649,2129,52,52 });
 	w_missile_up_l.anim.speed = 0.3;
-	w_missile_up_l.speed.x = -4;
-	w_missile_up_l.speed.y = -4;
+	
 
 	//-----Special Weapon Particles---
 	//Tri Laser particles

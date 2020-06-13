@@ -92,10 +92,14 @@ void Enemy_MedCamoJet::Update()
 	}
 
 	current_time = SDL_GetTicks();
-	if (current_time > time + 4500) {
-		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x)*-0.007;
-		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y)*-0.007;
-		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
+	if (current_time > time + 6000) {
+		direction_x = float(App->player->position.x - position.x);
+		direction_y = float(App->player->position.y - position.y);
+		float normal = sqrt(pow(direction_x, 2) + pow(direction_y, 2));
+		App->particles->enemy_shot.speed.x = int((direction_x / normal) * 7);
+		App->particles->enemy_shot.speed.y = int((direction_y / normal) * 7);
+		App->particles->AddParticle(App->particles->enemy_shot, position.x + 50, position.y + 30, ColliderType::ENEMY_SHOT);
+		//LOG("speed value in x %d and y %d", App->particles->enemy_shot.speed.x, App->particles->enemy_shot.speed.y);
 		time = current_time;
 	}
 

@@ -35,6 +35,7 @@
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleScene2.h"
+#include "ModuleParticles.h"
 
 #define SPAWN_MARGIN 150
 
@@ -329,6 +330,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				case BOSS_BLACKBIRD:
 					App->shop->money += 30000;
 					App->hud->score += 10000;
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x+100, enemies[i]->position.y + 100);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 200, enemies[i]->position.y + 150);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 200, enemies[i]->position.y + 300);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 100, enemies[i]->position.y + 350);
 					App->transition->FadeToBlack((Module*)App->scene, (Module*)App->sceneWin);
 					delete enemies[i];
 					enemies[i] = nullptr;

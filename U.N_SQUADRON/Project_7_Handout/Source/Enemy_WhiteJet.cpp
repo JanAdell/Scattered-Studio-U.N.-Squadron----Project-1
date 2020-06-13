@@ -93,12 +93,35 @@ void Enemy_WhiteJet::Update()
 		Enemy::Update();
 	}
 
-	/*if (current_time > time + 4500) {
-		App->particles->enemy_shot.speed.x = (position.x - App->player->position.x) * -0.007;
-		App->particles->enemy_shot.speed.y = (position.y - App->player->position.y) * -0.007;
-		App->particles->AddParticle(App->particles->enemy_shot, position.x, position.y, ColliderType::ENEMY_SHOT);
+	current_time = SDL_GetTicks();
+
+	if (position.x <= App->player->position.x && position.y <= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_down.speed.x = 7;
+		App->particles->w_missile_down.speed.y = 7;
+		App->particles->AddParticle(App->particles->w_missile_down, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
 		time = current_time;
-	}*/
+	}
+
+	if (position.x >= App->player->position.x && position.y >= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_up_l.speed.x = -7;
+		App->particles->w_missile_up_l.speed.y = -7;
+		App->particles->AddParticle(App->particles->w_missile_up_l, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
+
+	if (position.x <= App->player->position.x && position.y >= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_up.speed.x = 7;
+		App->particles->w_missile_up.speed.y = -7;
+		App->particles->AddParticle(App->particles->w_missile_down, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
+
+	if (position.x >= App->player->position.x && position.y <= App->player->position.y && current_time > time + 6000) {
+		App->particles->w_missile_down_l.speed.x = -7;
+		App->particles->w_missile_down_l.speed.y = 7;
+		App->particles->AddParticle(App->particles->w_missile_down_l, position.x + 50, position.y + 60, ColliderType::ENEMY_SHOT);
+		time = current_time;
+	}
 	
 
 }

@@ -41,6 +41,10 @@ private:
 	//Shot delay
 	unsigned int current_time;
 	unsigned int time = 0;
+
+	//Particle normalization
+	int direction_x;
+	int direction_y;
 };
 
 #endif 
