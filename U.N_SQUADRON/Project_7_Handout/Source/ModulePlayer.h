@@ -8,6 +8,7 @@
 struct SDL_Texture;
 struct Collider;
 
+
 class ModulePlayer : public Module
 {
 public:
@@ -93,8 +94,12 @@ public:
 	// Debugdraw for gamepad data
 	bool debugGamepadInfo = false;
 
-
+	//Player HP system
+	bool hit;
 	int hp;
+	int lives;
+	int recovery_time;
+	int current_time;
 };
 
 

@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include "SDL/include/SDL_scancode.h"
+#include "SDL/include/SDL.h"
 #include <string>
 
 
@@ -44,7 +45,7 @@ bool ModulePlayer::Start()
 		
 	bool ret = true;
 	
-	hp = 100;
+	hp = 2;
 
 	destroyed = false;
 
@@ -73,7 +74,7 @@ bool ModulePlayer::Start()
 update_status ModulePlayer::Update()
 {
 	GamePad& pad = App->input->pads[0];
-
+	current_time = SDL_GetTicks();
 	// Moving the player with the camera scroll
 
 	//TODO Limit camera movement
@@ -118,7 +119,7 @@ update_status ModulePlayer::Update()
 
 
 
-	if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN || pad.x == KEY_STATE::KEY_DOWN)
 	{
 		switch (App->shop->selectedWeapon) {
 
@@ -153,6 +154,15 @@ update_status ModulePlayer::Update()
 		}
 
 	}
+	/*
+	if (hit == true) {
+
+	}
+
+	if (hp == 0) {
+		
+	}*/
+	
 
 		//God Mode
 
@@ -190,11 +200,7 @@ update_status ModulePlayer::PostUpdate()
 	{  
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, position.x, position.y, &rect);
-
-	
 		
-
-	
 
 	}
 
@@ -208,12 +214,14 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1 == collider && destroyed == false && godMode == false)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
-
-
+		
 		App->audio->PlayFx(explosionFx);
 
-		destroyed = true;
+		lives -= 1;
 
+		//if (lives == 0) {
+			destroyed = true;
+		//}
 	}
 		
 }
