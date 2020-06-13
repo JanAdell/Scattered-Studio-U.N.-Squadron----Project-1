@@ -94,7 +94,8 @@ public:
 	bool debugGamepadInfo = false;
 
 
-	};
+	int hp;
+};
 
 
 #endif //!__MODULE_PLAYER_H__

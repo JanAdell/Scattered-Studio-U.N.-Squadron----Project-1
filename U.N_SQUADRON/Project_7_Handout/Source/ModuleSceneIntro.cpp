@@ -28,17 +28,17 @@ bool ModuleSceneIntro::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/sprites/menu/menuinicial.png");
+	bgTexture = App->textures->Load("Assets/sprites/menu/menuinicial_1.png");
 	App->audio->PlayMusic("Assets/music/Build/music/opening.ogg", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
 	fAnim.PushBack({ 0,0,1297,960 });
-	fAnim.PushBack({ 2595,0,1297,960 });
-	fAnim.PushBack({ 3893,0,1297,960 });
-	fAnim.PushBack({ 5191,0,1297,960 });
-	fAnim.speed = 0.1f;
+	fAnim.PushBack({ 1326,0,1297,960 });
+	fAnim.PushBack({ 2670,0,1297,960 });
+	//fAnim.PushBack({ 5191,0,1297,960 });
+	fAnim.speed = 0.2f;
 	fAnim.loop = true;
 	menuAnim = &fAnim;
 

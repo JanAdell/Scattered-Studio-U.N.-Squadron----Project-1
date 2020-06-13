@@ -41,10 +41,10 @@ ModulePlayer::~ModulePlayer()
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
-
-	
-
+		
 	bool ret = true;
+	
+	hp = 100;
 
 	destroyed = false;
 
