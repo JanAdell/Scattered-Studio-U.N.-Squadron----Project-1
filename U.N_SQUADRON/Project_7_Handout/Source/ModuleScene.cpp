@@ -301,14 +301,12 @@ update_status ModuleScene::Update()
 	}*/
 
 	if (App->player->destroyed == true) {
-		//App->particles->AddParticle(App->particles->explosion, App->player->position.x, App->player->position.y);
 		App->transition->FadeToBlack(this, (Module*)App->loose);
 		App->player->collider->pendingToDelete = true;
 		App->particles->enemy_shot.isAlive = false;
 		App->hud->Disable();
-		//App->particles->CleanUp();
+		App->particles->CleanUp();
 		App->collisions->CleanUp();
-		//App->player->destroyed = false;
 	}
 	   
 	if (App->input->keys[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
