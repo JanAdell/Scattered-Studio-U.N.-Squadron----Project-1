@@ -19,12 +19,14 @@ enum KEY_STATE
 	KEY_UP
 };
 
+
+
 struct GamePad
 {
 	//Input data
-	bool start, back, guide;
-	bool x, y, a, b, l1, r1, l3, r3;
-	bool up, down, left, right;
+	KEY_STATE start, back, guide;
+	KEY_STATE x, y, a, b, l1, r1, l3, r3;
+	KEY_STATE up, down, left, right;
 	float l2, r2;
 	float l_x, l_y, r_x, r_y, l_dz, r_dz;
 

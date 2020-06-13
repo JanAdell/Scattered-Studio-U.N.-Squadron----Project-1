@@ -139,9 +139,8 @@ bool ModuleParticles::Start()
 	s_laser.lifetime = 200;
 
 	//Bomb Particles - downward missiles
-	dw_missile.anim.PushBack({ 0,2115,97,43 });
-	dw_missile.anim.PushBack({ 116,2101,88,66 });
-	dw_missile.anim.PushBack({ 228,2106,60,62 });
+	dw_missile.anim.PushBack({ 39,2161,80,84 });
+	dw_missile.anim.PushBack({ 123,2165,92,72 });
 	dw_missile.anim.speed = 0.5f;
 	dw_missile.anim.loop = false;
 	dw_missile.lifetime = 500;

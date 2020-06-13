@@ -171,22 +171,23 @@ void ModuleInput::UpdateGamepadsInput()
 
 		if (pad.enabled == true)
 		{
-			pad.a = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_A) == 1;
-			pad.b = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_B) == 1;
-			pad.x = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_X) == 1;
-			pad.y = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_Y) == 1;
-			pad.l1 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_LEFTSHOULDER) == 1;
-			pad.r1 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER) == 1;
-			pad.l3 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_LEFTSTICK) == 1;
-			pad.r3 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_RIGHTSTICK) == 1;
-			pad.up = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_UP) == 1;
-			pad.down = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == 1;
-			pad.left = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT) == 1;
-			pad.right = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) == 1;
+			pad.a = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_A) == 1 ? (pad.a== KEY_REPEAT || pad.a==KEY_DOWN ? KEY_REPEAT : KEY_DOWN):(pad.a== KEY_IDLE || pad.a == KEY_UP ? KEY_IDLE : KEY_UP);
+			LOG("Pad a state %d", pad.a);
+			pad.b = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_B) == 1 ? (pad.b == KEY_REPEAT || pad.b == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.b == KEY_IDLE || pad.b == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.x = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_X) == 1 ? (pad.x == KEY_REPEAT || pad.x == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.x == KEY_IDLE || pad.x == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.y = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_Y) == 1 ? (pad.y == KEY_REPEAT || pad.y == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.y == KEY_IDLE || pad.y == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.l1 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_LEFTSHOULDER) == 1 ? (pad.l1 == KEY_REPEAT || pad.l1 == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.l1 == KEY_IDLE || pad.l1 == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.r1 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER) == 1 ? (pad.r1 == KEY_REPEAT || pad.r1 == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.r1 == KEY_IDLE || pad.r1 == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.l3 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_LEFTSTICK) == 1 ? (pad.l3 == KEY_REPEAT || pad.l3 == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.l3 == KEY_IDLE || pad.l3 == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.r3 = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_RIGHTSTICK) == 1 ? (pad.r3 == KEY_REPEAT || pad.r3 == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.r3 == KEY_IDLE || pad.r3 == KEY_UP ? KEY_IDLE : KEY_UP); ;
+			pad.up = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_UP) == 1 ? (pad.up == KEY_REPEAT || pad.up == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.up == KEY_IDLE || pad.up == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.down = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == 1 ? (pad.down == KEY_REPEAT || pad.down == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.down == KEY_IDLE || pad.down == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.left = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT) == 1 ? (pad.left == KEY_REPEAT || pad.left == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.left == KEY_IDLE || pad.left == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.right = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) == 1 ? (pad.right == KEY_REPEAT || pad.right == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.right == KEY_IDLE || pad.right == KEY_UP ? KEY_IDLE : KEY_UP);;
 
-			pad.start = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_START) == 1;
-			pad.guide = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_GUIDE) == 1;
-			pad.back = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_BACK) == 1;
+			pad.start = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_START) == 1 ? (pad.guide == KEY_REPEAT || pad.guide == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.guide == KEY_IDLE || pad.guide == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.guide = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_GUIDE) == 1 ? (pad.guide == KEY_REPEAT || pad.guide == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.guide == KEY_IDLE || pad.guide == KEY_UP ? KEY_IDLE : KEY_UP);;
+			pad.back = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_BACK) == 1 ? (pad.start == KEY_REPEAT || pad.start == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.start == KEY_IDLE || pad.start == KEY_UP ? KEY_IDLE : KEY_UP);;
 
 			pad.l2 = float(SDL_GameControllerGetAxis(pad.controller, SDL_CONTROLLER_AXIS_TRIGGERLEFT)) / 32767.0f;
 			pad.r2 = float(SDL_GameControllerGetAxis(pad.controller, SDL_CONTROLLER_AXIS_TRIGGERRIGHT)) / 32767.0f;
