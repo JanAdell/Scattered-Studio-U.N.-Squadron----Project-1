@@ -209,11 +209,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false && godMode == false)
 	{
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y, ColliderType::NONE, 9);
-		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, ColliderType::NONE, 14);
-		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, ColliderType::NONE, 40);
-		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, ColliderType::NONE, 28);
-		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, ColliderType::NONE, 21);
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 
 
 		App->audio->PlayFx(explosionFx);

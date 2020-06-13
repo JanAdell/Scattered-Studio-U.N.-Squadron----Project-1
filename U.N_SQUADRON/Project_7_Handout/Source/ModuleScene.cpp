@@ -305,7 +305,7 @@ update_status ModuleScene::Update()
 		App->player->collider->pendingToDelete = true;
 		App->particles->enemy_shot.isAlive = false;
 		App->hud->Disable();
-		App->particles->CleanUp();
+		//App->particles->CleanUp();
 		App->collisions->CleanUp();
 	}
 	   
