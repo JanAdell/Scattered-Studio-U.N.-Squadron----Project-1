@@ -50,14 +50,14 @@ Enemy_WhiteJet::Enemy_WhiteJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path2.PushBack({ 10.0f, 4.0f }, 1500, &flyup);
 
 	
-	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 1.0f, -4.0f }, 200, &flyup);
-	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 1.0f, 4.0f }, 200, &flydown);
+	
+	path3.PushBack({ 1.0f, 4.0f }, 300, &flyup);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path3.PushBack({ 1.0f, -4.0f }, 200, &flydown);
 	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 10.0f, 4.0f }, 1500, &flyup);
+	path3.PushBack({ 1.0f, 4.0f }, 200, &flydown);
+	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
+	path3.PushBack({ 10.0f, -4.0f }, 1500, &flyup);
 
 
 
