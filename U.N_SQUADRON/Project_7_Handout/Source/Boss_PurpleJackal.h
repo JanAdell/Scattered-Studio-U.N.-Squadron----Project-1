@@ -42,6 +42,8 @@ private:
 	unsigned int current_time;
 	unsigned int time = 0;
 
+	bool front = false;
+	bool back = false;
 };
 
 #endif 

@@ -36,7 +36,7 @@ Boss_PurpleJackal::Boss_PurpleJackal(int x, int y, ENEMY_TYPE e_type) : Enemy(x,
 	path2.PushBack({ -3.0f, 4.0f }, 200, &flydown);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path2.PushBack({ -3.0f, -4.0f }, 1500, &flyup);
-	path2.loop = true;
+	//path2.loop = true;
 
 	path3.PushBack({ -5.0f,0.0f }, 100, &fly);
 	path3.PushBack({ -3.0f, 4.0f }, 300, &flyup);
@@ -61,6 +61,29 @@ void Boss_PurpleJackal::Update()
 
 	current_time = SDL_GetTicks();
 	
+	if (App->player->position.x >= position.x && App->player->position.y <= position.y) {
+		if (front == false) {
+			App->particles->AddParticle(App->particles->f_missile, position.x + 160, position.y + 40, ColliderType::FRONTMISSILE);
+			
+			front = true;
+		}
+	}
+	else front = false;
+
+	if (App->player->position.x <= position.x+160 && App->player->position.y >= position.y+80) {
+		if (back == false) {
+			App->particles->AddParticle(App->particles->b_bomb, position.x , position.y + 20, ColliderType::BACKBOMB);
+			App->particles->AddParticle(App->particles->b_bomb, position.x + 30, position.y + 40, ColliderType::BACKBOMB);
+			App->particles->AddParticle(App->particles->b_bomb, position.x + 60, position.y + 20, ColliderType::BACKBOMB);
+			App->particles->AddParticle(App->particles->b_bomb, position.x + 90, position.y + 40, ColliderType::BACKBOMB);
+			App->particles->AddParticle(App->particles->b_bomb, position.x + 120, position.y + 20, ColliderType::BACKBOMB);
+			App->particles->AddParticle(App->particles->b_bomb, position.x + 150, position.y + 40, ColliderType::BACKBOMB);
+			
+
+			back = true;
+		}
+	}
+	else back = false;
 
 	Enemy::Update();
 	

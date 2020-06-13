@@ -232,12 +232,15 @@ bool ModuleParticles::Start()
 	//-----Boss 2 Particles----------
 	//Backbomb
 	b_bomb.anim.PushBack({ 56,981,51,50 });
+	b_bomb.anim.PushBack({ 56,981,51,50 });
+	b_bomb.anim.PushBack({ 56,981,51,50 });
+	b_bomb.anim.PushBack({ 56,981,51,50 });
 	b_bomb.anim.PushBack({ 114,983,36,40 });
 	b_bomb.anim.PushBack({ 169,966,72,74 });
 	b_bomb.anim.PushBack({ 266,959,80,89 });
 	b_bomb.anim.PushBack({ 363,965,83,79});
 	b_bomb.anim.PushBack({ 488,949,74,82 });
-	b_bomb.speed.x = -4;
+	b_bomb.speed.x = -10;
 	b_bomb.anim.loop = false;
 	b_bomb.anim.speed = 0.3f;
 
@@ -251,7 +254,7 @@ bool ModuleParticles::Start()
 	f_missile.anim.PushBack({748,743,209,219});
 	f_missile.anim.PushBack({957,967,204,209});
 	f_missile.anim.speed = 0.3f;
-	f_missile.speed.x = 6;
+	f_missile.speed.x = 10;
 	f_missile.anim.loop = false;
 	
 	return true;
