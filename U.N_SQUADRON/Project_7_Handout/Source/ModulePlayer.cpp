@@ -11,6 +11,7 @@
 #include "ModuleRender.h"
 #include "ModuleEnemies.h"
 #include "ModuleHud.h"
+#include "ModuleShop.h"
 
 #include <stdio.h>
 #include "SDL/include/SDL_scancode.h"
@@ -77,7 +78,7 @@ update_status ModulePlayer::Update()
 
 	//TODO Limit camera movement
 	App->player->position.x += 1;
-	
+
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->player->position.x >= App->render->camera.x || pad.l_x < 0.0f && App->player->position.x >= App->render->camera.x)
 	{
 		position.x -= speed;
@@ -88,7 +89,7 @@ update_status ModulePlayer::Update()
 		position.x += speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT- PLAYER_HEIGHT  || pad.l_y > 0.0f && App->player->position.y < SCREEN_HEIGHT - PLAYER_HEIGHT)
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->player->position.y < SCREEN_HEIGHT - PLAYER_HEIGHT || pad.l_y > 0.0f && App->player->position.y < SCREEN_HEIGHT - PLAYER_HEIGHT)
 	{
 		position.y += speed;
 		if (currentAnimation != &downAnim)
@@ -110,37 +111,68 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || pad.a == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 140, position.y+30, ColliderType::PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + 140, position.y + 30, ColliderType::PLAYER_SHOT);
 		//App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
-		
+
 
 		App->audio->PlayFx(laserFx);
 	}
-	   	
 
-	//God Mode
-	
-	if (App->input->keys[SDL_SCANCODE_F9] == KEY_STATE::KEY_DOWN)
-		godModeUpdate();
+	//if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN == KEY_STATE::KEY_DOWN) {
+	//	App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
+	//	App->audio->PlayFx(laserFx);
 
-	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
-		currentAnimation = &idleAnim;
+	//}
 
-	// Switch gamepad debug info
-	if (App->input->keys[SDL_SCANCODE_F2] == KEY_DOWN)
-		debugGamepadInfo = !debugGamepadInfo;
+	if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN == KEY_STATE::KEY_DOWN)
+	{
+		switch (App->shop->selectedWeapon) {
+
+		case App->shop->BOMB:
+			App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
+			App->audio->PlayFx(laserFx);
+			break;
+
+		case App->shop->S_SHELL:
+			App->particles->AddParticle(App->particles->s_laser, position.x + 140, position.y + 30, ColliderType::S_LASER);
+			App->audio->PlayFx(laserFx);
+			break;
+
+		case App->shop->T_LASER:
+			App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y + 30, ColliderType::T_LASER);
+			App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y + 30, ColliderType::T_LASER);
+			App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 30, ColliderType::T_LASER);
+			App->audio->PlayFx(laserFx);
+			break;
+
+		}
+
+	}
+
+		//God Mode
+
+		if (App->input->keys[SDL_SCANCODE_F9] == KEY_STATE::KEY_DOWN)
+			godModeUpdate();
+
+		// If no up/down movement detected, set the current animation back to idle
+		if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
+			currentAnimation = &idleAnim;
+
+		// Switch gamepad debug info
+		if (App->input->keys[SDL_SCANCODE_F2] == KEY_DOWN)
+			debugGamepadInfo = !debugGamepadInfo;
 
 
-	collider->SetPos(position.x, position.y);
+		collider->SetPos(position.x, position.y);
 
-	currentAnimation->Update();
+		currentAnimation->Update();
 
-	
 
-	return update_status::UPDATE_CONTINUE;
-}
+
+		return update_status::UPDATE_CONTINUE;
+	}
+
 
 
 

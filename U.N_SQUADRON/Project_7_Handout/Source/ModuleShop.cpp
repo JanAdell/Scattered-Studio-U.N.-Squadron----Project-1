@@ -1,5 +1,5 @@
 #include "ModuleShop.h"
-
+#include "ModuleCollisions.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
@@ -227,6 +227,7 @@ void ModuleShop::select()
 			weapons[BOMB].priceWeapon = 2000;
 			weapons[BOMB].ammo = 5;
 			activeSelected(BOMB);
+		
 		}
 		else {
 			App->audio->PlayFx(InsuficientMoney);
@@ -262,6 +263,7 @@ void ModuleShop::select()
 }
 
 void ModuleShop::activeSelected(int _weapon) {
+	selectedWeapon = _weapon;
 
 	weapons[_weapon].selected = !weapons[_weapon].selected;
 	if (weapons[_weapon].selected == true) {

@@ -92,6 +92,9 @@ public:
 
 	// Debugdraw for gamepad data
 	bool debugGamepadInfo = false;
-};
+
+
+	};
+
 
 #endif //!__MODULE_PLAYER_H__

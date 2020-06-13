@@ -41,6 +41,21 @@ public:
 
 
 public:
+	enum SHOP_SLOT {
+		CLUSTER,
+		PHOENIX,
+		FALCON,
+		BULLPUP,
+		S_SHELL,
+		T_LASER,
+		BOMB,
+		NAPALM,
+		GUNPOD,
+		CEILING,
+		MEGACRUSH,
+		EXIT,
+
+	};
 
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* selectorTexture = nullptr;
@@ -52,6 +67,8 @@ public:
 
 	bool keyDownPad = false;
 	int hudfont1 = 0;
+
+	int selectedWeapon;
 
 	bool begin = false;
 
@@ -73,21 +90,7 @@ public:
 	//solved
 	SDL_Texture* WeaponsSold = nullptr;
 
-	enum SHOP_SLOT {
-		CLUSTER,
-		PHOENIX,
-		FALCON,
-		BULLPUP,
-		S_SHELL,
-		T_LASER,
-		BOMB,
-		NAPALM,
-		GUNPOD,
-		CEILING,
-		MEGACRUSH,
-		EXIT,
-
-	};
+	
 
 
 };
