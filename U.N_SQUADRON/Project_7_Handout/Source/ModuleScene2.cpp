@@ -235,7 +235,7 @@ bool ModuleScene2::CleanUp()
 	App->enemies->CleanUp();
 	App->textures->CleanUp();
 
-	//App->audio->StopMusic();
+	App->audio->StopMusic();
 
 	App->textures->Unload(bgTexture);
 
