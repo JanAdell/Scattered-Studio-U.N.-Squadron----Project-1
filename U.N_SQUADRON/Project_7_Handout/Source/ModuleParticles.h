@@ -97,6 +97,8 @@ public:
 	//White Jet Missile
 	Particle w_missile_up;
 	Particle w_missile_down;
+	Particle w_missile_up_l;
+	Particle w_missile_down_l;
 
 	//---Boss 1---
 	
@@ -126,7 +128,7 @@ public:
 
 	//Backwards bomb
 	Particle b_bomb;
-	Particle b_bomb_explosion;
+	
 };
 
 #endif // !__MODULEPARTICLES_H__
