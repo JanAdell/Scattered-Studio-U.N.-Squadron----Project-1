@@ -56,45 +56,46 @@ bool ModuleScene2::Start()
 	left_spawn_positions[WHITE_JET_4] = 3000;
 	left_spawn_positions[WHITE_JET_5] = 3300;
 	left_spawn_positions[WHITE_JET_6] = 3600;
+	left_spawn_positions[PURPLE_JACKAL] = 4900;
 	
 
 
 	// Enemies ---	
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1000, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1250, 300);
-
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1270, -20);
-
-	//-------------------------------------------------------------
-
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1730, -20);
-
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1500, 600);
 	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1750, 300);
+
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 1770, -20);
+
+	//-------------------------------------------------------------
+
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2230, -20);
+
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2250, 300);
 	//------------------------------------------------------------
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2100, 300);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2350, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2500, 300);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2750, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2600, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 2850, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3000, 300);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3250, 300);
 	//-------------------------------------------------------------
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3000, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3200, 300);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3400, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3600, 300);
-
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3650, -20);
-	//-------------------------------------------------------------
-
-	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 3910, -20);
-
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3500, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3700, 300);
 	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3900, 600);
-	
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 3950, -20);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4100, 300);
 
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4000, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4200, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4300, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4150, -20);
+	//-------------------------------------------------------------
+
+	App->enemies->AddEnemy(ENEMY_TYPE::WHITE_JET_LVL_2, 4300, -20);
+
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4400, 600);
+	
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4450, -20);
+
 	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4500, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4700, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 4800, 600);
+	App->enemies->AddEnemy(ENEMY_TYPE::GREEN_JET_LVL_2, 5000, 600);
 	
 	//-----------BOSS----------------------------------------------
 	//App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 4900, 600);

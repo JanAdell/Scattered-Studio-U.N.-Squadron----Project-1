@@ -28,7 +28,7 @@ Enemy_GreenJet::Enemy_GreenJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({});*/
 
 	
-	path.PushBack({ -3.0f, 0.0f }, 50, &fly);
+	path.PushBack({ -5.0f, 0.0f }, 50, &fly);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path.PushBack({ 1.0f, 4.0f }, 150, &flydown);
 	path.PushBack({ 1.0f, 0.0f }, 20, &fly);
@@ -39,7 +39,7 @@ Enemy_GreenJet::Enemy_GreenJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y, e_
 	path.PushBack({ -10.0f, -4.0f }, 1500, &flyup);
 	path.loop = false;
 
-	path2.PushBack({ -5.0f, 0.0f }, 100, &fly);
+	path2.PushBack({ -5.0f, 0.0f }, 50, &fly);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
 	path2.PushBack({ 1.0f, -4.0f }, 150, &flyup);
 	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
