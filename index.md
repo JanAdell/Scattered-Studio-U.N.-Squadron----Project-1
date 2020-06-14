@@ -9,16 +9,16 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 ## Check our latest Release
 
-> https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/releases/tag/0.5
+> [UN_Squadron 1.0 by Scattered Studio](https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/releases/tag/0.5)
+
 
 
 ## Team
 
-* **Jan Adell Mill**: Mainly worked on the front-end of the game, preparing the levels and enemies, as well as gameplay functionalities. 
-> https://github.com/JanAdell
+* **[Jan Adell Mill](https://github.com/JanAdell)**: Mainly worked on the front-end of the game, preparing the levels and enemies, as well as gameplay functionalities. 
 
-* **Maria Garrigolas Ledo**: Mainly Worked back-end, creating the whole skeleton for the code and implementing inter-module functionalities and transitioning.
-> https://github.com/Meeeri08 
+
+* **[Maria Garrigolas Ledo](https://github.com/Meeeri08)**: Mainly Worked back-end, creating the whole skeleton for the code and implementing inter-module functionalities and transitioning.
 
 ## Foto
 

@@ -53,6 +53,7 @@ update_status ModuleHud::PostUpdate() {
 
 		break;
 	case App->shop->GUNPOD:
+		App->render->Blit(wp2, App->render->camera.x + 100, 0, NULL);
 
 		break;
 		
