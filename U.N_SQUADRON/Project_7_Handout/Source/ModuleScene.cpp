@@ -307,7 +307,10 @@ update_status ModuleScene::Update()
 		App->transition->FadeToBlack(this, (Module*)App->loose);
 		App->player->collider->pendingToDelete = true;
 		App->particles->enemy_shot.isAlive = false;
+		App->fonts->UnLoad(yellowFont);
+		App->fonts->UnLoad(greenFont);;
 		App->hud->Disable();
+
 		//App->particles->CleanUp();
 		App->collisions->CleanUp();
 	}
