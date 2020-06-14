@@ -40,6 +40,8 @@ public:
 	SDL_Texture* wp2 = nullptr;
 	SDL_Texture* wp3 = nullptr;
 	SDL_Texture* wp4 = nullptr;
+	SDL_Texture* helmet = nullptr;
+
 	// Money
 	uint money = 0;
 

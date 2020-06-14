@@ -21,6 +21,7 @@ bool ModuleHud::Start() {
 	wp2 = App->textures->Load("Assets/sprites/hud/WEAPONSGUNPOD.png");
 	wp3 = App->textures->Load("Assets/sprites/hud/WEAPONSS_SHELL.png");
 	wp4 = App->textures->Load("Assets/sprites/hud/WEAPONST_LASER.png");
+	helmet= App->textures->Load("Assets/sprites/hud/helmet.png");
 
 	score = 0;
 	money = 0;
@@ -71,6 +72,8 @@ update_status ModuleHud::PostUpdate() {
 		
 	}
 
+	App->render->Blit(helmet, App->render->camera.x + 0, 0, NULL);
+
 // Blit 
 	App->fonts->BlitText(8, 10, yellowFont, "SCORE");
 	App->fonts->BlitText(440, 10, yellowFont, "LEVEL");
@@ -93,7 +96,7 @@ update_status ModuleHud::PostUpdate() {
 	//Money value
 	App->fonts->BlitText(595, 100, greenFont, dchar);
 	//Hp value
-	App->fonts->BlitText(50, 900, yellowFont, hchar);
+	App->fonts->BlitText(59, 895, yellowFont, hchar);
 		
 	//App->fonts->BlitText(715, 10, greenFont, "2");
 
