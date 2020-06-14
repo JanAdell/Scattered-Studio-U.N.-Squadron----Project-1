@@ -40,6 +40,8 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * **G Key**: For infinite gold.
 
+* **H Key**: For infinite ammo.
+
 * **R Key**: For weapon switching.
 
 ## Options

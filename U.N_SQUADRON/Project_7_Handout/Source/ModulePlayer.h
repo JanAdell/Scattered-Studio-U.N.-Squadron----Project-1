@@ -99,6 +99,7 @@ public:
 
 	// Debugdraw for gamepad data
 	bool debugGamepadInfo = false;
+	bool infiniteAmmo = false;
 
 	//Player HP system
 	bool hit;
