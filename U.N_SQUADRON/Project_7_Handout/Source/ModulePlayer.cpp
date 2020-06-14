@@ -167,7 +167,21 @@ update_status ModulePlayer::Update()
 		}
 		
 	}
-	
+	if (App->input->keys[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN) {
+		infiniteAmmo = true;
+	}
+
+	if (infiniteAmmo) {
+		App->shop->weapons[App->shop->selectedWeapon].ammo += 10;
+		if (App->shop->weapons[App->shop->selectedWeapon].ammo >= 100) {
+			App->shop->weapons[App->shop->selectedWeapon].ammo += 100;
+		}
+		if (App->shop->weapons[App->shop->selectedWeapon].ammo >= 999) {
+			App->shop->weapons[App->shop->selectedWeapon].ammo = 999;
+		}
+	}
+
+
 	if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN || pad.y == KEY_STATE::KEY_DOWN) {
 		
 		int x = int(App->shop->selectedWeapon)+1;
@@ -271,6 +285,11 @@ void ModulePlayer::godModeUpdate()
 bool ModulePlayer::CleanUp() {
 	bool ret = true;
 
+	
+	App->audio->StopMusic();
+	App->hud->Disable();
+	App->fonts->UnLoad(yellowFont);
+	App->fonts->UnLoad(greenFont);
 	App->textures->Unload(texture);
 	collider->pendingToDelete = true;
 
