@@ -65,7 +65,7 @@ bool ModulePlayer::Start()
 	position.y = 600;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 180, 90 }, ColliderType::PLAYER, this);
-
+	 
 	score_value = 0;
 	money_value = 3000;
 

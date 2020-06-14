@@ -57,6 +57,24 @@ update_status ModuleSceneLoose::Update()
 		App->transition->FadeToBlack(this, (Module*)App->initialScreen);
 	}
 
+	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		//App->audio->StopMusic();
+		App->transition->FadeToBlack(this, (Module*)App->loose);
+	}
+	if (App->input->keys[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) {
+		//App->audio->StopMusic();
+		App->transition->FadeToBlack(this, (Module*)App->shop);
+	}
+
+
+	if (App->input->keys[SDL_SCANCODE_F10] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F11] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->scene2, 90);
+	}
+
 	return update_status::UPDATE_CONTINUE;
 }
 

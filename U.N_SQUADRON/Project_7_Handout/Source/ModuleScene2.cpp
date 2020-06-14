@@ -178,6 +178,18 @@ update_status ModuleScene2::Update()
 	if (App->input->keys[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 		App->transition->FadeToBlack(this, (Module*)App->loose, 90);
 	}
+	if (App->input->keys[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) {
+		//App->audio->StopMusic();
+		App->transition->FadeToBlack(this, (Module*)App->shop);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F10] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F11] == KEY_STATE::KEY_DOWN) {
+		App->transition->FadeToBlack(this, (Module*)App->scene2, 90);
+	}
 
 	if (victory_counter == 3) {
 		App->transition->FadeToBlack(this, (Module*)App->sceneWin);

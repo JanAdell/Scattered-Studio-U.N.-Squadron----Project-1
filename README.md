@@ -32,9 +32,15 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * **F7 Key:** Load Loose Scene.
 
-* **F10 Key (From Level 1):** Load Level 2.
+* **F8 Key:** Load Shop Scene.
 
-* **G Key**: For infinite gold
+* **F10 Key:** Load Level 1.
+
+* **F11 Key:** Load Level 2.
+
+* **G Key**: For infinite gold.
+
+* **R Key**: For weapon switching.
 
 ## Options
 
