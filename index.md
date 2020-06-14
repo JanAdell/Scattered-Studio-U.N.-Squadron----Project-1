@@ -36,7 +36,25 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * **Spacebar:** Player shoots a projectile.
 
+* **K key:** Fires Special Weapon.
+
+* **R Key:** Switch Special weapons.
+
 * Navigation between scenes is acomplished by pressing **Spacebar**.
+
+* **ESC key:** Quit the game.
+
+## Gamepad Controls
+
+* **Left Stick:** Player movement and shop navigation.
+
+* **A or Cross Button:** Fire primary weapon and navigate between scenes (it works a bit funky on shop purchase).
+
+* **X or Square Button:** Fire Special Weapon.
+
+* **Y or Triangle Button:** Switch Special weapons.
+
+* **Start Button:** Quit the game.
 
 ## Debug Functionalities
 
@@ -50,9 +68,17 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * **F7 Key:** Load Loose Scene.
 
-* **F10 Key (From Level 1):** Load Level 2.
+* **F8 Key:** Load Shop Scene.
 
-* **G Key:** For infinite gold
+* **F10 Key:** Load Level 1.
+
+* **F11 Key:** Load Level 2.
+
+* **G Key**: For infinite gold.
+
+* **H Key**: For infinite ammo.
+
+* **R Key**: For weapon switching.
 
 ## Options
 
