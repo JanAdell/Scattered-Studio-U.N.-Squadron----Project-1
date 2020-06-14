@@ -55,6 +55,8 @@ bool ModuleInput::Init()
 update_status ModuleInput::PreUpdate()
 {
 	//Read all keyboard data and update our custom array
+	GamePad& pad = pads[0];
+	
 	const Uint8* keyboard = SDL_GetKeyboardState(NULL);
 	for (int i = 0; i < MAX_KEYS; ++i)
 	{
@@ -91,7 +93,7 @@ update_status ModuleInput::PreUpdate()
 
 	UpdateGamepadsInput();
 
-	if (keys[SDL_SCANCODE_ESCAPE]) {
+	if (keys[SDL_SCANCODE_ESCAPE] || pad.start == KEY_STATE::KEY_DOWN) {
 		return update_status::UPDATE_STOP;
 	}
 
