@@ -89,7 +89,7 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 ### Check our latest Release
 
-> https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/releases/tag/0.5
+> https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/releases/tag/1.0
 
 
 
