@@ -71,7 +71,7 @@ public:
 	int selectedWeapon;
 
 	bool begin = false;
-
+	bool shoploop = false;
 	//info
 
 	int money = 3000;

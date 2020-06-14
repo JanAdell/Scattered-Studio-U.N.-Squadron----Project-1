@@ -282,7 +282,15 @@ void ModuleShop::select()
 	case EXIT:
 
 		Mix_HaltMusic();
-		App->transition->FadeToBlack(this, (Module*)App->scene, 90);
+		
+		if (shoploop == false) {
+			App->transition->FadeToBlack(this, (Module*)App->scene, 90);
+			shoploop == true;
+		}
+		if (shoploop == true) {
+			App->transition->FadeToBlack(this, (Module*)App->scene2, 90);
+		}
+
 		break;
 
 	}
