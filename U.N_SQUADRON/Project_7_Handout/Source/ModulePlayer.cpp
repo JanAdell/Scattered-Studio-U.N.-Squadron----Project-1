@@ -255,7 +255,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		lives -= 1;
 
 		//if (lives == 0) {
-			destroyed = true;
+		App->shop->shoploop = false;
+
+		destroyed = true;
+		
 		//}
 	}
 		
