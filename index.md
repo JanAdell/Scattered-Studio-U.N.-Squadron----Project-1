@@ -14,10 +14,10 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 ## Team
 
-* **Jan Adell Mill**
+* **Jan Adell Mill**: Mainly worked on the front-end of the game, preparing the levels and enemies, as well as gameplay functionalities. 
 > https://github.com/JanAdell
 
-* **Maria Garrigolas Ledo** 
+* **Maria Garrigolas Ledo**: Mainly Worked back-end, creating the whole skeleton for the code and implementing inter-module functionalities and transitioning.
 > https://github.com/Meeeri08 
 
 ## Foto
