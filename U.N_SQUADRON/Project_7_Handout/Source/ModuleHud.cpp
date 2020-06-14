@@ -36,12 +36,14 @@ update_status ModuleHud::PostUpdate() {
 	switch (App->shop->selectedWeapon) {
 	case App->shop->BOMB:
 		App->render->Blit(wp1, App->render->camera.x + 100, 0, NULL);
+		App->fonts->BlitText(900, 878, yellowFont, "BOMB");
 
 
 		break;
 
 	case App->shop->S_SHELL:
 		App->render->Blit(wp3, App->render->camera.x + 100, 0, NULL);
+		App->fonts->BlitText(900, 878, yellowFont, "S.SHELL");
 
 
 
@@ -49,11 +51,13 @@ update_status ModuleHud::PostUpdate() {
 
 	case App->shop->T_LASER:
 		App->render->Blit(wp4, App->render->camera.x + 100, 0, NULL);
+		App->fonts->BlitText(900, 878, yellowFont, "T.LASER");
 
 
 		break;
 	case App->shop->GUNPOD:
 		App->render->Blit(wp2, App->render->camera.x + 100, 0, NULL);
+		App->fonts->BlitText(900, 878, yellowFont, "GUNPOD");
 
 		break;
 		
