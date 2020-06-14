@@ -132,6 +132,10 @@ update_status ModulePlayer::Update()
 				App->audio->PlayFx(laserFx);
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
 			}
+			
+			/*if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN || pad.y == KEY_STATE::KEY_DOWN) {
+				App->shop->S_SHELL;
+			}*/
 
 			break;
 
@@ -140,15 +144,15 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->s_laser, position.x + 140, position.y + 30, ColliderType::S_LASER);
 				App->audio->PlayFx(laserFx);
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
-
 			}
+
 			break;
 
 		case App->shop->T_LASER:
 			if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN || pad.x == KEY_STATE::KEY_DOWN) {
-				App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y + 30, ColliderType::T_LASER);
-				App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y + 30, ColliderType::T_LASER);
-				App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 30, ColliderType::T_LASER);
+				App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y -20, ColliderType::T_LASER);
+				App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y, ColliderType::T_LASER);
+				App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 20, ColliderType::T_LASER);
 				App->audio->PlayFx(laserFx);
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
 			}
@@ -167,7 +171,7 @@ update_status ModulePlayer::Update()
 		}
 		
 	}
-	
+	   	
 	if (hit == true) {
 		current_state = HIT;
 	}

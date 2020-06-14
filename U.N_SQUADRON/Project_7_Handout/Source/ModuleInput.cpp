@@ -172,7 +172,7 @@ void ModuleInput::UpdateGamepadsInput()
 		if (pad.enabled == true)
 		{
 			pad.a = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_A) == 1 ? (pad.a== KEY_REPEAT || pad.a==KEY_DOWN ? KEY_REPEAT : KEY_DOWN):(pad.a== KEY_IDLE || pad.a == KEY_UP ? KEY_IDLE : KEY_UP);
-			LOG("Pad a state %d", pad.a);
+			//LOG("Pad a state %d", pad.a);
 			pad.b = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_B) == 1 ? (pad.b == KEY_REPEAT || pad.b == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.b == KEY_IDLE || pad.b == KEY_UP ? KEY_IDLE : KEY_UP);;
 			pad.x = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_X) == 1 ? (pad.x == KEY_REPEAT || pad.x == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.x == KEY_IDLE || pad.x == KEY_UP ? KEY_IDLE : KEY_UP);;
 			pad.y = SDL_GameControllerGetButton(pad.controller, SDL_CONTROLLER_BUTTON_Y) == 1 ? (pad.y == KEY_REPEAT || pad.y == KEY_DOWN ? KEY_REPEAT : KEY_DOWN) : (pad.y == KEY_IDLE || pad.y == KEY_UP ? KEY_IDLE : KEY_UP);;
