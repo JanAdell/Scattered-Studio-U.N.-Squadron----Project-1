@@ -106,7 +106,12 @@ public:
 	int lives;
 	int recovery_time;
 	int current_time;
+	int time;
 	Player_States current_state;
+
+	//Gunpod Timer
+	int time_gp;
+	int current_time_gp;
 };
 
 

@@ -84,7 +84,7 @@ void Enemy_BlueJet::Update()
 	}
 		
 	current_time = SDL_GetTicks();
-	if (current_time > time + 6000) {
+	if (current_time > time + 8000) {
 		direction_x = float(App->player->position.x - position.x);
 		direction_y = float(App->player->position.y - position.y);
 		float normal = sqrt(pow(direction_x, 2) + pow(direction_y, 2));

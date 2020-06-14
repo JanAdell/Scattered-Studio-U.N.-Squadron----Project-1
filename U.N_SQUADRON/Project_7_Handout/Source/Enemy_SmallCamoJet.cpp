@@ -27,7 +27,7 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y, ENEMY_TYPE e_type) : Enemy(
 	flipfly.PushBack({ 215*4,113*4,26*4,10*4 });
 	flipfly.PushBack({ 185*4,110*4,26*4,15*4 });
 	flipfly.PushBack({ 245*4,112*4,26*4,8 *4});
-	flipfly.speed = 0.15f;
+	flipfly.speed = 0.1f;
 	
 	//return flip (right)
 	flipflyback.PushBack({  40*4,112*4,26*4,10*4 });
@@ -36,7 +36,7 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y, ENEMY_TYPE e_type) : Enemy(
 	flipflyback.PushBack({ 304*4,113*4,26*4,10*4 });
 	flipflyback.PushBack({ 334*4,110*4,26*4,15*4 });
 	flipflyback.PushBack({ 274*4,112*4,26*4,8 *4});
-	flipflyback.speed = 0.15f;
+	flipflyback.speed = 0.1f;
 
 	//turn (right to left)
 	turn.PushBack({ 334*4,110*4,26*4,15*4 });
@@ -61,12 +61,12 @@ Enemy_SmallCamoJet::Enemy_SmallCamoJet(int x, int y, ENEMY_TYPE e_type) : Enemy(
 	turnback.speed = 0.07;
 
 	//Left->right->left
-	path.PushBack({ 6.0f , 0.f }, 100, &fly);
+	path.PushBack({ 5.0f , 0.f }, 100, &fly);
 	path.PushBack({ -3.0f , 3.0f }, 70, &turn);
 	path.PushBack({ -4.0f, 0.0f }, 500, &flipfly);
 
 	//Right->left->right
-	path2.PushBack({ -6.0f , 0.f }, 100, &flyback);
+	path2.PushBack({ -5.0f , 0.f }, 100, &flyback);
 	path2.PushBack({ -3.0f , 3.0f }, 70, &turnback);
 	path2.PushBack({ 5.0f, 0.0f }, 300, &flipflyback);
 
@@ -93,7 +93,7 @@ void Enemy_SmallCamoJet::Update()
 	}
 
 	current_time = SDL_GetTicks();
-	if (current_time > time + 6000) {
+	if (current_time > time + 8000) {
 		direction_x = float(App->player->position.x - position.x);
 		direction_y = float(App->player->position.y - position.y);
 		float normal = sqrt(pow(direction_x, 2) + pow(direction_y, 2));

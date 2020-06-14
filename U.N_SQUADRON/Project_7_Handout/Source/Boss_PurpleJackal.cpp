@@ -60,30 +60,7 @@ Boss_PurpleJackal::Boss_PurpleJackal(int x, int y, ENEMY_TYPE e_type) : Enemy(x,
 	path2.PushBack({ -1.5f, 3.0f }, 170, &flydown);
 	path2.PushBack({ -1.5f, -3.0f }, 170, &flyup);
 	path2.loop = true;
-
-	/*path2.PushBack({ -3.0f, 4.0f }, 300, &flyup);
-	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path2.PushBack({ 4.0f, -4.0f }, 200, &flydown);
-	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path2.PushBack({ -3.0f, 4.0f }, 200, &flydown);
-	path2.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path2.PushBack({ -3.0f, -4.0f }, 1500, &flyup);
-	//path2.loop = true;
-
-	path3.PushBack({ -5.0f,0.0f }, 100, &fly);
-	path3.PushBack({ -3.0f, 4.0f }, 300, &flyup);
-	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ 4.0f, -4.0f }, 200, &flydown);
-	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ -3.0f, 4.0f }, 200, &flydown);
-	path3.PushBack({ 1.0f, 0.0f }, 20, &fly);
-	path3.PushBack({ -3.0f, -4.0f }, 1500, &flyup);
-
-	//path3.PushBack({ -5.0f,0.0f }, 100, &fly);
-	//path3.PushBack({ 1.0f,0.0f }, 10000000, &fly);
-	
-	path3.PushBack({ -5.0f,0.0f }, 100, &fly);
-	path3.PushBack({ 1.0f,0.0f }, 10000000, &fly);*/
+		
 }
 
 void Boss_PurpleJackal::Update()

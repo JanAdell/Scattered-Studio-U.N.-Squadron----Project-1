@@ -13,7 +13,7 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y
 	enemy_type = e_type;
 
 	//fly left
-	flyBack.PushBack({ 774*4,114 * 4,64 * 4,38 *4 });
+	flyBack.PushBack({ 1548,228,128,76 });
 	flyBack.speed = 0.01f;
 
 	//fly right
@@ -102,30 +102,30 @@ Enemy_BigCamoJet::Enemy_BigCamoJet(int x, int y, ENEMY_TYPE e_type) : Enemy(x, y
 
 	//Path topright -> complete
 	path.PushBack({ -6.0f , 0.f }, 40, &flyBack);
-	path.PushBack({ -2.0f , 2.0f }, 40, &turndownBack);
-	path.PushBack({ 0.0f, 2.0f }, 60, &flyDown);
-	path.PushBack({ 2.0f , 2.0f }, 40, &turndownBack2);
+	path.PushBack({ -2.0f , 2.0f }, 20, &turndownBack);
+	path.PushBack({ 1.0f, 4.0f }, 100, &flyDown);
+	path.PushBack({ 2.0f , 2.0f }, 20, &turndownBack2);
 	path.PushBack({ 8.0f , 0.f }, 500, &fly);
 	
 	//Path botright -> complete
 	path2.PushBack({ -6.0f , 0.f }, 40, &flyBack);
 	path2.PushBack({ -2.0f , -2.0f }, 40, &turnBack);
-	path2.PushBack({ 0.0f, -2.0f }, 60, &flyUp);
+	path2.PushBack({ 1.0f, -4.0f }, 100, &flyUp);
 	path2.PushBack({ 2.0f , -2.0f }, 40, &turn2Back); 
 	path2.PushBack({ 8.0f , 0.f }, 500, &fly);
 
 	//Path topleft
 	path3.PushBack({ 8.0f , 0.f }, 60, &fly);
-	path3.PushBack({ 2.0f , 2.0f }, 40, &turndown);
-	path3.PushBack({ 0.0f, 2.0f }, 60, &flyDown);
-	path3.PushBack({ -2.0f , 2.0f }, 40, &turndown2);
+	path3.PushBack({ 2.0f , 2.0f }, 20, &turndown);
+	path3.PushBack({ 1.0f, 4.0f }, 100, &flyDown);
+	path3.PushBack({ -2.0f , 2.0f }, 20, &turndown2);
 	path3.PushBack({ -8.0f , 0.f }, 500, & flyBack);
 
 	//Path downleft
 	path4.PushBack({ 8.0f , 0.f }, 60, &fly);
-	path4.PushBack({ 2.0f , -2.0f }, 40, &turn);
-	path4.PushBack({ 0.0f, -2.0f }, 60, &flyUp);
-	path4.PushBack({ -2.0f , -2.0f }, 40, &turn2);
+	path4.PushBack({ 2.0f , -2.0f }, 20, &turn);
+	path4.PushBack({ 1.0f, -4.0f }, 100, &flyUp);
+	path4.PushBack({ -2.0f , -2.0f }, 20, &turn2);
 	path4.PushBack({ -8.0f , 0.f }, 500, & flyBack);
 
 	collider = App->collisions->AddCollider({ 0, 0, 48 * 2, 48 * 2 }, ColliderType::ENEMY,(Module*)App->enemies);
@@ -164,7 +164,7 @@ void Enemy_BigCamoJet::Update()
 	}
 
 	current_time = SDL_GetTicks();
-	if (current_time > time + 6000) {
+	if (current_time > time + 8000) {
 		direction_x = float(App->player->position.x - position.x);
 		direction_y = float(App->player->position.y - position.y);
 		float normal = sqrt(pow(direction_x, 2) + pow(direction_y, 2));

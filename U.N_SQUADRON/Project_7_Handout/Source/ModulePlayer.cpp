@@ -69,6 +69,8 @@ bool ModulePlayer::Start()
 	score_value = 0;
 	money_value = 3000;
 
+	time_gp = 0;
+
 	return ret;
 }
 
@@ -119,13 +121,13 @@ update_status ModulePlayer::Update()
 	}
 
 
-
-	if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN || pad.x == KEY_STATE::KEY_DOWN)
+	current_time_gp = SDL_GetTicks();
+	if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0 && current_time_gp > time_gp + 200)
 	{
 		switch (App->shop->selectedWeapon) {
 
 		case App->shop->BOMB:
-			if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0) {
+			if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN || pad.x == KEY_STATE::KEY_DOWN) {
 				App->particles->AddParticle(App->particles->dw_missile, position.x + 140, position.y + 30, ColliderType::BOMB);
 				App->audio->PlayFx(laserFx);
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
@@ -134,7 +136,7 @@ update_status ModulePlayer::Update()
 			break;
 
 		case App->shop->S_SHELL:
-			if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0) {
+			if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN || pad.x == KEY_STATE::KEY_DOWN) {
 				App->particles->AddParticle(App->particles->s_laser, position.x + 140, position.y + 30, ColliderType::S_LASER);
 				App->audio->PlayFx(laserFx);
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
@@ -143,7 +145,7 @@ update_status ModulePlayer::Update()
 			break;
 
 		case App->shop->T_LASER:
-			if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0) {
+			if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN || pad.x == KEY_STATE::KEY_DOWN) {
 				App->particles->AddParticle(App->particles->t_laser1, position.x + 140, position.y + 30, ColliderType::T_LASER);
 				App->particles->AddParticle(App->particles->t_laser2, position.x + 140, position.y + 30, ColliderType::T_LASER);
 				App->particles->AddParticle(App->particles->t_laser3, position.x + 140, position.y + 30, ColliderType::T_LASER);
@@ -151,9 +153,19 @@ update_status ModulePlayer::Update()
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
 			}
 			break;
+		case App->shop->GUNPOD:
+			
+			if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT || pad.x == KEY_STATE::KEY_REPEAT) {
+				//App->particles->AddParticle(App->particles->g_p_turret, App->player->position.x + 70, App->player->position.y);
+				App->particles->AddParticle(App->particles->g_p_bullets, position.x + 80, position.y - 10, ColliderType::GUNPOD);
+				App->audio->PlayFx(laserFx);
+				App->shop->weapons[App->shop->selectedWeapon].ammo--;
+				
+			}
+			break;
 
 		}
-
+		time_gp = current_time_gp;
 	}
 	
 	if (hit == true) {

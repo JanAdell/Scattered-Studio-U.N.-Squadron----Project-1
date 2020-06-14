@@ -139,9 +139,6 @@ bool ModuleParticles::Start()
 
 	//Straight Laser Particles
 	s_laser.anim.PushBack({ 0,1288,130,104 });
-	s_laser.anim.PushBack({ 146,1290,128,105 });
-	s_laser.anim.PushBack({ 306,1289,144,99 });
-	s_laser.anim.PushBack({ 468,1293,204,91 });
 	s_laser.anim.PushBack({ 711,1287,289,105 });
 	s_laser.anim.PushBack({ 1038,1286,320,94 });
 	s_laser.anim.PushBack({ 1384,1278,396,96 });
@@ -159,6 +156,14 @@ bool ModuleParticles::Start()
 	dw_missile.speed.y = 15;
 
 	//Gunpod
+	g_p_turret.anim.PushBack({28,2057,92,44});
+	g_p_turret.anim.PushBack({128,2057,116,44});
+	g_p_turret.speed.x = 1;
+	g_p_turret.anim.speed = 0.2;
+	   
+	g_p_bullets.anim.PushBack({268,2057,60,68});
+	g_p_bullets.speed.x = 10;
+	g_p_bullets.speed.y = -10;
 
 
 	//-----Boss 1 Particles----------
@@ -314,7 +319,8 @@ update_status ModuleParticles::Update()
 			
 		}
 	}
-		
+	g_p_turret.position.x = App->player->position.x + 130;
+	g_p_turret.position.y = App->player->position.y;
 
 	return update_status::UPDATE_CONTINUE;
 }
