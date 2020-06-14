@@ -45,7 +45,8 @@ private:
 	int limitBG = 0;
 	int Y_BG = 0;
 
-
+	int yellowFont = -1;
+	int greenFont = -1;
 
 	//Left spawn management state machine
 	enum left_spawner : int //30, un per cada spawn

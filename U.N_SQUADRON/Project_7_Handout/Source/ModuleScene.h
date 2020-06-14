@@ -37,7 +37,6 @@ public:
 	SDL_Texture* bgTextures[4] = { nullptr };
 	int cont[4] = { 0 };
 
-
 	// The sprite rectangle for the ground
 	SDL_Texture* starsTexture = nullptr;
 
@@ -59,6 +58,11 @@ public:
 
 	int left_spawn_positions[MAX_LEFT_SPAWNER];
 	int left_spawn_counter;
+
+
+private:
+	int yellowFont = -1;
+	int greenFont = -1;
 };
 
 #endif

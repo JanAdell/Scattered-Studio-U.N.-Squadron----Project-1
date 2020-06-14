@@ -85,7 +85,7 @@ update_status ModuleHud::PostUpdate() {
 	//Money value
 
 	App->fonts->BlitText(595, 100, greenFont, dchar);
-	App->fonts->BlitText(715, 10, greenFont, "2");
+	//App->fonts->BlitText(715, 10, greenFont, "2");
 
 	return ret;
 }

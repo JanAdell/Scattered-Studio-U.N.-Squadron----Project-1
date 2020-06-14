@@ -40,6 +40,8 @@ bool ModuleScene2::Start()
 
 	bool ret = true;
 
+	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };	yellowFont = App->fonts->Load("Assets/FontY.png", lookupTable, 5);
+	greenFont = App->fonts->Load("Assets/FontG.png", lookupTable, 5);
 
 	bgTexture = App->textures->Load("Assets/background2.png");
 
@@ -230,6 +232,7 @@ update_status ModuleScene2::PostUpdate() {
 	App->render->Blit(bgTexture, 3859 * moveBG1, Y_BG, NULL, 2);
 	App->render->Blit(bgTexture, 3859 * moveBG2, Y_BG, NULL, 2);
 
+	App->fonts->BlitText(715, 10, greenFont, "2");
 
 
 	return update_status::UPDATE_CONTINUE;
@@ -249,7 +252,8 @@ bool ModuleScene2::CleanUp()
 	App->player->CleanUp();
 	App->enemies->CleanUp();
 	App->textures->CleanUp();
-
+	App->fonts->UnLoad(yellowFont);
+	App->fonts->UnLoad(greenFont);
 	App->audio->StopMusic();
 
 	App->textures->Unload(bgTexture);

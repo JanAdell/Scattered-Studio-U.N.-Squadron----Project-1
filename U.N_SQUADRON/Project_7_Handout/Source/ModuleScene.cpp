@@ -42,6 +42,9 @@ bool ModuleScene::Start()
 	bgTextures[2] = App->textures->Load("Assets/sprites/background/c3.png");
 	bgTextures[3] = App->textures->Load("Assets/sprites/background/c4.png");
 
+	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };	yellowFont = App->fonts->Load("Assets/FontY.png", lookupTable, 5);
+	greenFont = App->fonts->Load("Assets/FontG.png", lookupTable, 5);
+
 	App->audio->PlayMusic("Assets/music/Build/music/stage1.ogg", 6);
 		
 	//App->fonts->Load("");
@@ -352,6 +355,9 @@ update_status ModuleScene::PostUpdate()
 		App->render->Blit(bgTextures[i], SCREEN_WIDTH * (cont[i] + 2), 0, NULL, i + 1);
 	}
 
+	App->fonts->BlitText(715, 10, greenFont, "1");
+
+
 	return update_status::UPDATE_CONTINUE;
 
 
@@ -375,7 +381,8 @@ bool ModuleScene::CleanUp()
 	App->enemies->CleanUp();
 	App->particles->CleanUp();
 	App->hud->Disable();
-
+	App->fonts->UnLoad(yellowFont);
+	App->fonts->UnLoad(greenFont);
 	App->textures->Unload(bgTextures[0]);
 	App->textures->Unload(bgTextures[1]);
 	App->textures->Unload(bgTextures[2]);
