@@ -5,7 +5,10 @@ In this subject we'll be replicating the 1989 videogame developed and published 
 
 In U.N. Squadron you play as one of three pilots, tasked with fighting back against the forces of Project 4, a group formed by arms dealers whose objective is the prolification of war so as to keep profiting from their businesses.
 
+### Gameplay Preview
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2bDKj-s_wY4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 ## Check our latest Release
