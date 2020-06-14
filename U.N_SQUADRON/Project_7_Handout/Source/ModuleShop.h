@@ -41,7 +41,7 @@ public:
 
 
 public:
-	enum SHOP_SLOT {
+	enum SHOP_SLOT: int{
 		CLUSTER,
 		PHOENIX,
 		FALCON,

@@ -133,10 +133,6 @@ update_status ModulePlayer::Update()
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
 			}
 			
-			/*if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN || pad.y == KEY_STATE::KEY_DOWN) {
-				App->shop->S_SHELL;
-			}*/
-
 			break;
 
 		case App->shop->S_SHELL:
@@ -171,7 +167,26 @@ update_status ModulePlayer::Update()
 		}
 		
 	}
-	   	
+	
+	if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN || pad.y == KEY_STATE::KEY_DOWN) {
+		
+		int x = int(App->shop->selectedWeapon)+1;
+		//LOG("X %d", x);
+		for (int i = 0; i <= 10; i++) {
+			if (x > 10) {
+				x = 0;
+			}
+			if (App->shop->weapons[x].selected == true) {
+				//LOG("found wep");
+				App->shop->selectedWeapon = x;
+				break;
+			}
+			x++;
+			//LOG("X_v2 %d", x);
+		}
+	}
+
+
 	if (hit == true) {
 		current_state = HIT;
 	}
