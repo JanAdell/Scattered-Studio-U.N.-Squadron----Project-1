@@ -29,7 +29,6 @@ ModuleScene::~ModuleScene()
 // Load assets
 bool ModuleScene::Start()
 {
-
 	App->hud->Enable();
 	LOG("Loading background assets");
 		

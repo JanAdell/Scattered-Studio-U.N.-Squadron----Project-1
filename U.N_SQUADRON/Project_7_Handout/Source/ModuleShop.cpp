@@ -283,11 +283,11 @@ void ModuleShop::select()
 		
 		if (shoploop == false) {
 			App->transition->FadeToBlack(this, (Module*)App->scene, 90);
-			shoploop = true;
+			//shoploop = true;
 		}
 		else {
 			App->transition->FadeToBlack(this, (Module*)App->scene2, 90);
-			shoploop = false;
+			//shoploop = false;
 		}
 
 		break;

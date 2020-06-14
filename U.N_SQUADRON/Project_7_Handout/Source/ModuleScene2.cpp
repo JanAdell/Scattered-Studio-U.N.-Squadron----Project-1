@@ -247,7 +247,7 @@ bool ModuleScene2::CleanUp()
 	App->collisions->Disable();
 	App->hud->Disable();
 	App->textures->Disable();
-	//App->audio->Disable();
+	App->audio->Disable();
 	App->textures->CleanUp();
 	App->player->CleanUp();
 	App->enemies->CleanUp();
