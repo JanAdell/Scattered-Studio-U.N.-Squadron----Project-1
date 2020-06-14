@@ -34,7 +34,7 @@ bool ModuleScene2::Start()
 	App->player->Enable();
 	App->enemies->Enable();
 	App->collisions->Enable();
-	App->particles->Enable();
+	//App->particles->Enable();
 
 	LOG("Loading background assets\n");
 
@@ -247,13 +247,15 @@ bool ModuleScene2::CleanUp()
 	App->collisions->Disable();
 	App->hud->Disable();
 	App->textures->Disable();
-	App->audio->Disable();
+	//App->audio->Disable();
 	App->textures->CleanUp();
 	App->player->CleanUp();
 	App->enemies->CleanUp();
 	App->textures->CleanUp();
+	App->particles->CleanUp();
 	App->fonts->UnLoad(yellowFont);
 	App->fonts->UnLoad(greenFont);
+
 	App->audio->StopMusic();
 
 	App->textures->Unload(bgTexture);

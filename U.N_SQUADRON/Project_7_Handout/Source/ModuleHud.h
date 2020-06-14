@@ -24,6 +24,7 @@ public:
 private:
 	char scoreText[10] = { "\0" };
 	char moneyText[10] = { "\0" };
+	char livesText[10] = { "\0" };
 
 	SDL_Texture *hud_tex = nullptr;
 	

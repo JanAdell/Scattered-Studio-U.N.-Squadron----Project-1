@@ -7,6 +7,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleShop.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -36,6 +37,8 @@ bool ModuleSceneLoose::Start()
 	
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
+
+	App->shop->shoploop = false;
 
 	return ret;
 

@@ -46,7 +46,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	
 	current_state = NO_STATE;
-	hp = 2;
+	hp = 5;
 
 	destroyed = false;
 
@@ -248,18 +248,17 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false && godMode == false)
 	{
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 		
+
+		hp -= 1;
+
+		if (hp == 0) {
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 		App->audio->PlayFx(explosionFx);
-
-		lives -= 1;
-
-		//if (lives == 0) {
-		App->shop->shoploop = false;
-
+			
 		destroyed = true;
 		
-		//}
+		}
 	}
 		
 }

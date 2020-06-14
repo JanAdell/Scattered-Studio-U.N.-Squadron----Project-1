@@ -7,6 +7,7 @@
 #include "ModuleSceneIntro.h"
 #include "ModuleAudio.h"
 #include "ModuleHud.h"
+#include "ModuleShop.h"
 
 ModuleSceneWin::ModuleSceneWin(bool startEnabled) : Module(startEnabled)
 {
@@ -29,6 +30,8 @@ bool ModuleSceneWin::Start() {
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
+
+	App->shop->shoploop = false;
 
 	if (bgTexture == nullptr) {
 		ret = false;
@@ -88,7 +91,8 @@ bool ModuleSceneWin::CleanUp() {
 		LOG("Start Screen -> Error unloading the texture.");
 		ret = false;
 	}
-
+	
+	//App->audio->CleanUp();
 	App->audio->StopMusic();
 
 	return ret;

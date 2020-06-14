@@ -379,7 +379,7 @@ bool ModuleScene::CleanUp()
 {
 	App->player->Disable();
 	App->enemies->Disable();
-	App->particles->Disable();
+	//App->particles->Disable();
 	App->player->CleanUp();
 	App->enemies->CleanUp();
 	App->particles->CleanUp();
@@ -391,6 +391,7 @@ bool ModuleScene::CleanUp()
 	App->textures->Unload(bgTextures[2]);
 	App->textures->Unload(bgTextures[3]);
 
+	//App->audio->CleanUp();
 	App->audio->StopMusic();
 	return true;
 }

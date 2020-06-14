@@ -1,5 +1,6 @@
 #include "ModuleHud.h"
 #include "Application.h"
+#include "ModulePlayer.h"
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
@@ -32,6 +33,7 @@ update_status ModuleHud::PostUpdate() {
 	// draw score & money
 	sprintf_s(scoreText, 10, "%7d", score);
 	sprintf_s(moneyText, 10, "%7d", App->shop->money);
+	sprintf_s(livesText, 10, "%7d", App->player->hp);
 
 	switch (App->shop->selectedWeapon) {
 	case App->shop->BOMB:
@@ -77,19 +79,22 @@ update_status ModuleHud::PostUpdate() {
 	std::string s = std::to_string(score);
 	std::string d = std::to_string(App->shop->money);
 	std::string r = std::to_string(App->shop->weapons[App->shop->selectedWeapon].ammo);
+	std::string h = std::to_string(App->player->hp);
 
 	char const* pchar = s.c_str();
 	char const* dchar = d.c_str();
 	char const* rchar = r.c_str();
+	char const* hchar = h.c_str();
 
 	//Ammo value
 	App->fonts->BlitText(1150, 878, yellowFont, rchar);
-
 	//Score value
 	App->fonts->BlitText(100, 65, greenFont, pchar);
 	//Money value
-
 	App->fonts->BlitText(595, 100, greenFont, dchar);
+	//Hp value
+	App->fonts->BlitText(50, 900, yellowFont, hchar);
+		
 	//App->fonts->BlitText(715, 10, greenFont, "2");
 
 	return ret;
