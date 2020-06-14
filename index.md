@@ -7,6 +7,8 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 ## Video
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/osWXkOtHFQ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Check our latest Release
 
 > [UN_Squadron 1.0 by Scattered Studio](https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/releases/tag/0.5)
