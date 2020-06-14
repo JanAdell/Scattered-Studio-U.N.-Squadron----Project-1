@@ -19,6 +19,7 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * Navigation between scenes is acomplished by pressing **Spacebar**.
 
+
 ## Debug Functionalities
 
 * **F1 Key:** Show in-game colliders.
@@ -32,6 +33,8 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 * **F7 Key:** Load Loose Scene.
 
 * **F10 Key (From Level 1):** Load Level 2.
+
+* **G Key**: For infinite gold
 
 ## Options
 
