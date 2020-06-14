@@ -13,6 +13,7 @@
 #include "ModuleSceneWin.h"
 #include "ModuleFonts.h"
 #include "ModuleParticles.h"
+#include "ModuleShop.h"
 #include "SDL/include/SDL_scancode.h"
 
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
@@ -393,5 +394,8 @@ bool ModuleScene::CleanUp()
 
 	//App->audio->CleanUp();
 	App->audio->StopMusic();
+	
+	App->shop->shoploop = true;
+
 	return true;
 }

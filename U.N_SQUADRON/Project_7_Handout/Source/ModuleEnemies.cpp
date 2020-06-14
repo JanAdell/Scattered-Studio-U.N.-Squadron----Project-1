@@ -292,55 +292,55 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				
 				switch (enemies[i]->enemy_type) {
 				case BIG_CAMO_JET:
-					App->shop->money += 300;
+					App->money += 300;
 					App->hud->score += 100;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case MEDIUM_CAMO_JET:
-					App->shop->money += 300;
+					App->money += 300;
 					App->hud->score += 100;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case GREEN_FIGHTER:
-					App->shop->money += 400;
+					App->money += 400;
 					App->hud->score += 200;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case BLUE_JET:
-					App->shop->money += 300;
+					App->money += 300;
 					App->hud->score += 100;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case ORANGE_JET:
-					App->shop->money += 300;
+					App->money += 300;
 					App->hud->score += 100;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case SMALL_CAMO_JET:
-					App->shop->money += 300;
+					App->money += 300;
 					App->hud->score += 100;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case WHITE_JET_LVL_2:
-					App->shop->money += 400;
+					App->money += 400;
 					App->hud->score += 200;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case GREEN_JET_LVL_2:
-					App->shop->money += 400;
+					App->money += 400;
 					App->hud->score += 200;
 					delete enemies[i];
 					enemies[i] = nullptr;
 					break;
 				case BOSS_BLACKBIRD:
-					App->shop->money += 30000;
+					App->money += 30000;
 					App->hud->score += 10000;
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x+100, enemies[i]->position.y + 100);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 200, enemies[i]->position.y + 150);
@@ -351,7 +351,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					enemies[i] = nullptr;
 					break;
 				case BOSS_PURPLE_JACKAL:
-					App->shop->money += 30000;
+					App->money += 30000;
 					App->hud->score += 10000;
 					App->scene2->victory_counter += 1;
 					delete enemies[i];
