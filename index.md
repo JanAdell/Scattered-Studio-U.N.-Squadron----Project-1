@@ -19,7 +19,7 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
 
 * **[Maria Garrigolas Ledo](https://github.com/Meeeri08)**: Mainly Worked back-end, creating the whole skeleton for the code and implementing inter-module functionalities and transitioning.
 
-![](https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/blob/master/Wiki%20Contents/Home/foto_grup_1.png)
+ ![](https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/blob/master/Wiki%20Contents/Home/foto_grup_1.png)
 
 ## Controls
 
