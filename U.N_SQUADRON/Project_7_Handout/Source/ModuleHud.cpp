@@ -35,38 +35,36 @@ update_status ModuleHud::PostUpdate() {
 
 	switch (App->shop->selectedWeapon) {
 	case App->shop->BOMB:
-		if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0)
-		{
+		
 			App->render->Blit(wp1, App->render->camera.x + 100, 0, NULL);
 			App->fonts->BlitText(900, 878, yellowFont, "BOMB");
-		}
+
+		
 
 		break;
 
 	case App->shop->S_SHELL:
-		if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0)
-		{
+		
 			App->render->Blit(wp3, App->render->camera.x + 100, 0, NULL);
 			App->fonts->BlitText(900, 878, yellowFont, "S.SHELL");
-		}
+		
 
 
 		break;
 
 	case App->shop->T_LASER:
-		if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0)
-		{
+		
 			App->render->Blit(wp4, App->render->camera.x + 100, 0, NULL);
 			App->fonts->BlitText(900, 878, yellowFont, "T.LASER");
-		}
+		
 
 		break;
 	case App->shop->GUNPOD:
-		if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0)
-		{
+		
 			App->render->Blit(wp2, App->render->camera.x + 100, 0, NULL);
 			App->fonts->BlitText(900, 878, yellowFont, "GUNPOD");
-		}
+
+		
 		break;
 		
 	}
@@ -78,8 +76,15 @@ update_status ModuleHud::PostUpdate() {
 
 	std::string s = std::to_string(score);
 	std::string d = std::to_string(App->shop->money);
+	std::string r = std::to_string(App->shop->weapons[App->shop->selectedWeapon].ammo);
+
 	char const* pchar = s.c_str();
 	char const* dchar = d.c_str();
+	char const* rchar = r.c_str();
+
+	//Ammo value
+	App->fonts->BlitText(1150, 878, yellowFont, rchar);
+
 	//Score value
 	App->fonts->BlitText(100, 65, greenFont, pchar);
 	//Money value

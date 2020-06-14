@@ -265,7 +265,7 @@ void ModuleShop::select()
 	case GUNPOD:
 		if (money >= 30000 || weapons[GUNPOD].selected == true) {
 			weapons[GUNPOD].priceWeapon = 30000;
-			weapons[GUNPOD].ammo = 100;
+			weapons[GUNPOD].ammo = 25;
 			activeSelected(GUNPOD);
 		}
 		else {
