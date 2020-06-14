@@ -122,7 +122,7 @@ update_status ModulePlayer::Update()
 
 
 	current_time_gp = SDL_GetTicks();
-	if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0 && current_time_gp > time_gp + 200)
+	if (App->shop->weapons[App->shop->selectedWeapon].ammo > 0)
 	{
 		switch (App->shop->selectedWeapon) {
 
@@ -155,17 +155,17 @@ update_status ModulePlayer::Update()
 			break;
 		case App->shop->GUNPOD:
 			
-			if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT || pad.x == KEY_STATE::KEY_REPEAT) {
+			if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT && current_time_gp > time_gp + 200 || pad.x == KEY_STATE::KEY_REPEAT && current_time_gp > time_gp + 200) {
 				//App->particles->AddParticle(App->particles->g_p_turret, App->player->position.x + 70, App->player->position.y);
 				App->particles->AddParticle(App->particles->g_p_bullets, position.x + 80, position.y - 10, ColliderType::GUNPOD);
 				App->audio->PlayFx(laserFx);
 				App->shop->weapons[App->shop->selectedWeapon].ammo--;
-				
+				time_gp = current_time_gp;
 			}
 			break;
 
 		}
-		time_gp = current_time_gp;
+		
 	}
 	
 	if (hit == true) {
