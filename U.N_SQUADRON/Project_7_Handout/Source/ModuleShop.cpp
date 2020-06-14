@@ -42,8 +42,7 @@ bool ModuleShop::Start()
 
 	WeaponsSold = App->textures->Load("Assets/selectedweapons.png");
 
-	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,0123456789¨¬?!*$%&()+-/:;<=>@__     " };
-	hudfont1 = App->fonts->Load("Assets/hudfont.png", lookupTable, 5);
+	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " }; hudfont1 = App->fonts->Load("Assets/FontG.png", lookupTable, 5);
 
 
 	// Resetting the weapons selected in the previous game
@@ -181,7 +180,7 @@ update_status ModuleShop::PostUpdate()
 	App->render->Blit(selectorTexture, 48+(200*tiendaX), 522+(198*tiendaY), NULL);
 	
 	sprintf_s(moneyText, 10, "%7d", money);
-	App->fonts->BlitText(100, 460, hudfont1, moneyText);
+	App->fonts->BlitText(160, 475, hudfont1, moneyText);
 	
 	SDL_Rect rect;
 	rect = { 0,175,165,175 };

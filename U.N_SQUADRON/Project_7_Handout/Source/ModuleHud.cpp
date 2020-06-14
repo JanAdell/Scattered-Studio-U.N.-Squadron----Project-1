@@ -14,8 +14,8 @@ ModuleHud::~ModuleHud() {}
 bool ModuleHud::Start() {
 	bool ret = true;
 	
-	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };	yellowFont = App->fonts->Load("Assets/sprites/fonts/Font22.png", lookupTable, 5);
-	greenFont = App->fonts->Load("Assets/sprites/fonts/Font444.png", lookupTable, 5);
+	char lookupTable[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz  0123456789.,ªº?!*$%&()+-/:;<=>@·    " };	yellowFont = App->fonts->Load("Assets/FontY.png", lookupTable, 5);
+	greenFont = App->fonts->Load("Assets/FontG.png", lookupTable, 5);
 	wp1 = App->textures->Load("Assets/sprites/hud/WEAPONSBOMB.png");
 	wp2 = App->textures->Load("Assets/sprites/hud/WEAPONSGUNPOD.png");
 	wp3 = App->textures->Load("Assets/sprites/hud/WEAPONSS_SHELL.png");
@@ -62,7 +62,7 @@ update_status ModuleHud::PostUpdate() {
 // Blit 
 	App->fonts->BlitText(8, 10, yellowFont, "SCORE");
 	App->fonts->BlitText(440, 10, yellowFont, "LEVEL");
-	App->fonts->BlitText(440, 100, yellowFont, "!");
+	App->fonts->BlitText(440, 100, yellowFont, "$");
 
 	std::string s = std::to_string(score);
 	std::string d = std::to_string(App->shop->money);
