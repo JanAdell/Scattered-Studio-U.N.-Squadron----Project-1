@@ -286,7 +286,7 @@ void ModuleShop::select()
 			App->transition->FadeToBlack(this, (Module*)App->scene, 90);
 			shoploop = true;
 		}
-		if (shoploop == true) {
+		else if (shoploop == true) {
 			App->transition->FadeToBlack(this, (Module*)App->scene2, 90);
 			shoploop = false;
 		}
