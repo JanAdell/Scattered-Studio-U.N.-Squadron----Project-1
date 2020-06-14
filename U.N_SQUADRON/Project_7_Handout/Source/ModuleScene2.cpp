@@ -99,8 +99,8 @@ bool ModuleScene2::Start()
 	
 	//-----------BOSS----------------------------------------------
 	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 5950, 600);
-	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 5950, 300);
-	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 5950, 450);
+	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 5950, 400);
+	App->enemies->AddEnemy(ENEMY_TYPE::BOSS_PURPLE_JACKAL, 6000, 450);
 
 
 	//falten verticals

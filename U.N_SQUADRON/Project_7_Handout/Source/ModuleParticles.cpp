@@ -26,6 +26,18 @@ bool ModuleParticles::Start()
 	texture = App->textures->Load("Assets/sprites/praticles/particles_rz.png");
 	//texture = App->textures->Load("Assets/sprites/particles/particles.png");
 	
+	//Hit particles
+	//Blackbird
+	blackbird.anim.PushBack({ 1325,1746,556,316 });
+	blackbird.lifetime = 2;
+
+	//Purple Jackal
+	jackal.anim.PushBack({ 1507,2125,160,100 });
+	jackal.lifetime = 2;
+
+	//Green Fighter
+	fighter.anim.PushBack({ 1353,1518,428,156 });
+	fighter.lifetime = 2;
 
 	// Explosion particle
 	explosion.anim.PushBack({246, 0, 144, 150 });

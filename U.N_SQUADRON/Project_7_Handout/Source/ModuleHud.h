@@ -42,6 +42,8 @@ public:
 	// Money
 	uint money = 0;
 
+	//Animation lifebar;
+	//Animation helmet;
 
 
 };

@@ -45,6 +45,7 @@ bool ModulePlayer::Start()
 		
 	bool ret = true;
 	
+	current_state = NO_STATE;
 	hp = 2;
 
 	destroyed = false;
@@ -154,14 +155,17 @@ update_status ModulePlayer::Update()
 		}
 
 	}
-	/*
+	
 	if (hit == true) {
-
+		current_state = HIT;
 	}
 
 	if (hp == 0) {
-		
-	}*/
+		lives--;
+		if (lives == 0) {
+			current_state = DEAD;
+		}
+	}
 	
 
 		//God Mode

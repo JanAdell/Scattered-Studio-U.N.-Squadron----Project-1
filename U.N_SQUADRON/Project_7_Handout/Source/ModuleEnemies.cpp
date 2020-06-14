@@ -274,6 +274,18 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 			enemies[i]->OnCollision(c2, x); //Notify the enemy of a collision
 			
+			switch (enemies[i]->enemy_type) {
+			case GREEN_FIGHTER:
+				App->particles->AddParticle(App->particles->fighter, enemies[i]->position.x, enemies[i]->position.y);
+				break;
+			case BOSS_BLACKBIRD:
+				App->particles->AddParticle(App->particles->blackbird, enemies[i]->position.x, enemies[i]->position.y);
+				break;
+			case BOSS_PURPLE_JACKAL:
+				App->particles->AddParticle(App->particles->jackal, enemies[i]->position.x, enemies[i]->position.y);
+				break;
+			}
+
 			LOG("score value is %d", App->hud->score)
 			
 			if (enemies[i]->destroy) {

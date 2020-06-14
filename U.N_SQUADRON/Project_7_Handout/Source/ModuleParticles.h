@@ -129,6 +129,11 @@ public:
 	//Backwards bomb
 	Particle b_bomb;
 	
+	//hit parts
+	Particle blackbird;
+	Particle jackal;
+	Particle fighter;
+
 };
 
 #endif // !__MODULEPARTICLES_H__

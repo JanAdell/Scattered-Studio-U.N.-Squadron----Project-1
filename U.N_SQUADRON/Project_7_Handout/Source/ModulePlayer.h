@@ -8,6 +8,12 @@
 struct SDL_Texture;
 struct Collider;
 
+enum Player_States
+{
+	NO_STATE = -1,
+	HIT,
+	DEAD
+};
 
 class ModulePlayer : public Module
 {
@@ -100,6 +106,7 @@ public:
 	int lives;
 	int recovery_time;
 	int current_time;
+	Player_States current_state;
 };
 
 
