@@ -60,11 +60,11 @@ In U.N. Squadron you play as one of three pilots, tasked with fighting back agai
  
 ### Github Repository
 
-> https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron
+> [Scattered Studio's UN Squadron Repository](https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron)
 
 ### Github Wiki
 
-> https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/wiki
+> [Scattered Studio's UN Squadron Wiki](https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/wiki)
 
 
 
