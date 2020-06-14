@@ -32,6 +32,8 @@ bool ModuleWelcomeScene::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
+	App->money += 3000;
+
 	return ret;
 
 }

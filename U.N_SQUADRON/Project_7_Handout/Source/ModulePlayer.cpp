@@ -274,5 +274,6 @@ bool ModulePlayer::CleanUp() {
 	App->textures->Unload(texture);
 	collider->pendingToDelete = true;
 
+
 	return true;
 }

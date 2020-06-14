@@ -8,6 +8,8 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 
+#include "ModuleShop.h"
+
 #include "SDL/include/SDL_scancode.h"
 
 
@@ -41,6 +43,8 @@ bool ModuleSceneIntro::Start()
 	fAnim.speed = 0.2f;
 	fAnim.loop = true;
 	menuAnim = &fAnim;
+
+	App->shop->shoploop = false;
 
 	return ret;
 }

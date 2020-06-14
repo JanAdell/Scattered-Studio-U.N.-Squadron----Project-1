@@ -71,10 +71,9 @@ public:
 	int selectedWeapon;
 
 	bool begin = false;
-	bool shoploop = false;
+	bool shoploop;
 	//info
-
-	int money = 3000;
+		
 	int score = 0;
 	int level = 2;
 	int pow = 0;

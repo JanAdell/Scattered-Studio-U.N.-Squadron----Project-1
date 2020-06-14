@@ -27,7 +27,6 @@ ModuleShop::~ModuleShop()
 
 bool ModuleShop::Start()
 {
-	money = 3000;
 	LOG("Loading background assets");
 
 	bool ret = true;
@@ -115,12 +114,12 @@ update_status ModuleShop::Update()
 	weaponsition = tiendaX + (6 * tiendaY);
 
 	if (infiniteMoney) {
-		money += 10000;
-		if (money >= 100000) {
-			money += 100000;
+		App->money += 10000;
+		if (App->money >= 100000) {
+			App->money += 100000;
 		}
-		if (money >= 999999) {
-			money = 999999;
+		if (App->money >= 999999) {
+			App->money = 999999;
 		}
 	}
 
@@ -179,7 +178,7 @@ update_status ModuleShop::PostUpdate()
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(selectorTexture, 48+(200*tiendaX), 522+(198*tiendaY), NULL);
 	
-	sprintf_s(moneyText, 10, "%7d", money);
+	sprintf_s(moneyText, 10, "%7d", App->money);
 	App->fonts->BlitText(160, 475, hudfont1, moneyText);
 	
 	SDL_Rect rect;
@@ -226,7 +225,7 @@ void ModuleShop::select()
 
 		break;
 	case S_SHELL:
-		if (money >= 20000 || weapons[S_SHELL].selected == true) {
+		if (App->money >= 20000 || weapons[S_SHELL].selected == true) {
 			weapons[S_SHELL].priceWeapon = 20000;
 			weapons[S_SHELL].ammo = 10;
 			activeSelected(S_SHELL);
@@ -237,7 +236,7 @@ void ModuleShop::select()
 		break;
 	case T_LASER:
 
-		if (money >= 16000 || weapons[T_LASER].selected == true) {
+		if (App->money >= 16000 || weapons[T_LASER].selected == true) {
 			weapons[T_LASER].priceWeapon = 16000;
 			weapons[T_LASER].ammo = 10;
 			activeSelected(T_LASER);
@@ -248,7 +247,7 @@ void ModuleShop::select()
 		break;
 	case BOMB:
 
-		if (money >= 2000 || weapons[BOMB].selected == true) {
+		if (App->money >= 2000 || weapons[BOMB].selected == true) {
 			weapons[BOMB].priceWeapon = 2000;
 			weapons[BOMB].ammo = 50;
 			activeSelected(BOMB);
@@ -263,7 +262,7 @@ void ModuleShop::select()
 
 		break;
 	case GUNPOD:
-		if (money >= 30000 || weapons[GUNPOD].selected == true) {
+		if (App->money >= 30000 || weapons[GUNPOD].selected == true) {
 			weapons[GUNPOD].priceWeapon = 30000;
 			weapons[GUNPOD].ammo = 25;
 			activeSelected(GUNPOD);
@@ -302,10 +301,10 @@ void ModuleShop::activeSelected(int _weapon) {
 	weapons[_weapon].selected = !weapons[_weapon].selected;
 	if (weapons[_weapon].selected == true) {
 		App->audio->PlayFx(SelectWeapon);
-		money -= weapons[_weapon].priceWeapon;
+		App->money -= weapons[_weapon].priceWeapon;
 	}
 	else {
-		money += weapons[_weapon].priceWeapon;
+		App->money += weapons[_weapon].priceWeapon;
 	}
 }
 

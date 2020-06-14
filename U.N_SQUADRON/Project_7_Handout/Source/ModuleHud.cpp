@@ -32,7 +32,7 @@ update_status ModuleHud::PostUpdate() {
 	
 	// draw score & money
 	sprintf_s(scoreText, 10, "%7d", score);
-	sprintf_s(moneyText, 10, "%7d", App->shop->money);
+	sprintf_s(moneyText, 10, "%7d", App->money);
 	sprintf_s(livesText, 10, "%7d", App->player->hp);
 
 	switch (App->shop->selectedWeapon) {
@@ -77,7 +77,7 @@ update_status ModuleHud::PostUpdate() {
 	App->fonts->BlitText(440, 100, yellowFont, "$");
 
 	std::string s = std::to_string(score);
-	std::string d = std::to_string(App->shop->money);
+	std::string d = std::to_string(App->money);
 	std::string r = std::to_string(App->shop->weapons[App->shop->selectedWeapon].ammo);
 	std::string h = std::to_string(App->player->hp);
 

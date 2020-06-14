@@ -80,6 +80,7 @@ public:
 	const int frameDelay = 1000 / FPS;
 	UINT32 frameStart = 0;
 	int frameTime;
+	int money = 0;
 };
 
 // Global var made extern for Application ---
