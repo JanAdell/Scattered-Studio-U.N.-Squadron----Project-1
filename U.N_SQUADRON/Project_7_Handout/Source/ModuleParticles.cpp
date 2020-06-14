@@ -39,6 +39,14 @@ bool ModuleParticles::Start()
 	fighter.anim.PushBack({ 1353,1518,428,156 });
 	fighter.lifetime = 2;
 
+	//Hit particle
+	player_hit.anim.PushBack({192,186,288,84});
+	player_hit.anim.PushBack({ 492,186,282,90 });
+	player_hit.anim.PushBack({ 786,186,282,84 });
+	player_hit.anim.PushBack({ 1080,186,282,84 });
+	player_hit.anim.loop = false;
+	player_hit.anim.speed = 0.5f;
+
 	// Explosion particle
 	explosion.anim.PushBack({246, 0, 144, 150 });
 	explosion.anim.PushBack({402, 0, 174, 156 });

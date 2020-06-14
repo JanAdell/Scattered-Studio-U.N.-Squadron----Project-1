@@ -263,7 +263,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1 == collider && destroyed == false && godMode == false)
 	{
 		
-
+		App->particles->AddParticle(App->particles->player_hit, position.x-90, position.y+15);
+		App->audio->PlayFx(explosionFx);
 		hp -= 1;
 
 		if (hp == 0) {

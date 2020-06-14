@@ -71,6 +71,7 @@ public:
 
 	Particle enemy_shot;
 
+	Particle player_hit;
 	//---Special Weapons---
 
 	//Trilaser
