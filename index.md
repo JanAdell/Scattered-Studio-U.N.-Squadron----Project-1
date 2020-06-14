@@ -1,13 +1,13 @@
 # Project 1 - Scattered Studio
-Repository dedicated to the updates and releases of the deliveries from the Project 1 subject from the Videogame Design and Development Degree (Citm, UPC). In this subject we'll be replicating the 1989 videogame developed and published by Capcom, **U.N. Squadron**.
+In this subject we'll be replicating the 1989 videogame developed and published by Capcom, **U.N. Squadron**.
 
- ## Description
+## Description
 
 In U.N. Squadron you play as one of three pilots, tasked with fighting back against the forces of Project 4, a group formed by arms dealers whose objective is the prolification of war so as to keep profiting from their businesses.
 
 ## Video
 
-### Check our latest Release
+## Check our latest Release
 
 > https://github.com/JanAdell/ScatteredStudio-_U.N._Squadron/releases/tag/0.5
 
