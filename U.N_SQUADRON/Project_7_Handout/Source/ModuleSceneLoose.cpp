@@ -46,7 +46,8 @@ bool ModuleSceneLoose::Start()
 
 update_status ModuleSceneLoose::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	GamePad& pad = App->input->pads[0];
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || pad.a == KEY_STATE::KEY_DOWN)
 	{
 		App->transition->FadeToBlack((Module*)App->loose, (Module*)App->initialScreen, 60);
 

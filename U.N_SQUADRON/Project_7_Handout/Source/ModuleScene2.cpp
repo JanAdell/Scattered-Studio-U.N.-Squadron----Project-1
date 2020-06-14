@@ -244,15 +244,11 @@ bool ModuleScene2::CleanUp()
 
 	App->player->Disable();
 	App->enemies->Disable();
-	App->collisions->Disable();
-	App->hud->Disable();
-	App->textures->Disable();
-	App->audio->Disable();
-	App->textures->CleanUp();
+	//App->particles->Disable();
 	App->player->CleanUp();
 	App->enemies->CleanUp();
-	App->textures->CleanUp();
 	App->particles->CleanUp();
+	App->hud->Disable();
 	App->fonts->UnLoad(yellowFont);
 	App->fonts->UnLoad(greenFont);
 
